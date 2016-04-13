@@ -1,0 +1,3 @@
+rootProject.name = 'Kindling'
+
+include ':app'
