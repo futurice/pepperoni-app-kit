@@ -35,3 +35,6 @@ npm-debug.log
 
 # Secrets
 env.js
+
+# CocoaPods
+ios/Pods/
