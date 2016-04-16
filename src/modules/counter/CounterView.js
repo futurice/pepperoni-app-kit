@@ -1,4 +1,4 @@
-import * as CounterState from '../state/counter/CounterState';
+import * as CounterState from './CounterState';
 import React, {
   PropTypes,
   StyleSheet,

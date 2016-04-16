@@ -1,7 +1,7 @@
 import {Map} from 'immutable';
 import {combineReducers} from 'redux-loop';
-import AppStateUpdater from '../state/AppState';
-import CounterStateUpdater from '../state/counter/CounterState';
+import AppStateUpdater from '../modules/AppState';
+import CounterStateUpdater from '../modules/counter/CounterState';
 
 const reducers = {
   counter: CounterStateUpdater
