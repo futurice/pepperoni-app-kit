@@ -14,7 +14,6 @@
     "react-native": "^0.23.1",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
-    "redux-immutablejs": "0.0.8",
     "redux-logger": "^2.6.1",
     "redux-loop": "^2.1.0",
     "redux-promise": "^0.5.3",
