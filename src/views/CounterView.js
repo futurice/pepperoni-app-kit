@@ -10,6 +10,7 @@ import React, {
 const CounterView = React.createClass({
   propTypes: {
     counter: PropTypes.number.isRequired,
+    loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
   increment() {
@@ -18,19 +19,34 @@ const CounterView = React.createClass({
   reset() {
     this.props.dispatch(CounterState.reset());
   },
+  random() {
+    this.props.dispatch(CounterState.random());
+  },
   render() {
+    const loadingStyle = this.props.loading
+      ? {backgroundColor: '#eee'}
+      : null;
+
     return (
       <View style={styles.container}>
 
-        <TouchableOpacity onPress={this.increment} style={styles.counterButton}>
+        <TouchableOpacity
+          onPress={this.increment}
+          style={[styles.counterButton, loadingStyle]}>
           <Text style={styles.counter}>
             {this.props.counter}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.reset}>
-          <Text style={styles.resetButtonText}>
+          <Text style={styles.linkButton}>
             Reset
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.random}>
+          <Text style={styles.linkButton}>
+            Random
           </Text>
         </TouchableOpacity>
 
@@ -61,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center'
   },
-  resetButtonText: {
+  linkButton: {
     textAlign: 'center',
     color: '#CCCCCC',
     marginBottom: 5
