@@ -1,6 +1,6 @@
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
-import CounterViewContainer from './src/views/CounterView.container';
+import CounterViewContainer from './src/views/CounterViewContainer';
 
 import React from 'react-native';
 
