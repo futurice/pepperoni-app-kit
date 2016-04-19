@@ -1,4 +1,5 @@
 import * as CounterState from './CounterState';
+import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {
   PropTypes,
   StyleSheet,
@@ -11,7 +12,8 @@ const CounterView = React.createClass({
   propTypes: {
     counter: PropTypes.number.isRequired,
     loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    onNavigate: PropTypes.func.isRequired
   },
   increment() {
     this.props.dispatch(CounterState.increment());
@@ -21,6 +23,9 @@ const CounterView = React.createClass({
   },
   random() {
     this.props.dispatch(CounterState.random());
+  },
+  bored() {
+    this.props.dispatch(NavigationState.pushRoute({key: 'Color'}));
   },
   render() {
     const loadingStyle = this.props.loading
@@ -47,6 +52,12 @@ const CounterView = React.createClass({
         <TouchableOpacity onPress={this.random}>
           <Text style={styles.linkButton}>
             Random
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.bored}>
+          <Text style={styles.linkButton}>
+            {'I\'m bored!'}
           </Text>
         </TouchableOpacity>
 
@@ -80,7 +91,8 @@ const styles = StyleSheet.create({
   linkButton: {
     textAlign: 'center',
     color: '#CCCCCC',
-    marginBottom: 5
+    marginBottom: 10,
+    padding: 5
   }
 });
 

@@ -14,8 +14,8 @@ export function loadSavedState(state) {
   };
 }
 
-// Updater
-export default function AppStateUpdater(state = initialState, action = {}) {
+// Reducer
+export default function AppStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD_SAVED_STATE:
       // replace existing state with provided saved state

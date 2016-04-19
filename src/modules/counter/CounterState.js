@@ -29,15 +29,15 @@ export function random() {
   };
 }
 
-async function updateRandomNumber() {
+async function ReducerandomNumber() {
   return {
     type: RANDOM_RESPONSE,
     payload: await generateRandomNumber()
   };
 }
 
-// Updater
-export default function CounterStateUpdater(state = initialState, action = {}) {
+// Reducer
+export default function CounterStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case INCREMENT:
       return state.update('value', value => value + 1);
@@ -48,7 +48,7 @@ export default function CounterStateUpdater(state = initialState, action = {}) {
     case RANDOM_REQUEST:
       return loop(
         state.set('loading', true),
-        Effects.promise(updateRandomNumber)
+        Effects.promise(ReducerandomNumber)
       );
 
     case RANDOM_RESPONSE:
