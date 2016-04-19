@@ -4,6 +4,7 @@ import React, {
   PropTypes,
   StyleSheet,
   TouchableOpacity,
+  Image,
   Text,
   View
 } from 'react-native';
@@ -11,6 +12,8 @@ import React, {
 const CounterView = React.createClass({
   propTypes: {
     counter: PropTypes.number.isRequired,
+    userName: PropTypes.string,
+    userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
@@ -27,6 +30,28 @@ const CounterView = React.createClass({
   bored() {
     this.props.dispatch(NavigationState.pushRoute({key: 'Color'}));
   },
+
+  renderUserInfo() {
+    if (!this.props.userName) {
+      return null;
+    }
+
+    return (
+      <View style={styles.userContainer}>
+        <Image
+          style={styles.userProfilePhoto}
+          source={{
+            uri: this.props.userProfilePhoto,
+            width: 80,
+            height: 80
+          }}
+        />
+        <Text style={styles.linkButton}>
+          Welcome, {this.props.userName}!
+        </Text>
+      </View>
+    );
+  },
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
@@ -34,6 +59,8 @@ const CounterView = React.createClass({
 
     return (
       <View style={styles.container}>
+
+        {this.renderUserInfo()}
 
         <TouchableOpacity
           onPress={this.increment}
@@ -66,6 +93,13 @@ const CounterView = React.createClass({
   }
 });
 
+const circle = {
+  borderWidth: 0,
+  borderRadius: 40,
+  width: 80,
+  height: 80
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -73,12 +107,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white'
   },
+  userContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  userProfilePhoto: {
+    ...circle,
+    alignSelf: 'center'
+  },
   counterButton: {
+    ...circle,
     backgroundColor: 'green',
-    borderWidth: 0,
-    borderRadius: 40,
-    width: 80,
-    height: 80,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 20
@@ -87,6 +126,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     textAlign: 'center'
+  },
+  welcome: {
+    textAlign: 'center',
+    color: 'black',
+    marginBottom: 5,
+    padding: 5
   },
   linkButton: {
     textAlign: 'center',
