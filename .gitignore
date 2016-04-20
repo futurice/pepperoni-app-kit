@@ -32,3 +32,9 @@ local.properties
 #
 node_modules/
 npm-debug.log
+
+# Secrets
+env.js
+
+# CocoaPods
+ios/Pods/
