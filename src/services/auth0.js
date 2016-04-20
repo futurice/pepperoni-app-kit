@@ -1,6 +1,6 @@
 import * as ENV from '../../env';
 import Auth0Lock from 'react-native-lock';
-import * as AppStateActions from '../modules/AppState';
+import * as AuthStateActions from '../modules/auth/AuthState';
 import store from '../redux/store';
 
 const lock = new Auth0Lock({
@@ -15,11 +15,11 @@ export function showLogin() {
 
   lock.show(options, (err, profile, token) => {
     if (err) {
-      store.dispatch(AppStateActions.onUserLoginError(err));
+      store.dispatch(AuthStateActions.onUserLoginError(err));
       return;
     }
 
     // Authentication worked!
-    store.dispatch(AppStateActions.onUserLoginSuccess(profile, token));
+    store.dispatch(AuthStateActions.onUserLoginSuccess(profile, token));
   });
 }

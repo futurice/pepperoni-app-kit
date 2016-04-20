@@ -1,15 +1,17 @@
 import {Map} from 'immutable';
 import {combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
-import AppStateReducer from '../modules/AppState';
+import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
 
 const reducers = {
+  // Authentication/login state
+  auth: AuthStateReducer,
+
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
 
-  // @NOTE: By convention, the navigation state must live in a subtree
-  // called `navigationState`
+  // @NOTE: By convention, the navigation state must live in a subtree called `navigationState`
   navigationState: NavigationStateReducer
 };
 
@@ -27,14 +29,5 @@ const namespacedReducer = combineReducers(
 );
 
 export default function mainReducer(state, action) {
-  // on init, gather initial states from all reducers
-  if (action.type === '@@ReduxLoop/INIT') {
-    return AppStateReducer(state, action)
-      .merge(namespacedReducer(state, action));
-  }
-
-  // on subsequent actions, allow AppStateReducer to do global state update
-  // across the state tree, and then apply any namespaced updates on top.
-  const rootState = AppStateReducer(state, action);
-  return namespacedReducer(rootState, action);
+  return namespacedReducer(state || void 0, action);
 }
