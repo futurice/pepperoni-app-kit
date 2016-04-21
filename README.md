@@ -13,9 +13,6 @@ React Native 🔥 Starter Kit
 #Requirements
 
 - [rnpm](https://github.com/rnpm/rnpm)
-- Ruby (>2.2)
-- [Cocoa pods](https://cocoapods.org/)
-- Xcode (iOS 7+)
 - React Native 0.23.1
 - NodeJS 5.4.1
 
@@ -34,7 +31,14 @@ React Native 🔥 Starter Kit
         AUTH0_CLIENT_ID: '<CLIENT_ID>',
         AUTH0_NAMESPACE: '<APP_NAME>.eu.auth0.com'
 
-###iOS
+##iOS
+
+1. Install Requirements:
+
+  - Ruby (>2.2)
+  - [Cocoa pods](https://cocoapods.org/)
+  - Xcode (iOS 7+)
+
 
 1. Install rnpm
 
@@ -44,13 +48,34 @@ React Native 🔥 Starter Kit
 
         $ rnpm link react-native-lock (installs Pods)
 
-##iOS
+1. Build the app and run the simulator:
 
-    $ react-native run-ios
+        $ react-native run-ios
 
 ##Android
 
-    $ react-native run-android
+More details here: [React Native Android Setup](https://facebook.github.io/react-native/docs/android-setup.html)
+
+1. Install latest JDK
+1. Install the Android SDK
+
+          $ brew install android-sdk
+
+1. Set ANDROID_HOME environment variable in .bashrc:
+
+          $ export ANDROID_HOME=/usr/local/opt/android-sdk
+
+1. Add SDK tools via Android sdk manager
+
+          $ android
+
+1. Install emulator
+
+          $ android avd
+
+1. Build app and run emulator:
+
+        $ react-native run-android
 
 ##Windows
 WIP
