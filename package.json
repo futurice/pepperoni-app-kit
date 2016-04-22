@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "bluebird": "^3.3.5",
+    "es6-symbol": "^3.0.2",
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
