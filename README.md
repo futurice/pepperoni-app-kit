@@ -30,6 +30,7 @@ React Native 🔥 Starter Kit
 
        AUTH0_CLIENT_ID: '<CLIENT_ID>',
        AUTH0_NAMESPACE: '<APP_NAME>.eu.auth0.com'
+1. Follow the steps for your platform below. Check the (official instructions)[https://github.com/auth0/react-native-lock] for more information.
 
 ##iOS
 

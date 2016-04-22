@@ -8,7 +8,7 @@ import * as auth0 from './src/services/auth0';
 
 const Kindling = React.createClass({
   componentDidMount() {
-    // auth0.showLogin();
+    auth0.showLogin();
   },
 
   render() {
