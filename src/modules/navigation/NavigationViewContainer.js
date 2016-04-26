@@ -4,7 +4,7 @@ import NavigationView from './NavigationView';
 
 export default connect(
   state => ({
-    navigationState: state.get('navigationState')
+    navigationState: state.get('navigationState').toJS()
   }),
   dispatch => ({
     switchTab(index) {

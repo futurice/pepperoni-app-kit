@@ -31,6 +31,7 @@ const namespacedReducer = combineReducers(
 export default function mainReducer(state, action) {
 
   if (action.type === '@@snapshot/reset') {
+    //return action.payload.set('navigationState', action.payload.get('navigationState').toJS());
     return action.payload;
   }
 

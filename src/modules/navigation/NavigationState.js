@@ -1,4 +1,4 @@
-import {NavigationExperimental as Navigation} from 'react-native';
+import {fromJS} from 'immutable';
 
 // Actions
 const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
@@ -24,25 +24,29 @@ export function popRoute() {
   return {type: POP_ROUTE};
 }
 
-const initialState = createNavigationState('MainNavigation', 'App', [
-  createNavigationState('HomeTab', 'Home', [{key: 'Counter', title: 'Counter'}]),
-  createNavigationState('ProfileTab', 'Profile', [{key: 'Color', title: 'Color'}])
-]);
+const initialState = fromJS(
+  createNavigationState('MainNavigation', 'App', [
+    createNavigationState('HomeTab', 'Home', [{key: 'Counter', title: 'Counter'}]),
+    createNavigationState('ProfileTab', 'Profile', [{key: 'Color', title: 'Color'}])
+  ]));
 
 export default function NavigationReducer(state = initialState, action) {
   switch (action.type) {
-    case PUSH_ROUTE: {
-      return changeStateInTab(state, state.index,
-        tabState => Navigation.StateUtils.push(tabState, action.payload));
-    }
-    case POP_ROUTE: {
-      return changeStateInTab(state, state.index,
-        tabState => Navigation.StateUtils.pop(tabState, action.payload));
-    }
-    case SWITCH_TAB: {
-      const index = action.payload;
-      return {...state, index};
-    }
+    case PUSH_ROUTE:
+      return state.updateIn(['children', state.get('index')], tabState =>
+        tabState
+          .update('children', children => children.push(fromJS(action.payload)))
+          .set('index', tabState.get('children').size));
+
+    case POP_ROUTE:
+      return state.updateIn(['children', state.get('index')], tabState =>
+        tabState
+          .update('children', children => children.pop())
+          .set('index', tabState.get('children').size - 2));
+
+    case SWITCH_TAB:
+      return state.set('index', action.payload);
+
     default:
       return state;
   }
@@ -56,18 +60,5 @@ function createNavigationState(key, title, children) {
     title,
     index: 0,
     children
-  };
-}
-
-// Helper for updating child navigator state
-function changeStateInTab(state, index, mutator) {
-  const selectedTab = state.children[index];
-  return {
-    ...state,
-    children: state.children.map(tabState => {
-      return tabState === selectedTab
-        ? mutator(tabState)
-        : tabState;
-    })
   };
 }
