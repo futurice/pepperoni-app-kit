@@ -18,7 +18,8 @@ const Kindling = React.createClass({
 
   navigateBack() {
     const navigationState = store.getState().get('navigationState');
-    if (navigationState.index === 0) {
+    const currentTab = navigationState.children[navigationState.index];
+    if (currentTab.index === 0) {
       return false;
     }
 
