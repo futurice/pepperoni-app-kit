@@ -1,9 +1,16 @@
-
 import {NavigationExperimental as Navigation} from 'react-native';
 
 // Actions
 const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
-const POP_ROUTE = 'back'; //magic?
+const POP_ROUTE = 'NavigationState/POP_ROUTE';
+const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
+
+export function switchTab(index) {
+  return {
+    type: SWITCH_TAB,
+    payload: index
+  };
+}
 
 // Action creators
 export function pushRoute(state) {
@@ -17,33 +24,50 @@ export function popRoute() {
   return {type: POP_ROUTE};
 }
 
-// Initial state
-const initialState = {
-  key: 'MainNavigation',
-  index: 0,
-  children: [
-    {key: 'Counter'}
-  ]
-};
+const initialState = createNavigationState('MainNavigation', 'App', [
+  createNavigationState('HomeTab', 'Home', [{key: 'Counter', title: 'Counter'}]),
+  createNavigationState('ProfileTab', 'Profile', [{key: 'Color', title: 'Color'}])
+]);
 
-// Reducer
-
-// We are using the higher-order reducer factories from
-// NavigationExperimental instead of defining our own navigation
-// state management. If this does not provide enough flexibility,
-// you can define a standard Redux reducer, and implement state
-// management with the help of NavigationStateUtils
-//
-// @NOTE the navigation state is NOT immutable
-export default Navigation.Reducer.StackReducer({
-  initialState,
-  getPushedReducerForAction(actionProbe) {
-    if (actionProbe.type === PUSH_ROUTE) {
-      return function navigationReducer(state, action) {
-        return action.payload;
-      };
+export default function NavigationReducer(state = initialState, action) {
+  switch (action.type) {
+    case PUSH_ROUTE: {
+      return changeStateInTab(state, state.index,
+        tabState => Navigation.StateUtils.push(tabState, action.payload));
     }
-
-    return null;
+    case POP_ROUTE: {
+      return changeStateInTab(state, state.index,
+        tabState => Navigation.StateUtils.pop(tabState, action.payload));
+    }
+    case SWITCH_TAB: {
+      const index = action.payload;
+      return {...state, index};
+    }
+    default:
+      return state;
   }
-});
+}
+
+// Helper for creating a state object compatible with the
+// RN NavigationExperimental navigator
+function createNavigationState(key, title, children) {
+  return {
+    key,
+    title,
+    index: 0,
+    children
+  };
+}
+
+// Helper for updating child navigator state
+function changeStateInTab(state, index, mutator) {
+  const selectedTab = state.children[index];
+  return {
+    ...state,
+    children: state.children.map(tabState => {
+      return tabState === selectedTab
+        ? mutator(tabState)
+        : tabState;
+    })
+  };
+}
