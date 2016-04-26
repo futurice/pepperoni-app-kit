@@ -26,24 +26,14 @@ const initialState = {
   ]
 };
 
-// Reducer
-
-// We are using the higher-order reducer factories from
-// NavigationExperimental instead of defining our own navigation
-// state management. If this does not provide enough flexibility,
-// you can define a standard Redux reducer, and implement state
-// management with the help of NavigationStateUtils
-//
-// @NOTE the navigation state is NOT immutable
-export default Navigation.Reducer.StackReducer({
-  initialState,
-  getPushedReducerForAction(actionProbe) {
-    if (actionProbe.type === PUSH_ROUTE) {
-      return function navigationReducer(state, action) {
-        return action.payload;
-      };
-    }
-
-    return null;
+export default function NavigationReducer(state = initialState, action) {
+  console.log('action', action);
+  switch (action.type) {
+    case PUSH_ROUTE:
+      return Navigation.StateUtils.push(state, action.payload);
+    case POP_ROUTE:
+      return Navigation.StateUtils.pop(state, action.payload);
+    default:
+      return state;
   }
-});
+}
