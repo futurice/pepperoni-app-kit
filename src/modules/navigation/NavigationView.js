@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   },
   hidden: {
     overflow: 'hidden',
-    left: 1000
+    width: 0,
+    height: 0
   }
 });
 
