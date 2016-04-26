@@ -29,7 +29,7 @@ export function random() {
   };
 }
 
-async function ReducerandomNumber() {
+async function randomNumber() {
   return {
     type: RANDOM_RESPONSE,
     payload: await generateRandomNumber()
@@ -48,7 +48,7 @@ export default function CounterStateReducer(state = initialState, action = {}) {
     case RANDOM_REQUEST:
       return loop(
         state.set('loading', true),
-        Effects.promise(ReducerandomNumber)
+        Effects.promise(randomNumber)
       );
 
     case RANDOM_RESPONSE:
