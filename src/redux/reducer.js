@@ -29,5 +29,10 @@ const namespacedReducer = combineReducers(
 );
 
 export default function mainReducer(state, action) {
+
+  if (action.type === '@@snapshot/reset') {
+    return action.payload;
+  }
+
   return namespacedReducer(state || void 0, action);
 }
