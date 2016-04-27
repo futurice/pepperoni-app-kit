@@ -3,6 +3,7 @@ import {combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
 import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
+import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 const reducers = {
   // Authentication/login state
@@ -11,8 +12,12 @@ const reducers = {
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
 
-  // @NOTE: By convention, the navigation state must live in a subtree called `navigationState`
-  navigationState: NavigationStateReducer
+  // @NOTE: By convention, the navigation state must live in a subtree called
+  //`navigationState`
+  navigationState: NavigationStateReducer,
+
+  session: SessionStateReducer
+
 };
 
 // initial state, accessor and mutator for supporting root-level
@@ -29,10 +34,8 @@ const namespacedReducer = combineReducers(
 );
 
 export default function mainReducer(state, action) {
-
-  if (action.type === '@@snapshot/reset') {
-    //return action.payload.set('navigationState', action.payload.get('navigationState').toJS());
-    return action.payload;
+  if (action.type === RESET_STATE) {
+    return namespacedReducer(action.payload, action);
   }
 
   return namespacedReducer(state || void 0, action);
