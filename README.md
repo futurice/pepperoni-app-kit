@@ -14,14 +14,12 @@ React Native 🔥 Starter Kit
 
 # Getting started
 
-To build your own app on top of the Starter Kit, fork or mirror this repository. Because you can't rename a fork, for serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/).
+To build your own app on top of the Starter Kit, fork or mirror this repository. Because you can't rename a fork, for serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/). To contribute to Starter Kit development or just playing around, forking is the way to go.
 
-If you want to contribute to Starter Kit development or just play around, forking is the way to go.
-
-Once you have the code downloaded, follow the [Setup guide](docs/SETUP.md) to get started.
+Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** to get started.
 
 # Architecture
 
 The application architecture is based on [Redux](http://redux.js.org/) and [redux-loop](https://github.com/raisemarketplace/redux-loop).
 
-Read the [Architecture guide](docs/ARCHITECTURE.md) for more details.
+Read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
