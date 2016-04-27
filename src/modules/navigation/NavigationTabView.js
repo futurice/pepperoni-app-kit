@@ -1,4 +1,5 @@
 import React, {
+  Animated,
   PropTypes,
   NavigationExperimental as Navigation
 } from 'react-native';
@@ -42,6 +43,15 @@ const NavigationTabView = React.createClass({
         onNavigate={this.props.onNavigate}
         renderOverlay={this.props.shouldRenderHeader ? this.renderHeader : null}
         renderScene={this.renderScene}
+        applyAnimation={(pos, navState) => {
+          // This is the default animation. We redefine it here to be
+          // able to attach a onComplete handler
+          Animated
+            .spring(pos, {toValue: navState.index, bounciness: 0})
+            .start(() => {
+              this.props.onNavigate({type: 'animation-completed'});
+            });
+        }}
       />
     );
   }

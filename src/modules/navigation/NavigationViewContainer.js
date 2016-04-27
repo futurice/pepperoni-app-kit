@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {popRoute, switchTab} from './NavigationState';
+import {popRoute, switchTab, navigationCompleted} from './NavigationState';
 import NavigationView from './NavigationView';
 
 export default connect(
@@ -18,6 +18,8 @@ export default connect(
       // Android back button is handled separately in index.android.js
       if (action.type === 'back' || action.type === 'BackAction') {
         dispatch(popRoute());
+      } else if (action.type === 'animation-completed') {
+        dispatch(navigationCompleted());
       }
     }
   })
