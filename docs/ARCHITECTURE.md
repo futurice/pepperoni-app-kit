@@ -28,15 +28,15 @@ The `components` directory should contain React Native JSX components, which tak
 
 The components may be stateful if it makes sense, but do consider externalising state to the Redux store instead. If the state needs to be persisted, shared by other components, or inspected by a developer in order to understand the program state, it should go in the Redux store.
 
-A component may be either written as a `React.createClass` constructor or as a plain JavaScript function component. Usage of ES6 `class Foo extends React.Component` should be avoided for [reasons].
+A component may be either written as a `React.createClass` constructor or as a plain JavaScript function component. Usage of ES6 `class Foo extends React.Component` should be [generally speaking avoided](https://github.com/joshburgess/not-awesome-es6-classes).
 
-If a component implementation differs between iOS and Android versions of the application, a separate `.android.js` and `.ios.js` files may be created.
+If a component implementation differs between iOS and Android versions of the application, [create separate `.android.js` and `.ios.js` files](https://facebook.github.io/react-native/docs/platform-specific-code.html) for the component. In minor cases the `React.Platform.OS` property can be used to branch between platforms.
 
 ### Modules
 
 The `modules` directory contains most of the interesting bits of the application. As a rule of thumb, this is where all code that modifies that application state or reads it from the store should go.
 
-Each module is its own directory, and represents a "discreet domain" within the application. There is no hard and fast rule on how to split your application to modules (in fact, this is one of the most difficult decisions in designing a Redux application), but here are some qualities of a good module:
+Each module is its own directory, and represents a "discrete domain" within the application. There is no hard and fast rule on how to split your application to modules (in fact, this is one of the most difficult decisions in designing a Redux application), but here are some qualities of a good module:
 
  * Represents a screen in the application, or a collection of screens that form a feature.
  * Represents some technical feature that needs its own state (e.g. `navigation`).
@@ -45,13 +45,13 @@ Each module is its own directory, and represents a "discreet domain" within the 
 
 #### Anatomy of a Module
 
-At its simplest, a module contains three logical part: State, View(s) and Container(s). All of these are optional, i.e. a component may or may not a have a View. If a module consists only of a View, though, do consider making it a component instead.
+At its simplest, a module contains three logical part: **State**, **View(s)** and **Container(s)**. All of these are optional, i.e. a component may or may not a have a View. If a module consists only of a View, though, do consider making it a component instead.
 
 ##### State
 
 The **State** encapsulates... err... well, the state of the application, and any actions that can modify that state. State can be data, for example fetched from a server or created by the user in-app, or it may be something transient, such as whether the user is logged into the application, or whether a particular UI element should be displayed or not.
 
-The State part of the module is a "Redux Duck" - a file that contains a Reducer, Action Creators and the initial state of the application.
+The State part of the module is a [Redux Duck](https://github.com/erikras/ducks-modular-redux) - a file that contains a Reducer, Action Creators and the initial state of the application.
 
 Let's take a simple example of an application that displays a number, which the user can increment by pressing a *plus* button, and decrement using a *minus* button.
 
