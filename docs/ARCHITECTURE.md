@@ -12,11 +12,11 @@ The downside of the Starter Kit architecture is that it involves a number of nov
  * [redux-loop](https://github.com/raisemarketplace/redux-loop)
  * [ImmutableJS](https://facebook.github.io/immutable-js)
 
-The application state and state changes are managed by **Redux**, a library that implements a pure, side-effect-free variant of the Facebook Flux architecture. Redux and Flux prescribe a unidirectional dataflow through your application.
+The application state and state changes are managed by **Redux**, a library that implements a pure, side-effect-free variant of the Facebook Flux architecture. Redux and Flux prescribe a unidirectional dataflow through your application. To understand Redux, check out this [Cartoon guide by Lin Clark](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207#.4dpmozm9v) (it's great, not a joke!) and [Dan Abramov's Redux course on egghead.io](https://egghead.io/series/getting-started-with-redux).
 
-The state in Redux applications should never be mutated, but always cloned. To make this more natural for the programmer, and more-fault tolerant against accidental mutation, we use ImmutableJS to manage our application state.
+Redux helps us with synchronous updating of our state, but it doesn't provide an out-of-the-box solution for handling asynchronous actions. The Redux ecosystem has many possible solutions for this problem. In our application we use the vanilla redux-thunk middleware for simple asynchronous actions, and **redux-loop** to handle more complex asynchronisity.
 
-To understand Redux, check out this [Cartoon guide by Lin Clark](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207#.4dpmozm9v) (it's great, not a joke!) and [Dan Abramov's Redux course on egghead.io](https://egghead.io/series/getting-started-with-redux).
+The state in Redux applications should never be mutated, but always cloned. To make this more natural for the programmer, and more-fault tolerant against accidental mutation, we use **ImmutableJS** data structures to hold our app's state.
 
 ## Organising code
 
@@ -55,7 +55,7 @@ The State part of the module is a "Redux Duck" - a file that contains a Reducer,
 
 Let's take a simple example of an application that displays a number, which the user can increment by pressing a *plus* button, and decrement using a *minus* button.
 
-```
+```js
 // CounterState.js
 import {Map} from 'immutable';
 
@@ -133,7 +133,7 @@ A View should take all inputs as `props`, and should very, very rarely, if ever,
 
 To continue the Counter example, a view might look something like this:
 
-```
+```js
 import React, {PropTypes, StyleSheet, Text, View} from 'react-native';
 import ActionButton from '../../components/ActionButton';
 import * as CounterState from './CounterState';
@@ -147,21 +147,12 @@ const CounterView = React.createClass({
 
   render() {
     const {value, dispatch} = this.props;
-    // use reusable components (ActionButton) to dispatch actions created
-    // by CounterState action creators
+    // use reusable components (ActionButton) to dispatch actions created by CounterState action creators
     return (
       <View style={styles.container}>
-        <Text style={styles.counter}>
-          {value}
-        </Text>
-        <ActionButton
-          onPress={() => dispatch(CounterState.increment())}
-          text='+'
-        />
-        <ActionButton
-          onPress={() => dispatch(CounterState.decrement())}
-          text='-'
-        />
+        <Text style={styles.counter}>{value}</Text>
+        <ActionButton onPress={() => dispatch(CounterState.increment())} text='+' />
+        <ActionButton onPress={() => dispatch(CounterState.decrement())} text='-' />
       </View>
     );
   }
@@ -197,7 +188,7 @@ Every time the app state changes, the Container is automatically called with the
 
 Using the Counter example, the container would be very simple:
 
-```
+```js
 import {connect} from 'react-redux';
 import CounterView from './CounterView';
 
