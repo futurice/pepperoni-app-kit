@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "mocha --opts test/mocha.opts src/**/__specs__/*.spec.js",
+    "test:watch": "chokidar 'src/**/*.js' -c 'npm test'"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
@@ -12,6 +14,8 @@
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
     "react": "^0.14.8",
+    "react-addons-test-utils": "^0.14.8",
+    "react-dom": "^0.14.8",
     "react-native": "^0.23.1",
     "react-native-lock": "^0.1.0",
     "react-redux": "^4.4.5",
@@ -23,9 +27,19 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.0.2",
+    "babel-preset-react-native": "^1.7.0",
     "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "chokidar-cli": "^1.2.0",
+    "enzyme": "^2.2.0",
     "eslint": "^2.8.0",
     "eslint-plugin-babel": "^3.2.0",
-    "eslint-plugin-react": "^4.3.0"
+    "eslint-plugin-react": "^4.3.0",
+    "mocha": "^2.4.5",
+    "react": "^0.14.8",
+    "react-addons-test-utils": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-native-mock": "0.0.7",
+    "sinon": "^1.17.4"
   }
 }
