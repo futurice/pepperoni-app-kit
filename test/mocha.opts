@@ -1,0 +1,2 @@
+--compilers js:babel-register,js:test/compile.js
+--require test/setup.js
