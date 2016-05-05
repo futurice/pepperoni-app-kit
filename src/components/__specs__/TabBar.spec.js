@@ -42,6 +42,6 @@ describe('<TabBar />', () => {
       <TabBar tabs={tabs} height={123} currentTabIndex={1} switchTab={() => null} />
     );
 
-    expect(hasStyles(wrapper.first(), {height: 123}));
+    expect(hasStyles(wrapper.first(), {height: 123})).to.equal(true);
   });
 });
