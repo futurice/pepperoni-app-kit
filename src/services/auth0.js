@@ -29,27 +29,17 @@ export function showLogin() {
 
   if (Platform.OS === 'ios') {
     lock.customizeTheme({
-      A0ThemePrimaryButtonNormalColor: '#009DEB',
-      // A0ThemePrimaryButtonFont: font,
-      A0ThemeSecondaryButtonTextColor: '#000',
-      // A0ThemeSecondaryButtonFont: font,
-      A0ThemeTextFieldTextColor: '#000',
-      A0ThemeTextFieldPlaceholderTextColor: '#000',
-      A0ThemeTextFieldIconColor: '#000',
-      // A0ThemeTextFieldFont: font,
-      A0ThemeTitleTextColor: '#000',
-      // A0ThemeTitleFont: font,
-      A0ThemeDescriptionTextColor: '#000',
-      // A0ThemeDescriptionFont: font,
-      A0ThemeSeparatorTextColor: '#000',
-      // A0ThemeSeparatorTextFont: font,
-      //    TODO add backaground
-      A0ThemeScreenBackgroundImageName: 'backgroundImage',
-      // how to add images to xcode/ios project? ? 1) via Xcode Add Files to project!
-      // TODO scale image?
-      // TODO add android theme
-      // TODO commit pods dir?
-      A0ThemeIconImageName: 'logo',
+      A0ThemePrimaryButtonNormalColor: '#39babd',
+      A0ThemePrimaryButtonHighlightedColor: '#08AFB3',
+      A0ThemeSecondaryButtonTextColor: '#ffffff',
+      A0ThemeTextFieldTextColor: '#ffffff',
+      A0ThemeTextFieldPlaceholderTextColor: '#ffffff',
+      A0ThemeTextFieldIconColor: '#ffffff',
+      A0ThemeTitleTextColor: '#ffffff',
+      A0ThemeDescriptionTextColor: '#ffffff',
+      A0ThemeSeparatorTextColor: '#ffffff',
+      A0ThemeScreenBackgroundColor: '#39babd',
+      A0ThemeIconImageName: 'pepperoni',
       A0ThemeCredentialBoxBorderColor: '' //transparent
     });
   }

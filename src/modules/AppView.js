@@ -20,8 +20,8 @@ const AppView = React.createClass({
         const {dispatch} = this.props;
 
         if (snapshot) {
-          dispatch(SessionStateActions.resetSessionStateFromSnapshot(snapshot));
-        } else {
+        //   dispatch(SessionStateActions.resetSessionStateFromSnapshot(snapshot));
+        // } else {
           dispatch(SessionStateActions.initializeSessionState());
         }
 
