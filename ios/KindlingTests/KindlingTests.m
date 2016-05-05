@@ -14,7 +14,7 @@
 #import "RCTRootView.h"
 
 #define TIMEOUT_SECONDS 240
-#define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
+#define TEXT_TO_LOOK_FOR @"I'm bored!"
 
 @interface KindlingTests : XCTestCase
 
