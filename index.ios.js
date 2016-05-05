@@ -1,19 +1,15 @@
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
-import AppView from './src/modules/AppView';
+import AppViewContainer from './src/modules/AppViewContainer';
 
 import React from 'react-native';
-import * as auth0 from './src/services/auth0';
 
 const Kindling = React.createClass({
-  componentDidMount() {
-    auth0.showLogin();
-  },
 
   render() {
     return (
       <Provider store={store}>
-        <AppView />
+        <AppViewContainer />
       </Provider>
     );
   }

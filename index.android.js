@@ -1,10 +1,9 @@
 import 'es6-symbol/implement';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
-import AppView from './src/modules/AppView';
+import AppViewContainer from './src/modules/AppViewContainer';
 import React, {BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
-import * as auth0 from './src/services/auth0';
 
 const Kindling = React.createClass({
 
@@ -12,19 +11,15 @@ const Kindling = React.createClass({
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
   },
 
-  componentDidMount() {
-    auth0.showLogin();
-  },
-
   navigateBack() {
     const navigationState = store.getState().get('navigationState');
-    const currentTab = navigationState.children[navigationState.index];
+    const currentTab = navigationState.getIn(['children', navigationState.get('index')]);
 
     // if we are in the beginning of our tab stack
-    if (currentTab.index === 0) {
+    if (currentTab.get('index') === 0) {
 
       // if we are not in the first tab, switch tab to the leftmost one
-      if (navigationState.index !== 0) {
+      if (navigationState.get('index') !== 0) {
         store.dispatch(NavigationStateActions.switchTab(0));
         return true;
       }
@@ -40,7 +35,7 @@ const Kindling = React.createClass({
   render() {
     return (
       <Provider store={store}>
-        <AppView />
+        <AppViewContainer />
       </Provider>
     );
   }
