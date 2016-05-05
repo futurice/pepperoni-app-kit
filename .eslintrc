@@ -127,7 +127,7 @@
     "comma-style": [2, "last"],
     "eol-last": 2,
     "no-lonely-if": 2,
-    "jsx-quotes": 1,
+    "jsx-quotes": ["error", "prefer-single"],
     "react/display-name": 1,
     "react/jsx-boolean-value": 0,
     "react/jsx-no-undef": 2,
