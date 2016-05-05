@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "mocha --opts test/mocha.opts src/**/__specs__/*.spec.js",
-    "test:watch": "chokidar 'src/**/*.js' -c 'npm test'"
+    "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
