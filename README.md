@@ -1,7 +1,25 @@
-React Native 🔥 Starter Kit
+Futurice React Native Starter Kit
 ===
 
 **WORK IN PROGRESS**
+
+We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively. 
+
+Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of doing the same thing time and time again. 
+
+This Starter Kit reflects the best practices of React Native development we have discovered while building real-world applications for our customers. It is opinionated about tooling, patterns and development practices. It might not be a one-size-fits-all solution for everyone, but feel free to customize it for your needs, or just take inspiration from it.
+
+# Contents
+
+* Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
+* [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and reasonaboutable state management
+* [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
+* Redux-controlled Navigators for stack- and tab-based navigation
+* [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
+* [Microsoft Code Push](http://microsoft.github.io/code-push) for Continuous Deployment and instant app updates
+* [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+
+
 
 # Features
 
