@@ -1,8 +1,6 @@
 Futurice React Native Starter Kit
 ===
 
-**WORK IN PROGRESS**
-
 We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively. 
 
 Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of doing the same thing time and time again. 
@@ -11,17 +9,23 @@ This Starter Kit reflects the best practices of React Native development we have
 
 # Contents
 
+:warning: **WORK IN PROGRESS**
+
+Not all of the below is yet fully implemented
+
 ### Application Blueprint
 
 * Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
 * Modular and well-documented structure for application code
 * [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and reasonaboutable state management
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
-* Redux-managed Navigators for Stack-based and Tabbed navigation
+* Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
 * Clean and testable service layer for interacting with RESTful APIs
+* JSON Web Token authentication 
 * Multi-environment configuration (dev, staging, production) for iOS and Android
-* Disk-persisted application state caching for offline support and snappy performance
+* Disk-persisted application state caching for offline support and snappy startup performance
 * Built-in error handling and customizable error screens
+* Sample app to show how to wire it all together
 
 ### Testing Setup
 
@@ -55,3 +59,4 @@ Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** t
 The application architecture is based on [Redux](http://redux.js.org/) and [redux-loop](https://github.com/raisemarketplace/redux-loop).
 
 Read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
+
