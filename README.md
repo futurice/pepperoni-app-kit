@@ -19,6 +19,7 @@ This Starter Kit reflects the best practices of React Native development we have
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
 * Redux-managed Navigators for Stack-based and Tabbed navigation
 * Clean and testable service layer for interacting with RESTful APIs
+* Multi-environment configuration (dev, staging, production) for iOS and Android
 * Disk-persisted application state caching for offline support and snappy performance
 * Built-in error handling and customizable error screens
 
@@ -27,8 +28,6 @@ This Starter Kit reflects the best practices of React Native development we have
 * [Mocha](https://mochajs.org/) for unit testing application code
 * [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
 * Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
-* **TODO** Android and iOS UI Testing with Calaba.sh?
-* **TODO** Instanbul code coveragee?
 
 ### Development & Deployment Infrastructure
 
@@ -36,8 +35,14 @@ This Starter Kit reflects the best practices of React Native development we have
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * [Microsoft Code Push](http://microsoft.github.io/code-push) for Continuous Deployment and instant app updates
 * [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
-* **TODO** Crash reporting
 
+
+### Roadmap
+
+* **TODO** Crash reporting
+* **TODO** Android and iOS UI Testing with Calaba.sh?
+* **TODO** Instanbul code coverage?
+* **TODO** Feature flags?
 
 # Getting started
 
