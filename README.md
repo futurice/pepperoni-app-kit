@@ -11,24 +11,33 @@ This Starter Kit reflects the best practices of React Native development we have
 
 # Contents
 
+### Application Blueprint
+
 * Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
+* Modular and well-documented structure for application code
 * [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and reasonaboutable state management
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
-* Redux-controlled Navigators for stack- and tab-based navigation
+* Redux-managed Navigators for Stack-based and Tabbed navigation
+* Clean and testable service layer for interacting with RESTful APIs
+* Disk-persisted application state caching for offline support and snappy performance
+* Built-in error handling and customizable error screens
+
+### Testing Setup
+
+* [Mocha](https://mochajs.org/) for unit testing application code
+* [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
+* Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
+* **TODO** Android and iOS UI Testing with Calaba.sh?
+* **TODO** Instanbul code coveragee?
+
+### Development & Deployment Infrastructure
+
+* [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * [Microsoft Code Push](http://microsoft.github.io/code-push) for Continuous Deployment and instant app updates
 * [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+* **TODO** Crash reporting
 
-
-
-# Features
-
-* [x] Always up-to-date React Native scaffolding
-* [x] State management with ImmutableJS + Redux + Redux Loop
-* [x] Auth0 authentication
-* [ ] Google Tag Manager analytics
-* [ ] HockeyApp beta deployment and crash reporting
-* [ ] Code Push live updates
 
 # Getting started
 
