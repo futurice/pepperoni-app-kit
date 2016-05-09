@@ -1,3 +1,4 @@
+![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
 Futurice React Native Starter Kit
 ===
 
@@ -6,8 +7,6 @@ We :green_heart: building apps with React Native, because it helps us create hig
 Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of reinventing the wheel time and time again. 
 
 This Starter Kit reflects the best practices of React Native development we have discovered while building real-world applications for our customers. It is opinionated about tooling, patterns and development practices. It might not be a one-size-fits-all solution for everyone, but feel free to customize it for your needs, or just take inspiration from it.
-
-![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
 
 React Native Starter Kit is a part of [Pepperoni](http://getpepperoni.com), a framework for kickstarting digital product development.
 
