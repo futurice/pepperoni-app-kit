@@ -17,9 +17,10 @@ const NavigationTabView = React.createClass({
   },
 
   renderHeader(props) {
+    console.log('renderHeader', props);
     return (
       <Navigation.Header
-        navigationProps={props}
+        {...props}
         getTitle={state => state.key}
       />
     );
