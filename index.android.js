@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import store from './src/redux/store';
 import AppViewContainer from './src/modules/AppViewContainer';
 import React from 'react';
-import {BackAndroid} from 'react-native';
+import {AppRegistry, BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
 
 const Kindling = React.createClass({
@@ -42,4 +42,4 @@ const Kindling = React.createClass({
   }
 });
 
-React.AppRegistry.registerComponent('Kindling', () => Kindling);
+AppRegistry.registerComponent('Kindling', () => Kindling);
