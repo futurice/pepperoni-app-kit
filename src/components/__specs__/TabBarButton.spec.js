@@ -1,7 +1,8 @@
 /*eslint-disable max-nested-callbacks*/
 
 import sinon from 'sinon';
-import React, {TouchableOpacity, Text} from 'react-native';
+import React from 'react';
+import {TouchableOpacity, Text} from 'react-native';
 import {shallow} from 'enzyme';
 import {describe, it} from 'mocha';
 import {expect} from 'chai';

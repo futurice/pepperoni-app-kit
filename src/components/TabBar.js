@@ -1,11 +1,11 @@
-import React from 'react-native';
+import React from 'react';
 import TabBarButton from '../components/TabBarButton';
 
-const {
+import {
   PropTypes,
   StyleSheet,
   View
-} = React;
+} from 'react-native';
 
 const TabBar = React.createClass({
   displayName: 'TabBar',

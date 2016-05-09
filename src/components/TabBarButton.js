@@ -1,11 +1,10 @@
-import React from 'react-native';
-
-const {
+import React from 'react';
+import {
   Text,
   TouchableOpacity,
   StyleSheet,
   PropTypes
-} = React;
+} from 'react-native';
 
 export default React.createClass({
   displayName: 'TabBarButton',

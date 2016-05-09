@@ -1,4 +1,5 @@
-import React, {
+import React from 'react';
+import {
   Animated,
   PropTypes,
   NavigationExperimental as Navigation

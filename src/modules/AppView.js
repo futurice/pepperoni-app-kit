@@ -1,4 +1,5 @@
-import React, {View, PropTypes, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, PropTypes, StyleSheet} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
 import AppRouter from './AppRouter';
 import Spinner from 'react-native-gifted-spinner';

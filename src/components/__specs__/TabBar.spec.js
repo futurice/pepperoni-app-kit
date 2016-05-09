@@ -1,6 +1,6 @@
 /*eslint-disable max-nested-callbacks*/
 
-import React from 'react-native';
+import React from 'react';
 import {shallow} from 'enzyme';
 import {describe, it} from 'mocha';
 import {expect} from 'chai';

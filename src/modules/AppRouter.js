@@ -1,6 +1,6 @@
 /*eslint-disable react/prop-types*/
 
-import React from 'react-native';
+import React from 'react';
 import CounterViewContainer from './counter/CounterViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 
