@@ -1,5 +1,5 @@
 {
-  "name": "pepperoni-app-kit",
+  "name": "Kindling",
   "author": "Futurice",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "react": "^0.14.8",
     "react-addons-test-utils": "^0.14.8",
     "react-dom": "^0.14.8",
-    "react-native": "^0.23.1",
+    "react-native": "^0.25.1",
     "react-native-gifted-spinner": "0.0.3",
     "react-native-lock": "^0.1.0",
     "react-redux": "^4.4.5",

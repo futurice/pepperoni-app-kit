@@ -62,6 +62,12 @@
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
 
-# stetho
+-dontskipnonpubliclibraryclassmembers
 
--dontwarn com.facebook.stetho.**
+-keepattributes *Annotation*,EnclosingMethod
+
+-keepnames class org.codehaus.jackson.** { *; }
+
+-dontwarn javax.xml.**
+-dontwarn javax.xml.stream.events.**
+-dontwarn com.fasterxml.jackson.databind.**
