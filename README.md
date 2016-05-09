@@ -1,106 +1,102 @@
-React Native 🔥 Starter Kit
+Futurice React Native Starter Kit
 ===
 
-**WORK IN PROGRESS**
+We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively. 
 
-* [ ] Always up-to-date React Native scaffolding
-* [ ] State management with ImmutableJS + Redux
-* [ ] Auth0 authentication
-* [ ] Google Tag Manager analytics
-* [ ] HockeyApp beta deployment and crash reporting
-* [ ] Code Push live updates
+Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of reinventing the wheel time and time again. 
 
-#Requirements
+This Starter Kit reflects the best practices of React Native development we have discovered while building real-world applications for our customers. It is opinionated about tooling, patterns and development practices. It might not be a one-size-fits-all solution for everyone, but feel free to customize it for your needs, or just take inspiration from it.
 
-- [rnpm](https://github.com/rnpm/rnpm)
-- React Native 0.23.1
-- NodeJS 5.4.1
+![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
 
-#Setup
+React Native Starter Kit is a part of [Pepperoni](http://getpepperoni.com), a framework for kickstarting digital product development.
 
-    $ git clone
-    $ cd react-native-kindling/
-    $ npm install
-    $ cp env.example.js env.js
+## Contents
 
-##Auth0
+:warning: **WORK IN PROGRESS**
 
-1. Before you start you need to create a new application in [Auth0](https://manage.auth0.com/#/applications/)
-1. Set `AUTH0_CLIENT_ID` and `AUTH0_NAMESPACE` according to your application you created in Auth0
+Not all of the below is yet fully implemented
 
-       AUTH0_CLIENT_ID: '<CLIENT_ID>',
-       AUTH0_NAMESPACE: '<APP_NAME>.eu.auth0.com'
-1. Follow the steps for your platform below. Check the (official instructions)[https://github.com/auth0/react-native-lock] for more information.
+### Application Blueprint
 
-##iOS
+* Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
+* Modular and well-documented structure for application code
+* [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and reasonaboutable state management
+* [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
+* Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
+* Clean and testable service layer for interacting with RESTful APIs
+* JSON Web Token authentication 
+* Multi-environment configuration (dev, staging, production) for iOS and Android
+* Disk-persisted application state caching for offline support and snappy startup performance
+* Built-in error handling and customizable error screens
+* Sample app to show how to wire it all together
 
-1. Install Requirements:
+### Testing Setup
 
-  - Ruby (>2.2)
-  - [Cocoa pods](https://cocoapods.org/)
-  - Xcode (iOS 7+)
+* [Mocha](https://mochajs.org/) for unit testing application code
+* [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
+* Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
+
+### Development & Deployment Infrastructure
+
+* [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
+* [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
+* [Microsoft Code Push](http://microsoft.github.io/code-push) for Continuous Deployment and instant app updates
+* [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
 
 
-1. Install rnpm
+### Roadmap
 
-        $ npm install rnpm -g
+* **TODO** Crash reporting
+* **TODO** Android and iOS UI Testing with Calaba.sh?
+* **TODO** Instanbul code coverage?
+* **TODO** Feature flags?
 
-1. Link Auth0 with your iOS project:
+## Getting started
 
-        $ rnpm link react-native-lock (installs Pods)
+To build your own app on top of the Starter Kit, fork or mirror this repository. Because you can't rename a fork, for serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/). To contribute to Starter Kit development or just playing around, forking is the way to go.
 
-1. Build the app and run the simulator:
+Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** to get started.
 
-        $ react-native run-ios
+## Development workflow
 
-##Android
+After you have set up the project using above instructions, you can use your favorite IDE or text editor to write code, and run the application from the command line. Turn on React Native hot module reloading in the app developer menu to update your application as you code.
 
-More details here: [React Native Android Setup](https://facebook.github.io/react-native/docs/android-setup.html)
+To learn how to structure your application and use the the Redux application architecture, read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
 
-1. Install latest JDK
-1. Install the Android SDK
+##### Start the application in iOS simulator
+```
+$ react-native run-ios
+```
 
-          $ brew install android-sdk
+##### Start the application in Android simulator
+(If using the stock emulator, the emulator must be running)
+```
+$ react-native run-android
+```
 
-1. Set ANDROID_HOME environment variable in .bashrc:
+##### Run unit tests
+```
+$ npm test
+```
 
-          $ export ANDROID_HOME=/usr/local/opt/android-sdk
+##### Run tests every time code changes
+```
+$ npm run test:watch
+```
 
-1. Start Android SDK Manager
+Read the **[Testing guide](docs/TESTING.md)** for more information about writing tests.
 
-          $ android
+## Deployment
 
-1. Add SDK tools via Android sdk manager
+Read the **[Deployment guide](docs/DEPLOYMENT.md)** to learn how to deploy the application to test devices, app stores, and how to use Code Push to push updates to your users immediately.
 
-  - Android SDK tools
-  - Android SDK Platform-tools
-  - Android SDK Build-tools (**Important**: Rev. 23.0.1)
-  - SDK Platform
-  - Intel x86 Atom_64 System Image
-  - Intel x86 Atom System Image
-  - Android Support Repository
-  - Android Support Library
-  - Intel x86 Emulator Accelerator (HAXM installer)
+## Contributing
 
-1. Configure and install hardware acceleration
+If you find any problems, please [open an issue](https://github.com/futurice/react-native-kindling/issues/new) or submit a fix as a pull request.
 
-          $ open /usr/local/opt/android-sdk/extras/intel/Hardware_Accelerated_Execution_Manager/IntelHAXM_<version>.dmg
+We welcome new features, but for large changes let's discuss first to make sure the changes can be accepted and integrated smoothly.
 
-1. Open Android Virtual Device manager
+## License
 
-          $ android avd
-
-1. Add new virtual device
-
-  - name: reactnative
-  - Device: Nexus 5
-  - Target: Android 6 - API Level 23
-  - CBU: Intel Atom x86
-  - check Use Host GPU
-
-1. Build app and run emulator:
-
-        $ react-native run-android
-
-##Windows
-WIP
+TBD
