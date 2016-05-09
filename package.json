@@ -1,7 +1,23 @@
 {
-  "name": "Kindling",
-  "version": "0.0.1",
-  "private": true,
+  "name": "pepperoni-app-kit",
+  "author": "Futurice",
+  "description": "React Native App Starter Kit for Android and iOS",
+  "license": "MIT",
+  "homepage": "http://getpepperoni.com",
+  "bugs": "https://github.com/futurice/pepperoni-app-kit/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/futurice/pepperoni-app-kit"
+  },
+  "keywords": [
+    "React Native",
+    "Starter Kit",
+    "Bitrise",
+    "Redux",
+    "Auth0"
+  ],
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "find ./src -name '*.spec.js' | xargs mocha --compilers js:babel-register --require react-native-mock/mock --require babel-polyfill",
