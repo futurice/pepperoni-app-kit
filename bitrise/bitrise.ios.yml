@@ -1,0 +1,45 @@
+---
+format_version: 1.1.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+app:
+  envs:
+  - BITRISE_PROJECT_PATH: ios/Kindling.xcworkspace
+    opts:
+      is_expand: false
+  - BITRISE_SCHEME: Kindling
+    opts:
+      is_expand: false
+trigger_map:
+- pattern: "*"
+  is_pull_request_allowed: true
+  workflow: primary
+workflows:
+  primary:
+    steps:
+    - activate-ssh-key@3.1.0:
+        title: Activate App SSH key
+        inputs:
+        - ssh_key_save_path: "$HOME/.ssh/steplib_ssh_step_id_rsa"
+    - git-clone@3.2.0: {}
+    - cocoapods-install@1.2.0: {}
+    - script@1.1.0:
+        inputs:
+        - content: |-
+            #!/bin/bash
+
+            echo "Copying sample .env file..."
+            cp env.example.js env.js
+    - npm:
+        inputs:
+        - command: install
+    - npm@0.1.0:
+        inputs:
+        - command: test
+    - certificate-and-profile-installer@1.4.2: {}
+    - xcode-test@1.13.7:
+        title: 'Xcode: Unit Test'
+    - xcode-archive@1.7.1:
+        title: 'Xcode: Create Archive'
+        inputs:
+        - output_dir: "${BITRISE_DEPLOY_DIR}"
+    - deploy-to-bitrise-io@1.2.3: {}

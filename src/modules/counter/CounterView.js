@@ -82,7 +82,7 @@ const CounterView = React.createClass({
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.bored}>
+        <TouchableOpacity onPress={this.bored} accessible={true}>
           <Text style={styles.linkButton}>
             {'I\'m bored!'}
           </Text>

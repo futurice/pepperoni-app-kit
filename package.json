@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "mocha --compilers js:babel-register --require react-native-mock/mock src/**/__specs__/*.spec.js",
+    "test": "find ./src -name '*.spec.js' | xargs mocha --compilers js:babel-register --require react-native-mock/mock --require babel-polyfill",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'"
   },
   "dependencies": {
