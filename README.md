@@ -2,9 +2,9 @@
 Futurice React Native Starter Kit
 ===
 
-We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively. 
+We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively.
 
-Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of reinventing the wheel time and time again. 
+Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of reinventing the wheel time and time again.
 
 This Starter Kit reflects the best practices of React Native development we have discovered while building real-world applications for our customers. It is opinionated about tooling, patterns and development practices. It might not be a one-size-fits-all solution for everyone, but feel free to customize it for your needs, or just take inspiration from it.
 
@@ -24,7 +24,7 @@ Not all of the below is yet fully implemented
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
 * Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
 * Clean and testable service layer for interacting with RESTful APIs
-* JSON Web Token authentication 
+* JSON Web Token authentication
 * Multi-environment configuration (dev, staging, production) for iOS and Android
 * Disk-persisted application state caching for offline support and snappy startup performance
 * Built-in error handling and customizable error screens
@@ -98,4 +98,4 @@ We welcome new features, but for large changes let's discuss first to make sure 
 
 ## License
 
-TBD
+[MIT License](LICENSE)
