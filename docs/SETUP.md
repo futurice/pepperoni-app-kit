@@ -18,8 +18,6 @@ Before you get started, make sure you have the following dependencies installed 
 
 ## Installation
 
-    $ git clone git@github.com:futurice/react-native-kindling.git
-    $ cd react-native-kindling/
     $ npm install
     $ cp env.example.js env.js
 
