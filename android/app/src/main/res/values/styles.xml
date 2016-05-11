@@ -5,4 +5,22 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Auth0 customized theme -->
+    <style name="Kindling.Lock.Theme" parent="Lock.Theme">
+      <item name="Auth0.Title.Icon">@style/Kindling.Lock.Theme.Title.Icon</item>
+      <item name="Auth0.PrimaryButtonStyle">@style/Kindling.Lock.Theme.PrimaryButton</item>
+    </style>
+
+    <style name="Kindling.Lock.Theme.Title.Icon" parent="Lock.Theme.Title.Icon">
+      <item name="android:src">@mipmap/ic_pepperoni</item>
+    </style>
+
+    <style name="Kindling.Lock.Theme.PrimaryButton" parent="Widget.AppCompat.ActionButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/com_auth0_primary_button_height</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#39babd</item>
+        <item name="android:textSize">@dimen/com_auth0_primary_button_text_size</item>
+    </style>
+
 </resources>
