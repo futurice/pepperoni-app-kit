@@ -22,7 +22,7 @@
       <!--Auth0 Lock-->
       <activity
         android:name="com.auth0.lock.LockActivity"
-        android:theme="@style/Kindling.Lock.Theme"
+        android:theme="@style/AppTheme.Lock.Theme"
         android:screenOrientation="portrait"
         android:launchMode="singleTask">
       </activity>
@@ -30,19 +30,19 @@
       <!--Auth0 Lock Embedded WebView-->
       <activity
           android:name="com.auth0.identity.web.WebViewActivity"
-          android:theme="@style/Kindling.Lock.Theme">
+          android:theme="@style/AppTheme.Lock.Theme">
       </activity>
       <!--Auth0 Lock Embedded WebView End-->
       <!--Auth0 Lock Passwordless-->
       <activity
           android:name="com.auth0.lock.passwordless.LockPasswordlessActivity"
-          android:theme="@style/Kindling.Lock.Theme"
+          android:theme="@style/AppTheme.Lock.Theme"
           android:screenOrientation="portrait"
           android:launchMode="singleTask">
       </activity>
       <activity
           android:name="com.auth0.lock.passwordless.CountryCodeActivity"
-          android:theme="@style/Kindling.Lock.Theme">
+          android:theme="@style/AppTheme.Lock.Theme">
       </activity>
       <!--Auth0 Lock Passwordless End-->
     </application>
