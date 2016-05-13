@@ -20,6 +20,7 @@
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/Kindling/main.jsbundle --dev=false --minify --verbose",
     "test": "find ./src -name '*.spec.js' | xargs mocha --compilers js:babel-register --require react-native-mock/mock --require babel-polyfill",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'"
   },
