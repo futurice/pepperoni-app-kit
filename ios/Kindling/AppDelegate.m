@@ -31,7 +31,9 @@
    * on the same Wi-Fi network.
    */
 
+#ifdef DEBUG
   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+#else
 
   /**
    * OPTION 2
@@ -41,7 +43,8 @@
    * simulator in the "Release" build configuration.
    */
 
-//   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"Kindling"
