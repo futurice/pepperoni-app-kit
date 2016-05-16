@@ -761,6 +761,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kindling;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -781,6 +782,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kindling;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
