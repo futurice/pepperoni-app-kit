@@ -64,29 +64,29 @@ const CounterView = React.createClass({
 
         {this.renderUserInfo()}
 
+        <Text>
+          Select your office:
+        </Text>
+
         <TouchableOpacity
-          onPress={this.increment}
+          onPress={this.bored}
           style={[styles.counterButton, loadingStyle]}>
           <Text style={styles.counter}>
-            {this.props.counter}
+            London
           </Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.reset}>
-          <Text style={styles.linkButton}>
-            Reset
+        <TouchableOpacity
+          onPress={this.bored}
+          style={[styles.counterButton, loadingStyle]}>
+          <Text style={styles.counter}>
+            Helsinki
           </Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.random}>
-          <Text style={styles.linkButton}>
-            Random
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
+        <TouchableOpacity
+          onPress={this.bored}
+          style={[styles.counterButton, loadingStyle]}>
+          <Text style={styles.counter}>
+            Berlin
           </Text>
         </TouchableOpacity>
 

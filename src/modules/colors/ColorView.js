@@ -9,6 +9,10 @@ import * as NavigationState from '../../modules/navigation/NavigationState';
 
 const color = () => Math.floor(255 * Math.random());
 
+const restaurants = ['William IV', 'The Eagle', 'Coffee Junction', 'The other pub'];
+
+const randomPicker = () => Math.floor(Math.random() * restaurants.length);
+
 /**
  * Sample view to demonstrate navigation patterns.
  * @TODO remove this module in a live application.
@@ -35,12 +39,12 @@ const ColorView = React.createClass({
 
   render() {
 
-    const index = this.props.index;
-    const text = `View #${index}`;
+    const restaurant = `${restaurants[randomPicker()]}`;
+
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Text onPress={this.onNextPress}>
-          {text}
+        <Text onPress={this.onNextPress} style={styles.restaurant}>
+          {restaurant}
         </Text>
       </View>
     );
@@ -52,6 +56,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  restaurant: {
+    fontSize: 30
   }
 });
 
