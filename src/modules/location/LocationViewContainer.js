@@ -1,18 +1,18 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import CounterView from './CounterView';
+import LocationView from './LocationView';
 import * as NavigationStateActions from '../navigation/NavigationState';
-import * as CounterStateActions from '../counter/CounterState';
+import * as LocationStateActions from './LocationState';
 
 export default connect(
   state => ({
-    counter: state.getIn(['counter', 'value']),
-    loading: state.getIn(['counter', 'loading'])
+    office: state.getIn(['location', 'value']),
+    loading: state.getIn(['location', 'loading'])
   }),
   dispatch => {
     return {
       navigationStateActions: bindActionCreators(NavigationStateActions, dispatch),
-      counterStateActions: bindActionCreators(CounterStateActions, dispatch)
+      locationStateActions: bindActionCreators(LocationStateActions, dispatch)
     };
   }
-)(CounterView);
+)(LocationView);

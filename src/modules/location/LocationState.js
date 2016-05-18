@@ -4,15 +4,15 @@ import {generateRandomNumber} from '../../services/randomNumberService';
 
 // Initial state
 const initialState = Map({
-  value: 0,
+  value: '',
   loading: false
 });
 
 // Actions
-const INCREMENT = 'CounterState/INCREMENT';
-const RESET = 'CounterState/RESET';
-const RANDOM_REQUEST = 'CounterState/RANDOM_REQUEST';
-const RANDOM_RESPONSE = 'CounterState/RANDOM_RESPONSE';
+const INCREMENT = 'LocationState/INCREMENT';
+const RESET = 'LocationState/RESET';
+const RANDOM_REQUEST = 'LocationState/RANDOM_REQUEST';
+const RANDOM_RESPONSE = 'LocationState/RANDOM_RESPONSE';
 
 // Action creators
 export function increment() {
@@ -37,7 +37,7 @@ export async function requestRandomNumber() {
 }
 
 // Reducer
-export default function CounterStateReducer(state = initialState, action = {}) {
+export default function LocationStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case INCREMENT:
       return state.update('value', value => value + 1);

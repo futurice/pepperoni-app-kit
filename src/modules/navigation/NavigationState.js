@@ -40,7 +40,7 @@ const initialState = fromJS({
   // Scenes for the `HomeTab` tab.
   HomeTab: {
     index: 0,
-    routes: [{key: 'Counter', title: 'Counter Screen'}]
+    routes: [{key: 'Location', title: 'Location Screen'}]
   },
   // Scenes for the `ProfileTab` tab.
   ProfileTab: {

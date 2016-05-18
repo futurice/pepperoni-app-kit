@@ -2,19 +2,19 @@
 
 import {Effects} from 'redux-loop';
 import {initialState, dispatch} from '../../../../test/state';
-import * as CounterStateActions from '../CounterState';
+import * as LocationStateActions from '../LocationState';
 
-describe('CounterState', () => {
+describe('LocationState', () => {
 
   // Example of how to test multiple dispatches in series
   describe('increment', () => {
     const getValue = state => state.getIn(['counter', 'value']);
 
     it('should increment the value property by one', () => {
-      const [secondState] = dispatch(initialState, CounterStateActions.increment());
+      const [secondState] = dispatch(initialState, LocationStateActions.increment());
       expect(getValue(secondState)).toBe(getValue(initialState) + 1);
 
-      const [thirdState] = dispatch(secondState, CounterStateActions.increment());
+      const [thirdState] = dispatch(secondState, LocationStateActions.increment());
       expect(getValue(thirdState)).toBe(getValue(secondState) + 1);
     });
   });
@@ -22,11 +22,11 @@ describe('CounterState', () => {
   describe('reset', () => {
     it('should reset the counter state to initial value', () => {
       // create an incremented state to test against
-      const [modifiedState] = dispatch(initialState, CounterStateActions.increment());
+      const [modifiedState] = dispatch(initialState, LocationStateActions.increment());
       expect(modifiedState.get('counter')).not.toBe(initialState.get('counter'));
 
       // reset to original and verify it === initial state
-      const [resetState] = dispatch(modifiedState, CounterStateActions.reset());
+      const [resetState] = dispatch(modifiedState, LocationStateActions.reset());
       expect(resetState.get('counter')).toBe(initialState.get('counter'));
     });
   });
@@ -34,15 +34,15 @@ describe('CounterState', () => {
   // Example of how to test side effects returned from reducers
   describe('random', () => {
 
-    const [nextState, effects] = dispatch(initialState, CounterStateActions.random());
+    const [nextState, effects] = dispatch(initialState, LocationStateActions.random());
 
     it('should update loading bit', () => {
-      expect(nextState.getIn(['counter', 'loading'])).toBe(true);
+      expect(nextState.getIn(['location', 'loading'])).toBe(true);
     });
 
     it('should trigger a requestRandomNumber side effect', () => {
       expect(effects).toEqual(
-        Effects.promise(CounterStateActions.requestRandomNumber)
+        Effects.promise(LocationStateActions.requestRandomNumber)
       );
     });
   });
@@ -59,7 +59,7 @@ describe('CounterState', () => {
     });
 
     it('should generate a random number and dispatch it', async () => {
-      const action = await CounterStateActions.requestRandomNumber();
+      const action = await LocationStateActions.requestRandomNumber();
       expect(typeof action.payload).toBe('number');
 
       const [nextState] = dispatch(initialState, action);

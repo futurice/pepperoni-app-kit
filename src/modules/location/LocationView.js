@@ -8,14 +8,14 @@ import {
 } from 'react-native';
 
 class CounterView extends Component {
-  static displayName = 'CounterView';
+  static displayName = 'LocationView';
 
   static propTypes = {
-    counter: PropTypes.number.isRequired,
+    office: PropTypes.number.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    counterStateActions: PropTypes.shape({
+    locationStateActions: PropTypes.shape({
       increment: PropTypes.func.isRequired,
       reset: PropTypes.func.isRequired,
       random: PropTypes.func.isRequired
@@ -26,11 +26,11 @@ class CounterView extends Component {
   };
 
   increment = () => {
-    this.props.counterStateActions.increment();
+    this.props.locationStateActions.increment();
   };
 
   reset = () => {
-    this.props.counterStateActions.reset();
+    this.props.locationStateActions.reset();
   };
 
   random = () => {
@@ -76,37 +76,35 @@ class CounterView extends Component {
 
         {this.renderUserInfo()}
 
+        <Text>
+          Select your office:
+        </Text>
+
         <TouchableOpacity
           accessible={true}
           accessibilityLabel={'Increment counter'}
-          onPress={this.increment}
+          onPress={this.bored}
           style={[styles.counterButton, loadingStyle]}>
           <Text style={styles.counter}>
-            {this.props.counter}
+            London
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
             accessible={true}
             accessibilityLabel={'Reset counter'}
-            onPress={this.reset}>
+            onPress={this.bored}>
           <Text style={styles.linkButton}>
-            Reset
+            Helsinki
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
             accessible={true}
             accessibilityLabel={'Randomize counter'}
-            onPress={this.random}>
+            onPress={this.bored}>
           <Text style={styles.linkButton}>
-            Random
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
+            Berlin
           </Text>
         </TouchableOpacity>
 
@@ -163,4 +161,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CounterView;
+export default LocationView;
