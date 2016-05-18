@@ -1,4 +1,4 @@
-import * as CounterState from './CounterState';
+import * as LocationState from './LocationState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
@@ -9,22 +9,22 @@ import {
   View
 } from 'react-native';
 
-const CounterView = React.createClass({
+const LocationView = React.createClass({
   propTypes: {
-    counter: PropTypes.number.isRequired,
+    office: PropTypes.string.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
   increment() {
-    this.props.dispatch(CounterState.increment());
+    this.props.dispatch(LocationState.increment());
   },
   reset() {
-    this.props.dispatch(CounterState.reset());
+    this.props.dispatch(LocationState.reset());
   },
   random() {
-    this.props.dispatch(CounterState.random());
+    this.props.dispatch(LocationState.random());
   },
   bored() {
     this.props.dispatch(NavigationState.pushRoute({
@@ -143,4 +143,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CounterView;
+export default LocationView;
