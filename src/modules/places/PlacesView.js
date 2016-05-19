@@ -11,7 +11,7 @@ const color = () => Math.floor(255 * Math.random());
  * Sample view to demonstrate navigation patterns.
  * @TODO remove this module in a live application.
  */
-class ColorView extends Component {
+class PlacesView extends Component {
   static displayName = 'ColorView';
 
   static propTypes = {
@@ -37,12 +37,13 @@ class ColorView extends Component {
   };
 
   render() {
-    const index = this.props.index;
-    const text = `View #${index}`;
+
+    const restaurant = `${restaurants[randomPicker()]}`;
+
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Text onPress={this.onNextPress}>
-          {text}
+        <Text onPress={this.onNextPress} style={styles.restaurant}>
+          {restaurant}
         </Text>
       </View>
     );
@@ -54,7 +55,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  restaurant: {
+    fontSize: 30
   }
 });
 
-export default ColorView;
+export default PlacesView;

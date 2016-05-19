@@ -2,7 +2,7 @@
 
 import React from 'react';
 import LocationViewContainer from './location/LocationViewContainer';
-import ColorViewContainer from './colors/ColorViewContainer';
+import PlacesViewContainer from './places/PlacesViewContainer';
 
 /**
  * AppRouter is responsible for mapping a navigator scene to a view
@@ -17,7 +17,7 @@ export default function AppRouter(props) {
   if (key.indexOf('Color') === 0) {
     const index = props.scenes.indexOf(props.scene);
     return (
-      <ColorViewContainer
+      <PlacesViewContainer
         index={index}
       />
     );
