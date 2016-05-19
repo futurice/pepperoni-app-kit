@@ -50,7 +50,8 @@ class LocationView extends Component {
     this.props.counterStateActions.random();
   };
 
-  bored = () => {
+  selectOffice = () => {
+    this.props.locationStateActions.selectOffice(office);
     this.props.navigationStateActions.pushRoute({
       key: 'Color',
       title: 'Office Screen'
@@ -82,7 +83,7 @@ class LocationView extends Component {
   renderRow(rowData) {
     return (
       <View style={styles.locationCard}>
-        <TouchableOpacity onPress={this.selectOffice} style={styles.locationButton}>
+        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.locationButton}>
           <Text style={styles.locationText}>
             {rowData}
           </Text>

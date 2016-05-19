@@ -13,6 +13,7 @@ const INCREMENT = 'LocationState/INCREMENT';
 const RESET = 'LocationState/RESET';
 const RANDOM_REQUEST = 'LocationState/RANDOM_REQUEST';
 const RANDOM_RESPONSE = 'LocationState/RANDOM_RESPONSE';
+const SELECT_OFFICE = 'LocationState/SELECT_OFFICE';
 
 // Action creators
 export function increment() {
@@ -26,6 +27,13 @@ export function reset() {
 export function random() {
   return {
     type: RANDOM_REQUEST
+  };
+}
+
+export function selectOffice(office) {
+  return {
+    type: SELECT_OFFICE,
+    payload: office
   };
 }
 
@@ -54,6 +62,10 @@ export default function LocationStateReducer(state = initialState, action = {}) 
     case RANDOM_RESPONSE:
       return state
         .set('loading', false)
+        .set('value', action.payload);
+
+    case SELECT_OFFICE:
+      return state
         .set('value', action.payload);
 
     default:

@@ -13,8 +13,8 @@
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
-#define TIMEOUT_SECONDS 180
-#define TEXT_TO_LOOK_FOR @"Increment counter"
+#define TIMEOUT_SECONDS 600
+#define TEXT_TO_LOOK_FOR @"Select your office"
 
 @interface PepperoniAppTemplateTests : XCTestCase
 
