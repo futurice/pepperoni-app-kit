@@ -41,7 +41,7 @@ describe('<TabBarButton/>', () => {
       <TabBarButton text='TestButton' action={() => null} isSelected={true} />
     );
 
-    expect(hasStyles(unselected.first(), {backgroundColor: 'yellow'})).to.equal(false);
-    expect(hasStyles(selected.first(), {backgroundColor: 'yellow'})).to.equal(true);
+    expect(hasStyles(unselected.first(), {backgroundColor: '#349d4a'})).to.equal(false);
+    expect(hasStyles(selected.first(), {backgroundColor: '#349d4a'})).to.equal(true);
   });
 });

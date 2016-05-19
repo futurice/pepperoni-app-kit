@@ -38,6 +38,7 @@ const LocationView = React.createClass({
     this.props.dispatch(LocationState.random());
   },
   selectOffice() {
+    this.props.dispatch(LocationState.selectOffice(office));
     this.props.dispatch(NavigationState.pushRoute({
       key: 'Color',
       title: 'Office Screen'
@@ -69,7 +70,7 @@ const LocationView = React.createClass({
   renderRow(rowData) {
     return (
       <View style={styles.locationCard}>
-        <TouchableOpacity onPress={this.selectOffice} style={styles.locationButton}>
+        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.locationButton}>
           <Text style={styles.locationText}>
             {rowData}
           </Text>
