@@ -6,8 +6,12 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  View
+  View,
+  ListView,
+  Dimensions
 } from 'react-native';
+
+const window = Dimensions.get('window');
 
 const LocationView = React.createClass({
   propTypes: {
@@ -17,6 +21,13 @@ const LocationView = React.createClass({
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
+  getInitialState() {
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    return {
+      dataSource: ds.cloneWithRows(['London', 'Berlin', 'Helsinki', 'Tampere', 'Stockholm', 'Munich'])
+    };
+  },
+
   increment() {
     this.props.dispatch(LocationState.increment());
   },
@@ -26,10 +37,10 @@ const LocationView = React.createClass({
   random() {
     this.props.dispatch(LocationState.random());
   },
-  bored() {
+  selectOffice() {
     this.props.dispatch(NavigationState.pushRoute({
       key: 'Color',
-      title: 'Color Screen'
+      title: 'Office Screen'
     }));
   },
 
@@ -54,42 +65,42 @@ const LocationView = React.createClass({
       </View>
     );
   },
-  render() {
-    const loadingStyle = this.props.loading
-      ? {backgroundColor: '#eee'}
-      : null;
 
+  renderRow(rowData) {
     return (
-      <View style={styles.container}>
-
-        {this.renderUserInfo()}
-
-        <Text>
-          Select your office:
-        </Text>
-
-        <TouchableOpacity
-          onPress={this.bored}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            London
+      <View style={styles.locationCard}>
+        <TouchableOpacity onPress={this.selectOffice} style={styles.locationButton}>
+          <Text style={styles.locationText}>
+            {rowData}
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={this.bored}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            Helsinki
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={this.bored}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            Berlin
-          </Text>
-        </TouchableOpacity>
+      </View>
+    );
+  },
 
+  render() {
+    return (
+      <View style={styles.contentSpacing}>
+        <View style={styles.container}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>
+              Select your office:
+            </Text>
+          </View>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderRow}
+            style={styles.swiper}
+            vertical={false}
+            alwaysBounceVertical={false}
+            horizontal={true}
+            pagingEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+            bounces={true}
+            loop={true}
+          />
+        </View>
       </View>
     );
   }
@@ -97,16 +108,49 @@ const LocationView = React.createClass({
 
 const circle = {
   borderWidth: 0,
-  borderRadius: 40,
-  width: 80,
-  height: 80
+  borderRadius: 60,
+  width: 120,
+  height: 120
 };
 
 const styles = StyleSheet.create({
+  contentSpacing: {
+    flex: 1,
+    paddingTop: 64 //TODO generic
+  },
+  row: {
+    flex: 1
+  },
+  swiper: {
+    flex: 1
+  },
+  title: {
+    fontSize: 15
+  },
+  titleContainer: {
+    alignItems: 'center',
+    top: 50
+  },
+  locationCard: {
+    flex: 1,
+    overflow: 'hidden',
+    width: window.width,
+    height: window.height - 150, // TODO define tabbar and nav height
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  locationText: {
+    fontSize: 20
+  },
+  locationButton: {
+    ...circle,
+    backgroundColor: '#41ae4e',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 20
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'white'
   },
   userContainer: {

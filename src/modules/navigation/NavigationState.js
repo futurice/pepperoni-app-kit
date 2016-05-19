@@ -33,7 +33,7 @@ const initialState = fromJS({
   tabs: {
     index: 0,
     routes: [
-      {key: 'HomeTab', title: 'HOME'},
+      {key: 'LunchTab', title: 'LUNCH WHEEL'},
       {key: 'ProfileTab', title: 'PROFILE'}
     ]
   },

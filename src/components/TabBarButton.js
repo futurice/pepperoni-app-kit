@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   selected: {
-    backgroundColor: 'yellow'
+    backgroundColor: '#349d4a'
   }
 });
