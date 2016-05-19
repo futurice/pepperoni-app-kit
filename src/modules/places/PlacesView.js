@@ -17,7 +17,7 @@ const randomPicker = () => Math.floor(Math.random() * restaurants.length);
  * Sample view to demonstrate navigation patterns.
  * @TODO remove this module in a live application.
  */
-const ColorView = React.createClass({
+const PlacesView = React.createClass({
   propTypes: {
     index: PropTypes.number.isRequired,
     dispatch: PropTypes.func.isRequired
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default PlacesView;
