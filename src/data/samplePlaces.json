@@ -4,6 +4,8 @@
       "name": "William IV",
       "type": "Pub",
       "address": "7 Shepherdess Walk, London N1 7QE",
+      "latitude": 51.530993,
+      "longitude": -0.092675,
       "distance": "100m",
       "picture": ""
     },
@@ -11,13 +13,17 @@
       "name": "The Eagle",
       "type": "Pub",
       "address": "2 Shepherdess Walk, London, Greater London, N1 7LB",
+      "latitude": 51.528611,
+      "longitude": -0.091704,
       "distance": "200m",
       "picture": ""
     },
     {
       "name": "The Shepherdess Café",
-      "type": "British Restaurant",
+      "type": "British style food",
       "address": "221 City Rd, London EC1V 1JN",
+      "latitude": 51.528369,
+      "longitude": -0.091630,
       "distance": "300m",
       "picture": ""
     },
@@ -25,6 +31,17 @@
       "name": "Whitecross Street Market",
       "type": "Streetfood",
       "address": "13 Whitecross St, London EC1Y",
+      "latitude": 51.522944,
+      "longitude": -0.092450,
+      "distance": "1km",
+      "picture": ""
+    },
+    {
+      "name": "Coffee Junction",
+      "type": "Meals with Salads, Sandwiches",
+      "address": "42 Provost St, London N1 7SU",
+      "latitude": 51.528874,
+      "longitude": -0.088472,
       "distance": "300m",
       "picture": ""
     }
