@@ -1,0 +1,32 @@
+{
+  "London": [
+    {
+      "name": "William IV",
+      "type": "Pub",
+      "address": "7 Shepherdess Walk, London N1 7QE",
+      "distance": "100m",
+      "picture": ""
+    },
+    {
+      "name": "The Eagle",
+      "type": "Pub",
+      "address": "2 Shepherdess Walk, London, Greater London, N1 7LB",
+      "distance": "200m",
+      "picture": ""
+    },
+    {
+      "name": "The Shepherdess Café",
+      "type": "British Restaurant",
+      "address": "221 City Rd, London EC1V 1JN",
+      "distance": "300m",
+      "picture": ""
+    },
+    {
+      "name": "Whitecross Street Market",
+      "type": "Streetfood",
+      "address": "13 Whitecross St, London EC1Y",
+      "distance": "300m",
+      "picture": ""
+    }
+  ]
+}
