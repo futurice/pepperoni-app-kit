@@ -4,10 +4,14 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  View
+  View,
+  ListView,
+  Dimensions
 } from 'react-native';
 
-class CounterView extends Component {
+const window = Dimensions.get('window');
+
+class LocationView extends Component {
   static displayName = 'LocationView';
 
   static propTypes = {
@@ -25,6 +29,15 @@ class CounterView extends Component {
     }).isRequired
   };
 
+  // Initialize the hardcoded data
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(['London', 'Berlin', 'Helsinki', 'Tampere', 'Stockholm', 'Munich'])
+    };
+  }
+  
   increment = () => {
     this.props.locationStateActions.increment();
   };
@@ -40,7 +53,7 @@ class CounterView extends Component {
   bored = () => {
     this.props.navigationStateActions.pushRoute({
       key: 'Color',
-      title: 'Color Screen'
+      title: 'Office Screen'
     });
   };
 
@@ -58,7 +71,7 @@ class CounterView extends Component {
             width: 80,
             height: 80
           }}
-          />
+        />
         <Text style={styles.linkButton}>
           Welcome, {this.props.userName}!
         </Text>
@@ -66,48 +79,41 @@ class CounterView extends Component {
     );
   };
 
-  render() {
-    const loadingStyle = this.props.loading
-      ? {backgroundColor: '#eee'}
-      : null;
-
+  renderRow(rowData) {
     return (
-      <View style={styles.container}>
-
-        {this.renderUserInfo()}
-
-        <Text>
-          Select your office:
-        </Text>
-
-        <TouchableOpacity
-          accessible={true}
-          accessibilityLabel={'Increment counter'}
-          onPress={this.bored}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            London
+      <View style={styles.locationCard}>
+        <TouchableOpacity onPress={this.selectOffice} style={styles.locationButton}>
+          <Text style={styles.locationText}>
+            {rowData}
           </Text>
         </TouchableOpacity>
+      </View>
+    );
+  },
 
-        <TouchableOpacity
-            accessible={true}
-            accessibilityLabel={'Reset counter'}
-            onPress={this.bored}>
-          <Text style={styles.linkButton}>
-            Helsinki
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            accessible={true}
-            accessibilityLabel={'Randomize counter'}
-            onPress={this.bored}>
-          <Text style={styles.linkButton}>
-            Berlin
-          </Text>
-        </TouchableOpacity>
-
+  render() {
+    return (
+      <View style={styles.contentSpacing}>
+        <View style={styles.container}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>
+              Select your office:
+            </Text>
+          </View>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderRow}
+            style={styles.swiper}
+            vertical={false}
+            alwaysBounceVertical={false}
+            horizontal={true}
+            pagingEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+            bounces={true}
+            loop={true}
+          />
+        </View>
       </View>
     );
   }
@@ -115,16 +121,49 @@ class CounterView extends Component {
 
 const circle = {
   borderWidth: 0,
-  borderRadius: 40,
-  width: 80,
-  height: 80
+  borderRadius: 60,
+  width: 120,
+  height: 120
 };
 
 const styles = StyleSheet.create({
+  contentSpacing: {
+    flex: 1,
+    paddingTop: 64 //TODO generic
+  },
+  row: {
+    flex: 1
+  },
+  swiper: {
+    flex: 1
+  },
+  title: {
+    fontSize: 15
+  },
+  titleContainer: {
+    alignItems: 'center',
+    top: 50
+  },
+  locationCard: {
+    flex: 1,
+    overflow: 'hidden',
+    width: window.width,
+    height: window.height - 150, // TODO define tabbar and nav height
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  locationText: {
+    fontSize: 20
+  },
+  locationButton: {
+    ...circle,
+    backgroundColor: '#41ae4e',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 20
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'white'
   },
   userContainer: {
