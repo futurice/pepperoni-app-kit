@@ -71,6 +71,9 @@ const PlacesView = React.createClass({
           region={region}
           annotations={marker}
         />
+        <Text style={styles.placeAddress}>
+          {place.address}
+        </Text>
       </View>
     );
   }
@@ -89,7 +92,9 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   placeAddress: {
-    fontSize: 15
+    fontSize: 15,
+    width: 300,
+    textAlign: 'center'
   },
   map: {
     height: 150,
