@@ -12,7 +12,8 @@ React Native Starter Kit is a part of [Pepperoni](http://getpepperoni.com), a fr
 
 ## Contents
 
-:warning: **WORK IN PROGRESS**
+:warning: **WORK IN PROGRESS** |
+:star: **COMING SOON**
 
 Not all of the below is yet fully implemented
 
@@ -23,12 +24,12 @@ Not all of the below is yet fully implemented
 * [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and reasonaboutable state management
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
 * Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
-* Clean and testable service layer for interacting with RESTful APIs
-* JSON Web Token authentication
-* Multi-environment configuration (dev, staging, production) for iOS and Android
 * Disk-persisted application state caching for offline support and snappy startup performance
-* Built-in error handling and customizable error screens
-* Sample app to show how to wire it all together
+* :warning: Sample app to show how to wire it all together
+* :warning: Clean and testable service layer for interacting with RESTful APIs
+* :star: JSON Web Token authentication
+* :star: Multi-environment configuration (dev, staging, production) for iOS and Android
+* :star: Built-in error handling and customizable error screens
 
 ### Testing Setup
 
@@ -40,8 +41,8 @@ Not all of the below is yet fully implemented
 
 * [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
-* [Microsoft Code Push](http://microsoft.github.io/code-push) for Continuous Deployment and instant app updates
-* [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+* :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+* :star: [Microsoft Code Push](http://microsoft.github.io/code-push) for Continuous Deployment and instant app updates
 
 
 ### Roadmap
@@ -61,7 +62,7 @@ Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** t
 
 After you have set up the project using above instructions, you can use your favorite IDE or text editor to write code, and run the application from the command line. Turn on React Native hot module reloading in the app developer menu to update your application as you code.
 
-To learn how to structure your application and use the the Redux application architecture, read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
+To learn how to structure your application and use the Redux application architecture, read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
 
 ##### Start the application in iOS simulator
 ```
