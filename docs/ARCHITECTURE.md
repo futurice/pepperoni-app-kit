@@ -12,11 +12,11 @@ The downside of the Starter Kit architecture is that it involves a number of nov
  * [redux-loop](https://github.com/raisemarketplace/redux-loop)
  * [ImmutableJS](https://facebook.github.io/immutable-js)
 
-The application state and state changes are managed by **Redux**, a library that implements a pure, side-effect-free variant of the Facebook Flux architecture. Redux and Flux prescribe a unidirectional dataflow through your application. To understand Redux, check out this [Cartoon guide by Lin Clark](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207#.4dpmozm9v) (it's great, not a joke!) and [Dan Abramov's Redux course on egghead.io](https://egghead.io/series/getting-started-with-redux).
+The application state and state changes are managed by **Redux**, a library that implements a pure, side-effect-free variant of the Facebook [Flux](https://facebook.github.io/flux/) architecture. Redux and Flux prescribe a unidirectional dataflow through your application. To understand Redux, check out this [Cartoon guide by Lin Clark](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207#.4dpmozm9v) (it's great, not a joke!) and [Dan Abramov's Redux course on egghead.io](https://egghead.io/series/getting-started-with-redux).
 
-Redux helps us with synchronous updating of our state, but it doesn't provide an out-of-the-box solution for handling asynchronous actions. The Redux ecosystem has many possible solutions for this problem. In our application we use the vanilla redux-thunk middleware for simple asynchronous actions, and **redux-loop** to handle more complex asynchronisity.
+Redux helps us with synchronous updating of our state, but it doesn't provide an out-of-the-box solution for handling asynchronous actions. The Redux ecosystem has many possible solutions for this problem. In our application, we use the vanilla redux-thunk middleware for simple asynchronous actions, and **redux-loop** to handle more complex asynchronicity.
 
-The state in Redux applications should never be mutated, but always cloned. To make this more natural for the programmer, and more-fault tolerant against accidental mutation, we use **ImmutableJS** data structures to hold our app's state.
+The state in Redux applications should never be mutated, but always cloned. To make this more natural for the programmer, and more fault-tolerant against accidental mutation, we use **ImmutableJS** data structures to hold our app's state.
 
 ## Organising code
 
@@ -36,7 +36,7 @@ If a component implementation differs between iOS and Android versions of the ap
 
 The `modules` directory contains most of the interesting bits of the application. As a rule of thumb, this is where all code that modifies that application state or reads it from the store should go.
 
-Each module is its own directory, and represents a "discrete domain" within the application. There is no hard and fast rule on how to split your application to modules (in fact, this is one of the most difficult decisions in designing a Redux application), but here are some qualities of a good module:
+Each module is its own directory and represents a "discrete domain" within the application. There is no hard and fast rule on how to split your application into modules (in fact, this is one of the most difficult decisions in designing a Redux application), but here are some qualities of a good module:
 
  * Represents a screen in the application, or a collection of screens that form a feature.
  * Represents some technical feature that needs its own state (e.g. `navigation`).
@@ -100,14 +100,14 @@ export function decrement() {
 
 // REDUCER (Naming: PascalCase)
 //
-// Reducer is resposible for handling all the actions defined in this module. The first
+// Reducer is responsible for handling all the actions defined in this module. The first
 // parameter is the previous state of this module, and should default to the initial state.
 //
 // The reducer then examines the `action` object and decides whether any state should change in
 // response to that action. The reducer must return the updated state, or if no changes are made,
 // the previous state without modifications.
 //
-// The reducer is always a ES6 default export.
+// The reducer is always an ES6 default export.
 
 export default function CounterStateReducer(state = initialState, action) {
   switch (action.type) {
@@ -119,15 +119,15 @@ export default function CounterStateReducer(state = initialState, action) {
 }
 ```
 
-The Redux Ducks pattern aims to keep the code portable, contained and easy to refactor by co-locating the reducer with action creators. For complex modules the Duck can get quite long and make it difficult to maintain, in which case it should be split into smaller chunks, either by separating the reducer into its own file, or by splitting the state into smaller Ducks and combining the reducers using standard Redux split/combine strategies.
+The Redux Ducks pattern aims to keep the code portable, contained and easy to refactor by co-locating the reducer with action creators. For complex modules, the Duck can get quite long and make it difficult to maintain, in which case it should be split into smaller chunks, either by separating the reducer into its own file or by splitting the state into smaller Ducks and combining the reducers using standard Redux split/combine strategies.
 
 ##### View
 
-Typically the **View** represents the a screen in the application. A module may have multiple views, if the part of the application consists of multiple screens, or if the single view is too complex to write in a single file.
+Typically the **View** represents the screen in the application. A module may have multiple views, if the part of the application consists of multiple screens, or if the single view is too complex to write in a single file.
 
-Technically speaking the View is identical to a component we define in the `components` directory. The difference is the way we use them. Ideally the View's role is to orchestrate reusable components. The view can be aware of what the application state looks like and which actions update it, whereas a component should not `dispatch` things directly, and have their `props` API designed around the purpose of the component, not the state of the application.
+Technically speaking the View is identical to a component we define in the `components` directory. The difference is the way we use them. Ideally, the View's role is to orchestrate reusable components. The view can be aware of what the application state looks like and which actions update it, whereas a component should not `dispatch` things directly, and have their `props` API designed around the purpose of the component, not the state of the application.
 
-The View usually has some presentational components and styling, but usually the leaner the view the better. If a view implementation needs to be very different on iOS and Android, separate `.android.js` and `ios.js` files may be written. However, for maintainability purposes it is better if the platform-specific implementation can be done on `component` level, and the View can remain platform-agnostic.
+The View usually has some presentational components and styling, but usually the leaner the view the better. If a view implementation needs to be very different on iOS and Android, separate `.android.js` and `ios.js` files may be written. However, for maintainability purposes, it is better if the platform-specific implementation can be done on `component` level, and the View can remain platform-agnostic.
 
 A View should take all inputs as `props`, and should very, very rarely, if ever, be stateful. Instead, the state should be managed in Redux, and injected to the component props by the container.
 
