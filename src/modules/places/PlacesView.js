@@ -19,6 +19,7 @@ class PlacesView extends Component {
 
   static propTypes = {
     index: PropTypes.number.isRequired,
+    office: PropTypes.string.isRequired,
     navigationStateActions: PropTypes.shape({
       pushRoute: PropTypes.func.isRequired
     })
@@ -59,6 +60,9 @@ class PlacesView extends Component {
 
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
+        <Text style={styles.location}>
+          {this.props.office}
+        </Text>
         <Text onPress={this.onNextPress} style={styles.placeTitle}>
           {place.name}
         </Text>
@@ -99,6 +103,9 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     borderColor: '#000000'
+  },
+  location: {
+    paddingBottom: 40
   }
 });
 
