@@ -56,9 +56,9 @@ The Auth0 login and sign up screens can be customized through the Lock extension
   - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
   - [CocoaPods](https://cocoapods.org/) for iOS package management
 
-2. Link Auth0 with your iOS project:
+2. Install native iOS dependencies
 
-        $ rnpm link react-native-lock (installs Pods)
+        $ (cd ios; pod install)
 
 3. Build the app and run the simulator:
 
