@@ -35,6 +35,7 @@ Not all of the below is yet fully implemented
 
 * [Mocha](https://mochajs.org/) for unit testing application code
 * [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
+* [Istanbul](https://github.com/gotwarlost/istanbul) code coverage
 * Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
 
 ### Development & Deployment Infrastructure
@@ -49,7 +50,6 @@ Not all of the below is yet fully implemented
 
 * **TODO** Crash reporting
 * **TODO** Android and iOS UI Testing with Calaba.sh?
-* **TODO** Instanbul code coverage?
 * **TODO** Feature flags?
 
 ## Getting started
