@@ -36,7 +36,7 @@
     "react-dom": "^0.14.8",
     "react-native": "^0.25.1",
     "react-native-gifted-spinner": "0.0.4",
-    "react-native-lock": "git@github.com:futurice/react-native-lock.git#feature/customizedTheme",
+    "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
