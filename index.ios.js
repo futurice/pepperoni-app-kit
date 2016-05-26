@@ -5,7 +5,7 @@ import AppViewContainer from './src/modules/AppViewContainer';
 import React from 'react';
 import {AppRegistry} from 'react-native';
 
-const Kindling = React.createClass({
+const PepperoniAppTemplate = React.createClass({
 
   render() {
     return (
@@ -16,4 +16,4 @@ const Kindling = React.createClass({
   }
 });
 
-AppRegistry.registerComponent('Kindling', () => Kindling);
+AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);

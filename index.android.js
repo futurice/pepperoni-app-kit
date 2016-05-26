@@ -6,7 +6,7 @@ import React from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
 
-const Kindling = React.createClass({
+const PepperoniAppTemplate = React.createClass({
 
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
@@ -42,4 +42,4 @@ const Kindling = React.createClass({
   }
 });
 
-AppRegistry.registerComponent('Kindling', () => Kindling);
+AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);
