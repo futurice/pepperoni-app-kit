@@ -1,8 +1,7 @@
 import * as CounterState from './CounterState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {
-  PropTypes,
   StyleSheet,
   TouchableOpacity,
   Image,

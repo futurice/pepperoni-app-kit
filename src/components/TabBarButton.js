@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  PropTypes
 } from 'react-native';
 
 export default React.createClass({
