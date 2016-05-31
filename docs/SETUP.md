@@ -58,8 +58,13 @@ The Auth0 login and sign up screens can be customized through the Lock extension
 
 2. Install native iOS dependencies
 
-        $ (cd ios; pod install)
+        $ cd ios
+      
+        $ pod repo update
 
+        $ pod install
+ 
+  
 3. Build the app and run the simulator:
 
         $ react-native run-ios
