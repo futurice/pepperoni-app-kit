@@ -47,7 +47,7 @@
 #endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"Kindling"
+                                                      moduleName:@"PepperoniAppTemplate"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
 

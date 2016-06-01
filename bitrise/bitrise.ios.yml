@@ -3,10 +3,10 @@ format_version: 1.1.0
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 app:
   envs:
-  - BITRISE_PROJECT_PATH: ios/Kindling.xcworkspace
+  - BITRISE_PROJECT_PATH: ios/PepperoniAppTemplate.xcworkspace
     opts:
       is_expand: false
-  - BITRISE_SCHEME: Kindling
+  - BITRISE_SCHEME: PepperoniAppTemplate
     opts:
       is_expand: false
 trigger_map:

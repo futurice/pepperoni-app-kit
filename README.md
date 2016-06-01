@@ -93,7 +93,7 @@ Read the **[Deployment guide](docs/DEPLOYMENT.md)** to learn how to deploy the a
 
 ## Contributing
 
-If you find any problems, please [open an issue](https://github.com/futurice/react-native-kindling/issues/new) or submit a fix as a pull request.
+If you find any problems, please [open an issue](https://github.com/futurice/pepperoni-app-kit/issues/new) or submit a fix as a pull request.
 
 We welcome new features, but for large changes let's discuss first to make sure the changes can be accepted and integrated smoothly.
 
