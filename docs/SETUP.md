@@ -26,10 +26,10 @@ Before you get started, make sure you have the following dependencies installed 
 #### Configuration
 
 1. Before you start you need to create a new application in [Auth0](https://manage.auth0.com/#/applications/)
-2. Set `AUTH0_CLIENT_ID` and `AUTH0_NAMESPACE` in `env.js` according to your application you created in Auth
+2. Set `AUTH0_CLIENT_ID` and `AUTH0_DOMAIN` in `env.js` according to your application you created in Auth
 
         AUTH0_CLIENT_ID: '<CLIENT_ID>',
-        AUTH0_NAMESPACE: '<APP_NAME>.eu.auth0.com'
+        AUTH0_DOMAIN: '<ACCOUNT_NAME>.eu.auth0.com'
 
 3. Follow the steps for your platform below. Check the [official instructions](https://github.com/auth0/react-native-lock) for more information.
 

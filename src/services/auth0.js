@@ -5,7 +5,7 @@ import store from '../redux/store';
 const {Platform} = require('react-native');
 
 const clientId = env.AUTH0_CLIENT_ID;
-const domain = env.AUTH0_NAMESPACE;
+const domain = env.AUTH0_DOMAIN;
 const authenticationEnabled = clientId && domain;
 
 let lock = null;
