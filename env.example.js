@@ -4,5 +4,5 @@
 
 module.exports = {
   AUTH0_CLIENT_ID: '',
-  AUTH0_NAMESPACE: ''
+  AUTH0_DOMAIN: ''
 };
