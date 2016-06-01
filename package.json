@@ -32,9 +32,8 @@
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
-    "react-native": "^0.25.1",
+    "react": "15.0.2",
+    "react-native": "^0.26.2",
     "react-native-gifted-spinner": "0.0.4",
     "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
     "react-redux": "^4.4.5",
@@ -60,8 +59,10 @@
     "isparta": "^4.0.0",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
-    "react-addons-test-utils": "^0.14.8",
-    "react-native-mock": "0.0.7",
+    "react-addons-test-utils": "15.0.2",
+    "react-dom": "15.0.2",
+    "react-native-mock": "^0.2.2",
+    "rnpm-plugin-upgrade": "^0.26.0",
     "sinon": "^1.17.4"
   }
 }
