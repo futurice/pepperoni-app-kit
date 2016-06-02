@@ -87,6 +87,11 @@ $ npm test
 $ npm run test:watch
 ```
 
+##### Generate code coverage report
+```
+$ npm run coverage
+```
+
 Read the **[Testing guide](docs/TESTING.md)** for more information about writing tests.
 
 ## Deployment

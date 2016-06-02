@@ -23,7 +23,7 @@
     "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --minify --verbose",
     "test": "mocha src/**/*.spec.js",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
-    "coverage": "babel-node node_modules/isparta/bin/isparta cover --i=src/**/*.js --x=src/**/*.spec.js --x=node_modules node_modules/mocha/bin/_mocha -- src/**/*.spec.js",
+    "coverage": "rimraf coverage && istanbul cover --i=src/**/*.js _mocha -- src/**/*.spec.js",
     "check-coverage": "istanbul check-coverage"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
     "react": "15.0.2",
+    "react-dom": "15.0.2",
     "react-native": "^0.26.2",
     "react-native-gifted-spinner": "0.0.4",
     "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
@@ -56,12 +57,11 @@
     "eslint": "^2.8.0",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-react": "^4.3.0",
-    "isparta": "^4.0.0",
-    "istanbul": "^0.4.3",
+    "istanbul": "1.0.0-alpha.2",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "15.0.2",
-    "react-dom": "15.0.2",
     "react-native-mock": "^0.2.2",
+    "rimraf": "^2.5.2",
     "sinon": "^1.17.4"
   }
 }
