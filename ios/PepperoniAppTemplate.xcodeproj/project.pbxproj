@@ -22,11 +22,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		8635F6CB4C844BBAB75CCC75 /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D57E09588F4FB98692AFE1 /* libA0RNLock.a */; };
-		9D29268F858862ADEA66F9D6 /* libPods-PepperoniAppTemplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5836737EAD6DED8184074057 /* libPods-PepperoniAppTemplate.a */; };
-		E42F50AD1CDBA94300705D4B /* pepperoni.png in Resources */ = {isa = PBXBuildFile; fileRef = E42F50AA1CDBA94300705D4B /* pepperoni.png */; };
-		E42F50AE1CDBA94300705D4B /* pepperoni@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E42F50AB1CDBA94300705D4B /* pepperoni@2x.png */; };
-		E42F50AF1CDBA94300705D4B /* pepperoni@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E42F50AC1CDBA94300705D4B /* pepperoni@3x.png */; };
+		C479462A5C42476786A6A1D0 /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA06CD398E24534B72848C5 /* libA0RNLock.a */; };
+		E71E5A58F35C2A785460512A /* libPods-PepperoniAppTemplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C465081FA4B5BC6A6E35D62D /* libPods-PepperoniAppTemplate.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,9 +104,9 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		E4646C6C1CBFD3E80024C7E4 /* PBXContainerItemProxy */ = {
+		DDC1AA901D00447E009A9298 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BCE4BCDA352B4502A5025764 /* A0RNLock.xcodeproj */;
+			containerPortal = AD98742C065D441FB42AD0F1 /* A0RNLock.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5F0499EE1CAE9F4A006F6C05;
 			remoteInfo = A0RNLock;
@@ -136,16 +133,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PepperoniAppTemplate/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PepperoniAppTemplate/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		56D57E09588F4FB98692AFE1 /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
-		5836737EAD6DED8184074057 /* libPods-PepperoniAppTemplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PepperoniAppTemplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		BCE4BCDA352B4502A5025764 /* A0RNLock.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = A0RNLock.xcodeproj; path = "../node_modules/react-native-lock/A0RNLock.xcodeproj"; sourceTree = "<group>"; };
-		DB88178EA32D0A1CB89EB8B7 /* Pods-PepperoniAppTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PepperoniAppTemplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate.debug.xcconfig"; sourceTree = "<group>"; };
-		E42F50AA1CDBA94300705D4B /* pepperoni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pepperoni.png; path = ../images/pepperoni.png; sourceTree = "<group>"; };
-		E42F50AB1CDBA94300705D4B /* pepperoni@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@2x.png"; path = "../images/pepperoni@2x.png"; sourceTree = "<group>"; };
-		E42F50AC1CDBA94300705D4B /* pepperoni@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@3x.png"; path = "../images/pepperoni@3x.png"; sourceTree = "<group>"; };
-		EAF4B469E52B5CCE47195961 /* Pods-PepperoniAppTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PepperoniAppTemplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		938FD9977D1735DEB15300EE /* Pods-PepperoniAppTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PepperoniAppTemplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		AD98742C065D441FB42AD0F1 /* A0RNLock.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = A0RNLock.xcodeproj; path = "../node_modules/react-native-lock/A0RNLock.xcodeproj"; sourceTree = "<group>"; };
+		C465081FA4B5BC6A6E35D62D /* libPods-PepperoniAppTemplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PepperoniAppTemplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA06CD398E24534B72848C5 /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
+		D50692D4E0DD0735E687BCD2 /* Pods-PepperoniAppTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PepperoniAppTemplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +164,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				8635F6CB4C844BBAB75CCC75 /* libA0RNLock.a in Frameworks */,
-				9D29268F858862ADEA66F9D6 /* libPods-PepperoniAppTemplate.a in Frameworks */,
+				E71E5A58F35C2A785460512A /* libPods-PepperoniAppTemplate.a in Frameworks */,
+				C479462A5C42476786A6A1D0 /* libA0RNLock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,23 +267,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		32F764B4885BD6F4633DC226 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DB88178EA32D0A1CB89EB8B7 /* Pods-PepperoniAppTemplate.debug.xcconfig */,
-				EAF4B469E52B5CCE47195961 /* Pods-PepperoniAppTemplate.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3B922F37D90043AAAFE14922 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5836737EAD6DED8184074057 /* libPods-PepperoniAppTemplate.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,7 +288,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				BCE4BCDA352B4502A5025764 /* A0RNLock.xcodeproj */,
+				AD98742C065D441FB42AD0F1 /* A0RNLock.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -327,13 +304,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				E42F50A91CDBA93200705D4B /* Images */,
 				13B07FAE1A68108700A75B9A /* PepperoniAppTemplate */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* PepperoniAppTemplateTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				32F764B4885BD6F4633DC226 /* Pods */,
-				3B922F37D90043AAAFE14922 /* Frameworks */,
+				C17771E531B2BBCE2B361176 /* Pods */,
+				E82F99E76E8731D85B98B159 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -348,22 +324,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E42F50A91CDBA93200705D4B /* Images */ = {
+		C17771E531B2BBCE2B361176 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E42F50AA1CDBA94300705D4B /* pepperoni.png */,
-				E42F50AB1CDBA94300705D4B /* pepperoni@2x.png */,
-				E42F50AC1CDBA94300705D4B /* pepperoni@3x.png */,
+				D50692D4E0DD0735E687BCD2 /* Pods-PepperoniAppTemplate.debug.xcconfig */,
+				938FD9977D1735DEB15300EE /* Pods-PepperoniAppTemplate.release.xcconfig */,
 			);
-			name = Images;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		E4646C691CBFD3E80024C7E4 /* Products */ = {
+		DDC1AA8D1D00447E009A9298 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E4646C6D1CBFD3E80024C7E4 /* libA0RNLock.a */,
+				DDC1AA911D00447E009A9298 /* libA0RNLock.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E82F99E76E8731D85B98B159 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C465081FA4B5BC6A6E35D62D /* libPods-PepperoniAppTemplate.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,13 +374,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PepperoniAppTemplate" */;
 			buildPhases = (
-				2B16075D61270296C6787155 /* 📦 Check Pods Manifest.lock */,
+				98EAEF8AC12B4BC7892DB9B9 /* 📦 Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				99FD3A9807466121C5B64A3F /* 📦 Embed Pods Frameworks */,
-				66B6586C762B76BAC862B723 /* 📦 Copy Pods Resources */,
+				27A9C0C7F07A81753CC7FD4F /* 📦 Embed Pods Frameworks */,
+				3F007284397F85AD6CF9BF16 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -414,15 +397,12 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
-					};
-					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 867W7L9RQK;
 					};
 				};
 			};
@@ -439,8 +419,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E4646C691CBFD3E80024C7E4 /* Products */;
-					ProjectRef = BCE4BCDA352B4502A5025764 /* A0RNLock.xcodeproj */;
+					ProductGroup = DDC1AA8D1D00447E009A9298 /* Products */;
+					ProjectRef = AD98742C065D441FB42AD0F1 /* A0RNLock.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -562,11 +542,11 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E4646C6D1CBFD3E80024C7E4 /* libA0RNLock.a */ = {
+		DDC1AA911D00447E009A9298 /* libA0RNLock.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libA0RNLock.a;
-			remoteRef = E4646C6C1CBFD3E80024C7E4 /* PBXContainerItemProxy */;
+			remoteRef = DDC1AA901D00447E009A9298 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -585,9 +565,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				E42F50AF1CDBA94300705D4B /* pepperoni@3x.png in Resources */,
-				E42F50AD1CDBA94300705D4B /* pepperoni.png in Resources */,
-				E42F50AE1CDBA94300705D4B /* pepperoni@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,22 +585,22 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
-		2B16075D61270296C6787155 /* 📦 Check Pods Manifest.lock */ = {
+		27A9C0C7F07A81753CC7FD4F /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		66B6586C762B76BAC862B723 /* 📦 Copy Pods Resources */ = {
+		3F007284397F85AD6CF9BF16 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -638,19 +615,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		99FD3A9807466121C5B64A3F /* 📦 Embed Pods Frameworks */ = {
+		98EAEF8AC12B4BC7892DB9B9 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -700,10 +677,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -715,7 +688,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PepperoniAppTemplate.app/PepperoniAppTemplate";
 			};
@@ -726,10 +698,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = PepperoniAppTemplateTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -737,7 +705,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PepperoniAppTemplate.app/PepperoniAppTemplate";
 			};
@@ -745,10 +712,9 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB88178EA32D0A1CB89EB8B7 /* Pods-PepperoniAppTemplate.debug.xcconfig */;
+			baseConfigurationReference = D50692D4E0DD0735E687BCD2 /* Pods-PepperoniAppTemplate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,19 +724,21 @@
 				);
 				INFOPLIST_FILE = PepperoniAppTemplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepperoni.PepperoniAppTemplate;
 				PRODUCT_NAME = PepperoniAppTemplate;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAF4B469E52B5CCE47195961 /* Pods-PepperoniAppTemplate.release.xcconfig */;
+			baseConfigurationReference = 938FD9977D1735DEB15300EE /* Pods-PepperoniAppTemplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -779,10 +747,13 @@
 				);
 				INFOPLIST_FILE = PepperoniAppTemplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepperoni.PepperoniAppTemplate;
 				PRODUCT_NAME = PepperoniAppTemplate;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -806,7 +777,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
