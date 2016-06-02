@@ -54,7 +54,9 @@ The Auth0 login and sign up screens can be customized through the Lock extension
 
   - XCode for iOS development(download from Mac App Store)
   - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
-  - [CocoaPods](https://cocoapods.org/) for iOS package management
+  - [CocoaPods](https://cocoapods.org/) 1.0 or newer for iOS package management.
+
+**Please note that CocoaPods 0.x will not work, and at the time of writing the version in Homebrew is still 0.39, so check your `pod --version` and install 1.0 with `gem` if necessary.**
 
 2. Install native iOS dependencies
 
