@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {
   Animated,
-  PropTypes,
   NavigationExperimental as Navigation
 } from 'react-native';
 
