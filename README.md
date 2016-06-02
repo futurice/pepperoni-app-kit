@@ -56,6 +56,8 @@ Not all of the below is yet fully implemented
 
 To build your own app on top of the Starter Kit, fork or mirror this repository. Because you can't rename a fork, for serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/). To contribute to Starter Kit development or just playing around, forking is the way to go.
 
+First, give your application a name by running `./support/rename.sh YourAppName`.
+
 Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** to get started.
 
 ## Development workflow
@@ -93,7 +95,7 @@ Read the **[Deployment guide](docs/DEPLOYMENT.md)** to learn how to deploy the a
 
 ## Contributing
 
-If you find any problems, please [open an issue](https://github.com/futurice/react-native-kindling/issues/new) or submit a fix as a pull request.
+If you find any problems, please [open an issue](https://github.com/futurice/pepperoni-app-kit/issues/new) or submit a fix as a pull request.
 
 We welcome new features, but for large changes let's discuss first to make sure the changes can be accepted and integrated smoothly.
 

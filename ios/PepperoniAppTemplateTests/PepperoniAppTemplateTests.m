@@ -16,11 +16,11 @@
 #define TIMEOUT_SECONDS 240
 #define TEXT_TO_LOOK_FOR @"I'm bored!"
 
-@interface KindlingTests : XCTestCase
+@interface PepperoniAppTemplateTests : XCTestCase
 
 @end
 
-@implementation KindlingTests
+@implementation PepperoniAppTemplateTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {
