@@ -56,6 +56,8 @@ Not all of the below is yet fully implemented
 
 To build your own app on top of the Starter Kit, fork or mirror this repository. Because you can't rename a fork, for serious use we recommend [mirroring using these instructions](https://help.github.com/articles/duplicating-a-repository/). To contribute to Starter Kit development or just playing around, forking is the way to go.
 
+First, give your application a name by running `./support/rename.sh YourAppName`.
+
 Once you have the code downloaded, follow the **[Setup guide](docs/SETUP.md)** to get started.
 
 ## Development workflow
