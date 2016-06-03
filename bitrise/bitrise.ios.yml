@@ -3,10 +3,10 @@ format_version: 1.1.0
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 app:
   envs:
-  - BITRISE_PROJECT_PATH: ios/PepperoniAppTemplate.xcworkspace
+  - BITRISE_PROJECT_PATH: ios/LunchWheel.xcworkspace
     opts:
       is_expand: false
-  - BITRISE_SCHEME: PepperoniAppTemplate
+  - BITRISE_SCHEME: LunchWheel
     opts:
       is_expand: false
 trigger_map:
