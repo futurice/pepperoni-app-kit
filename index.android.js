@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
 
-class PepperoniAppTemplate extends Component {
+class LunchWheel extends Component {
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
   }
@@ -21,7 +21,7 @@ class PepperoniAppTemplate extends Component {
     if (currentTab.get('index') === 0) {
 
       // if we are not in the first tab, switch tab to the leftmost one
-      if (tabs.get('index') !== 0) {
+      if (navigationState.get('index') !== 0) {
         store.dispatch(NavigationStateActions.switchTab(0));
         return true;
       }
@@ -43,4 +43,4 @@ class PepperoniAppTemplate extends Component {
   }
 }
 
-AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);
+AppRegistry.registerComponent('LunchWheel', () => LunchWheel);

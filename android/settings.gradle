@@ -1,4 +1,4 @@
-rootProject.name = 'PepperoniAppTemplate'
+rootProject.name = 'LunchWheel'
 
 include ':app'
 include ':react-native-vector-icons'

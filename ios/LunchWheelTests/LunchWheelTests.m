@@ -16,11 +16,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Select your office"
 
-@interface PepperoniAppTemplateTests : XCTestCase
+@interface LunchWheelTests : XCTestCase
 
 @end
 
-@implementation PepperoniAppTemplateTests
+@implementation LunchWheelTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

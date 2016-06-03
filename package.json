@@ -1,5 +1,5 @@
 {
-  "name": "PepperoniAppTemplate",
+  "name": "LunchWheel",
   "author": "Futurice",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
@@ -20,7 +20,7 @@
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --verbose",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/LunchWheel/main.jsbundle --dev=false --minify --verbose",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src test",
