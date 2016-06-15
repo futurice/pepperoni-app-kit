@@ -24,7 +24,7 @@
     "test": "mocha src/**/*.spec.js",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
     "coverage": "rimraf coverage && istanbul cover --i=src/**/*.js _mocha -- src/**/*.spec.js",
-    "check-coverage": "istanbul check-coverage"
+    "check-coverage": "istanbul check-coverage coverage/coverage.json"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
