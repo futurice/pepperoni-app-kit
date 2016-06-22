@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {
   Text,
   TouchableOpacity,
-  StyleSheet,
+  StyleSheet
 } from 'react-native';
 
 export default React.createClass({

@@ -23,6 +23,7 @@
     "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --minify --verbose",
     "test": "mocha src/**/*.spec.js",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
+    "lint": "eslint src test",
     "coverage": "rimraf coverage && istanbul cover --i=src/**/*.js _mocha -- src/**/*.spec.js",
     "check-coverage": "istanbul check-coverage"
   },
@@ -45,12 +46,12 @@
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.2",
     "babel-polyfill": "^6.9.0",
     "babel-preset-react-native": "^1.7.0",
     "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "chokidar-cli": "^1.2.0",
     "enzyme": "^2.2.0",
