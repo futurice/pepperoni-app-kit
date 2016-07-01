@@ -9,7 +9,7 @@ import ColorViewContainer from './colors/ColorViewContainer';
  */
 export default function AppRouter(props) {
   const onNavigate = props.onNavigate;
-  const key = props.scene.navigationState.key;
+  const key = props.scene.route.key;
 
   if (key === 'Counter') {
     return <CounterViewContainer onNavigate={onNavigate} />;
