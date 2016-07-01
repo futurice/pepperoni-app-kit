@@ -14,7 +14,7 @@ const PepperoniAppTemplate = React.createClass({
 
   navigateBack() {
     const navigationState = store.getState().get('navigationState');
-    const currentTab = navigationState.getIn(['children', navigationState.get('index')]);
+    const currentTab = navigationState.getIn(['routes', navigationState.get('index')]);
 
     // if we are in the beginning of our tab stack
     if (currentTab.get('index') === 0) {
