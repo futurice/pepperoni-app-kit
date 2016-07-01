@@ -42,7 +42,8 @@
     "redux-logger": "^2.6.1",
     "redux-loop": "^2.1.0",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "standard-http-error": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -57,6 +58,7 @@
     "eslint": "^2.8.0",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-react": "^4.3.0",
+    "fetch-mock": "^4.5.4",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "15.0.2",
