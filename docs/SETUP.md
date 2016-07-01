@@ -6,47 +6,21 @@ Firstly, you need a Mac computer for iOS development. If you want to build an An
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
-- [NodeJS](https://nodejs.org) 5.x
+- [NodeJS](https://nodejs.org) 5.x or newer
 - [Homebrew](http://brew.sh/) (or an alternative way to install OSX packages)
 - Latest React Native CLI
 
           $ npm install -g react-native-cli
 
-- React Native Package Manager
-
-          $ npm install -g rnpm
-
 ## Installation
 
+Install dependencies from NPM
+
     $ npm install
+
+Create a blank configuration file
+
     $ cp env.example.js env.js
-
-### Auth0
-
-#### Configuration
-
-1. Before you start you need to create a new application in [Auth0](https://manage.auth0.com/#/applications/)
-2. Set `AUTH0_CLIENT_ID` and `AUTH0_DOMAIN` in `env.js` according to your application you created in Auth
-
-        AUTH0_CLIENT_ID: '<CLIENT_ID>',
-        AUTH0_DOMAIN: '<ACCOUNT_NAME>.eu.auth0.com'
-
-3. Follow the steps for your platform below. Check the [official instructions](https://github.com/auth0/react-native-lock) for more information.
-
-#### Customization
-
-The Auth0 login and sign up screens can be customized through the Lock extension.
-
-**iOS**
-* Change default values in the customiseTheme method in `src/services/auth0.js`
-* If you want to add images, copy them in the root `images` folder and add them via Xcode > file > add files to the project in 3 different resolutions (needs to be original and x2 and x3 versions)
-* All changeable values can be retrieved [here]( https://auth0.com/docs/libraries/lock-ios/customization)
-
-**Android**
-
-* Change default values for the AppTheme.Lock in  `android/app/src/main/res/values/styles.xml`
-* Add images in `android/app/src/main/res/mipmap-<hdpi|mdpi|xhdpi|xxhdpi>` in 4 different resolutions
-* All changeable values can be retrieved [here]( https://github.com/auth0/Lock.Android/blob/master/lock/src/main/res/values/styles.xml)
 
 ### Running the iOS application
 
@@ -60,7 +34,7 @@ The Auth0 login and sign up screens can be customized through the Lock extension
 
 2. Install native iOS dependencies
 
-        $ (cd ios; pod install)
+        $ (cd ios; pod repo update; pod install)
 
 3. Build the app and run the simulator:
 
@@ -75,7 +49,7 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 
           $ brew install android-sdk
 
-3. Set ANDROID_HOME environment variable in .bashrc:
+3. Set ANDROID_HOME environment variable in .bashrc, .zshrc or similar:
 
           $ export ANDROID_HOME=/usr/local/opt/android-sdk
 
@@ -114,6 +88,35 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 9. Build app and run emulator:
 
         $ react-native run-android
+
+### Auth0
+
+#### Configuration
+
+If you don't want to use Auth0, or you want to take it into use later, you can skip this step for now.
+
+1. Before you start you need to create a new application in [Auth0](https://manage.auth0.com/#/applications/)
+2. Set `AUTH0_CLIENT_ID` and `AUTH0_DOMAIN` in `env.js` according to your application you created in Auth
+
+        AUTH0_CLIENT_ID: '<CLIENT_ID>',
+        AUTH0_DOMAIN: '<ACCOUNT_NAME>.eu.auth0.com'
+
+3. Follow the steps for your platform below. Check the [official instructions](https://github.com/auth0/react-native-lock) for more information.
+
+#### Customization
+
+The Auth0 login and sign up screens can be customized through the Lock extension.
+
+**iOS**
+* Change default values in the customiseTheme method in `src/services/auth0.js`
+* If you want to add images, copy them in the root `images` folder and add them via Xcode > file > add files to the project in 3 different resolutions (needs to be original and x2 and x3 versions)
+* All changeable values can be retrieved [here]( https://auth0.com/docs/libraries/lock-ios/customization)
+
+**Android**
+
+* Change default values for the AppTheme.Lock in  `android/app/src/main/res/values/styles.xml`
+* Add images in `android/app/src/main/res/mipmap-<hdpi|mdpi|xhdpi|xxhdpi>` in 4 different resolutions
+* All changeable values can be retrieved [here]( https://github.com/auth0/Lock.Android/blob/master/lock/src/main/res/values/styles.xml)
 
 ### Windows UWP
 
