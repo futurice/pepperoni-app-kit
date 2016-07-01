@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "6.1"
+sudo: false
+env:
+  - NODE_ENV='test'
+script:
+  - npm run lint
+  - npm test
