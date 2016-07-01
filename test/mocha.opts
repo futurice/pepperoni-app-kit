@@ -1,5 +1,6 @@
 --compilers js:babel-core/register
 --require react-native-mock/mock
 --require babel-polyfill
+--require test/setup.js
 --reporter spec
 --recursive
