@@ -18,8 +18,8 @@ const NavigationView = React.createClass({
   },
 
   render() {
-    const {children, index} = this.props.navigationState;
-    const tabs = children.map((tabState, tabIndex) => {
+    const {routes, index} = this.props.navigationState;
+    const tabs = routes.map((tabState, tabIndex) => {
       return (
         <View key={'tab' + tabIndex} style={[styles.viewContainer, index !== tabIndex && styles.hidden]}>
           <NavigationTabView
@@ -36,7 +36,7 @@ const NavigationView = React.createClass({
         {tabs}
         <TabBar
           height={TAB_BAR_HEIGHT}
-          tabs={children}
+          tabs={routes}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
         />

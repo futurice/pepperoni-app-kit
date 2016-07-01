@@ -17,7 +17,6 @@ const NavigationTabView = React.createClass({
   },
 
   renderHeader(props) {
-    console.log('renderHeader', props);
     return (
       <Navigation.Header
         {...props}
@@ -30,7 +29,7 @@ const NavigationTabView = React.createClass({
     return (
       <Navigation.Card
         {...props}
-        key={props.scene.navigationState.key}
+        key={props.scene.route.key}
         renderScene={this.props.router}
       />
     );

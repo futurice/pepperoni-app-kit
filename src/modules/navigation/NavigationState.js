@@ -43,18 +43,18 @@ export default function NavigationReducer(state = initialState, action) {
     case PUSH_ROUTE:
       return state
         .set('isNavigating', true)
-        .updateIn(['children', state.get('index')], tabState =>
+        .updateIn(['routes', state.get('index')], tabState =>
           tabState
-            .update('children', children => children.push(fromJS(action.payload)))
-            .set('index', tabState.get('children').size));
+            .update('routes', routes => routes.push(fromJS(action.payload)))
+            .set('index', tabState.get('routes').size));
 
     case POP_ROUTE:
       return state
         .set('isNavigating', true)
-        .updateIn(['children', state.get('index')], tabState =>
+        .updateIn(['routes', state.get('index')], tabState =>
           tabState
-            .update('children', children => children.pop())
-            .set('index', tabState.get('children').size - 2));
+            .update('routes', routes => routes.pop())
+            .set('index', tabState.get('routes').size - 2));
 
     case SWITCH_TAB:
       return state.set('index', action.payload);
@@ -69,12 +69,12 @@ export default function NavigationReducer(state = initialState, action) {
 
 // Helper for creating a state object compatible with the
 // RN NavigationExperimental navigator
-function createNavigationState(key, title, children) {
+function createNavigationState(key, title, routes) {
   return {
     key,
     title,
     index: 0,
-    children
+    routes
   };
 }
 

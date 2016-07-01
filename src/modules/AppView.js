@@ -1,8 +1,7 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
 import AppRouter from './AppRouter';
-import Spinner from 'react-native-gifted-spinner';
 import * as auth0 from '../services/auth0';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
@@ -43,8 +42,8 @@ const AppView = React.createClass({
   render() {
     if (!this.props.isReady) {
       return (
-        <View style={styles.centered}>
-          <Spinner />
+        <View>
+          <ActivityIndicator style={styles.centered}/>
         </View>
       );
     }
@@ -61,8 +60,7 @@ const AppView = React.createClass({
 const styles = StyleSheet.create({
   centered: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignSelf: 'center'
   }
 });
 
