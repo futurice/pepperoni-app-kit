@@ -4,13 +4,12 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import {describe, it} from 'mocha';
 import {expect} from 'chai';
-import Spinner from 'react-native-gifted-spinner';
-
+import {ActivityIndicator} from 'react-native';
 import AppView from '../AppView';
 
 describe('<AppView />', () => {
   describe('isReady', () => {
-    it('should render a <Spinner /> if not ready', () => {
+    it('should render a <ActivityIndicator /> if not ready', () => {
       const fn = () => {};
       const wrapper = shallow(
         <AppView
@@ -20,10 +19,10 @@ describe('<AppView />', () => {
         />
       );
 
-      expect(wrapper.find(Spinner)).to.have.lengthOf(1);
+      expect(wrapper.find(ActivityIndicator)).to.have.lengthOf(1);
     });
 
-    it('should not render a <Spinner /> if ready', () => {
+    it('should not render a <ActivityIndicator /> if ready', () => {
       const fn = () => {};
       const wrapper = shallow(
         <AppView
@@ -33,7 +32,7 @@ describe('<AppView />', () => {
         />
       );
 
-      expect(wrapper.find(Spinner)).to.have.lengthOf(0);
+      expect(wrapper.find(ActivityIndicator)).to.have.lengthOf(0);
     });
   });
 });
