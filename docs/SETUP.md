@@ -26,7 +26,7 @@ Create a blank configuration file
 
 1. Install Requirements:
 
-  - XCode for iOS development(download from Mac App Store)
+  - Xcode for iOS development (download from Mac App Store)
   - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
   - [CocoaPods](https://cocoapods.org/) 1.0 or newer for iOS package management.
 
