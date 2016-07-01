@@ -1,6 +1,8 @@
 ![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
 Futurice React Native Starter Kit
 ===
+[![Build Status](https://travis-ci.org/futurice/pepperoni-app-kit.svg?branch=master)](https://travis-ci.org/futurice/pepperoni-app-kit)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
 
 We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively.
 
