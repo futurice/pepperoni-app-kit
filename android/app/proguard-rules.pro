@@ -51,9 +51,9 @@
 
 -keepattributes Signature
 -keepattributes *Annotation*
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
--dontwarn com.squareup.okhttp.**
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+-dontwarn okhttp3.**
 
 # okio
 
@@ -61,13 +61,3 @@
 -dontwarn java.nio.file.*
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
-
--dontskipnonpubliclibraryclassmembers
-
--keepattributes *Annotation*,EnclosingMethod
-
--keepnames class org.codehaus.jackson.** { *; }
-
--dontwarn javax.xml.**
--dontwarn javax.xml.stream.events.**
--dontwarn com.fasterxml.jackson.databind.**
