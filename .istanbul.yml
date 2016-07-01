@@ -12,9 +12,9 @@ instrumentation:
 reporting:
   print: summary
   reports:
-    - lcov
     - text
     - html
+    - json
   dir: ./coverage
   watermarks:
     statements: [50, 80]
@@ -24,7 +24,7 @@ reporting:
   report-config:
     clover: {file: clover.xml}
     cobertura: {file: cobertura-coverage.xml}
-    json: {file: coverage-final.json}
+    json: {file: coverage.json}
     json-summary: {file: coverage-summary.json}
     lcovonly: {file: lcov.info}
     teamcity: {file: null, blockName: Code Coverage Summary}
