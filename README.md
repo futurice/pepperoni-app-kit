@@ -25,8 +25,8 @@ Not all of the below is yet fully implemented
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
 * Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
 * Disk-persisted application state caching for offline support and snappy startup performance
+* Clean and testable service layer for interacting with RESTful APIs
 * :warning: Sample app to show how to wire it all together
-* :warning: Clean and testable service layer for interacting with RESTful APIs
 * :star: JSON Web Token authentication
 * :star: Multi-environment configuration (dev, staging, production) for iOS and Android
 * :star: Built-in error handling and customizable error screens
