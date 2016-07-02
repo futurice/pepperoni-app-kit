@@ -86,15 +86,15 @@ describe('API', () => {
     };
 
     beforeEach(() => {
-      api.errors.addListener('400', (spy400Errors = sinon.spy()));
-      api.errors.addListener('403', (spy403Errors = sinon.spy()));
-      api.errors.addListener('*', (spyAllErrors = sinon.spy()));
+      api.errors.on('400', (spy400Errors = sinon.spy()));
+      api.errors.on('403', (spy403Errors = sinon.spy()));
+      api.errors.on('*', (spyAllErrors = sinon.spy()));
     });
 
     afterEach(() => {
-      api.errors.removeListener('400', spy400Errors);
-      api.errors.removeListener('403', spy403Errors);
-      api.errors.removeListener('*', spyAllErrors);
+      api.errors.off('400', spy400Errors);
+      api.errors.off('403', spy403Errors);
+      api.errors.off('*', spyAllErrors);
     });
 
     it('notifies about errors on error-specific channel', async () => {
