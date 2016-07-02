@@ -17,7 +17,6 @@ const FAILING_ENDPOINT = '/broken';
 const SIMPLE_RESPONSE = {foo: 'bar'};
 
 describe('API', () => {
-
   beforeEach(() => {
     configuration.setConfiguration('API_ROOT', API_ROOT);
     fetch
@@ -35,12 +34,26 @@ describe('API', () => {
   // generate basic tests for basic HTTP methods
   for (const method of ['get', 'put', 'post', 'del']) {
 
+    const body = {foo: 'bar'};
+
     // create a function that calls the corresponding method on the API module
     const apiMethod = method === 'put' || method === 'post'
-      ? path => api[method](path, {})
+      ? path => api[method](path, body)
       : path => api[method](path);
 
     describe(method, () => {
+
+      it('should fetch() the given endpoint', async () => {
+        await apiMethod(SIMPLE_ENDPOINT);
+        expect(fetch.lastUrl()).to.equal(`${API_ROOT}${SIMPLE_ENDPOINT}`);
+      });
+
+      if (method === 'put' || method === 'post') {
+        it('should send the body for PUT and POST requests', async () => {
+          await apiMethod(SIMPLE_ENDPOINT);
+          expect(fetch.lastOptions().body).to.equal(JSON.stringify(body));
+        });
+      }
 
       it('should return the response body when calling a valid JSON endpoint', async () => {
         expect(await apiMethod(SIMPLE_ENDPOINT)).to.eql(SIMPLE_RESPONSE);

@@ -97,8 +97,8 @@ async function sendRequest(method, path, body) {
     const token = await getAuthenticationToken();
     const headers = getRequestHeaders(body, token);
     const options = body
-      ? {method, headers}
-      : {method, headers, body: JSON.stringify(body)};
+      ? {method, headers, body: JSON.stringify(body)}
+      : {method, headers};
 
     return timeout(fetch(endpoint, options), TIMEOUT);
   } catch (e) {
