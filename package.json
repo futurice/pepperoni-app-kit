@@ -64,6 +64,7 @@
     "mocha": "^2.4.5",
     "react-addons-test-utils": "15.0.2",
     "react-native-mock": "^0.2.2",
+    "remote-redux-devtools": "^0.3.3",
     "rimraf": "^2.5.2",
     "sinon": "^1.17.4"
   }

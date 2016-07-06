@@ -1,12 +1,13 @@
 import {applyMiddleware, createStore, compose} from 'redux';
 import * as reduxLoop from 'redux-loop';
-
+import devTools from 'remote-redux-devtools';
 import middleware from './middleware';
 import reducer from './reducer';
 
 const enhancer = compose(
   applyMiddleware(...middleware),
-  reduxLoop.install()
+  reduxLoop.install(),
+  devTools()
 );
 
 // create the store
