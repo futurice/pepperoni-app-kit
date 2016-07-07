@@ -1,14 +1,19 @@
 import {applyMiddleware, createStore, compose} from 'redux';
 import * as reduxLoop from 'redux-loop';
-import devTools from 'remote-redux-devtools';
 import middleware from './middleware';
 import reducer from './reducer';
 
-const enhancer = compose(
+let enhancers = [
   applyMiddleware(...middleware),
-  reduxLoop.install(),
-  devTools()
-);
+  reduxLoop.install()
+];
+
+if (process.env.NODE_ENV !== 'production') {
+  let devTools = require('remote-redux-devtools');
+  enhancers = [...enhancers, devTools()];
+}
+
+const enhancer = compose(...enhancers);
 
 // create the store
 const store = createStore(
