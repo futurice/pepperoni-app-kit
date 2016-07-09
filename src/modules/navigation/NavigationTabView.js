@@ -8,7 +8,8 @@ const NavigationTabView = React.createClass({
   propTypes: {
     router: PropTypes.func.isRequired,
     navigationState: PropTypes.object.isRequired,
-    onNavigate: PropTypes.func.isRequired,
+    onNavigateBack: PropTypes.func.isRequired,
+    onNavigateCompleted: PropTypes.func.isRequired,
     shouldRenderHeader: PropTypes.bool
   },
 
@@ -20,6 +21,7 @@ const NavigationTabView = React.createClass({
     return (
       <Navigation.Header
         {...props}
+        onNavigateBack={this.props.onNavigateBack}
         getTitle={state => state.key}
       />
     );
@@ -29,6 +31,7 @@ const NavigationTabView = React.createClass({
     return (
       <Navigation.Card
         {...props}
+        onNavigateBack={this.props.onNavigateBack}
         key={props.scene.route.key}
         renderScene={this.props.router}
       />
@@ -40,7 +43,6 @@ const NavigationTabView = React.createClass({
       <Navigation.AnimatedView
         style={{flex: 1}}
         navigationState={this.props.navigationState}
-        onNavigate={this.props.onNavigate}
         renderOverlay={this.props.shouldRenderHeader ? this.renderHeader : null}
         renderScene={this.renderScene}
         applyAnimation={(pos, navState) => {
@@ -49,7 +51,7 @@ const NavigationTabView = React.createClass({
           Animated
             .spring(pos, {toValue: navState.index, bounciness: 0})
             .start(() => {
-              this.props.onNavigate({type: 'animation-completed'});
+              this.props.onNavigateCompleted();
             });
         }}
       />
