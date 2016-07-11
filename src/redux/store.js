@@ -8,7 +8,7 @@ let enhancers = [
   reduxLoop.install()
 ];
 
-if (process.env.NODE_ENV !== 'production') {
+if (__DEV__) {
   let devTools = require('remote-redux-devtools');
   enhancers = [...enhancers, devTools()];
 }
