@@ -27,7 +27,10 @@ const ColorView = React.createClass({
 
   onNextPress() {
     const index = this.props.index;
-    this.props.dispatch(NavigationState.pushRoute({key: `Color_${index + 1}`}));
+    this.props.dispatch(NavigationState.pushRoute({
+      key: `Color_${index + 1}`,
+      title: `Color Screen #${index + 1}`
+    }));
   },
 
   render() {

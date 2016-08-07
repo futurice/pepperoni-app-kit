@@ -2,32 +2,33 @@ import React, {PropTypes} from 'react';
 import TabBarButton from '../components/TabBarButton';
 
 import {
+  NavigationExperimental,
   StyleSheet,
   View
 } from 'react-native';
 
+const {PropTypes: NavigationPropTypes} = NavigationExperimental;
+
 const TabBar = React.createClass({
   displayName: 'TabBar',
   propTypes: {
-    tabs: PropTypes.array.isRequired,
+    tabs: NavigationPropTypes.navigationState.isRequired,
     height: PropTypes.number.isRequired,
     currentTabIndex: PropTypes.number.isRequired,
     switchTab: PropTypes.func.isRequired
   },
 
   render() {
-    const buttons = this.props.tabs.map((tab, index) => (
-      <TabBarButton
-        key={'tab-bar-button-' + tab.title}
-        text={tab.title}
-        action={() => this.props.switchTab(index)}
-        isSelected={index === this.props.currentTabIndex}
-      />
-    ));
-
     return (
       <View style={[styles.navigationBar, {height: this.props.height}]}>
-        {buttons}
+        {this.props.tabs.routes.map((route, index) => (
+          <TabBarButton
+            key={'tab-bar-button-' + route.key}
+            text={route.title}
+            action={() => this.props.switchTab(index)}
+            isSelected={index === this.props.currentTabIndex}
+          />
+        ))}
       </View>
     );
   }

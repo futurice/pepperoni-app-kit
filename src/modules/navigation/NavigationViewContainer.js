@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {popRoute, switchTab, navigationCompleted} from './NavigationState';
+import {pushRoute, popRoute, switchTab, navigationCompleted} from './NavigationState';
 import NavigationView from './NavigationView';
 
 export default connect(
@@ -9,6 +9,9 @@ export default connect(
   dispatch => ({
     switchTab(index) {
       dispatch(switchTab(index));
+    },
+    pushRoute(index) {
+      dispatch(pushRoute(index));
     },
     onNavigateBack() {
       dispatch(popRoute());

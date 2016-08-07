@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
-import AppRouter from './AppRouter';
 import * as auth0 from '../services/auth0';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
@@ -50,7 +49,7 @@ const AppView = React.createClass({
 
     return (
       <View style={{flex: 1}}>
-        <NavigationViewContainer router={AppRouter} />
+        <NavigationViewContainer />
         {__DEV__ && <DeveloperMenu />}
       </View>
     );

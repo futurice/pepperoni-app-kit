@@ -9,11 +9,14 @@ import {hasStyles} from '../../../test/assertions';
 import TabBar from '../TabBar';
 import TabBarButton from '../TabBarButton';
 
-const tabs = [
-  {title: 'Tab 1'},
-  {title: 'Tab 2'},
-  {title: 'Tab 3'}
-];
+const tabs = {
+  index: 0,
+  routes: [
+    {title: 'Tab 1'},
+    {title: 'Tab 2'},
+    {title: 'Tab 3'}
+  ]
+};
 
 describe('<TabBar />', () => {
 
@@ -23,7 +26,7 @@ describe('<TabBar />', () => {
     );
 
     // check that count, order and labels match
-    expect(wrapper.find(TabBarButton)).to.have.lengthOf(tabs.length);
+    expect(wrapper.find(TabBarButton)).to.have.lengthOf(tabs.routes.length);
     expect(wrapper.find(TabBarButton).map(e => e.props().text))
       .to.deep.equal(['Tab 1', 'Tab 2', 'Tab 3']);
   });
