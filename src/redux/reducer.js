@@ -1,5 +1,5 @@
-import {Map} from 'immutable';
-import {combineReducers} from 'redux-loop';
+import {Map, fromJS} from 'immutable';
+import {loop, combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
 import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
@@ -34,9 +34,10 @@ const namespacedReducer = combineReducers(
 );
 
 export default function mainReducer(state, action) {
-  if (action.type === RESET_STATE) {
-    return namespacedReducer(action.payload, action);
-  }
+  const [nextState, effects] = action.type === RESET_STATE
+    ? namespacedReducer(action.payload.state, action)
+    : namespacedReducer(state || void 0, action);
 
-  return namespacedReducer(state || void 0, action);
+  // enforce the state is immutable
+  return loop(fromJS(nextState), effects);
 }
