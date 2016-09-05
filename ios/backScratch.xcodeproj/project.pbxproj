@@ -12,7 +12,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* PepperoniAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PepperoniAppTemplateTests.m */; };
+		00E356F31AD99517003FC87E /* backScratchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* backScratchTests.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -24,7 +24,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1916AD410B0B45C9BEDB553E /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBED167597174594A47B20BE /* libA0RNLock.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		C7892EC5B6C191C5E6B2FFC1 /* libPods-PepperoniAppTemplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F92B97868984683857760 /* libPods-PepperoniAppTemplate.a */; };
+		C7892EC5B6C191C5E6B2FFC1 /* libPods-backScratch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F92B97868984683857760 /* libPods-backScratch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = PepperoniAppTemplate;
+			remoteInfo = backScratch;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -121,25 +121,25 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* PepperoniAppTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PepperoniAppTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* backScratchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = backScratchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* PepperoniAppTemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PepperoniAppTemplateTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* backScratchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = backScratchTests.m; sourceTree = "<group>"; };
 		096D8C90C5FA4424889F5937 /* A0RNLock.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = A0RNLock.xcodeproj; path = "../node_modules/react-native-lock/ios/A0RNLock.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* PepperoniAppTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PepperoniAppTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PepperoniAppTemplate/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = PepperoniAppTemplate/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* backScratch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = backScratch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = backScratch/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = backScratch/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PepperoniAppTemplate/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PepperoniAppTemplate/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PepperoniAppTemplate/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = backScratch/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = backScratch/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = backScratch/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		2A0F92B97868984683857760 /* libPods-PepperoniAppTemplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PepperoniAppTemplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E2990456DA7C38AB444D028 /* Pods-PepperoniAppTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PepperoniAppTemplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		2A0F92B97868984683857760 /* libPods-backScratch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-backScratch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2990456DA7C38AB444D028 /* Pods-backScratch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-backScratch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-backScratch/Pods-backScratch.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		8E3B2937F3EB6D0910A7001B /* Pods-PepperoniAppTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PepperoniAppTemplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		8E3B2937F3EB6D0910A7001B /* Pods-backScratch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-backScratch.release.xcconfig"; path = "Pods/Target Support Files/Pods-backScratch/Pods-backScratch.release.xcconfig"; sourceTree = "<group>"; };
 		CBED167597174594A47B20BE /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +167,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				1916AD410B0B45C9BEDB553E /* libA0RNLock.a in Frameworks */,
-				C7892EC5B6C191C5E6B2FFC1 /* libPods-PepperoniAppTemplate.a in Frameworks */,
+				C7892EC5B6C191C5E6B2FFC1 /* libPods-backScratch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,13 +214,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* PepperoniAppTemplateTests */ = {
+		00E356EF1AD99517003FC87E /* backScratchTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* PepperoniAppTemplateTests.m */,
+				00E356F21AD99517003FC87E /* backScratchTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = PepperoniAppTemplateTests;
+			path = backScratchTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -247,7 +247,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* PepperoniAppTemplate */ = {
+		13B07FAE1A68108700A75B9A /* backScratch */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -258,7 +258,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = PepperoniAppTemplate;
+			name = backScratch;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -272,7 +272,7 @@
 		15F686EF85271E73E222965E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A0F92B97868984683857760 /* libPods-PepperoniAppTemplate.a */,
+				2A0F92B97868984683857760 /* libPods-backScratch.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -314,9 +314,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* PepperoniAppTemplate */,
+				13B07FAE1A68108700A75B9A /* backScratch */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* PepperoniAppTemplateTests */,
+				00E356EF1AD99517003FC87E /* backScratchTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				DA7C7E211152BDE9363CBD92 /* Pods */,
 				15F686EF85271E73E222965E /* Frameworks */,
@@ -328,8 +328,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* PepperoniAppTemplate.app */,
-				00E356EE1AD99517003FC87E /* PepperoniAppTemplateTests.xctest */,
+				13B07F961A680F5B00A75B9A /* backScratch.app */,
+				00E356EE1AD99517003FC87E /* backScratchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -337,8 +337,8 @@
 		DA7C7E211152BDE9363CBD92 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2E2990456DA7C38AB444D028 /* Pods-PepperoniAppTemplate.debug.xcconfig */,
-				8E3B2937F3EB6D0910A7001B /* Pods-PepperoniAppTemplate.release.xcconfig */,
+				2E2990456DA7C38AB444D028 /* Pods-backScratch.debug.xcconfig */,
+				8E3B2937F3EB6D0910A7001B /* Pods-backScratch.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -354,9 +354,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* PepperoniAppTemplateTests */ = {
+		00E356ED1AD99517003FC87E /* backScratchTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PepperoniAppTemplateTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "backScratchTests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -367,14 +367,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = PepperoniAppTemplateTests;
-			productName = PepperoniAppTemplateTests;
-			productReference = 00E356EE1AD99517003FC87E /* PepperoniAppTemplateTests.xctest */;
+			name = backScratchTests;
+			productName = backScratchTests;
+			productReference = 00E356EE1AD99517003FC87E /* backScratchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* PepperoniAppTemplate */ = {
+		13B07F861A680F5B00A75B9A /* backScratch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PepperoniAppTemplate" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "backScratch" */;
 			buildPhases = (
 				AFBB54E34F90DD1C36282261 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -388,9 +388,9 @@
 			);
 			dependencies = (
 			);
-			name = PepperoniAppTemplate;
+			name = backScratch;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* PepperoniAppTemplate.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* backScratch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -408,7 +408,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PepperoniAppTemplate" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "backScratch" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -467,8 +467,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* PepperoniAppTemplate */,
-				00E356ED1AD99517003FC87E /* PepperoniAppTemplateTests */,
+				13B07F861A680F5B00A75B9A /* backScratch */,
+				00E356ED1AD99517003FC87E /* backScratchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -599,7 +599,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-backScratch/Pods-backScratch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		877A58A8D4619B1529992CA6 /* [CP] Copy Pods Resources */ = {
@@ -614,7 +614,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PepperoniAppTemplate/Pods-PepperoniAppTemplate-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-backScratch/Pods-backScratch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AFBB54E34F90DD1C36282261 /* [CP] Check Pods Manifest.lock */ = {
@@ -639,7 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* PepperoniAppTemplateTests.m in Sources */,
+				00E356F31AD99517003FC87E /* backScratchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +657,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* PepperoniAppTemplate */;
+			target = 13B07F861A680F5B00A75B9A /* backScratch */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -669,7 +669,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = PepperoniAppTemplate;
+			path = backScratch;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -683,7 +683,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = PepperoniAppTemplateTests/Info.plist;
+				INFOPLIST_FILE = backScratchTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -691,7 +691,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PepperoniAppTemplate.app/PepperoniAppTemplate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/backScratch.app/backScratch";
 			};
 			name = Debug;
 		};
@@ -700,7 +700,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = PepperoniAppTemplateTests/Info.plist;
+				INFOPLIST_FILE = backScratchTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -708,13 +708,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PepperoniAppTemplate.app/PepperoniAppTemplate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/backScratch.app/backScratch";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E2990456DA7C38AB444D028 /* Pods-PepperoniAppTemplate.debug.xcconfig */;
+			baseConfigurationReference = 2E2990456DA7C38AB444D028 /* Pods-backScratch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEAD_CODE_STRIPPING = NO;
@@ -724,20 +724,20 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
-				INFOPLIST_FILE = PepperoniAppTemplate/Info.plist;
+				INFOPLIST_FILE = backScratch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_NAME = PepperoniAppTemplate;
+				PRODUCT_NAME = backScratch;
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E3B2937F3EB6D0910A7001B /* Pods-PepperoniAppTemplate.release.xcconfig */;
+			baseConfigurationReference = 8E3B2937F3EB6D0910A7001B /* Pods-backScratch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				HEADER_SEARCH_PATHS = (
@@ -746,14 +746,14 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
-				INFOPLIST_FILE = PepperoniAppTemplate/Info.plist;
+				INFOPLIST_FILE = backScratch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_NAME = PepperoniAppTemplate;
+				PRODUCT_NAME = backScratch;
 			};
 			name = Release;
 		};
@@ -848,7 +848,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PepperoniAppTemplateTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "backScratchTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -857,7 +857,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PepperoniAppTemplate" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "backScratch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -866,7 +866,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PepperoniAppTemplate" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "backScratch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

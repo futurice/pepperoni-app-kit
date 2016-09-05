@@ -1,4 +1,4 @@
-rootProject.name = 'PepperoniAppTemplate'
+rootProject.name = 'backScratch'
 
 include ':app'
 include ':react-native-lock'
