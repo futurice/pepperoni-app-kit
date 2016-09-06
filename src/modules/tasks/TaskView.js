@@ -9,6 +9,7 @@ import {
   View,
   ListView
 } from 'react-native';
+import ListItemWithRating from '../../components/ListItemWithRating';
 
 const TaskView = React.createClass({
   getInitialState() {
@@ -26,7 +27,7 @@ const TaskView = React.createClass({
     }
   },
   _getListViewData(tasks) {
-    return tasks.map(item => item.task.properties.taskName);
+    return tasks.map(item => item.task.properties);
   },
   propTypes: {
     tasks: PropTypes.array,
@@ -76,19 +77,13 @@ const TaskView = React.createClass({
 
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+          renderRow={ListItemWithRating}
           style={loadingStyle}
         />
 
         <TouchableOpacity onPress={this.tasks}>
           <Text style={styles.linkButton}>
             Get Tasks
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
           </Text>
         </TouchableOpacity>
 
