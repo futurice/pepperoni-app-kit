@@ -77,6 +77,7 @@ const TaskView = React.createClass({
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <Text>{rowData}</Text>}
+          style={loadingStyle}
         />
 
         <TouchableOpacity onPress={this.tasks}>
