@@ -6,12 +6,30 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  View
+  View,
+  ListView
 } from 'react-native';
 
 const TaskView = React.createClass({
+  getInitialState() {
+    return {
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2
+      })
+    };
+  },
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.tasks !== this.props.tasks) {
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this._getListViewData(nextProps.tasks))
+      });
+    }
+  },
+  _getListViewData(tasks) {
+    return tasks.map(item => item.task.properties.taskName);
+  },
   propTypes: {
-    counter: PropTypes.number.isRequired,
+    tasks: PropTypes.array,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
@@ -56,15 +74,11 @@ const TaskView = React.createClass({
     return (
       <View style={styles.container}>
 
-        {this.renderUserInfo()}
-
-        <TouchableOpacity
-          onPress={this.increment}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            {this.props.counter}
-          </Text>
-        </TouchableOpacity>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+          style={loadingStyle}
+        />
 
         <TouchableOpacity onPress={this.tasks}>
           <Text style={styles.linkButton}>

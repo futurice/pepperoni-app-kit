@@ -4,7 +4,7 @@ import NavigationStateReducer from '../modules/navigation/NavigationState';
 import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
-
+import TaskStateReducer from '../modules/tasks/TaskState';
 const reducers = {
   // Authentication/login state
   auth: AuthStateReducer,
@@ -16,7 +16,9 @@ const reducers = {
   //`navigationState`
   navigationState: NavigationStateReducer,
 
-  session: SessionStateReducer
+  session: SessionStateReducer,
+
+  tasks: TaskStateReducer
 
 };
 

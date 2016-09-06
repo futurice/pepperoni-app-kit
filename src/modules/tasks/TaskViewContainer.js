@@ -3,8 +3,9 @@ import TaskView from './TaskView';
 
 export default connect(
   state => ({
-    counter: state.getIn(['counter', 'value']),
-    loading: state.getIn(['counter', 'loading']),
+    // put tasks here
+    tasks: state.getIn(['tasks', 'value']),
+    loading: state.getIn(['tasks', 'loading']),
     userName: state.getIn(['auth', 'currentUser', 'name']),
     userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture'])
   })

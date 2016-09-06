@@ -11,20 +11,20 @@ describe('TaskState', () => {
 
   // Example of how to test multiple dispatches in series
   xdescribe('getTasks', () => {
-    const getValue = state => state.getIn(['counter', 'value']);
+    // const getValue = state => state.getIn(['tasks', 'value']);
 
     it('should generate a random number and dispatch it', async () => {
       const action = await TaskStateActions.requestTasks();
       expect(action.payload).to.be.a('array');
 
       const [nextState] = dispatch(initialState, action);
-      expect(nextState.getIn(['counter', 'value'])).to.equal(action.payload);
-      expect(nextState.getIn(['counter', 'loading'])).to.equal(false);
+      expect(nextState.getIn(['tasks', 'value'])).to.equal(action.payload);
+      expect(nextState.getIn(['tasks', 'loading'])).to.equal(false);
     });
   });
 
   xdescribe('increment', () => {
-    const getValue = state => state.getIn(['counter', 'value']);
+    const getValue = state => state.getIn(['tasks', 'value']);
 
     it('should increment the value property by one', () => {
       const [secondState] = dispatch(initialState, TaskStateActions.increment());
@@ -36,14 +36,14 @@ describe('TaskState', () => {
   });
 
   xdescribe('reset', () => {
-    it('should reset the counter state to initial value', () => {
+    it('should reset the tasks state to initial value', () => {
       // create an incremented state to test against
       const [modifiedState] = dispatch(initialState, TaskStateActions.increment());
-      expect(modifiedState.get('counter')).to.not.equal(initialState.get('counter'));
+      expect(modifiedState.get('tasks')).to.not.equal(initialState.get('tasks'));
 
       // reset to original and verify it === initial state
       const [resetState] = dispatch(modifiedState, TaskStateActions.reset());
-      expect(resetState.get('counter')).to.equal(initialState.get('counter'));
+      expect(resetState.get('tasks')).to.equal(initialState.get('tasks'));
     });
   });
 
@@ -53,7 +53,7 @@ describe('TaskState', () => {
     const [nextState, effects] = dispatch(initialState, TaskStateActions.tasks());
 
     it('should update loading bit', () => {
-      expect(nextState.getIn(['counter', 'loading'])).to.equal(true);
+      expect(nextState.getIn(['tasks', 'loading'])).to.equal(true);
     });
 
     it('should trigger a requestRandomNumber side effect', () => {
@@ -77,8 +77,8 @@ describe('TaskState', () => {
       expect(action.payload).to.be.a('number');
 
       const [nextState] = dispatch(initialState, action);
-      expect(nextState.getIn(['counter', 'value'])).to.equal(action.payload);
-      expect(nextState.getIn(['counter', 'loading'])).to.equal(false);
+      expect(nextState.getIn(['tasks', 'value'])).to.equal(action.payload);
+      expect(nextState.getIn(['tasks', 'loading'])).to.equal(false);
     });
   });
 });
