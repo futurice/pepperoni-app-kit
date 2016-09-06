@@ -9,7 +9,7 @@ import {
   View,
   ListView
 } from 'react-native';
-import ListItemWithRating from '../../components/ListItemWithRating';
+import ListItemWithIcon from '../../components/ListItemWithIcon';
 
 const TaskView = React.createClass({
   getInitialState() {
@@ -77,7 +77,7 @@ const TaskView = React.createClass({
 
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={ListItemWithRating}
+          renderRow={ListItemWithIcon}
           style={loadingStyle}
         />
 
