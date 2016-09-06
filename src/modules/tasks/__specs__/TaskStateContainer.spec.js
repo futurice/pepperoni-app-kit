@@ -10,7 +10,7 @@ import * as TaskStateActions from '../TaskState';
 describe('TaskState', () => {
 
   // Example of how to test multiple dispatches in series
-  describe('getTasks', () => {
+  xdescribe('getTasks', () => {
     const getValue = state => state.getIn(['counter', 'value']);
 
     it('should generate a random number and dispatch it', async () => {
