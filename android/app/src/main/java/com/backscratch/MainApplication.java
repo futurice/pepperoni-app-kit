@@ -1,4 +1,4 @@
-package com.pepperoniapptemplate;
+package com.backscratch;
 
 import android.app.Application;
 import android.util.Log;

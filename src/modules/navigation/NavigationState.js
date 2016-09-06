@@ -39,8 +39,12 @@ const initialState = fromJS({
   },
   // Scenes for the `HomeTab` tab.
   HomeTab: {
-    index: 0,
-    routes: [{key: 'Counter', title: 'Counter Screen'}]
+    index: 1, // set to 1 to change to the test task route
+    routes: [
+      {key: 'Counter', title: 'Counter Screen'},
+      // add test task route
+      {key: 'Tasks', title: 'Tasks Screen'}
+    ]
   },
   // Scenes for the `ProfileTab` tab.
   ProfileTab: {

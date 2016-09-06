@@ -2,6 +2,7 @@
 
 import React from 'react';
 import CounterViewContainer from './counter/CounterViewContainer';
+import TaskViewContainer from './tasks/TaskViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 
 /**
@@ -12,6 +13,10 @@ export default function AppRouter(props) {
 
   if (key === 'Counter') {
     return <CounterViewContainer />;
+  }
+
+  if (key === 'Tasks') {
+    return <TaskViewContainer />;
   }
 
   if (key.indexOf('Color') === 0) {
