@@ -12,6 +12,13 @@ import {
 import ListItemWithIcon from '../../components/ListItemWithIcon';
 
 const TaskView = React.createClass({
+  propTypes: {
+    tasks: PropTypes.array,
+    userName: PropTypes.string,
+    userProfilePhoto: PropTypes.string,
+    loading: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
+  },
   getInitialState() {
     return {
       dataSource: new ListView.DataSource({
@@ -29,13 +36,6 @@ const TaskView = React.createClass({
   _getListViewData(tasks) {
     return tasks.map(item => item.task.properties);
   },
-  propTypes: {
-    tasks: PropTypes.array,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-  },
   tasks() {
     this.props.dispatch(TaskState.tasks());
   },
@@ -45,7 +45,6 @@ const TaskView = React.createClass({
       title: 'Color Screen'
     }));
   },
-
   renderUserInfo() {
     if (!this.props.userName) {
       return null;
