@@ -33,12 +33,12 @@ const initialState = fromJS({
   tabs: {
     index: 0,
     routes: [
-      {key: 'HomeTab', title: 'HOME'},
-      {key: 'ProfileTab', title: 'PROFILE'}
+      {key: 'TasksTab', title: 'Tasks'},
+      {key: 'ProfileTab', title: 'Profile'}
     ]
   },
-  // Scenes for the `HomeTab` tab.
-  HomeTab: {
+  // Scenes for the `TasksTab` tab.
+  TasksTab: {
     index: 1, // set to 1 to change to the test task route
     routes: [
       {key: 'Counter', title: 'Counter Screen'},

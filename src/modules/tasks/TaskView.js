@@ -9,8 +9,16 @@ import {
   View,
   ListView
 } from 'react-native';
+import ListItemWithIcon from '../../components/ListItemWithIcon';
 
 const TaskView = React.createClass({
+  propTypes: {
+    tasks: PropTypes.array,
+    userName: PropTypes.string,
+    userProfilePhoto: PropTypes.string,
+    loading: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
+  },
   getInitialState() {
     return {
       dataSource: new ListView.DataSource({
@@ -26,14 +34,7 @@ const TaskView = React.createClass({
     }
   },
   _getListViewData(tasks) {
-    return tasks.map(item => item.task.properties.taskName);
-  },
-  propTypes: {
-    tasks: PropTypes.array,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    return tasks.map(item => item.task.properties);
   },
   tasks() {
     this.props.dispatch(TaskState.tasks());
@@ -44,7 +45,6 @@ const TaskView = React.createClass({
       title: 'Color Screen'
     }));
   },
-
   renderUserInfo() {
     if (!this.props.userName) {
       return null;
@@ -76,19 +76,13 @@ const TaskView = React.createClass({
 
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+          renderRow={ListItemWithIcon}
           style={loadingStyle}
         />
 
         <TouchableOpacity onPress={this.tasks}>
           <Text style={styles.linkButton}>
             Get Tasks
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
           </Text>
         </TouchableOpacity>
 
