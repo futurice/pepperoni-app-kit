@@ -17,14 +17,11 @@ const CounterView = React.createClass({
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
-  increment() {
-    this.props.dispatch(TaskManagerState.increment());
-  },
   reset() {
     this.props.dispatch(TaskManagerState.reset());
   },
-  random() {
-    this.props.dispatch(TaskManagerState.random());
+  post() {
+    this.props.dispatch(TaskManagerState.post());
   },
   bored() {
     this.props.dispatch(NavigationState.pushRoute({
@@ -78,9 +75,9 @@ const CounterView = React.createClass({
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.random}>
+        <TouchableOpacity onPress={this.post}>
           <Text style={styles.linkButton}>
-            Random
+            Post Task
           </Text>
         </TouchableOpacity>
 
