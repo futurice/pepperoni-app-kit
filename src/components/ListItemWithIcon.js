@@ -1,11 +1,48 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {TouchableHighlight, Text, View, Image, StyleSheet} from 'react-native';
 
 const ListItemWithIcon = (rowData) => (
-  <View>
-    <Text>{rowData.taskName}</Text>
-    <Text>{rowData.desc}</Text>
-  </View>
+  <TouchableHighlight underlayColor='#dddddd'>
+    <View>
+      <View style={styles.container}>
+        <Image
+          style={styles.thumbnail}
+        />
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{rowData.taskName}</Text>
+          <Text style={styles.desc}>{rowData.desc}</Text>
+        </View>
+      </View>
+      <View style={styles.seperator} />
+    </View>
+  </TouchableHighlight>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    padding: 20
+  },
+  seperator: {
+    height: 1,
+    backgroundColor: '#BDBDBD'
+  },
+  thumbnail: {
+    width: 50,
+    height: 50,
+    marginRight: 10
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 8
+  },
+  desc: {
+    color: '#656565'
+  }
+});
 
 export default ListItemWithIcon;
