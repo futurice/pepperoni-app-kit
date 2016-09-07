@@ -4,6 +4,7 @@ import React from 'react';
 import CounterViewContainer from './counter/CounterViewContainer';
 import TaskViewContainer from './tasks/TaskViewContainer';
 import TaskManagerViewContainer from './taskManager/TaskManagerViewContainer';
+import TaskFormViewContainer from './taskManager/taskForm/TaskFormViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 
 /**
@@ -24,6 +25,12 @@ export default function AppRouter(props) {
     return <TaskViewContainer />;
   }
 
+  if (key === 'NewTask') {
+    return <TaskFormViewContainer />;
+  }
+
+  // if Color is clicked more than once the 'key' is appended
+  // with a number e.g.: 'Color_1'. Therefore `key === 'Color'` will not work
   if (key.indexOf('Color') === 0) {
     const index = props.scenes.indexOf(props.scene);
     return (

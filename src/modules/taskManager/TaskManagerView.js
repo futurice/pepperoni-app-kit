@@ -17,17 +17,14 @@ const CounterView = React.createClass({
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
-  reset() {
-    this.props.dispatch(TaskManagerState.reset());
+  navToForm() {
+    this.props.dispatch(NavigationState.pushRoute({
+      key: 'NewTask',
+      title: 'Create a new task'
+    }));
   },
   post() {
     this.props.dispatch(TaskManagerState.post());
-  },
-  bored() {
-    this.props.dispatch(NavigationState.pushRoute({
-      key: 'Color',
-      title: 'Color Screen'
-    }));
   },
 
   renderUserInfo() {
@@ -69,21 +66,9 @@ const CounterView = React.createClass({
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.reset}>
+        <TouchableOpacity onPress={this.navToForm} accessible={true}>
           <Text style={styles.linkButton}>
-            Reset
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.post}>
-          <Text style={styles.linkButton}>
-            Post Task
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.bored} accessible={true}>
-          <Text style={styles.linkButton}>
-            {'I\'m bored!'}
+            Create a new task
           </Text>
         </TouchableOpacity>
 
