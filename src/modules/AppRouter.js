@@ -3,6 +3,7 @@
 import React from 'react';
 import CounterViewContainer from './counter/CounterViewContainer';
 import TaskViewContainer from './tasks/TaskViewContainer';
+import TaskManagerViewContainer from './taskManager/TaskManagerViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 
 /**
@@ -13,6 +14,10 @@ export default function AppRouter(props) {
 
   if (key === 'Counter') {
     return <CounterViewContainer />;
+  }
+
+  if (key === 'TaskManager') {
+    return <TaskManagerViewContainer />;
   }
 
   if (key === 'Tasks') {

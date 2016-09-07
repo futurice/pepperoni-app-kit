@@ -35,7 +35,8 @@ const initialState = fromJS({
     routes: [
       {key: 'ProfileTab', title: 'Profile'},
       {key: 'TasksTab', title: 'Tasks'},
-      {key: 'LeaderboardTab', title: 'Leaderboard'}
+      {key: 'TaskManagerTab', title: 'Task Manager'}
+      // {key: 'LeaderboardTab', title: 'Leaderboard'}
     ]
   },
   // Scenes for the `ProfileTab` tab.
@@ -53,12 +54,18 @@ const initialState = fromJS({
       {key: 'Counter', title: 'Counter Screen'}
     ]
   },
-  LeaderboardTab: {
+  TaskManagerTab: {
     index: 0,
     routes: [
-      {key: 'Leaderboard', title: 'Leaderboard'}
+      {key: 'TaskManager', title: 'Task Manager'}
     ]
   }
+  // LeaderboardTab: {
+  //   index: 0,
+  //   routes: [
+  //     {key: 'Leaderboard', title: 'Leaderboard'}
+  //   ]
+  // }
 });
 
 export default function NavigationReducer(state = initialState, action) {

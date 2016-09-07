@@ -26,6 +26,7 @@ const NavigationView = React.createClass({
       tabs: NavigationPropTypes.navigationState.isRequired,
       ProfileTab: NavigationPropTypes.navigationState.isRequired,
       TasksTab: NavigationPropTypes.navigationState.isRequired,
+      TaskManagerTab: NavigationPropTypes.navigationState.isRequired
       // LeaderboardTab: NavigationPropTypes.navigationState.isRequired
     }),
     switchTab: PropTypes.func.isRequired,

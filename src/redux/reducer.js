@@ -5,6 +5,8 @@ import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 import TaskStateReducer from '../modules/tasks/TaskState';
+import TaskManagerStateReducer from '../modules/taskManager/TaskManagerState';
+
 const reducers = {
   // Authentication/login state
   auth: AuthStateReducer,
@@ -18,7 +20,9 @@ const reducers = {
 
   session: SessionStateReducer,
 
-  tasks: TaskStateReducer
+  tasks: TaskStateReducer,
+
+  taskManger: TaskManagerStateReducer
 
 };
 
