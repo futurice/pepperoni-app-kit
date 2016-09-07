@@ -37,6 +37,7 @@ const NavigationView = React.createClass({
   renderHeader(sceneProps) {
     return (
       <NavigationHeader
+        style={styles.header}
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
         renderTitleComponent={() => {
@@ -90,7 +91,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: APP_BAR_HEIGHT,
     marginBottom: TAB_BAR_HEIGHT
-  }
+  },
+  header: {
+    backgroundColor: '#388E3C'
+  },
 });
 
 export default NavigationView;
