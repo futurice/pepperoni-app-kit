@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {
+  Text,
   NavigationExperimental,
   View,
   Platform,
@@ -37,14 +38,14 @@ const NavigationView = React.createClass({
   renderHeader(sceneProps) {
     return (
       <NavigationHeader
-        style={styles.header}
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
+        style={styles.header}
         renderTitleComponent={() => {
           return (
-            <NavigationHeader.Title>
+            <Text style={styles.text}>
               {sceneProps.scene.route.title}
-            </NavigationHeader.Title>
+            </Text>
           );
         }}
       />
@@ -94,6 +95,14 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#388E3C'
+  },
+  text: {
+    color: '#FFFFFF',
+    flex: 1,
+    fontSize: 25,
+    marginTop: 2,
+    fontWeight: '500',
+    textAlign: Platform.OS === 'ios' ? 'center' : 'left'
   }
 });
 
