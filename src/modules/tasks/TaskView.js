@@ -3,21 +3,31 @@ import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
-  TouchableOpacity,
   Image,
   Text,
   View,
-  ListView
+  ListView,
+  ActivityIndicator
 } from 'react-native';
 import ListItemWithIcon from '../../components/ListItemWithIcon';
 
 const TaskView = React.createClass({
+  propTypes: {
+    tasks: PropTypes.array,
+    userName: PropTypes.string,
+    userProfilePhoto: PropTypes.string,
+    loading: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
+  },
   getInitialState() {
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2
       })
     };
+  },
+  componentDidMount() {
+    this.tasks();
   },
   componentWillReceiveProps(nextProps) {
     if (nextProps.tasks !== this.props.tasks) {
@@ -29,13 +39,6 @@ const TaskView = React.createClass({
   _getListViewData(tasks) {
     return tasks.map(item => item.task.properties);
   },
-  propTypes: {
-    tasks: PropTypes.array,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-  },
   tasks() {
     this.props.dispatch(TaskState.tasks());
   },
@@ -45,7 +48,6 @@ const TaskView = React.createClass({
       title: 'Color Screen'
     }));
   },
-
   renderUserInfo() {
     if (!this.props.userName) {
       return null;
@@ -67,28 +69,30 @@ const TaskView = React.createClass({
       </View>
     );
   },
-  render() {
-    const loadingStyle = this.props.loading
-      ? {backgroundColor: '#eee'}
-      : null;
-
+  renderLoadingView() {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator size='large' />
+        <Text>Loading Tasks...</Text>
+      </View>
+    );
+  },
+  renderListView() {
     return (
       <View style={styles.container}>
 
         <ListView
           dataSource={this.state.dataSource}
           renderRow={ListItemWithIcon}
-          style={loadingStyle}
         />
-
-        <TouchableOpacity onPress={this.tasks}>
-          <Text style={styles.linkButton}>
-            Get Tasks
-          </Text>
-        </TouchableOpacity>
 
       </View>
     );
+  },
+  render() {
+    return this.props.loading
+      ? this.renderLoadingView()
+      : this.renderListView();
   }
 });
 
@@ -137,6 +141,11 @@ const styles = StyleSheet.create({
     color: '#CCCCCC',
     marginBottom: 10,
     padding: 5
+  },
+  loading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

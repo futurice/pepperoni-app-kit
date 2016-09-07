@@ -31,25 +31,33 @@ export function popRoute() {
 // reducers for tabs and scenes are separate
 const initialState = fromJS({
   tabs: {
-    index: 0,
+    index: 1,
     routes: [
-      {key: 'HomeTab', title: 'HOME'},
-      {key: 'ProfileTab', title: 'PROFILE'}
-    ]
-  },
-  // Scenes for the `HomeTab` tab.
-  HomeTab: {
-    index: 1, // set to 1 to change to the test task route
-    routes: [
-      {key: 'Counter', title: 'Counter Screen'},
-      // add test task route
-      {key: 'Tasks', title: 'Tasks Screen'}
+      {key: 'ProfileTab', title: 'Profile'},
+      {key: 'TasksTab', title: 'Tasks'},
+      {key: 'LeaderboardTab', title: 'Leaderboard'}
     ]
   },
   // Scenes for the `ProfileTab` tab.
   ProfileTab: {
     index: 0,
-    routes: [{key: 'Color', title: 'Color Screen'}]
+    routes: [
+      {key: 'Color', title: 'Color Screen'}
+    ]
+  },
+  // Scenes for the `TasksTab` tab.
+  TasksTab: {
+    index: 0, // set to 1 to change to the test task route
+    routes: [
+      {key: 'Tasks', title: 'Tasks'},
+      {key: 'Counter', title: 'Counter Screen'}
+    ]
+  },
+  LeaderboardTab: {
+    index: 0,
+    routes: [
+      {key: 'Leaderboard', title: 'Leaderboard'}
+    ]
   }
 });
 
