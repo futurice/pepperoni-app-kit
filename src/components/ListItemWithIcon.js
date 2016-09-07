@@ -37,11 +37,12 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   title: {
+    color: '#212121',
     fontSize: 20,
     marginBottom: 8
   },
   desc: {
-    color: '#656565'
+    color: '#757575'
   }
 });
 
