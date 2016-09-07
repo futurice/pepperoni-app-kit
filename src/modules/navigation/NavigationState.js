@@ -31,7 +31,7 @@ export function popRoute() {
 // reducers for tabs and scenes are separate
 const initialState = fromJS({
   tabs: {
-    index: 1,
+    index: 2,
     routes: [
       {key: 'ProfileTab', title: 'Profile'},
       {key: 'TasksTab', title: 'Tasks'},

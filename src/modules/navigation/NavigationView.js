@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#388E3C'
-  },
+  }
 });
 
 export default NavigationView;
