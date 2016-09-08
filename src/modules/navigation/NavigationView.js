@@ -94,7 +94,12 @@ const styles = StyleSheet.create({
     marginBottom: TAB_BAR_HEIGHT
   },
   header: {
-    backgroundColor: '#4CAF50'
+    backgroundColor: '#4CAF50',
+    borderBottomWidth: 1,
+    borderColor: '#4CAF50',
+    shadowColor: '#212121',
+    shadowOpacity: .5,
+    shadowOffset: {height: 3}
   },
   text: {
     color: '#FFFFFF',
