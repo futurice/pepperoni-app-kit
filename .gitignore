@@ -1,6 +1,8 @@
 # OSX
 #
 .DS_Store
+tsconfig.json
+.vscode
 
 # Xcode
 #
