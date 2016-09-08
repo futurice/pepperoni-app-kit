@@ -12,7 +12,14 @@ import {
 const ProfileView = React.createClass({
   propTypes: {
     userName: PropTypes.string,
+    userId: PropTypes.string,
     userProfilePhoto: PropTypes.string,
+    coins: PropTypes.number,
+    stars: PropTypes.number,
+    requestedTasks: PropTypes.array,
+    assignedTasks: PropTypes.array,
+    bio: PropTypes.string,
+    tasksCompleted: PropTypes.number,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
