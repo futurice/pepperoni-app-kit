@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     padding: 15
   },
   seperator: {
+    width: 400,
     height: 1,
     backgroundColor: '#BDBDBD'
   },
