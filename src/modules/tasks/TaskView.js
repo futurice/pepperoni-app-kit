@@ -72,8 +72,8 @@ const TaskView = React.createClass({
   renderLoadingView() {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator size='large' />
-        <Text>Loading Tasks...</Text>
+        <ActivityIndicator size='large' color='#FF4081' style={styles.loadCircle}/>
+        <Text style={styles.loadText}>Loading Tasks...</Text>
       </View>
     );
   },
@@ -145,7 +145,15 @@ const styles = StyleSheet.create({
   loading: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF'
+  },
+  loadText: {
+    fontSize: 20
+  },
+  loadCircle: {
+    width: 100,
+    height: 100,
   }
 });
 

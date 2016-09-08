@@ -8,6 +8,9 @@ import {
   Text,
   View
 } from 'react-native';
+import {
+  MKButton
+} from 'react-native-material-kit';
 
 const CounterView = React.createClass({
   propTypes: {
@@ -66,12 +69,11 @@ const CounterView = React.createClass({
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.navToForm} accessible={true}>
+        <TouchableOpacity onPress={this.navToForm} accessible={true} style={styles.button}>
           <Text style={styles.linkButton}>
-            Create a new task
+            Create a task
           </Text>
         </TouchableOpacity>
-
       </View>
     );
   }
@@ -117,11 +119,19 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     padding: 5
   },
+  button: {
+    backgroundColor: '#FF4081',
+    padding: 20,
+    borderRadius: 5,
+    shadowColor: '#212121',
+    shadowOpacity: .5,
+    shadowOffset: {height: 5}
+  },
   linkButton: {
+    fontSize: 20,
+    fontWeight: '500',
     textAlign: 'center',
-    color: '#CCCCCC',
-    marginBottom: 10,
-    padding: 5
+    color: '#FFFFFF'
   }
 });
 

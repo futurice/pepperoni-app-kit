@@ -11,7 +11,7 @@ const ListItemWithIcon = (rowData) => (
         />
         <View style={styles.rightContainer}>
           <Text style={styles.title}>{rowData.taskName}</Text>
-          <Text style={styles.desc}>{Helpers.shortDesc(rowData.desc)}</Text>
+          <Text style={styles.desc}>{Helpers.shortDesc(rowData.desc, 30)}</Text>
         </View>
       </View>
       <View style={styles.seperator} />
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    padding: 15
+    padding: 10
   },
   seperator: {
     width: 400,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     color: '#212121',
     fontSize: 20,
-    marginBottom: 8
+    marginBottom: 4
   },
   desc: {
     color: '#757575'
