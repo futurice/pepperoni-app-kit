@@ -2,10 +2,9 @@ import React, {PropTypes} from 'react';
 import {
   Text,
   NavigationExperimental,
-  View,
-  Platform,
-  StyleSheet
+  View
 } from 'react-native';
+import styles from '../../styles';
 const {
   CardStack: NavigationCardStack,
   Header: NavigationHeader,
@@ -14,8 +13,6 @@ const {
 import AppRouter from '../AppRouter';
 import TabBar from '../../components/TabBar';
 
-// Height duplicated from React Native NavigationHeader component
-const APP_BAR_HEIGHT = Platform.OS === 'ios' ? 64 : 56;
 // Customize bottom tab bar height here if desired
 const TAB_BAR_HEIGHT = 50;
 
@@ -40,10 +37,10 @@ const NavigationView = React.createClass({
       <NavigationHeader
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
-        style={styles.header}
+        style={styles.nav_header}
         renderTitleComponent={() => {
           return (
-            <Text style={styles.text}>
+            <Text style={styles.nav_text}>
               {sceneProps.scene.route.title}
             </Text>
           );
@@ -65,7 +62,7 @@ const NavigationView = React.createClass({
     const tabKey = tabs.routes[tabs.index].key;
     const scenes = this.props.navigationState[tabKey];
     return (
-      <View style={styles.container}>
+      <View style={styles.nav_container}>
         <NavigationCardStack
           key={'stack_' + tabKey}
           onNavigateBack={this.props.onNavigateBack}
@@ -81,33 +78,6 @@ const NavigationView = React.createClass({
         />
       </View>
     );
-  }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  sceneContainer: {
-    flex: 1,
-    marginTop: APP_BAR_HEIGHT,
-    marginBottom: TAB_BAR_HEIGHT
-  },
-  header: {
-    backgroundColor: '#4CAF50',
-    borderBottomWidth: 1,
-    borderColor: '#4CAF50',
-    shadowColor: '#212121',
-    shadowOpacity: .5,
-    shadowOffset: {height: 3}
-  },
-  text: {
-    color: '#FFFFFF',
-    flex: 1,
-    fontSize: 25,
-    marginTop: 2,
-    fontWeight: '500',
-    textAlign: Platform.OS === 'ios' ? 'center' : 'left'
   }
 });
 
