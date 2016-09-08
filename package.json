@@ -39,6 +39,7 @@
     "react-native": "^0.29.0",
     "react-native-form-generator": "^0.9.9",
     "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
+    "react-native-material-kit": "^0.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
