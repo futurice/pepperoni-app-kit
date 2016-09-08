@@ -43,7 +43,7 @@ const initialState = fromJS({
   ProfileTab: {
     index: 0,
     routes: [
-      {key: 'Color', title: 'Color Screen'}
+      {key: 'Profile', title: 'Profile'}
     ]
   },
   // Scenes for the `TasksTab` tab.
