@@ -1,7 +1,7 @@
 const Helpers = {
-  shortDesc: (string) => {
-    if (string.length > 30) {
-      var cutString = string.substring(0, 30);
+  shortDesc: (string, letterCount) => {
+    if (string.length > letterCount) {
+      var cutString = string.substring(0, letterCount);
       return cutString + '...';
     }
     else {
