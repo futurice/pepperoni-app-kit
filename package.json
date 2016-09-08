@@ -37,6 +37,7 @@
     "react": "~15.2.0",
     "react-dom": "~15.2.0",
     "react-native": "^0.29.0",
+    "react-native-calendar": "^0.7.0",
     "react-native-form-generator": "^0.9.9",
     "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
     "react-native-material-kit": "^0.3.2",
