@@ -1,7 +1,9 @@
 import Calendar from 'react-native-calendar';
 import React, {PropTypes} from 'react';
 import {
-  ScrollView
+  ScrollView,
+  TouchableOpacity,
+  Text
 } from 'react-native';
 import {
   Form,
@@ -9,22 +11,22 @@ import {
   InputField,
   PickerField
 } from 'react-native-form-generator';
+import styles from '../../../styles';
 
-// import * as NavigationState from '../../../modules/navigation/NavigationState';
-
-/**
- * Sample view to demonstrate navigation patterns.
- * @TODO remove this module in a live application.
- */
 const TaskFormView = React.createClass({
   propTypes: {
     dispatch: PropTypes.func.isRequired
   },
 
+  submitTask() {
+    this.props.dispatch(NavigationState.pushRoute({
+      key: 'SubmitTask',
+      title: 'Submit Task'
+    }));
+  },
+
   getInitialState() {
-    return {
-      background: '#FFFFFF'
-    };
+    return {}
   },
 
   render() {
@@ -68,12 +70,18 @@ const TaskFormView = React.createClass({
             helpText='Tell us where the task will done.'
           />
           <Calendar
-          scrollEnabled={true}
-          dayHeadings={['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']}
-          weekStart={0}
-          customStyle={{currentDayCircle: {backgroundColor: '#388E3C'}}}
+            scrollEnabled={true}
+            dayHeadings={['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']}
+            weekStart={0}
+            customStyle={{currentDayCircle: {backgroundColor: '#388E3C'}}}
+
          />
         </Form>
+        <TouchableOpacity onPress={this.submitTask} accessible={true} style={styles.button}>
+          <Text style={styles.linkButton}>
+            Create a task
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     );
   }
