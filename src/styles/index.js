@@ -73,11 +73,12 @@ const styles = {
     backgroundColor: colors.accent,
     padding: 20,
     borderRadius: 5,
+    margin: 20,
     shadowColor: colors.black,
     shadowOpacity: .5,
     shadowOffset: {height: 5}
   },
-  linkButton: {
+  buttonText: {
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
@@ -93,7 +94,7 @@ const styles = {
     backgroundColor: colors.white
   },
   loadText: {
-    fontSize: 20
+    fontSize: 40
   },
   loadCircle: {
     width: 100,
