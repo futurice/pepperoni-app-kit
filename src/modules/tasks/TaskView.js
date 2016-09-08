@@ -2,7 +2,6 @@ import * as TaskState from './TaskState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
-  StyleSheet,
   Image,
   Text,
   View,
@@ -42,33 +41,6 @@ const TaskView = React.createClass({
   },
   tasks() {
     this.props.dispatch(TaskState.tasks());
-  },
-  bored() {
-    this.props.dispatch(NavigationState.pushRoute({
-      key: 'Color',
-      title: 'Color Screen'
-    }));
-  },
-  renderUserInfo() {
-    if (!this.props.userName) {
-      return null;
-    }
-
-    return (
-      <View style={styles.userContainer}>
-        <Image
-          style={styles.userProfilePhoto}
-          source={{
-            uri: this.props.userProfilePhoto,
-            width: 80,
-            height: 80
-          }}
-        />
-        <Text style={styles.linkButton}>
-          Welcome, {this.props.userName}!
-        </Text>
-      </View>
-    );
   },
   renderLoadingView() {
     return (
