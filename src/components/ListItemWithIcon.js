@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Text, View, Image, StyleSheet} from 'react-native';
+import Helpers from '../utils/helpers';
 
 const ListItemWithIcon = (rowData) => (
   <TouchableHighlight underlayColor='#dddddd'>
@@ -10,7 +11,7 @@ const ListItemWithIcon = (rowData) => (
         />
         <View style={styles.rightContainer}>
           <Text style={styles.title}>{rowData.taskName}</Text>
-          <Text style={styles.desc}>{rowData.desc}</Text>
+          <Text style={styles.desc}>{Helpers.shortDesc(rowData.desc)}</Text>
         </View>
       </View>
       <View style={styles.seperator} />
@@ -25,9 +26,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    padding: 20
+    padding: 15
   },
   seperator: {
+    width: 400,
     height: 1,
     backgroundColor: '#BDBDBD'
   },
