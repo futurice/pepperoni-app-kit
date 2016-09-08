@@ -6,7 +6,7 @@ export default connect(
     userName: state.getIn(['auth', 'currentUser', 'name']),
     userId: state.getIn(['auth', 'currentUser', 'userId']),
     userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture']),
-    stars: state.getIn(['user', 'stars']),
+    rating: state.getIn(['user', 'rating']),
     coins: state.getIn(['user', 'coins']),
     tasksCompleted: state.getIn('user', 'tasksCompleted'),
     assignedTasks: state.getIn(['user', 'assignedTasks']),

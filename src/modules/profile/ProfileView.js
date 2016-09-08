@@ -15,7 +15,7 @@ const ProfileView = React.createClass({
     userId: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     coins: PropTypes.number,
-    stars: PropTypes.number,
+    rating: PropTypes.number,
     requestedTasks: PropTypes.array,
     assignedTasks: PropTypes.array,
     bio: PropTypes.string,
