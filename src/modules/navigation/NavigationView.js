@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     marginBottom: TAB_BAR_HEIGHT
   },
   header: {
-    backgroundColor: '#388E3C'
+    backgroundColor: '#4CAF50'
   },
   text: {
     color: '#FFFFFF',
