@@ -1,4 +1,4 @@
-import * as TaskFormState from './TaskFormState';
+import _ from 'underscore';
 import Calendar from 'react-native-calendar';
 import React, {PropTypes} from 'react';
 import {
@@ -12,6 +12,7 @@ import {
   InputField,
   PickerField
 } from 'react-native-form-generator';
+import * as TaskFormState from './TaskFormState';
 import styles from '../../../styles';
 
 const TaskFormView = React.createClass({
@@ -20,7 +21,9 @@ const TaskFormView = React.createClass({
   },
 
   getInitialState() {
-    return {};
+    return {
+      deadlineDate: ''
+    };
   },
 
   handleFormFocus() {
@@ -38,7 +41,9 @@ const TaskFormView = React.createClass({
     if (isFormValid) {
       let formData = this.refs.taskForm.values;
       this.props.dispatch(TaskFormState.post(formData));
-      console.log(formData);
+      formData = _.extend(formData, {
+        deadlineDate: this.state.deadlineDate
+      })
     }
   },
 
@@ -98,6 +103,7 @@ const TaskFormView = React.createClass({
             dayHeadings={['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']}
             weekStart={0}
             customStyle={{currentDayCircle: {backgroundColor: '#388E3C'}}}
+            onDateSelect={(date) => { this.setState({ deadlineDate: date }) }}
          />
         </Form>
         <TouchableOpacity onPress={this.submitTask} accessible={true} style={styles.button}>
