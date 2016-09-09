@@ -25,21 +25,24 @@ const TaskFormView = React.createClass({
 
   handleFormFocus() {
     // phone keyboard pop up on focus
-  },
+  }, 
 
   submitTask() {
-    if (this.refs.taskForm.values.taskName && 
-        this.refs.taskForm.values.desc && 
-        this.refs.taskForm.values.type &&
-        this.refs.taskForm.values.difficulty &&
-        this.refs.taskForm.values.address
-        ) {
+
+    let isFormValid = () => {
+      if (this.refs.taskForm.values.taskName && 
+          this.refs.taskForm.values.desc && 
+          this.refs.taskForm.values.type &&
+          this.refs.taskForm.values.difficulty &&
+          this.refs.taskForm.values.address) {
+        return true;
+      } else return false;
+    }
+
+    if (isFormValid()) {
       let formData = this.refs.taskForm.values;
       this.props.dispatch(TaskFormState.post(formData));
       console.log(formData);
-    } 
-    else {
-      console.log('Ain\'t no damn task');
     }
   },
 
