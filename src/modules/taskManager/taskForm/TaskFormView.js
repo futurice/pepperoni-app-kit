@@ -1,3 +1,4 @@
+import * as TaskFormState from './TaskFormState';
 import Calendar from 'react-native-calendar';
 import React, {PropTypes} from 'react';
 import {
@@ -14,22 +15,22 @@ import {
 import styles from '../../../styles';
 
 const TaskFormView = React.createClass({
-  handleFormFocus() {
-    // phone keyboard pop up on focus
+  propTypes: {
+    dispatch: PropTypes.func.isRequired
   },
 
   getInitialState() {
-    return {}
+    return {};
   },
 
-  propTypes: {
-    dispatch: PropTypes.func.isRequired
+  handleFormFocus() {
+    // phone keyboard pop up on focus
   },
 
   submitTask() {
     let formData = this.refs.taskForm.values;
     console.log(formData);
-
+    this.props.dispatch(TaskFormState.post(formData));
     // this.props.dispatch(NavigationState.pushRoute({
     //   key: 'SubmitTask',
     //   title: 'Submit Task'

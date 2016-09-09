@@ -1,59 +1,45 @@
 import {Map} from 'immutable';
 import {loop, Effects} from 'redux-loop';
-import {postTask} from '../../services/backScratchService';
+import {postTask} from '../../../services/backScratchService';
 // Initial state
 const initialState = Map({
-  value: 0,
+  createdTask: {},
   loading: false
 });
 
 // Actions
-const INCREMENT = 'CounterState/INCREMENT';
-const RESET = 'CounterState/RESET';
-const RANDOM_REQUEST = 'CounterState/RANDOM_REQUEST';
-const RANDOM_RESPONSE = 'CounterState/RANDOM_RESPONSE';
+const POST_REQUEST = 'TaskFormState/POST_REQUEST';
+const POST_RESPONSE = 'TaskFormState/POST_RESPONSE';
 
+// ----------- https://github.com/redux-loop/redux-loop --------------
 // Action creators
-export function increment() {
-  return {type: INCREMENT};
-}
-
-export function reset() {
-  return {type: RESET};
-}
-
-export function random() {
+export function post(task) {
   return {
-    type: RANDOM_REQUEST
+    type: POST_REQUEST,
+    payload: task
   };
 }
 
-export async function requestRandomNumber() {
+export async function createNewTask(task) {
   return {
-    type: RANDOM_RESPONSE,
-    payload: await generateRandomNumber()
+    type: POST_RESPONSE,
+    payload: await postTask(task)
   };
 }
 
 // Reducer
-export default function CounterStateReducer(state = initialState, action = {}) {
+export default function TaskFormStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case INCREMENT:
-      return state.update('value', value => value + 1);
-
-    case RESET:
-      return initialState;
-
-    case RANDOM_REQUEST:
+    case POST_REQUEST:
       return loop(
         state.set('loading', true),
-        Effects.promise(requestRandomNumber)
+        Effects.promise(createNewTask, action.payload)
       );
 
-    case RANDOM_RESPONSE:
+    case POST_RESPONSE:
       return state
         .set('loading', false)
-        .set('value', action.payload);
+        .set('createTask', action.payload);
 
     default:
       return state;
