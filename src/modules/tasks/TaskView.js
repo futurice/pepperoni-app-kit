@@ -64,7 +64,7 @@ const TaskView = React.createClass({
 
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={ListItemWithIcon.bind(this)}
+          renderRow={ListItemWithIcon}
         />
 
       </View>
