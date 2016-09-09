@@ -7,6 +7,8 @@ import {
   StyleSheet
 } from 'react-native';
 import * as NavigationState from '../modules/navigation/NavigationState';
+import * as TaskState from '../modules/tasks/TaskState';
+
 import Helpers from '../utils/helpers';
 
 const typeIcons = {
@@ -18,13 +20,22 @@ const typeIcons = {
   physical_labor: require('../styles/icons/physical_labor.png')
 };
 
+const navigate = (rowData) => {
+  rowData.dispatch(
+    TaskState.selectTask(rowData)
+  );
+  rowData.dispatch(
+    NavigationState.pushRoute({
+      key: 'TaskDetail',
+      title: 'Task Details'
+    })
+  );
+};
+
 const ListItemWithIcon = (rowData) => (
   <TouchableOpacity
     underlayColor='#dddddd'
-    onPress={rowData.dispatch.bind(null, NavigationState.pushRoute({
-      key: 'TaskDetail',
-      title: 'Task Details'
-    }))}
+    onPress={navigate.bind(null, rowData)}
   >
     <View>
       <View style={styles.container}>
