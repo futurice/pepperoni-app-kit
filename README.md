@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/infinitetoast/backScratch-client-p.png?label=ready&title=Ready)](https://waffle.io/infinitetoast/backScratch-client-p)
 ![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
 Futurice React Native Starter Kit
 ===
