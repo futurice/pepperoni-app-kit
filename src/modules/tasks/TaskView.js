@@ -1,8 +1,7 @@
 import * as TaskState from './TaskState';
-import * as NavigationState from '../../modules/navigation/NavigationState';
+// import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
-  Image,
   Text,
   View,
   ListView,

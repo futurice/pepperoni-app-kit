@@ -1,5 +1,5 @@
 import * as ProfileState from './ProfileState';
-import * as NavigationState from '../../modules/navigation/NavigationState';
+// import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,

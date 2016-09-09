@@ -6,6 +6,7 @@ import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 import TaskStateReducer from '../modules/tasks/TaskState';
 import TaskManagerStateReducer from '../modules/taskManager/TaskManagerState';
+import TaskFormStateReducer from '../modules/taskManager/taskForm/TaskFormState';
 import ProfileStateReducer from '../modules/profile/ProfileState';
 
 const reducers = {
@@ -24,6 +25,8 @@ const reducers = {
   tasks: TaskStateReducer,
 
   taskManger: TaskManagerStateReducer,
+
+  taskForm: TaskFormStateReducer,
 
   user: ProfileStateReducer
 
