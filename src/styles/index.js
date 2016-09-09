@@ -99,6 +99,25 @@ const styles = {
   loadCircle: {
     width: 100,
     height: 100
+  },
+  detailTitleText: {
+    fontSize: 30,
+    marginTop: 15
+  },
+  detailSubtitleText: {
+    fontSize: 25,
+    marginTop: 10
+  },
+  detailInfoContainer: {
+  },
+  detailInfoText: {
+    padding: 20,
+    paddingBottom: 0
+  },
+  detailSeperator: {
+    width: 300,
+    height: 1,
+    backgroundColor: colors.divider
   }
 };
 
