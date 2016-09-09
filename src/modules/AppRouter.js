@@ -5,6 +5,7 @@ import CounterViewContainer from './counter/CounterViewContainer';
 import TaskViewContainer from './tasks/TaskViewContainer';
 import TaskManagerViewContainer from './taskManager/TaskManagerViewContainer';
 import TaskFormViewContainer from './taskManager/taskForm/TaskFormViewContainer';
+import TaskDetailViewContainer from './tasks/taskDetail/TaskDetailViewContainer';
 import ProfileViewContainer from './profile/ProfileViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 
@@ -35,8 +36,7 @@ export default function AppRouter(props) {
   }
 
   if (key === 'TaskDetail') {
-    // return <TaskDetailViewContainer />;
-    return <CounterViewContainer />;
+    return <TaskDetailViewContainer />;
   }
 
   // if Color is clicked more than once the 'key' is appended
