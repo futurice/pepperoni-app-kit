@@ -38,15 +38,14 @@ const TaskView = React.createClass({
   },
   _getListViewData(tasks) {
     const dispatch = this.props.dispatch;
-    return tasks.map(function (item) { 
-      return _.extend(
-        item.task.properties,
-        {
-          log: console.log,
-          dispatch
-        }
-      );
-    });
+    return tasks.map((item) => _.extend(
+      item.task.properties,
+      {
+        log: console.log, // testing capabilities
+        dispatch
+      }
+      )
+    );
   },
   tasks() {
     this.props.dispatch(TaskState.tasks());
