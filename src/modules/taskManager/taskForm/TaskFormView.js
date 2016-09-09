@@ -14,19 +14,26 @@ import {
 import styles from '../../../styles';
 
 const TaskFormView = React.createClass({
+  handleFormFocus() {
+    // phone keyboard pop up on focus
+  },
+
+  getInitialState() {
+    return {}
+  },
+
   propTypes: {
     dispatch: PropTypes.func.isRequired
   },
 
   submitTask() {
-    this.props.dispatch(NavigationState.pushRoute({
-      key: 'SubmitTask',
-      title: 'Submit Task'
-    }));
-  },
+    let formData = this.refs.taskForm.values;
+    console.log(formData);
 
-  getInitialState() {
-    return {}
+    // this.props.dispatch(NavigationState.pushRoute({
+    //   key: 'SubmitTask',
+    //   title: 'Submit Task'
+    // }));
   },
 
   render() {
@@ -35,7 +42,6 @@ const TaskFormView = React.createClass({
       <ScrollView>
         <Form ref='taskForm'
           onFocus={this.handleFormFocus}
-          onChange={this.handleFormChange}
         >
           <InputField
             ref='taskName'
@@ -62,19 +68,30 @@ const TaskFormView = React.createClass({
             }}
             helpText='Pick the Category that your task best falls under.'
           />
+          <PickerField
+            ref='difficulty'
+            label='Task Difficulty'
+            options={{
+              '': '',
+              '1': '1',
+              '2': '2',
+              '3': '3'
+            }}
+            helpText='Be Honest. Gauge how difficult it will be to complete this task.'
+          />
           <Separator />
           <InputField
-            multiline={true}
             ref='address'
+            multiline={true}
             placeholder='Task Address'
             helpText='Tell us where the task will done.'
           />
           <Calendar
+            ref='deadlineDate'
             scrollEnabled={true}
             dayHeadings={['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']}
             weekStart={0}
             customStyle={{currentDayCircle: {backgroundColor: '#388E3C'}}}
-
          />
         </Form>
         <TouchableOpacity onPress={this.submitTask} accessible={true} style={styles.button}>
