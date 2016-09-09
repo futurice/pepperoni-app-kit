@@ -28,13 +28,18 @@ const TaskFormView = React.createClass({
   },
 
   submitTask() {
-    let formData = this.refs.taskForm.values;
-    console.log(formData);
-    this.props.dispatch(TaskFormState.post(formData));
-    // this.props.dispatch(NavigationState.pushRoute({
-    //   key: 'SubmitTask',
-    //   title: 'Submit Task'
-    // }));
+
+    let isFormValid = this.refs.taskForm.values.taskName &&
+           this.refs.taskForm.values.desc &&
+           this.refs.taskForm.values.type &&
+           this.refs.taskForm.values.difficulty &&
+           this.refs.taskForm.values.address;
+
+    if (isFormValid) {
+      let formData = this.refs.taskForm.values;
+      this.props.dispatch(TaskFormState.post(formData));
+      console.log(formData);
+    }
   },
 
   render() {
