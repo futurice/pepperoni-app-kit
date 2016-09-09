@@ -1,11 +1,11 @@
+import {toJS} from 'immutable'; // eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import TaskDetailView from './TaskDetailView';
 
 export default connect(
   state => ({
-    // put tasks here
-    tasks: state.getIn(['tasks', 'value']),
-    loading: state.getIn(['tasks', 'loading']),
+    task: state.getIn(['tasks', 'currentTask', 'value']).toJS(),
+    loading: state.getIn(['tasks', 'currentTask', 'loading']),
     userName: state.getIn(['auth', 'currentUser', 'name']),
     userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture'])
   })

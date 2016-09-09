@@ -1,4 +1,3 @@
-// import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
   Text,
@@ -10,6 +9,8 @@ import styles from '../../../styles';
 
 const TaskDetailView = React.createClass({
   propTypes: {
+    task: PropTypes.object,
+    loading: PropTypes.bool
   },
   getInitialState() {
     return {};
@@ -19,7 +20,7 @@ const TaskDetailView = React.createClass({
       <ScrollView>
         <View style={styles.container}>
 
-          <Text style={styles.detailTitleText}>Task Name</Text>
+          <Text style={styles.detailTitleText}>{this.props.task.taskName}</Text>
           <Text style={styles.detailTitleText}> @ Task Requester Name</Text>
           <Text style={styles.detailTitleText}>Requester Rating</Text>
 
