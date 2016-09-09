@@ -37,16 +37,13 @@ const TaskFormView = React.createClass({
            this.refs.taskForm.values.type &&
            this.refs.taskForm.values.difficulty &&
            this.refs.taskForm.values.address;
-      let formData = this.refs.taskForm.values;
-      formData = _.extend(formData, {
-        deadlineDate: this.state.deadlineDate
-      })
-      console.log(formData);
 
     if (isFormValid) {
       let formData = this.refs.taskForm.values;
       this.props.dispatch(TaskFormState.post(formData));
-      console.log(formData);
+      formData = _.extend(formData, {
+        deadlineDate: this.state.deadlineDate
+      })
     }
   },
 
