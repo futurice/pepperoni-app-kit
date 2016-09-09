@@ -34,6 +34,11 @@ export default function AppRouter(props) {
     return <ProfileViewContainer />;
   }
 
+  if (key === 'TaskDetail') {
+    // return <TaskDetailViewContainer />;
+    return <CounterViewContainer />;
+  }
+
   // if Color is clicked more than once the 'key' is appended
   // with a number e.g.: 'Color_1'. Therefore `key === 'Color'` will not work
   if (key.indexOf('Color') === 0) {

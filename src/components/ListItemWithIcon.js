@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  TouchableHighlight,
+  TouchableOpacity,
   Text,
   View,
   Image,
   StyleSheet
 } from 'react-native';
+import * as NavigationState from '../modules/navigation/NavigationState';
 import Helpers from '../utils/helpers';
 
 const typeIcons = {
@@ -18,7 +19,13 @@ const typeIcons = {
 };
 
 const ListItemWithIcon = (rowData) => (
-  <TouchableHighlight underlayColor='#dddddd'>
+  <TouchableOpacity
+    underlayColor='#dddddd'
+    onPress={rowData.dispatch.bind(null, NavigationState.pushRoute({
+      key: 'TaskDetail',
+      title: 'Task Details'
+    }))}
+  >
     <View>
       <View style={styles.container}>
         <Image style = {styles.icon}
@@ -31,7 +38,7 @@ const ListItemWithIcon = (rowData) => (
       </View>
       <View style={styles.seperator} />
     </View>
-  </TouchableHighlight>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({

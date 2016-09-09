@@ -1,5 +1,6 @@
 import * as TaskState from './TaskState';
 // import * as NavigationState from '../../modules/navigation/NavigationState';
+import _ from 'underscore';
 import React, {PropTypes} from 'react';
 import {
   Text,
@@ -36,7 +37,16 @@ const TaskView = React.createClass({
     }
   },
   _getListViewData(tasks) {
-    return tasks.map(item => item.task.properties);
+    const dispatch = this.props.dispatch;
+    return tasks.map(function (item) { 
+      return _.extend(
+        item.task.properties,
+        {
+          log: console.log,
+          dispatch
+        }
+      );
+    });
   },
   tasks() {
     this.props.dispatch(TaskState.tasks());
@@ -55,7 +65,7 @@ const TaskView = React.createClass({
 
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={ListItemWithIcon}
+          renderRow={ListItemWithIcon.bind(this)}
         />
 
       </View>
