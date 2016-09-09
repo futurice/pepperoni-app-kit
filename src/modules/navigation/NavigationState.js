@@ -31,12 +31,11 @@ export function popRoute() {
 // reducers for tabs and scenes are separate
 const initialState = fromJS({
   tabs: {
-    index: 2,
+    index: 1,
     routes: [
       {key: 'ProfileTab', title: 'Profile'},
       {key: 'TasksTab', title: 'Tasks'},
       {key: 'TaskManagerTab', title: 'Task Manager'}
-      // {key: 'LeaderboardTab', title: 'Leaderboard'}
     ]
   },
   // Scenes for the `ProfileTab` tab.
@@ -50,8 +49,8 @@ const initialState = fromJS({
   TasksTab: {
     index: 0, // set to 1 to change to the test task route
     routes: [
-      {key: 'Tasks', title: 'Tasks'},
-      {key: 'Counter', title: 'Counter Screen'}
+      {key: 'Tasks', title: 'Tasks'}
+      // {key: 'Counter', title: 'Counter Screen'}
     ]
   },
   TaskManagerTab: {
@@ -60,12 +59,6 @@ const initialState = fromJS({
       {key: 'TaskManager', title: 'Task Manager'}
     ]
   }
-  // LeaderboardTab: {
-  //   index: 0,
-  //   routes: [
-  //     {key: 'Leaderboard', title: 'Leaderboard'}
-  //   ]
-  // }
 });
 
 export default function NavigationReducer(state = initialState, action) {
