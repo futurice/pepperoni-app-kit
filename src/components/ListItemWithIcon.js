@@ -1,13 +1,28 @@
 import React from 'react';
-import {TouchableHighlight, Text, View, Image, StyleSheet} from 'react-native';
+import {
+  TouchableHighlight,
+  Text,
+  View,
+  Image,
+  StyleSheet
+} from 'react-native';
 import Helpers from '../utils/helpers';
+
+const typeIcons = {
+  domestic: require('../styles/icons/domestic.png'),
+  errands: require('../styles/icons/errands.png'),
+  handyman: require('../styles/icons/handyman.png'),
+  informative: require('../styles/icons/informative.png'),
+  miscellaneous: require('../styles/icons/miscellaneous.png'),
+  physical_labor: require('../styles/icons/physical_labor.png')
+};
 
 const ListItemWithIcon = (rowData) => (
   <TouchableHighlight underlayColor='#dddddd'>
     <View>
       <View style={styles.container}>
-        <Image
-          style={styles.thumbnail}
+        <Image style = {styles.icon}
+          source={typeIcons[rowData.type.toLowerCase().replace(' ', '_')]}
         />
         <View style={styles.rightContainer}>
           <Text style={styles.title}>{rowData.taskName}</Text>
@@ -33,10 +48,11 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: '#BDBDBD'
   },
-  thumbnail: {
+  icon: {
     width: 50,
     height: 50,
-    marginRight: 10
+    marginRight: 15,
+    marginLeft: 5
   },
   title: {
     color: '#212121',
