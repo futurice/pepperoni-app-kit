@@ -19,7 +19,7 @@ const UserView = React.createClass({
     requestedTasks: PropTypes.array,
     assignedTasks: PropTypes.array,
     bio: PropTypes.string,
-    tasksCompleted: PropTypes.number,
+    // tasksCompleted: PropTypes.number,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
