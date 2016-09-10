@@ -1,5 +1,5 @@
 const Helpers = {
-  shortDesc: (string, letterCount) => {
+  shortenString: (string, letterCount) => {
     if (string.length > letterCount) {
       var cutString = string.substring(0, letterCount);
       return cutString + '...';
