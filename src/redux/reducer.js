@@ -7,7 +7,7 @@ import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState'
 import TaskStateReducer from '../modules/tasks/TaskState';
 import TaskManagerStateReducer from '../modules/taskManager/TaskManagerState';
 import TaskFormStateReducer from '../modules/taskManager/taskForm/TaskFormState';
-import ProfileStateReducer from '../modules/profile/ProfileState';
+import UserStateReducer from '../modules/user/UserState';
 
 const reducers = {
   // Authentication/login state
@@ -28,7 +28,7 @@ const reducers = {
 
   taskForm: TaskFormStateReducer,
 
-  user: ProfileStateReducer
+  user: UserStateReducer
 
 };
 

@@ -26,7 +26,7 @@ export async function requestUserTasks() {
 }
 
 // Reducer
-export default function ProfileStateReducer(state = initialState, action = {}) {
+export default function UserStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case RANDOM_REQUEST:
       return loop(

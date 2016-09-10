@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ProfileView from './ProfileView';
+import UserView from './UserView';
 
 export default connect(
   state => ({
@@ -14,4 +14,4 @@ export default connect(
     bio: state.getIn(['user', 'bio']),
     loading: state.getIn(['user', 'loading'])
   })
-)(ProfileView);
+)(UserView);

@@ -6,7 +6,7 @@ import TaskViewContainer from './tasks/TaskViewContainer';
 import TaskManagerViewContainer from './taskManager/TaskManagerViewContainer';
 import TaskFormViewContainer from './taskManager/taskForm/TaskFormViewContainer';
 import TaskDetailViewContainer from './tasks/taskDetail/TaskDetailViewContainer';
-import ProfileViewContainer from './profile/ProfileViewContainer';
+import UserViewContainer from './user/UserViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 
 /**
@@ -32,7 +32,7 @@ export default function AppRouter(props) {
   }
 
   if (key === 'Profile') {
-    return <ProfileViewContainer />;
+    return <UserViewContainer />;
   }
 
   if (key === 'TaskDetail') {
