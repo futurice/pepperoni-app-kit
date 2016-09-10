@@ -9,16 +9,9 @@ const initialState = Map({
 });
 
 // Actions
-const LOGIN = 'UserState/LOGIN';
-const LOGIN_RESPONSE = 'UserState/LOGIN_RESPONSE';
+const USER_FOUND = 'UserState/USER_FOUND';
 
 // Action creators
-export function login(email) {
-  return {
-    type: LOGIN,
-    payload: email
-  };
-}
 
 // export function userTasks(userId) {
 //   return {
@@ -27,10 +20,10 @@ export function login(email) {
 //   };
 // }
 
-export async function requestUserLogin(email) {
+export function onExistingUser(user) {
   return {
-    type: LOGIN_RESPONSE,
-    payload: await loginUser(email)
+    type: USER_FOUND,
+    payload: fromJS(user)
   };
 }
 
@@ -44,16 +37,10 @@ export async function requestUserLogin(email) {
 // Reducer
 export default function UserStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case LOGIN:
-      return loop(
-        state.set('loading', true),
-        Effects.promise(requestUserLogin, action.payload)
-      );
 
-    case LOGIN_RESPONSE:
+    case USER_FOUND:
       return state
-        .set('loading', false)
-        .set('value', fromJS(action.payload));
+        .set('value', action.payload);
 
     default:
       return state;

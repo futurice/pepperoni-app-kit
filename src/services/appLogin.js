@@ -4,7 +4,7 @@ import {loginUser} from './backScratchService';
 import * as UserStateActions from '../modules/user/UserState';
 
 export default function appLogin(email) {
-  loginUser('email')
+  loginUser(email)
     .then(res => {
       console.log(res);
       // if no user in app
@@ -13,7 +13,7 @@ export default function appLogin(email) {
         return console.log('no user found');
       }
       let user = _.extend(res[0].user.properties, {userId: res[0].user._id});
-      // store.dispatch(UserStateActions.login(profile.email));
-      return console.log(user);
+      console.log(user);
+      return store.dispatch(UserStateActions.onExistingUser(user));
     });
 }
