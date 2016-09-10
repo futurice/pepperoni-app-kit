@@ -1,6 +1,5 @@
 import {Map, fromJS} from 'immutable';
 import {loop, Effects} from 'redux-loop';
-import {loginUser} from '../../services/backScratchService';
 
 // Initial state
 const initialState = Map({
@@ -9,51 +8,23 @@ const initialState = Map({
 });
 
 // Actions
-const LOGIN = 'UserState/LOGIN';
-const LOGIN_RESPONSE = 'UserState/LOGIN_RESPONSE';
+const USER_FOUND = 'UserState/USER_FOUND';
 
 // Action creators
-export function login(email) {
+export function onExistingUser(user) {
   return {
-    type: LOGIN,
-    payload: email
+    type: USER_FOUND,
+    payload: fromJS(user)
   };
 }
-
-// export function userTasks(userId) {
-//   return {
-//     type: RANDOM_REQUEST,
-//     payload: userId
-//   };
-// }
-
-export async function requestUserLogin(email) {
-  return {
-    type: LOGIN_RESPONSE,
-    payload: await loginUser(email)
-  };
-}
-
-// export async function requestUserTasks() {
-//   return {
-//     type: USER_TASKS_RESPONSE,
-//     payload: await getUserTasks()
-//   };
-// }
 
 // Reducer
 export default function UserStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case LOGIN:
-      return loop(
-        state.set('loading', true),
-        Effects.promise(requestUserLogin, action.payload)
-      );
 
-    case LOGIN_RESPONSE:
+    case USER_FOUND:
       return state
-        .set('loading', false)
-        .set('value', fromJS(action.payload));
+        .set('value', action.payload);
 
     default:
       return state;
