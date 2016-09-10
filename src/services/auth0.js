@@ -1,6 +1,7 @@
 import * as env from '../../env';
 import Auth0Lock from 'react-native-lock';
 import * as AuthStateActions from '../modules/auth/AuthState';
+import * as UserStateActions from '../modules/user/UserState';
 import store from '../redux/store';
 const {Platform} = require('react-native');
 
@@ -52,5 +53,7 @@ export function showLogin() {
 
     // Authentication worked!
     store.dispatch(AuthStateActions.onUserLoginSuccess(profile, token));
+    // login user to app
+    store.dispatch(UserStateActions.login(profile.email));
   });
 }

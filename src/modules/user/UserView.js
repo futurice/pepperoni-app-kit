@@ -1,4 +1,4 @@
-import * as ProfileState from './ProfileState';
+import * as UserState from './UserState';
 // import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
@@ -9,7 +9,7 @@ import {
   View
 } from 'react-native';
 
-const ProfileView = React.createClass({
+const UserView = React.createClass({
   propTypes: {
     userName: PropTypes.string,
     userId: PropTypes.string,
@@ -19,12 +19,12 @@ const ProfileView = React.createClass({
     requestedTasks: PropTypes.array,
     assignedTasks: PropTypes.array,
     bio: PropTypes.string,
-    tasksCompleted: PropTypes.number,
+    // tasksCompleted: PropTypes.number,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
   },
   reset() {
-    this.props.dispatch(ProfileState.reset());
+    this.props.dispatch(UserState.reset());
   },
   renderUserInfo() {
     if (!this.props.userName) {
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProfileView;
+export default UserView;
