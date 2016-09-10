@@ -33,7 +33,7 @@ const TaskDetailView = React.createClass({
           <View style={styles.container}>
 
             <Text style={styles.detailTitleText}>{this.props.task.taskName}</Text>
-            <Text style={styles.detailTitleText}> @ Task Requester Name</Text>
+            <Text style={styles.detailTitleText}>@ Task Requester Name</Text>
             <Text style={styles.detailTitleText}>Requester Rating</Text>
 
             <View style={styles.detailSeperator} />

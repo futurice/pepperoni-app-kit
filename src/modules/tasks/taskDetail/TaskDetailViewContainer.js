@@ -6,7 +6,8 @@ export default connect(
   state => ({
     task: state.getIn(['tasks', 'currentTask', 'value']).toJS(),
     loading: state.getIn(['tasks', 'currentTask', 'loading']),
-    userName: state.getIn(['auth', 'currentUser', 'name']),
+    user: state.getIn(['user', 'value']).toJS(),
+    // userName: state.getIn(['auth', 'currentUser', 'name']),
     userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture'])
   })
 )(TaskDetailView);

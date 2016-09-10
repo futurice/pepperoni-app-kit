@@ -17,12 +17,13 @@ import styles from '../../../styles';
 
 const TaskFormView = React.createClass({
   propTypes: {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    userId: PropTypes.number
   },
 
   getInitialState() {
     return {
-      deadlineDate: ''
+      deadlineDate: '',
     };
   },
 
@@ -40,10 +41,11 @@ const TaskFormView = React.createClass({
 
     if (isFormValid) {
       let formData = this.refs.taskForm.values;
-      this.props.dispatch(TaskFormState.post(formData));
       formData = _.extend(formData, {
-        deadlineDate: this.state.deadlineDate
+        deadlineDate: this.state.deadlineDate,
+        userID: this.props.userId
       })
+      this.props.dispatch(TaskFormState.post(formData));
     }
   },
 
