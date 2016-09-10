@@ -94,7 +94,7 @@ const styles = {
     backgroundColor: colors.white
   },
   loadText: {
-    fontSize: 40
+    fontSize: 30
   },
   loadCircle: {
     width: 100,

@@ -53,7 +53,7 @@ const TaskView = React.createClass({
   renderLoadingView() {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator size='large' color='#FF4081' style={styles.loadCircle}/>
+        <ActivityIndicator size='large' color='#BDBDBD' style={styles.loadCircle}/>
         <Text style={styles.loadText}>Loading Tasks...</Text>
       </View>
     );
