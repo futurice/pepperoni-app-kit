@@ -12,7 +12,7 @@ import {
   InputField,
   PickerField
 } from 'react-native-form-generator';
-import * as NavigationStateActions from '../../navigation/NavigationState'
+import * as NavigationStateActions from '../../navigation/NavigationState';
 import * as TaskFormState from './TaskFormState';
 import styles from '../../../styles';
 
@@ -24,7 +24,7 @@ const TaskFormView = React.createClass({
 
   getInitialState() {
     return {
-      deadlineDate: '',
+      deadlineDate: ''
     };
   },
 
@@ -45,7 +45,7 @@ const TaskFormView = React.createClass({
       formData = _.extend(formData, {
         deadlineDate: this.state.deadlineDate,
         userID: this.props.userId
-      })
+      });
       this.props.dispatch(TaskFormState.post(formData));
       this.props.dispatch(NavigationStateActions.switchTab(1));
     }
@@ -107,7 +107,7 @@ const TaskFormView = React.createClass({
             dayHeadings={['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']}
             weekStart={0}
             customStyle={{currentDayCircle: {backgroundColor: '#388E3C'}}}
-            onDateSelect={(date) => { this.setState({ deadlineDate: date }) }}
+            onDateSelect={(date) => {this.setState({deadlineDate: date});}}
          />
         </Form>
         <TouchableOpacity onPress={this.submitTask} accessible={true} style={styles.button}>

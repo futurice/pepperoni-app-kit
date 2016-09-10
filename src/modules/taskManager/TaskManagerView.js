@@ -14,6 +14,7 @@ import styles from '../../styles';
 
 const CounterView = React.createClass({
   propTypes: {
+    tasks: PropTypes.array,
     counter: PropTypes.number.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
