@@ -12,12 +12,14 @@ import {
   InputField,
   PickerField
 } from 'react-native-form-generator';
+import * as NavigationStateActions from '../../navigation/NavigationState';
 import * as TaskFormState from './TaskFormState';
 import styles from '../../../styles';
 
 const TaskFormView = React.createClass({
   propTypes: {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    userId: PropTypes.number
   },
 
   getInitialState() {
@@ -40,10 +42,12 @@ const TaskFormView = React.createClass({
 
     if (isFormValid) {
       let formData = this.refs.taskForm.values;
-      this.props.dispatch(TaskFormState.post(formData));
       formData = _.extend(formData, {
-        deadlineDate: this.state.deadlineDate
-      })
+        deadlineDate: this.state.deadlineDate,
+        userID: this.props.userId
+      });
+      this.props.dispatch(TaskFormState.post(formData));
+      this.props.dispatch(NavigationStateActions.switchTab(1));
     }
   },
 
@@ -103,7 +107,7 @@ const TaskFormView = React.createClass({
             dayHeadings={['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']}
             weekStart={0}
             customStyle={{currentDayCircle: {backgroundColor: '#388E3C'}}}
-            onDateSelect={(date) => { this.setState({ deadlineDate: date }) }}
+            onDateSelect={(date) => {this.setState({deadlineDate: date});}}
          />
         </Form>
         <TouchableOpacity onPress={this.submitTask} accessible={true} style={styles.button}>
