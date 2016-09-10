@@ -12,6 +12,7 @@ import {
   InputField,
   PickerField
 } from 'react-native-form-generator';
+import * as NavigationStateActions from '../../navigation/NavigationState'
 import * as TaskFormState from './TaskFormState';
 import styles from '../../../styles';
 
@@ -46,6 +47,7 @@ const TaskFormView = React.createClass({
         userID: this.props.userId
       })
       this.props.dispatch(TaskFormState.post(formData));
+      this.props.dispatch(NavigationStateActions.switchTab(1));
     }
   },
 
