@@ -108,16 +108,33 @@ const styles = {
     fontSize: 25,
     marginTop: 10
   },
+  detailTypeText: {
+    fontSize: 25
+  },
   detailInfoContainer: {
   },
   detailInfoText: {
-    padding: 20,
-    paddingBottom: 0
+    padding: 20
   },
   detailSeperator: {
-    width: 300,
+    width: 350,
     height: 1,
     backgroundColor: colors.divider
+  },
+  detailTypeSection: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: colors.white
+  },
+  rightContainer: {
+    padding: 10
+  },
+  detailIcon: {
+    width: 50,
+    height: 50,
+    marginRight: 25
   }
 };
 
