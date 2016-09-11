@@ -1,6 +1,7 @@
 /*eslint-disable react/prop-types*/
 
 import React from 'react';
+import {View} from 'react-native';
 import CounterViewContainer from './counter/CounterViewContainer';
 import TaskViewContainer from './tasks/TaskViewContainer';
 import TaskManagerViewContainer from './taskManager/TaskManagerViewContainer';
@@ -8,6 +9,7 @@ import TaskFormViewContainer from './taskManager/taskForm/TaskFormViewContainer'
 import TaskDetailViewContainer from './tasks/taskDetail/TaskDetailViewContainer';
 import UserViewContainer from './user/UserViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
+import NewUserModalViewContainer from './newUser/NewUserModalViewContainer';
 
 /**
  * AppRouter is responsible for mapping a navigator scene to a view
@@ -32,7 +34,12 @@ export default function AppRouter(props) {
   }
 
   if (key === 'Profile') {
-    return <UserViewContainer />;
+    return (
+      <View>
+        <NewUserModalViewContainer />
+        <UserViewContainer />
+      </View>
+    );
   }
 
   if (key === 'TaskDetail') {
