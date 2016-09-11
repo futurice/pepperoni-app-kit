@@ -74,12 +74,12 @@ const TaskFormView = React.createClass({
             label='Task Category'
             options={{
               '': '',
-              handyman: 'Handyman',
-              errands: 'Errands',
-              domestic: 'Domestic',
-              physicalLabor: 'Physical Labor',
-              informative: 'Informative',
-              misc: 'Miscellaneous'
+              'Handyman': 'Handyman',
+              'Errands': 'Errands',
+              'Domestic': 'Domestic',
+              'Physical Labor': 'Physical Labor',
+              'Informative': 'Informative',
+              'Miscellaneous': 'Miscellaneous'
             }}
             helpText='Pick the Category that your task best falls under.'
           />
