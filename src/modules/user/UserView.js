@@ -6,17 +6,19 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
+import colors from '../../styles/colors';
 
 const UserView = React.createClass({
   propTypes: {
     userName: PropTypes.string,
-    userId: PropTypes.string,
+    userId: PropTypes.number,
     userProfilePhoto: PropTypes.string,
     coins: PropTypes.number,
     rating: PropTypes.number,
-    requestedTasks: PropTypes.array,
+    completedTasks: PropTypes.array,
     assignedTasks: PropTypes.array,
     bio: PropTypes.string,
     // tasksCompleted: PropTypes.number,
@@ -39,32 +41,49 @@ const UserView = React.createClass({
 
     return (
       <View style={styles.userContainer}>
-        <Image
-          style={styles.userProfilePhoto}
-          source={{
-            uri: this.props.userProfilePhoto,
-            width: 80,
-            height: 80
-          }}
-        />
-        <Text style={styles.linkButton}>
-          Welcome, {this.props.userName}!
-        </Text>
+
+        <View style={styles.userTitleContainer}>
+          <Text style={styles.usernameText}>
+            {this.props.userName}
+          </Text>
+          <Image
+            style={styles.userProfilePhoto}
+            source={{
+              uri: this.props.userProfilePhoto,
+              width: 80,
+              height: 80
+            }}
+          />
+        </View>
+
+        <Text style={styles.ratingText}>Rating: {this.props.rating}</Text>
+
+        <View style={styles.detailSeperator}/>
+
+        <View style={styles.scoreContainer}>
+          <Text style={styles.scoreText}>Coins: {this.props.coins}</Text>
+          <Text style={styles.scoreText}>Completed Tasks: #</Text>
+        </View>
+
+        <Text>Bio: {this.props.bio}</Text>
+
+        <Text style={styles.recentTaskText}>Recent Tasks</Text>
+
       </View>
     );
   },
   render() {
     return (
       <View style={styles.container}>
+        <ScrollView>
+          {this.renderUserInfo()}
 
-        {this.renderUserInfo()}
-
-        <TouchableOpacity onPress={this.reset}>
-          <Text style={styles.linkButton}>
-            Button 1
-          </Text>
-        </TouchableOpacity>
-
+          <TouchableOpacity onPress={this.reset}>
+            <Text style={styles.linkButton}>
+              Button 1
+            </Text>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     );
   }
@@ -80,17 +99,37 @@ const circle = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
   },
+  userTitleContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    margin: 15
+  },
+  scoreContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF'
+  },
+  scoreText: {
+    fontSize: 20,
+    margin: 10
+  },
   userContainer: {
+    marginTop: 15,
     justifyContent: 'center',
     alignItems: 'center'
   },
   userProfilePhoto: {
     ...circle,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginLeft: 20
   },
   counterButton: {
     ...circle,
@@ -110,11 +149,24 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     padding: 5
   },
-  linkButton: {
+  ratingText: {
     textAlign: 'center',
-    color: '#CCCCCC',
-    marginBottom: 10,
-    padding: 5
+    fontSize: 20,
+    marginBottom: 10
+  },
+  recentTaskText: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginBottom: 10
+  },
+  usernameText: {
+    textAlign: 'center',
+    fontSize: 40
+  },
+  detailSeperator: {
+    width: 350,
+    height: 1,
+    backgroundColor: colors.divider
   }
 });
 
