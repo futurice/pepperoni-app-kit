@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import moment from 'moment';
 import styles from '../../../styles';
+import * as TaskStateActions from '../TaskState';
 
 const typeIcons = {
   domestic: require('../../../styles/icons/domestic.png'),
@@ -20,11 +21,20 @@ const typeIcons = {
 
 const TaskDetailView = React.createClass({
   propTypes: {
+    userId: PropTypes.number,
     task: PropTypes.object,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    dispatch: PropTypes.func.isRequired
   },
   getInitialState() {
     return {};
+  },
+  assignTask() {
+    const assignment = {
+      taskId: this.props.task.taskId,
+      userId: this.props.userId
+    };
+    this.props.dispatch(TaskStateActions.assignTask(assignment));
   },
   render() {
     return (
@@ -61,7 +71,10 @@ const TaskDetailView = React.createClass({
               <Text style={styles.detailInfoText}>{this.props.task.desc}</Text>
             </View>
 
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={this.assignTask}
+              >
                 <Text style={styles.buttonText}>
                   I can do it!
                 </Text>
