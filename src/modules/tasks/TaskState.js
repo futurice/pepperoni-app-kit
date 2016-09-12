@@ -1,6 +1,6 @@
 import {Map, fromJS} from 'immutable';
 import {loop, Effects} from 'redux-loop';
-import {getTasks} from '../../services/backScratchService';
+import {getTasks, postTaskAssignment} from '../../services/backScratchService';
 
 // Initial state
 const initialState = Map({
@@ -16,6 +16,8 @@ const initialState = Map({
 const TASKS_REQUEST = 'TaskState/TASKS_REQUEST';
 const TASKS_RESPONSE = 'TaskState/TASKS_RESPONSE';
 const SELECT_TASK = 'TaskState/SELECT_TASK';
+const ASSIGN_TASK = 'TaskState/ASSIGN_TASK';
+const ASSIGN_TASK_RESPONSE = 'TaskState/ASSIGN_TASK_RESPONSE';
 
 // Action creators
 export function selectTask(currTask) {
@@ -38,6 +40,20 @@ export async function requestTasks() {
   };
 }
 
+export function assignTask({taskId, userId}) {
+  return {
+    type: ASSIGN_TASK,
+    payload: {taskId, userId}
+  };
+}
+
+export async function requestAssignTask(assignment) {
+  return {
+    type: ASSIGN_TASK_RESPONSE,
+    payload: await postTaskAssignment(assignment)
+  };
+}
+
 // Reducer
 export default function TasksStateReducer(state = initialState, action = {}) {
   switch (action.type) {
@@ -47,6 +63,16 @@ export default function TasksStateReducer(state = initialState, action = {}) {
           value: action.payload,
           loading: false
         }));
+
+    case ASSIGN_TASK:
+      return loop(
+        state.set('loading', true),
+        Effects.promise(requestAssignTask, action.payload)
+      );
+
+    case ASSIGN_TASK_RESPONSE:
+      return state
+        .set('loading', false);
 
     case TASKS_REQUEST:
       return loop(

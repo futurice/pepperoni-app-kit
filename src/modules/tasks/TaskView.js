@@ -41,11 +41,10 @@ const TaskView = React.createClass({
     return tasks.map((item) => _.extend(
       item.task.properties,
       {
-        log: console.log, // testing capabilities
+        taskId: item.task._id, // taskId isn't included in properties
         dispatch
       }
-      )
-    );
+    ));
   },
   tasks() {
     this.props.dispatch(TaskState.tasks());

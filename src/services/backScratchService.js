@@ -18,6 +18,10 @@ export async function updateTask(id, newProps) {
   return api.put(`/tasks/${id}`, newProps);
 }
 
+export async function postTaskAssignment(assignment) {
+  return api.post('/tasks/assign', assignment);
+}
+
 // ------------- Users ------------
 export async function getUserInfo(id) {
   return api.get(`/users/${id}`);
