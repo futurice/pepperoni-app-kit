@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import {
+  Text,
   NavigationExperimental,
-  View,
-  Platform,
-  StyleSheet
+  View
 } from 'react-native';
+import styles from '../../styles';
 const {
   CardStack: NavigationCardStack,
   Header: NavigationHeader,
@@ -13,8 +13,6 @@ const {
 import AppRouter from '../AppRouter';
 import TabBar from '../../components/TabBar';
 
-// Height duplicated from React Native NavigationHeader component
-const APP_BAR_HEIGHT = Platform.OS === 'ios' ? 64 : 56;
 // Customize bottom tab bar height here if desired
 const TAB_BAR_HEIGHT = 50;
 
@@ -24,8 +22,10 @@ const NavigationView = React.createClass({
     onNavigateCompleted: PropTypes.func.isRequired,
     navigationState: PropTypes.shape({
       tabs: NavigationPropTypes.navigationState.isRequired,
-      HomeTab: NavigationPropTypes.navigationState.isRequired,
-      ProfileTab: NavigationPropTypes.navigationState.isRequired
+      ProfileTab: NavigationPropTypes.navigationState.isRequired,
+      TasksTab: NavigationPropTypes.navigationState.isRequired,
+      TaskManagerTab: NavigationPropTypes.navigationState.isRequired
+      // LeaderboardTab: NavigationPropTypes.navigationState.isRequired
     }),
     switchTab: PropTypes.func.isRequired,
     pushRoute: PropTypes.func.isRequired
@@ -37,11 +37,12 @@ const NavigationView = React.createClass({
       <NavigationHeader
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
+        style={styles.nav_header}
         renderTitleComponent={() => {
           return (
-            <NavigationHeader.Title>
+            <Text style={styles.nav_text}>
               {sceneProps.scene.route.title}
-            </NavigationHeader.Title>
+            </Text>
           );
         }}
       />
@@ -61,7 +62,7 @@ const NavigationView = React.createClass({
     const tabKey = tabs.routes[tabs.index].key;
     const scenes = this.props.navigationState[tabKey];
     return (
-      <View style={styles.container}>
+      <View style={styles.nav_container}>
         <NavigationCardStack
           key={'stack_' + tabKey}
           onNavigateBack={this.props.onNavigateBack}
@@ -77,17 +78,6 @@ const NavigationView = React.createClass({
         />
       </View>
     );
-  }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  sceneContainer: {
-    flex: 1,
-    marginTop: APP_BAR_HEIGHT,
-    marginBottom: TAB_BAR_HEIGHT
   }
 });
 

@@ -18,7 +18,8 @@ const AppView = React.createClass({
       .then(snapshot => {
         const {dispatch} = this.props;
 
-        if (snapshot) {
+        // not using snapshot in DEV mode -Harvey
+        if ((!__DEV__) && snapshot) {
           dispatch(SessionStateActions.resetSessionStateFromSnapshot(snapshot));
         } else {
           dispatch(SessionStateActions.initializeSessionState());

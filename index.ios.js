@@ -5,7 +5,7 @@ import AppViewContainer from './src/modules/AppViewContainer';
 import React from 'react';
 import {AppRegistry} from 'react-native';
 
-const PepperoniAppTemplate = React.createClass({
+const backScratch = React.createClass({
 
   render() {
     return (
@@ -16,4 +16,4 @@ const PepperoniAppTemplate = React.createClass({
   }
 });
 
-AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);
+AppRegistry.registerComponent('backScratch', () => backScratch);

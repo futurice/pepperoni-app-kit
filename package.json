@@ -1,5 +1,5 @@
 {
-  "name": "PepperoniAppTemplate",
+  "name": "backScratch",
   "author": "Futurice",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
@@ -20,7 +20,7 @@
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --minify --verbose",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/backScratch/main.jsbundle --dev=false --minify --verbose",
     "test": "mocha src/**/*.spec.js",
     "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
     "lint": "eslint src test",
@@ -37,14 +37,19 @@
     "react": "~15.2.0",
     "react-dom": "~15.2.0",
     "react-native": "^0.29.0",
+    "react-native-calendar": "^0.7.0",
+    "react-native-form-generator": "^0.9.9",
     "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
+    "react-native-material-kit": "^0.3.2",
+    "react-native-vector-icons": "^2.1.0",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
     "redux-loop": "^2.1.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",
-    "standard-http-error": "^2.0.0"
+    "standard-http-error": "^2.0.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -62,6 +67,7 @@
     "fetch-mock": "^4.5.4",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^2.4.5",
+    "node-fetch": "^1.6.0",
     "react-addons-test-utils": "15.0.2",
     "react-native-mock": "~0.2.5",
     "rimraf": "^2.5.2",

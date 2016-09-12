@@ -4,13 +4,21 @@ import {describe, it, beforeEach, afterEach} from 'mocha';
 import {expect} from 'chai';
 import sinon from 'sinon';
 import fetch from 'fetch-mock';
+// import fetch from 'node-fetch';
 import HttpError from 'standard-http-error';
 
 import * as api from '../api';
 import * as configuration from '../configuration';
 
-const API_ROOT = 'https://mock.getpepperoni.com';
-const SIMPLE_ENDPOINT = '/endpoint';
+// const API_ROOT = 'https://mock.getpepperoni.com';
+// const SIMPLE_ENDPOINT = '/endpoint';
+// const ERROR_ENDPOINT = '/cant/touch/this';
+// const PROTECTED_ENDPOINT = '/nothing/to/see/here';
+// const FAILING_ENDPOINT = '/broken';
+// const SIMPLE_RESPONSE = {foo: 'bar'};
+
+const API_ROOT = 'https://localhost:12457/api/v1';
+const SIMPLE_ENDPOINT = '/tasks';
 const ERROR_ENDPOINT = '/cant/touch/this';
 const PROTECTED_ENDPOINT = '/nothing/to/see/here';
 const FAILING_ENDPOINT = '/broken';

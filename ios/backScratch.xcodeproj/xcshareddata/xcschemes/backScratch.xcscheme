@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "PepperoniAppTemplate.app"
-               BlueprintName = "PepperoniAppTemplate"
-               ReferencedContainer = "container:PepperoniAppTemplate.xcodeproj">
+               BuildableName = "backScratch.app"
+               BlueprintName = "backScratch"
+               ReferencedContainer = "container:backScratch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PepperoniAppTemplateTests.xctest"
-               BlueprintName = "PepperoniAppTemplateTests"
-               ReferencedContainer = "container:PepperoniAppTemplate.xcodeproj">
+               BuildableName = "backScratchTests.xctest"
+               BlueprintName = "backScratchTests"
+               ReferencedContainer = "container:backScratch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PepperoniAppTemplateTests.xctest"
-               BlueprintName = "PepperoniAppTemplateTests"
-               ReferencedContainer = "container:PepperoniAppTemplate.xcodeproj">
+               BuildableName = "backScratchTests.xctest"
+               BlueprintName = "backScratchTests"
+               ReferencedContainer = "container:backScratch.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PepperoniAppTemplate.app"
-            BlueprintName = "PepperoniAppTemplate"
-            ReferencedContainer = "container:PepperoniAppTemplate.xcodeproj">
+            BuildableName = "backScratch.app"
+            BlueprintName = "backScratch"
+            ReferencedContainer = "container:backScratch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PepperoniAppTemplate.app"
-            BlueprintName = "PepperoniAppTemplate"
-            ReferencedContainer = "container:PepperoniAppTemplate.xcodeproj">
+            BuildableName = "backScratch.app"
+            BlueprintName = "backScratch"
+            ReferencedContainer = "container:backScratch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PepperoniAppTemplate.app"
-            BlueprintName = "PepperoniAppTemplate"
-            ReferencedContainer = "container:PepperoniAppTemplate.xcodeproj">
+            BuildableName = "backScratch.app"
+            BlueprintName = "backScratch"
+            ReferencedContainer = "container:backScratch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
