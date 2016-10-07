@@ -86,9 +86,10 @@ export default function NavigationReducer(state = initialState, action) {
 
     case SWITCH_TAB: {
       // Switches the tab.
-      const tabs = NavigationStateUtils.jumpToIndex(state.get('tabs').toJS(), action.payload);
-      if (tabs !== state.get('tabs')) {
-        return state.set('tabs', fromJS(tabs));
+      const tabs = state.get('tabs').toJS();
+      const nextTabs = NavigationStateUtils.jumpToIndex(tabs, action.payload);
+      if (tabs !== nextTabs) {
+        return state.set('tabs', fromJS(nextTabs));
       }
       return state;
     }
