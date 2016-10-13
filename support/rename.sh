@@ -7,17 +7,31 @@ appRoot=`dirname $0`/..
 
 [ -z "${newAppName}" ] && echo 'Missing required parameter newAppName' && exit 1
 
-grep -rI 'PepperoniAppTemplate' --exclude='rename.sh' $appRoot/* | tr ':' ' ' | awk '{print $1}' | uniq | xargs -I{} sed -i.bak "s/PepperoniAppTemplate/${newAppName}/g" {}
-grep -rI 'pepperoniapptemplate' --exclude='rename.sh' $appRoot/* | tr ':' ' ' | awk '{print $1}' | uniq | xargs -I{} sed -i.bak "s/pepperoniapptemplate/${newLowerCaseName}/g" {}
-find . -name '*.bak' -exec rm {} \;
+# gather all modification targets
+filesToModify=$(grep -riIl 'pepperoniapptemplate' --exclude='rename.sh' $appRoot/*)
+filesToRename=$(find "${appRoot}/ios" "${appRoot}/android" -type f -ipath '*pepperoniapptemplate*')
 
-for fileToMove in `find $appRoot/ios -depth -name '*PepperoniAppTemplate*'`; do
-  mv $fileToMove `echo $fileToMove | sed "s/\(.*\)PepperoniAppTemplate/\1$newAppName/g"`
+# replace strings in files
+for fileToModify in $filesToModify; do
+  sed -i.bak "s/PepperoniAppTemplate/${newAppName}/g;s/pepperoniapptemplate/${newLowerCaseName}/g" $fileToModify
+done
+find "${appRoot}" -name '*.bak' -exec rm {} \;
+
+if [ -d "${appRoot}/.git" -a -n "$(command -v git)" ]; then
+  # stage all string replacements and set up to stage renames, below
+  git add --update
+  mvCmd="git mv"
+else
+  mvCmd="mv"
+fi
+
+for fileToRename in $filesToRename; do
+  newName=$(echo $fileToRename | sed "s/PepperoniAppTemplate/$newAppName/g;s/pepperoniapptemplate/$newLowerCaseName/g")
+  mkdir -p $(dirname "$newName") && $mvCmd "$fileToRename" "$newName"
 done
 
-for fileToMove in `find $appRoot/android -depth -name '*pepperoniapptemplate*'`; do
-  mv $fileToMove `echo $fileToMove | sed "s/\(.*\)pepperoniapptemplate/\1$newLowerCaseName/g"`
-done
+# remove leftover empty directories
+rmdir -p $(find "$appRoot" -ipath '*pepperoniapptemplate*' -type d) 2>/dev/null
 
 YELLOW='\033[1;33m'
 CLEAR='\033[0m'
