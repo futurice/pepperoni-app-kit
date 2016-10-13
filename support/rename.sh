@@ -17,7 +17,13 @@ for fileToModify in $filesToModify; do
 done
 find "${appRoot}" -name '*.bak' -exec rm {} \;
 
-mvCmd="mv"
+if [ -d "${appRoot}/.git" -a -n "$(command -v git)" ]; then
+  # stage all string replacements and set up to stage renames, below
+  git add --update
+  mvCmd="git mv"
+else
+  mvCmd="mv"
+fi
 
 for fileToRename in $filesToRename; do
   newName=$(echo $fileToRename | sed "s/PepperoniAppTemplate/$newAppName/g;s/pepperoniapptemplate/$newLowerCaseName/g")
