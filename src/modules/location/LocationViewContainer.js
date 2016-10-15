@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
-import PlacesView from './PlacesView';
+import LocationView from './LocationView';
 
 export default connect(
   state => ({
     office: state.getIn(['city', 'value'])
   })
-)(PlacesView);
+)(LocationView);

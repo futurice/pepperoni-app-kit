@@ -29,7 +29,7 @@ class NavigationView extends Component {
         })).isRequired
       }).isRequired,
       CityTab: NavigationPropTypes.navigationState.isRequired,
-      PlaceTab: NavigationPropTypes.navigationState.isRequired
+      LocationTab: NavigationPropTypes.navigationState.isRequired
     }),
     switchTab: PropTypes.func.isRequired,
     pushRoute: PropTypes.func.isRequired

@@ -6,16 +6,16 @@ import {
   MapView
 } from 'react-native';
 
-const placesData = require('../../data/samplePlaces.json');
-const places = placesData.London;
+const locationData = require('../../data/sampleLocations.json');
+const location = placesData.London;
 
-const randomPicker = () => Math.floor(Math.random() * places.length);
+const randomPicker = () => Math.floor(Math.random() * location.length);
 /**
  * Sample view to demonstrate navigation patterns.
  * @TODO remove this module in a live application.
  */
-class PlacesView extends Component {
-  static displayName = 'PlacesView';
+class LocationView extends Component {
+  static displayName = 'LocationView';
 
   static propTypes = {
     index: PropTypes.number.isRequired,
@@ -42,7 +42,7 @@ class PlacesView extends Component {
 
   render() {
 
-    const place = places[randomPicker()];
+    const place = location[randomPicker()];
     const marker = [
       {
         latitude: place.latitude,
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PlacesView;
+export default LocationView;

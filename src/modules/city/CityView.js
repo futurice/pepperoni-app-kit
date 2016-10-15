@@ -22,7 +22,8 @@ class CityView extends Component {
     cityStateActions: PropTypes.shape({
       increment: PropTypes.func.isRequired,
       reset: PropTypes.func.isRequired,
-      random: PropTypes.func.isRequired
+      random: PropTypes.func.isRequired,
+	  selectOffice: PropTypes.func.isRequired
     }).isRequired,
     navigationStateActions: PropTypes.shape({
       pushRoute: PropTypes.func.isRequired
@@ -53,8 +54,8 @@ class CityView extends Component {
   selectOffice = () => {
     this.props.cityStateActions.selectOffice(office);
     this.props.navigationStateActions.pushRoute({
-      key: 'Place',
-      title: 'Office Screen'
+      key: 'Location',
+      title: 'Location Screen'
     });
   };
 
