@@ -1,12 +1,12 @@
 import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
-import CounterStateReducer from '../modules/location/LocationState';
+import CityStateReducer from '../modules/city/CityState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 const reducers = {
-  // Location app state
-  location: LocationStateReducer,
+  // City app state
+  city: CityStateReducer,
 
   // @NOTE: By convention, the navigation state must live in a subtree called
   //`navigationState`

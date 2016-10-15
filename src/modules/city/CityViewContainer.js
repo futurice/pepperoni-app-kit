@@ -1,18 +1,18 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import LocationView from './LocationView';
+import CityView from './CityView';
 import * as NavigationStateActions from '../navigation/NavigationState';
-import * as LocationStateActions from './LocationState';
+import * as CityStateActions from './CityState';
 
 export default connect(
   state => ({
-    office: state.getIn(['location', 'value']),
-    loading: state.getIn(['location', 'loading'])
+    office: state.getIn(['city', 'value']),
+    loading: state.getIn(['city', 'loading'])
   }),
   dispatch => {
     return {
       navigationStateActions: bindActionCreators(NavigationStateActions, dispatch),
-      locationStateActions: bindActionCreators(LocationStateActions, dispatch)
+      cityStateActions: bindActionCreators(CityStateActions, dispatch)
     };
   }
-)(LocationView);
+)(CityView);

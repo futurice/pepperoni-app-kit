@@ -11,15 +11,15 @@ import {
 
 const window = Dimensions.get('window');
 
-class LocationView extends Component {
-  static displayName = 'LocationView';
+class CityView extends Component {
+  static displayName = 'CityView';
 
   static propTypes = {
     office: PropTypes.number.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    locationStateActions: PropTypes.shape({
+    cityStateActions: PropTypes.shape({
       increment: PropTypes.func.isRequired,
       reset: PropTypes.func.isRequired,
       random: PropTypes.func.isRequired
@@ -51,9 +51,9 @@ class LocationView extends Component {
   };
 
   selectOffice = () => {
-    this.props.locationStateActions.selectOffice(office);
+    this.props.cityStateActions.selectOffice(office);
     this.props.navigationStateActions.pushRoute({
-      key: 'Color',
+      key: 'Place',
       title: 'Office Screen'
     });
   };
@@ -82,9 +82,9 @@ class LocationView extends Component {
 
   renderRow(rowData) {
     return (
-      <View style={styles.locationCard}>
-        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.locationButton}>
-          <Text style={styles.locationText}>
+      <View style={styles.cityCard}>
+        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.cityButton}>
+          <Text style={styles.cityText}>
             {rowData}
           </Text>
         </TouchableOpacity>
@@ -98,7 +98,7 @@ class LocationView extends Component {
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>
-              Select your office:
+              Swipe and tap to select your office
             </Text>
           </View>
           <ListView
@@ -130,7 +130,6 @@ const circle = {
 const styles = StyleSheet.create({
   contentSpacing: {
     flex: 1,
-    paddingTop: 64 //TODO generic
   },
   row: {
     flex: 1
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     top: 50
   },
-  locationCard: {
+  cityCard: {
     flex: 1,
     overflow: 'hidden',
     width: window.width,
@@ -153,10 +152,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  locationText: {
+  cityText: {
     fontSize: 20
   },
-  locationButton: {
+  cityButton: {
     ...circle,
     backgroundColor: '#41ae4e',
     alignItems: 'center',
@@ -169,4 +168,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LocationView;
+export default CityView;

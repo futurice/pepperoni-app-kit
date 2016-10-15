@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LocationView;
+export default CounterView;
 ```
 
 ##### Container
@@ -186,11 +186,11 @@ We think using `mapStateToProps` is a good practice, but avoid using `mapActions
 
 Every time the app state changes, the Container is automatically called with the latest state. If the props returned by the container differ from the previous props, the connected View is re-rendered. If the props are identical, the view is not re-rendered. For this reason it's a good idea to define your props as ImmutableJS data structures or JavaScript primitives, because if you `toJS()` your immutable `Map`s and `Lists` to objects and arrays in the Container, the results of each pass are not referentially equal, and we lose the benefit of this performance optimisation.
 
-Using the Location example, the container would be very simple:
+Using the Counter example, the container would be very simple:
 
 ```js
 import {connect} from 'react-redux';
-import LocationView from './LocationView';
+import CounterView from './CounterView';
 
 // pass the counter's value to the component as a prop called `value`.
 // Because we omit the second parameter, the `dispatch` function is
@@ -199,7 +199,7 @@ export default connect(
   state => ({
     value: state.getIn(['counter', 'value'])
   })
-)(LocationView);
+)(CounterView);
 ```
 
 Often this file doesn't contain a lot of code, but it's important to define the Container in its own file anyway to be able to support platform-specific view implementations, as well as test the Views and their data bindings separately.
