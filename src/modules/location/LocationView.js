@@ -6,8 +6,10 @@ import {
   MapView
 } from 'react-native';
 
+// Load sample locations from JSON file
 const locationData = require('../../data/sampleLocations.json');
-const location = placesData.London;
+// Set initial default location
+const location = locationData.London;
 
 const randomPicker = () => Math.floor(Math.random() * location.length);
 /**
@@ -24,13 +26,6 @@ class LocationView extends Component {
       pushRoute: PropTypes.func.isRequired
     })
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      background: 'white'
-    };
-  }
 
   onNextPress = () => {
     const index = this.props.index;
@@ -59,7 +54,7 @@ class LocationView extends Component {
     };
 
     return (
-      <View style={[styles.container, {backgroundColor: this.state.background}]}>
+      <View style={[styles.container]}>
         <Text style={styles.city}>
           {this.props.office}
         </Text>
@@ -89,7 +84,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
   placeTitle: {
     fontSize: 30
