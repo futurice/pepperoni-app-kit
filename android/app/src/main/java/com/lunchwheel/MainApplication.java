@@ -1,4 +1,4 @@
-package com.pepperoniapptemplate;
+package com.lunchwheel;
 
 import android.app.Application;
 import android.util.Log;
