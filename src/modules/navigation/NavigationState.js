@@ -33,12 +33,12 @@ const initialState = fromJS({
   tabs: {
     index: 0,
     routes: [
-      {key: 'LunchTab', title: 'LUNCH WHEEL'},
+      {key: 'LocationTab', title: 'LOCATION'},
       {key: 'ProfileTab', title: 'PROFILE'}
     ]
   },
-  // Scenes for the `HomeTab` tab.
-  HomeTab: {
+  // Scenes for the `LocationTab` tab.
+  LocationTab: {
     index: 0,
     routes: [{key: 'Location', title: 'Location Screen'}]
   },
