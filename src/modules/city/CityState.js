@@ -9,11 +9,11 @@ const initialState = Map({
 });
 
 // Actions
-const INCREMENT = 'LocationState/INCREMENT';
-const RESET = 'LocationState/RESET';
-const RANDOM_REQUEST = 'LocationState/RANDOM_REQUEST';
-const RANDOM_RESPONSE = 'LocationState/RANDOM_RESPONSE';
-const SELECT_OFFICE = 'LocationState/SELECT_OFFICE';
+const INCREMENT = 'CityState/INCREMENT';
+const RESET = 'CityState/RESET';
+const RANDOM_REQUEST = 'CityState/RANDOM_REQUEST';
+const RANDOM_RESPONSE = 'CityState/RANDOM_RESPONSE';
+const SELECT_OFFICE = 'CityState/SELECT_OFFICE';
 
 // Action creators
 export function increment() {
@@ -45,7 +45,7 @@ export async function requestRandomNumber() {
 }
 
 // Reducer
-export default function LocationStateReducer(state = initialState, action = {}) {
+export default function CityStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case INCREMENT:
       return state.update('value', value => value + 1);

@@ -56,7 +56,7 @@ The State part of the module is a [Redux Duck](https://github.com/erikras/ducks-
 Let's take a simple example of an application that displays a number, which the user can increment by pressing a *plus* button, and decrement using a *minus* button.
 
 ```js
-// LocationState.js
+// CityState.js
 import {Map} from 'immutable';
 
 // INITIAL STATE
@@ -77,7 +77,7 @@ const initialState = Map({
 // the action name descriptive, as it helps with debugging. In most cases the action constants
 // will be private to the State file, but in some advanced scenarios may be exported
 
-const UPDATE_NUMBER = 'LocationState/UPDATE_NUMBER';
+const UPDATE_NUMBER = 'CityState/UPDATE_NUMBER';
 
 // ACTION CREATORS (Naming: camelCase)
 //
@@ -109,7 +109,7 @@ export function decrement() {
 //
 // The reducer is always an ES6 default export.
 
-export default function LocationStateReducer(state = initialState, action) {
+export default function CityStateReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_NUMBER:
       return state.update('value', value => value + action.payload);
@@ -131,14 +131,14 @@ The View usually has some presentational components and styling, but usually the
 
 A View should take all inputs as `props`, and should very, very rarely, if ever, be stateful. Instead, the state should be managed in Redux, and injected to the component props by the container.
 
-To continue the Location example, a view might look something like this:
+To continue the City example, a view might look something like this:
 
 ```js
 import React, {PropTypes, StyleSheet, Text, View} from 'react-native';
 import ActionButton from '../../components/ActionButton';
-import * as LocationState from './LocationState';
+import * as CityState from './CityState';
 
-const LocationView = React.createClass({
+const CityView = React.createClass({
   // state (value) and action dispatcher are provided as props
   propTypes: {
     value: PropTypes.number.isRequired,
@@ -147,12 +147,12 @@ const LocationView = React.createClass({
 
   render() {
     const {value, dispatch} = this.props;
-    // use reusable components (ActionButton) to dispatch actions created by LocationState action creators
+    // use reusable components (ActionButton) to dispatch actions created by CityState action creators
     return (
       <View style={styles.container}>
         <Text style={styles.counter}>{value}</Text>
-        <ActionButton onPress={() => dispatch(LocationState.increment())} text='+' />
-        <ActionButton onPress={() => dispatch(LocationState.decrement())} text='-' />
+        <ActionButton onPress={() => dispatch(CityState.increment())} text='+' />
+        <ActionButton onPress={() => dispatch(CityState.decrement())} text='-' />
       </View>
     );
   }
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LocationView;
+export default CityView;
 ```
 
 ##### Container
@@ -186,11 +186,11 @@ We think using `mapStateToProps` is a good practice, but avoid using `mapActions
 
 Every time the app state changes, the Container is automatically called with the latest state. If the props returned by the container differ from the previous props, the connected View is re-rendered. If the props are identical, the view is not re-rendered. For this reason it's a good idea to define your props as ImmutableJS data structures or JavaScript primitives, because if you `toJS()` your immutable `Map`s and `Lists` to objects and arrays in the Container, the results of each pass are not referentially equal, and we lose the benefit of this performance optimisation.
 
-Using the Location example, the container would be very simple:
+Using the City example, the container would be very simple:
 
 ```js
 import {connect} from 'react-redux';
-import LocationView from './LocationView';
+import CityView from './CityView';
 
 // pass the counter's value to the component as a prop called `value`.
 // Because we omit the second parameter, the `dispatch` function is
@@ -199,7 +199,7 @@ export default connect(
   state => ({
     value: state.getIn(['counter', 'value'])
   })
-)(LocationView);
+)(CityView);
 ```
 
 Often this file doesn't contain a lot of code, but it's important to define the Container in its own file anyway to be able to support platform-specific view implementations, as well as test the Views and their data bindings separately.

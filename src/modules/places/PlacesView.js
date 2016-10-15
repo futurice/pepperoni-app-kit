@@ -29,8 +29,8 @@ const PlacesView = React.createClass({
   onNextPress() {
     const index = this.props.index;
     this.props.dispatch(NavigationState.pushRoute({
-      key: `Color_${index + 1}`,
-      title: `Color Screen #${index + 1}`
+      key: `Place_${index + 1}`,
+      title: `Place Screen #${index + 1}`
     }));
   },
 
@@ -54,7 +54,7 @@ const PlacesView = React.createClass({
 
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Text style={styles.location}>
+        <Text style={styles.city}>
           {this.props.office}
         </Text>
         <Text onPress={this.onNextPress} style={styles.placeTitle}>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#000000'
   },
-  location: {
+  city: {
     paddingBottom: 40
   }
 });

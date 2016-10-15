@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
-import LocationView from './LocationView';
+import CityView from './CityView';
 
 export default connect(
   state => ({
-    office: state.getIn(['location', 'value']),
-    loading: state.getIn(['location', 'loading']),
+    office: state.getIn(['city', 'value']),
+    loading: state.getIn(['city', 'loading']),
     userName: state.getIn(['auth', 'currentUser', 'name']),
     userProfilePhoto: state.getIn(['auth', 'currentUser', 'picture'])
   })
-)(LocationView);
+)(CityView);

@@ -1,7 +1,7 @@
 /*eslint-disable react/prop-types*/
 
 import React from 'react';
-import LocationViewContainer from './location/LocationViewContainer';
+import CityViewContainer from './city/CityViewContainer';
 import PlacesViewContainer from './places/PlacesViewContainer';
 
 /**
@@ -10,11 +10,11 @@ import PlacesViewContainer from './places/PlacesViewContainer';
 export default function AppRouter(props) {
   const key = props.scene.route.key;
 
-  if (key === 'Location') {
-    return <LocationViewContainer />;
+  if (key === 'City') {
+    return <CityViewContainer />;
   }
 
-  if (key.indexOf('Color') === 0) {
+  if (key.indexOf('Place') === 0) {
     const index = props.scenes.indexOf(props.scene);
     return (
       <PlacesViewContainer

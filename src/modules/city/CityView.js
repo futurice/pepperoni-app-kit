@@ -1,4 +1,4 @@
-import * as LocationState from './LocationState';
+import * as CityState from './CityState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';
 import {
@@ -13,7 +13,7 @@ import {
 
 const window = Dimensions.get('window');
 
-const LocationView = React.createClass({
+const CityView = React.createClass({
   propTypes: {
     office: PropTypes.string.isRequired,
     userName: PropTypes.string,
@@ -29,18 +29,18 @@ const LocationView = React.createClass({
   },
 
   increment() {
-    this.props.dispatch(LocationState.increment());
+    this.props.dispatch(CityState.increment());
   },
   reset() {
-    this.props.dispatch(LocationState.reset());
+    this.props.dispatch(CityState.reset());
   },
   random() {
-    this.props.dispatch(LocationState.random());
+    this.props.dispatch(CityState.random());
   },
   selectOffice(office) {
-    this.props.dispatch(LocationState.selectOffice(office));
+    this.props.dispatch(CityState.selectOffice(office));
     this.props.dispatch(NavigationState.pushRoute({
-      key: 'Color',
+      key: 'Place',
       title: 'Office Screen'
     }));
   },
@@ -69,9 +69,9 @@ const LocationView = React.createClass({
 
   renderRow(rowData) {
     return (
-      <View style={styles.locationCard}>
-        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.locationButton}>
-          <Text style={styles.locationText}>
+      <View style={styles.cityCard}>
+        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.cityButton}>
+          <Text style={styles.cityText}>
             {rowData}
           </Text>
         </TouchableOpacity>
@@ -85,7 +85,7 @@ const LocationView = React.createClass({
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>
-              Select your office:
+              Swipe and tap to select your office
             </Text>
           </View>
           <ListView
@@ -117,7 +117,6 @@ const circle = {
 const styles = StyleSheet.create({
   contentSpacing: {
     flex: 1,
-    paddingTop: 64 //TODO generic
   },
   row: {
     flex: 1
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     top: 50
   },
-  locationCard: {
+  cityCard: {
     flex: 1,
     overflow: 'hidden',
     width: window.width,
@@ -140,10 +139,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  locationText: {
+  cityText: {
     fontSize: 20
   },
-  locationButton: {
+  cityButton: {
     ...circle,
     backgroundColor: '#41ae4e',
     alignItems: 'center',
@@ -156,4 +155,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LocationView;
+export default CityView;
