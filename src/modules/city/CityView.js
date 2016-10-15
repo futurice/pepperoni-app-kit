@@ -41,7 +41,7 @@ const CityView = React.createClass({
     this.props.dispatch(CityState.selectOffice(office));
     this.props.dispatch(NavigationState.pushRoute({
       key: 'Location',
-      title: 'Location Screen'
+      title: 'Location in ' + office
     }));
   },
 
@@ -81,27 +81,25 @@ const CityView = React.createClass({
 
   render() {
     return (
-      <View style={styles.contentSpacing}>
-        <View style={styles.container}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>
-              Swipe and tap to select your office
-            </Text>
-          </View>
-          <ListView
-            dataSource={this.state.dataSource}
-            renderRow={this.renderRow}
-            style={styles.swiper}
-            vertical={false}
-            alwaysBounceVertical={false}
-            horizontal={true}
-            pagingEnabled={true}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-            bounces={true}
-            loop={true}
-          />
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>
+            Swipe and tap to select your office
+          </Text>
         </View>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+          style={styles.swiper}
+          vertical={false}
+          alwaysBounceVertical={false}
+          horizontal={true}
+          pagingEnabled={true}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+          bounces={true}
+          loop={true}
+        />
       </View>
     );
   }
@@ -115,9 +113,6 @@ const circle = {
 };
 
 const styles = StyleSheet.create({
-  contentSpacing: {
-    flex: 1,
-  },
   row: {
     flex: 1
   },

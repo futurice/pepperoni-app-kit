@@ -8,7 +8,9 @@ import {
 
 import * as NavigationState from '../../modules/navigation/NavigationState';
 
+// Load sample locations from JSON file
 const locationData = require('../../data/sampleLocations.json');
+// Set initial default location
 const location = locationData.London;
 
 const randomPicker = () => Math.floor(Math.random() * location.length);
@@ -18,12 +20,6 @@ const LocationView = React.createClass({
     index: PropTypes.number.isRequired,
     dispatch: PropTypes.func.isRequired,
     office: PropTypes.string.isRequired
-  },
-
-  getInitialState() {
-    return {
-      backgroundColor: 'white'
-    };
   },
 
   onNextPress() {
@@ -53,7 +49,7 @@ const LocationView = React.createClass({
     };
 
     return (
-      <View style={[styles.container, {backgroundColor: this.state.background}]}>
+      <View style={[styles.container]}>
         <Text style={styles.city}>
           {this.props.office}
         </Text>
@@ -83,7 +79,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
   placeTitle: {
     fontSize: 30
