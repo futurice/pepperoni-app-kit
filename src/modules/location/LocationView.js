@@ -37,7 +37,7 @@ const LocationView = React.createClass({
   random() {
     this.props.dispatch(LocationState.random());
   },
-  selectOffice() {
+  selectOffice(office) {
     this.props.dispatch(LocationState.selectOffice(office));
     this.props.dispatch(NavigationState.pushRoute({
       key: 'Color',
