@@ -8,12 +8,12 @@ import {
 
 import * as NavigationState from '../../modules/navigation/NavigationState';
 
-const placesData = require('../../data/samplePlaces.json');
-const places = placesData.London;
+const locationData = require('../../data/sampleLocations.json');
+const location = locationData.London;
 
-const randomPicker = () => Math.floor(Math.random() * places.length);
+const randomPicker = () => Math.floor(Math.random() * location.length);
 
-const PlacesView = React.createClass({
+const LocationView = React.createClass({
   propTypes: {
     index: PropTypes.number.isRequired,
     dispatch: PropTypes.func.isRequired,
@@ -36,7 +36,7 @@ const PlacesView = React.createClass({
 
   render() {
 
-    const place = places[randomPicker()];
+    const place = location[randomPicker()];
     const marker = [
       {
         latitude: place.latitude,
@@ -108,4 +108,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PlacesView;
+export default LocationView;

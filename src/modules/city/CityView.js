@@ -40,8 +40,8 @@ const CityView = React.createClass({
   selectOffice(office) {
     this.props.dispatch(CityState.selectOffice(office));
     this.props.dispatch(NavigationState.pushRoute({
-      key: 'Place',
-      title: 'Office Screen'
+      key: 'Location',
+      title: 'Location Screen'
     }));
   },
 
