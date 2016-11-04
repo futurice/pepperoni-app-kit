@@ -39,6 +39,8 @@ Create a blank configuration file
 3. Build the app and run the simulator:
 
         $ react-native run-ios
+        
+**Note: When you want to run the app with Xcode, you need to open the `.xcworkspace` file instead of the `.xcodeproj` file**
 
 ### Running the Android application
 
