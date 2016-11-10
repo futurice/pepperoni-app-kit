@@ -1,9 +1,6 @@
 /*eslint-disable max-nested-callbacks, no-unused-expressions*/
 
 import {Effects} from 'redux-loop';
-import sinon from 'sinon';
-import {describe, it, beforeEach, afterEach} from 'mocha';
-import {expect} from 'chai';
 import {initialState, dispatch} from '../../../../test/state';
 import * as CounterStateActions from '../CounterState';
 
@@ -15,10 +12,10 @@ describe('CounterState', () => {
 
     it('should increment the value property by one', () => {
       const [secondState] = dispatch(initialState, CounterStateActions.increment());
-      expect(getValue(secondState)).to.equal(getValue(initialState) + 1);
+      expect(getValue(secondState)).toBe(getValue(initialState) + 1);
 
       const [thirdState] = dispatch(secondState, CounterStateActions.increment());
-      expect(getValue(thirdState)).to.equal(getValue(secondState) + 1);
+      expect(getValue(thirdState)).toBe(getValue(secondState) + 1);
     });
   });
 
@@ -26,11 +23,11 @@ describe('CounterState', () => {
     it('should reset the counter state to initial value', () => {
       // create an incremented state to test against
       const [modifiedState] = dispatch(initialState, CounterStateActions.increment());
-      expect(modifiedState.get('counter')).to.not.equal(initialState.get('counter'));
+      expect(modifiedState.get('counter')).not.toBe(initialState.get('counter'));
 
       // reset to original and verify it === initial state
       const [resetState] = dispatch(modifiedState, CounterStateActions.reset());
-      expect(resetState.get('counter')).to.equal(initialState.get('counter'));
+      expect(resetState.get('counter')).toBe(initialState.get('counter'));
     });
   });
 
@@ -40,11 +37,11 @@ describe('CounterState', () => {
     const [nextState, effects] = dispatch(initialState, CounterStateActions.random());
 
     it('should update loading bit', () => {
-      expect(nextState.getIn(['counter', 'loading'])).to.equal(true);
+      expect(nextState.getIn(['counter', 'loading'])).toBe(true);
     });
 
     it('should trigger a requestRandomNumber side effect', () => {
-      expect(effects).to.eql(
+      expect(effects).toEqual(
         Effects.promise(CounterStateActions.requestRandomNumber)
       );
     });
@@ -52,20 +49,22 @@ describe('CounterState', () => {
 
   // Example of how to test async action creators
   describe('requestRandomNumber', () => {
-
     // randomizer uses timeouts to delay response, let's make it execute
     // instantly to improve test speed
-    const sandbox = sinon.sandbox.create();
-    beforeEach(() => sandbox.stub(global, 'setTimeout', setImmediate));
-    afterEach(() => sandbox.restore());
+    beforeEach(() => {
+      // jest 16 still breaks Promises...
+      global.Promise = require.requireActual('promise');
+      // instantly resolve timeouts
+      global.setTimeout = (cb) => cb();
+    });
 
     it('should generate a random number and dispatch it', async () => {
       const action = await CounterStateActions.requestRandomNumber();
-      expect(action.payload).to.be.a('number');
+      expect(typeof action.payload).toBe('number');
 
       const [nextState] = dispatch(initialState, action);
-      expect(nextState.getIn(['counter', 'value'])).to.equal(action.payload);
-      expect(nextState.getIn(['counter', 'loading'])).to.equal(false);
+      expect(nextState.getIn(['counter', 'value'])).toBe(action.payload);
+      expect(nextState.getIn(['counter', 'loading'])).toBe(false);
     });
   });
 });
