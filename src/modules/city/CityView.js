@@ -84,7 +84,7 @@ const CityView = React.createClass({
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>
-            Swipe and tap to select your office
+            Swipe and tap to find locations in your city
           </Text>
         </View>
         <ListView
