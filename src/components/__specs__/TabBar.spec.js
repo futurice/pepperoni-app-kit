@@ -10,9 +10,9 @@ import TabBarButton from '../TabBarButton';
 const tabs = {
   index: 0,
   routes: [
-    {title: 'Tab 1'},
-    {title: 'Tab 2'},
-    {title: 'Tab 3'}
+    {key: 'tab-1', title: 'Tab 1'},
+    {key: 'tab-2', title: 'Tab 2'},
+    {key: 'tab-3', title: 'Tab 3'}
   ]
 };
 
