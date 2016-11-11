@@ -35,7 +35,7 @@ const namespacedReducer = combineReducers(
 
 export default function mainReducer(state, action) {
   const [nextState, effects] = action.type === RESET_STATE
-    ? namespacedReducer(action.payload.state, action)
+    ? namespacedReducer(action.payload, action)
     : namespacedReducer(state || void 0, action);
 
   // enforce the state is immutable

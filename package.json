@@ -21,11 +21,13 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/LunchWheel/main.jsbundle --dev=false --minify --verbose",
-    "test": "mocha src/**/*.spec.js",
-    "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint src test",
-    "coverage": "rimraf coverage && istanbul cover --i=src/**/*.js _mocha -- src/**/*.spec.js",
-    "check-coverage": "istanbul check-coverage coverage/coverage.json"
+    "coverage": "rimraf coverage && jest --coverage"
+  },
+  "jest": {
+    "preset": "jest-react-native"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
@@ -49,22 +51,22 @@
   "devDependencies": {
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.2",
+    "babel-jest": "^16.0.0",
     "babel-polyfill": "^6.9.0",
-    "babel-preset-react-native": "^1.7.0",
+    "babel-preset-react-native": "^1.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
-    "chai": "^3.5.0",
-    "chokidar-cli": "^1.2.0",
     "enzyme": "^2.2.0",
     "eslint": "^2.8.0",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-react": "^4.3.0",
-    "fetch-mock": "^4.5.4",
+    "fetch-mock": "^5.5.0",
     "istanbul": "1.0.0-alpha.2",
-    "mocha": "^2.4.5",
+    "jest": "^16.0.1",
+    "jest-react-native": "^16.0.0",
     "react-addons-test-utils": "15.0.2",
     "react-native-mock": "~0.2.5",
-    "rimraf": "^2.5.2",
-    "sinon": "^1.17.4"
+    "react-test-renderer": "^15.3.2",
+    "rimraf": "^2.5.2"
   }
 }

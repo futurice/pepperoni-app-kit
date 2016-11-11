@@ -1,11 +1,8 @@
 /*eslint-disable max-nested-callbacks*/
 
-import sinon from 'sinon';
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 import {shallow} from 'enzyme';
-import {describe, it} from 'mocha';
-import {expect} from 'chai';
 import {hasStyles} from '../../../test/assertions';
 
 import TabBarButton from '../TabBarButton';
@@ -17,19 +14,19 @@ describe('<TabBarButton/>', () => {
       <TabBarButton text='TestButton' isSelected={true} action={() => null} />
     );
 
-    expect(wrapper.contains(<Text>TestButton</Text>)).to.equal(true);
+    expect(wrapper.contains(<Text>TestButton</Text>)).toBe(true);
   });
 
   it('should respond to press events', () => {
-    const onPress = sinon.spy();
+    const onPress = jest.fn();
     const wrapper = shallow(
       <TabBarButton text='TestButton' action={onPress} isSelected={false} />
     );
 
-    expect(onPress.called).to.equal(false);
+    expect(onPress.mock.calls.length).toBe(0);
 
     wrapper.find(TouchableOpacity).simulate('press');
-    expect(onPress.calledOnce).to.equal(true);
+    expect(onPress).toBeCalled();
   });
 
   it('should render selected button with a background color', () => {
@@ -41,7 +38,7 @@ describe('<TabBarButton/>', () => {
       <TabBarButton text='TestButton' action={() => null} isSelected={true} />
     );
 
-    expect(hasStyles(unselected.first(), {backgroundColor: '#349d4a'})).to.equal(false);
-    expect(hasStyles(selected.first(), {backgroundColor: '#349d4a'})).to.equal(true);
+    expect(hasStyles(unselected.first(), {backgroundColor: '#349d4a'})).toBe(false);
+    expect(hasStyles(selected.first(), {backgroundColor: '#349d4a'})).toBe(true);
   });
 });

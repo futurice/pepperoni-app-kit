@@ -1,8 +1,5 @@
 /*eslint-disable max-nested-callbacks, no-unused-expressions*/
 
-import {describe, it, beforeEach, afterEach} from 'mocha';
-import {expect} from 'chai';
-import sinon from 'sinon';
 import fetch from 'fetch-mock';
 import HttpError from 'standard-http-error';
 
@@ -18,6 +15,10 @@ const SIMPLE_RESPONSE = {foo: 'bar'};
 
 describe('API', () => {
   beforeEach(() => {
+    // jest 16 still breaks Promises...
+    global.Promise = require.requireActual('promise');
+    // stub AsyncStorage.getItem
+    require.requireActual('react-native').AsyncStorage.getItem = () => Promise.resolve(1);
     configuration.setConfiguration('API_ROOT', API_ROOT);
     fetch
       .mock(API_ROOT + SIMPLE_ENDPOINT, {status: 200, body: SIMPLE_RESPONSE})
@@ -45,46 +46,46 @@ describe('API', () => {
 
       it('should fetch() the given endpoint', async () => {
         await apiMethod(SIMPLE_ENDPOINT);
-        expect(fetch.lastUrl()).to.equal(`${API_ROOT}${SIMPLE_ENDPOINT}`);
+        expect(fetch.lastUrl()).toBe(`${API_ROOT}${SIMPLE_ENDPOINT}`);
       });
 
       if (method === 'put' || method === 'post') {
         it('should send the body for PUT and POST requests', async () => {
           await apiMethod(SIMPLE_ENDPOINT);
-          expect(fetch.lastOptions().body).to.equal(JSON.stringify(body));
+          expect(fetch.lastOptions().body).toBe(JSON.stringify(body));
         });
       }
 
       it('should return the response body when calling a valid JSON endpoint', async () => {
-        expect(await apiMethod(SIMPLE_ENDPOINT)).to.eql(SIMPLE_RESPONSE);
-        expect(fetch.called()).to.equal(true);
+        expect(await apiMethod(SIMPLE_ENDPOINT)).toEqual(SIMPLE_RESPONSE);
+        expect(fetch.called()).toBe(true);
       });
 
       it('should throw when endpoint returns HTTP 4xx error', async () => {
         const error = await getError(() => apiMethod(ERROR_ENDPOINT));
-        expect(error).to.be.an.instanceOf(HttpError);
-        expect(error.code).to.equal(400);
-        expect(error.message).to.equal('You did bad.');
-        expect(fetch.called()).to.equal(true);
+        expect(error instanceof HttpError).toBe(true);
+        expect(error.code).toBe(400);
+        expect(error.message).toBe('You did bad.');
+        expect(fetch.called()).toBe(true);
       });
 
       it('should throw when server returns a HTTP 5xx error', async () => {
         const error = await getError(() => apiMethod(FAILING_ENDPOINT));
-        expect(error).to.be.an.instanceOf(HttpError);
-        expect(error.code).to.equal(500);
-        expect(error.message).to.equal('Internal Server Error');
-        expect(fetch.called()).to.equal(true);
+        expect(error instanceof HttpError).toBe(true);
+        expect(error.code).toBe(500);
+        expect(error.message).toBe('Internal Server Error');
+        expect(fetch.called()).toBe(true);
       });
     });
   }
 
   describe('url', () => {
     it('generates a full url from a path using API_ROOT configuration value', async () => {
-      expect(api.url('foobar')).to.eql(API_ROOT + '/foobar');
+      expect(api.url('foobar')).toEqual(API_ROOT + '/foobar');
     });
 
     it('generates a full url with leading forward slash', async () => {
-      expect(api.url('/foobar')).to.eql(API_ROOT + '/foobar');
+      expect(api.url('/foobar')).toEqual(API_ROOT + '/foobar');
     });
   });
 
@@ -99,9 +100,9 @@ describe('API', () => {
     };
 
     beforeEach(() => {
-      api.errors.on('400', (spy400Errors = sinon.spy()));
-      api.errors.on('403', (spy403Errors = sinon.spy()));
-      api.errors.on('*', (spyAllErrors = sinon.spy()));
+      api.errors.on('400', (spy400Errors = jest.fn()));
+      api.errors.on('403', (spy403Errors = jest.fn()));
+      api.errors.on('*', (spyAllErrors = jest.fn()));
     });
 
     afterEach(() => {
@@ -114,23 +115,23 @@ describe('API', () => {
       await getError(() => api.get(PROTECTED_ENDPOINT));
 
       // 403 called, matching error code
-      expect(spy403Errors.callCount).to.equal(1);
-      expect(spy403Errors.calledWith(expectedArgs)).to.equal(true);
+      expect(spy403Errors).toBeCalled();
+      expect(spy403Errors).toBeCalledWith(expectedArgs);
     });
 
     it('notifies about errors on generic * channel', async () => {
       await getError(() => api.get(PROTECTED_ENDPOINT));
 
       // always matches
-      expect(spyAllErrors.callCount).to.equal(1);
-      expect(spyAllErrors.calledWith(expectedArgs)).to.equal(true);
+      expect(spyAllErrors).toBeCalled();
+      expect(spyAllErrors).toBeCalledWith(expectedArgs, 403);
     });
 
     it('doesn\'t notify about errors on other channels', async () => {
       await getError(() => api.get(PROTECTED_ENDPOINT));
 
       // never called, unmatching error code
-      expect(spy400Errors.callCount).to.equal(0);
+      expect(spy400Errors.mock.calls.length).toBe(0);
     });
   });
 });
