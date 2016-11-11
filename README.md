@@ -37,9 +37,8 @@ Not all of the below is yet fully implemented
 
 ### Testing Setup
 
-* [Mocha](https://mochajs.org/) for unit testing application code
+* [Jest](https://facebook.github.io/jest/) for unit testing application code and providing coverage information.
 * [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
-* [Istanbul](https://github.com/gotwarlost/istanbul) code coverage
 * Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
 
 ### Development & Deployment Infrastructure

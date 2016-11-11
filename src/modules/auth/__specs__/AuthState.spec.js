@@ -1,7 +1,5 @@
 /*eslint-disable max-nested-callbacks, no-unused-expressions*/
 
-import {describe, it} from 'mocha';
-import {expect} from 'chai';
 import {initialState, dispatch} from '../../../../test/state';
 import * as AuthStateActions from '../AuthState';
 
@@ -14,12 +12,12 @@ describe('AuthState', () => {
       const [nextState] = dispatch(initialState, AuthStateActions.onUserLoginSuccess(profile, token));
 
       // verify initial state for sanity
-      expect(initialState.getIn(['auth', 'isLoggedIn'])).to.equal(false);
+      expect(initialState.getIn(['auth', 'isLoggedIn'])).toBe(false);
 
       // verify updated state
-      expect(nextState.getIn(['auth', 'isLoggedIn'])).to.equal(true);
-      expect(nextState.getIn(['auth', 'currentUser']).toJS()).to.eql(profile);
-      expect(nextState.getIn(['auth', 'authenticationToken']).toJS()).to.eql(token);
+      expect(nextState.getIn(['auth', 'isLoggedIn'])).toBe(true);
+      expect(nextState.getIn(['auth', 'currentUser']).toJS()).toEqual(profile);
+      expect(nextState.getIn(['auth', 'authenticationToken']).toJS()).toEqual(token);
     });
   });
 });
