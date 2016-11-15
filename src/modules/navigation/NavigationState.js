@@ -34,7 +34,7 @@ const initialState = fromJS({
     index: 0,
     routes: [
       {key: 'CityTab', title: 'City'},
-      {key: 'LocationTab', title: 'Location'}
+      {key: 'ProfileTab', title: 'Profile'}
     ]
   },
   // Scenes for the `CityTab` tab.
@@ -46,6 +46,11 @@ const initialState = fromJS({
   LocationTab: {
     index: 0,
     routes: [{key: 'Location', title: 'Location'}]
+  },
+  // Scenes for the `ProfileTab` tab.
+  ProfileTab: {
+    index: 0,
+    routes: [{key: 'Profile', title: 'Profile'}]
   }
 });
 
