@@ -25,6 +25,9 @@
 		1916AD410B0B45C9BEDB553E /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBED167597174594A47B20BE /* libA0RNLock.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		C7892EC5B6C191C5E6B2FFC1 /* libPods-LunchWheel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F92B97868984683857760 /* libPods-LunchWheel.a */; };
+		E46FF2DF1DDB990400B096A2 /* pepperoni.png in Resources */ = {isa = PBXBuildFile; fileRef = E46FF2DC1DDB990400B096A2 /* pepperoni.png */; };
+		E46FF2E01DDB990400B096A2 /* pepperoni@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E46FF2DD1DDB990400B096A2 /* pepperoni@2x.png */; };
+		E46FF2E11DDB990400B096A2 /* pepperoni@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E46FF2DE1DDB990400B096A2 /* pepperoni@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +144,9 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8E3B2937F3EB6D0910A7001B /* Pods-LunchWheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWheel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWheel/Pods-LunchWheel.release.xcconfig"; sourceTree = "<group>"; };
 		CBED167597174594A47B20BE /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
+		E46FF2DC1DDB990400B096A2 /* pepperoni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pepperoni.png; path = ../images/pepperoni.png; sourceTree = "<group>"; };
+		E46FF2DD1DDB990400B096A2 /* pepperoni@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@2x.png"; path = "../images/pepperoni@2x.png"; sourceTree = "<group>"; };
+		E46FF2DE1DDB990400B096A2 /* pepperoni@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@3x.png"; path = "../images/pepperoni@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +256,9 @@
 		13B07FAE1A68108700A75B9A /* LunchWheel */ = {
 			isa = PBXGroup;
 			children = (
+				E46FF2DC1DDB990400B096A2 /* pepperoni.png */,
+				E46FF2DD1DDB990400B096A2 /* pepperoni@2x.png */,
+				E46FF2DE1DDB990400B096A2 /* pepperoni@3x.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -567,6 +576,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				E46FF2E11DDB990400B096A2 /* pepperoni@3x.png in Resources */,
+				E46FF2DF1DDB990400B096A2 /* pepperoni.png in Resources */,
+				E46FF2E01DDB990400B096A2 /* pepperoni@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
