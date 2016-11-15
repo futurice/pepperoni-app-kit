@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
   cityButton: {
     ...circle,
-    backgroundColor: '#41ae4e',
+    backgroundColor: '#39babd',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 20
