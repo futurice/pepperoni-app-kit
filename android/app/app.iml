@@ -32,12 +32,14 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
@@ -82,7 +84,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars" />
@@ -97,10 +102,11 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/org.webkit/android-jsc/r174650/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
@@ -114,18 +120,68 @@
     <orderEntry type="library" exported="" name="soloader-0.1.0" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="jsr305-3.0.0" level="project" />
-    <orderEntry type="library" exported="" name="jackson-core-2.2.3" level="project" />
+    <orderEntry type="library" exported="" name="jackson-core-2.4.1" level="project" />
     <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
-    <orderEntry type="library" exported="" name="react-native-0.37.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-urlconnection-3.4.1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-ws-3.4.1" level="project" />
     <orderEntry type="library" exported="" name="android-jsc-r174650" level="project" />
     <orderEntry type="library" exported="" name="okhttp-3.4.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.2.1" level="project" />
+    <orderEntry type="library" exported="" name="react-native-0.37.0" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-okhttp3-0.11.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.2.1" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-23.0.1" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-23.1.0" level="project" />
     <orderEntry type="library" exported="" name="fbcore-0.11.0" level="project" />
+    <orderEntry type="module" module-name="react-native-lock" exported="" />
+    <orderEntry type="library" exported="" name="lock-passwordless-1.16.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="javassist-3.20.0-GA" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-library-1.3" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-2.5.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-commons-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-utils-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="fest-android-1.0.8" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-reflect-1.6.3" level="project" />
+    <orderEntry type="library" exported="" name="jackson-annotations-2.4.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="mockito-core-1.10.19" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-rule-1.6.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="xmlpull-1.1.3.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="fest-util-1.2.5" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="guava-18.0" level="project" />
+    <orderEntry type="library" exported="" name="identity-core-1.16.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="icu4j-53.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="shadows-core-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
+    <orderEntry type="library" exported="" name="lock-1.16.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="fest-assert-core-2.0M10" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="maven-ant-tasks-2.1.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="ant-1.8.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-api-support-1.6.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-annotations-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="accessibility-test-framework-1.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="ant-launcher-1.8.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="xpp3_min-1.1.4c" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-classloading-base-1.6.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="mockito-all-1.10.19" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-util-5.0.1" level="project" />
+    <orderEntry type="library" exported="" name="otto-1.3.5" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="bcprov-jdk16-1.46" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="xstream-1.4.2" level="project" />
+    <orderEntry type="library" exported="" name="library-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-core-1.6.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-classloading-xstream-1.6.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-resources-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" name="jackson-databind-2.4.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-analysis-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-api-mockito-1.6.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="vtd-xml-2.11" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="junit-4.11" level="project" />
+    <orderEntry type="library" exported="" name="core-1.16.1" level="project" />
   </component>
 </module>
