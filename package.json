@@ -61,12 +61,25 @@
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-react": "^6.7.1",
     "fetch-mock": "^5.5.0",
+    "fuse.js": "^2.5.0",
+    "immutablediff": "^0.4.4",
     "istanbul": "1.0.0-alpha.2",
     "jest": "^17.0.2",
     "jest-react-native": "^17.0.2",
     "react-addons-test-utils": "~15.3.2",
+    "react-native-calendar": "^0.9.0",
+    "react-native-config": "^0.1.2",
+    "react-native-cookies": "^2.0.0",
+    "react-native-hockeyapp": "^0.5.0",
     "react-native-mock": "~0.2.5",
+    "react-native-push-notification": "^2.2.1",
+    "react-native-search-bar": "^2.16.0",
+    "react-native-settings-list": "^1.3.2",
+    "react-native-simple-markdown": "^1.0.60-rc.2",
+    "react-native-spinkit": "^0.1.5",
+    "react-native-ua": "^0.1.0",
     "react-test-renderer": "^15.3.2",
-    "rimraf": "^2.5.2"
+    "rimraf": "^2.5.2",
+    "uuid": "^3.0.0"
   }
 }
