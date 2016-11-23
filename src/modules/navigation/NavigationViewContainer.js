@@ -12,6 +12,7 @@ export default connect(
       switchTab: bindActionCreators(switchTab, dispatch),
       pushRoute: bindActionCreators(pushRoute, dispatch),
       onNavigateBack: bindActionCreators(popRoute, dispatch),
+      replaceRoute: bindActionCreators(popRoute, dispatch),
       onNavigateCompleted() {
         // FIXME: why is navigationCompleted non-existant in NavigationState?
         // (causes bindActionCreators to fail)

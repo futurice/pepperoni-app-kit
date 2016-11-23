@@ -3,7 +3,7 @@
 import React from 'react';
 import CityViewContainer from './city/CityViewContainer';
 import LocationViewContainer from './location/LocationViewContainer';
-import ProfileViewContainer from './profile/ProfileViewContainer';
+import AboutView from './about/AboutView';
 
 /**
  * AppRouter is responsible for mapping a navigator scene to a view
@@ -24,8 +24,8 @@ export default function AppRouter(props) {
     );
   }
 
-  if (key === 'Profile') {
-    return <ProfileViewContainer />;
+  if (key === 'About') {
+    return <AboutView />;
   }
 
   throw new Error('Unknown navigation key: ' + key);

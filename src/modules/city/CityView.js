@@ -1,8 +1,7 @@
-import React, {PropTypes, Component} from 'react';
 import * as theme from '../../utils/theme';
 import Button from '../../components/Button';
 import PageIndicator from '../../components/PageIndicator';
-import {getRandomLocation} from '../../services/locationService';
+import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
   Image,
@@ -10,78 +9,115 @@ import {
   View,
   ListView,
   Platform,
-  Dimensions
+  Dimensions,
+  ActivityIndicator,
+  TouchableOpacity
 } from 'react-native';
 
 const window = Dimensions.get('window');
 
-const cities = [
-  {name: 'London', image: require('../../../assets/city-images/london.png')},
-  {name: 'Berlin', image: require('../../../assets/city-images/berlin.png')},
-  {name: 'Helsinki', image: require('../../../assets/city-images/helsinki.png')},
-  {name: 'Tampere', image: require('../../../assets/city-images/tampere.png')},
-  {name: 'Stockholm', image: require('../../../assets/city-images/stockholm.png')},
-  {name: 'Munich', image: require('../../../assets/city-images/munich.png')}
-];
+// Futurice offices
+const offices = require('../../data/sampleLocations.json');
 
 class CityView extends Component {
   static displayName = 'CityView';
 
   static propTypes = {
-    office: PropTypes.number.isRequired,
+    office: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
+    place: PropTypes.object,
+    position: PropTypes.number.isRequired,
     cityStateActions: PropTypes.shape({
-	  selectOffice: PropTypes.func.isRequired
-    }).isRequired,
-    navigationStateActions: PropTypes.shape({
-      pushRoute: PropTypes.func.isRequired
+      selectOffice: PropTypes.func.isRequired,
+      changePosition: PropTypes.func.isRequired
     }).isRequired
-  };
+  }
 
   // Initialize the hardcoded data
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    return {
-      dataSource: ds.cloneWithRows(cities)
+    this.state = {
+      dataSource: ds.cloneWithRows(offices)
     };
   }
 
-  selectOffice = () => {
+  selectOffice = (office) => {
     this.props.cityStateActions.selectOffice(office);
-    this.props.navigationStateActions.pushRoute({
-      key: 'Location',
-      title: place.name,
-      place
-    });
-  };
+  }
 
-  renderRow({name, image}, section, index) {
+  changePositionPager = (position) => {
+    this.props.cityStateActions.changePosition(position);
+  }
+
+  renderRow = (rowData, section, index) => {
+    // Show pageIndicator and button for Android on the row because the function
+    // 'onChangeVisibleRows' does not work for Android
+    let androidView = (Platform.OS === 'android')
+      ? (<View style={styles.buttonsContainer}>
+          <PageIndicator pageCount={offices.length}
+            selectedIndex={+index}
+            style={styles.pageIndicator} />
+          <Button
+              text="What's for lunch?"
+              style={theme.buttons.primary}
+              textStyle={theme.fonts.primary}
+              action={() => this.selectOffice(offices[index])} />
+        </View>)
+      : (<View/>);
+
     return (
       <View style={styles.cityCard}>
-        <Image
-          resizeMode='contain'
-          source={image}
-          style={styles.image}
-        />
+        <TouchableOpacity onPress={() => this.selectOffice(offices[index])}>
+          <Image source={{uri: rowData.picture}} style={styles.image} />
+        </TouchableOpacity>
         <Text style={[theme.fonts.h1, styles.title]}>
-          {name}
+          {rowData.city}
         </Text>
-        <PageIndicator
-          pageCount={cities.length}
-          selectedIndex={+index}
-          style={styles.pageIndicator}
-        />
-        <Button
-          text="What's for lunch?"
-          action={() => this.selectOffice(name)}
-          style={styles.actionButton}
-        />
+        {androidView}
       </View>
     );
-  };
+  }
+
+  // This method is currently only working on iOS but not on Android
+  onChangeVisibleRows = (visibleRows) => {
+    const visibleRowNumbers = Object.keys(visibleRows.s1).map((row) => parseInt(row));
+    if (visibleRowNumbers.length === 2) {
+      // visible row is visibleRowNumbers[0]
+      // but in the case of the last item it is visibleRowNumbers[1]
+      if (visibleRowNumbers[1] === (offices.length - 1)) {
+        this.changePositionPager(visibleRowNumbers[1]);
+
+      } else {
+        this.changePositionPager(visibleRowNumbers[0]);
+      }
+    }
+    if (visibleRowNumbers.length === 3) {
+      // visible row is visibleRowNumbers[1]
+      this.changePositionPager(visibleRowNumbers[1]);
+    }
+  }
 
   render() {
+    var spinner = this.props.loading
+      ? (<ActivityIndicator style={styles.spinner} size='large' color='white'/>)
+      : (<View/>);
+
+    // Hide pageIndicator and button for Android because the function
+    // 'onChangeVisibleRows' does not work for Android
+    let iosView = (Platform.OS === 'ios')
+      ? (<View style={styles.buttonsContainer}>
+          <PageIndicator pageCount={offices.length}
+            selectedIndex={this.props.position}
+            style={styles.pageIndicator} />
+          <Button
+              text="What's for lunch?"
+              style={theme.buttons.primary}
+              textStyle={theme.fonts.primary}
+              action={() => this.selectOffice(offices[this.props.position])} />
+         </View>)
+      : (<View/>);
+
     return (
       <View style={styles.container}>
         <ListView
@@ -96,7 +132,10 @@ class CityView extends Component {
           showsVerticalScrollIndicator={false}
           bounces={true}
           loop={true}
+          onChangeVisibleRows={this.onChangeVisibleRows}
         />
+        {iosView}
+        {spinner}
       </View>
     );
   }
@@ -117,13 +156,20 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     marginTop: 10
   },
+  spinner: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: window.width,
+    height: window.height,
+    backgroundColor: 'rgba(0,0,0,.7)'
+  },
   image: {
-    ...Platform.select({
-      android: {
-        marginTop: 10,
-        height: 200
-      }
-    })
+    height: 250,
+    width: 250,
+    borderRadius: 125,
+    borderWidth: 6,
+    borderColor: theme.colors.bullet
   },
   container: {
     flex: 1,
@@ -135,10 +181,9 @@ const styles = StyleSheet.create({
   pageIndicator: {
     margin: 10
   },
-  actionButton: {
-    marginTop: 20
+  buttonsContainer: {
+    margin: 20
   }
-
 });
 
 export default CityView;

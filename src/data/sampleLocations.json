@@ -1,54 +1,50 @@
-{
-  "London": [
-    {
-      "name": "William IV",
-      "type": "Pub",
-      "address": "7 Shepherdess Walk, London N1 7QE",
-      "latitude": 51.530993,
-      "longitude": -0.092675,
-      "distance": "100m",
-      "description": "Corner pub with mismatched furniture and worn floorboards, for real ales, burgers and live TV sport.",
-      "picture": "http://www.townfish.com/wp-content/uploads/2016/11/rsz_img_20161109_190348186.jpg"
-    },
-    {
-      "name": "The Eagle",
-      "type": "Gastropub",
-      "address": "2 Shepherdess Walk, London, Greater London, N1 7LB",
-      "latitude": 51.528611,
-      "longitude": -0.091704,
-      "distance": "200m",
-      "description": "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz",
-      "picture": "http://www.johnmariani.com/archive/2014/140713/theeagle_01.jpg"
-    },
-    {
-      "name": "The Shepherdess Café",
-      "type": "Greasy spoon",
-      "address": "221 City Rd, London EC1V 1JN",
-      "latitude": 51.528369,
-      "longitude": -0.091630,
-      "distance": "300m",
-      "description": "Bright, casual haunt with Wi-Fi, sandwiches, snacks, tea & all-day breakfast for eat-in or takeaway.",
-      "picture": "http://www.londonphotos.org/archives/shepherdesscafeplate.jpg"
-    },
-    {
-      "name": "Whitecross Street Market",
-      "type": "Street Food",
-      "address": "13 Whitecross St, London EC1Y",
-      "latitude": 51.522944,
-      "longitude": -0.092450,
-      "distance": "1km",
-      "description": "Busy open street food market",
-      "picture": "https://stokeysecretsupper.files.wordpress.com/2011/07/001-whitecross-street-food-busy-market1.jpg"
-    },
-    {
-      "name": "Coffee Junction",
-      "type": "Salads",
-      "address": "42 Provost St, London N1 7SU",
-      "latitude": 51.528874,
-      "longitude": -0.088472,
-      "distance": "300m",
-      "description": "A coffee shop with a full menu of healthy salads, lunch dishes & sandwiches",
-      "picture": "https://media-cdn.tripadvisor.com/media/photo-s/05/da/6d/e3/coffee-junction.jpg"
-    }
-  ]
-}
+[
+  {
+    "city": "Berlin",
+    "country": "Germany",
+    "address": "Schützenstraße 6, 10117 Berlin, Germany",
+    "latitude": 52.508725,
+    "longitude": 13.391943,
+    "picture": "https://c1.staticflickr.com/4/3874/14798621115_c161edb240_b.jpg"
+  },
+  {
+    "city": "Helsinki",
+    "country": "Finland",
+    "address": "Annankatu 34B, 00100 Helsinki, Finland",
+    "latitude": 60.168738,
+    "longitude": 24.934115,
+    "picture": "https://c1.staticflickr.com/1/561/19410642666_224d400c4e_b.jpg"
+  },
+  {
+    "city": "London",
+    "country": "UK",
+    "address": "26-28 Underwood St, London N1 7JQ",
+    "latitude": 51.530245,
+    "longitude": -0.091266,
+    "picture": "https://c1.staticflickr.com/1/677/22173565741_20b005ff9c_k.jpg"
+  },
+  {
+    "city": "Munich",
+    "country": "Germany",
+    "address": "Rosa-Bavarese-Straße 3, 80639 München, Germany",
+    "latitude": 48.146936,
+    "longitude": 11.502834,
+    "picture": "https://c1.staticflickr.com/3/2934/14519047033_a0ff241d00_b.jpg"
+  },
+  {
+    "city": "Stockholm",
+    "country": "Sweden",
+    "address": "Drottninggatan 71C, 111 36 Stockholm, Sweden",
+    "latitude": 59.336291,
+    "longitude": 18.058796,
+    "picture": "https://c1.staticflickr.com/2/1567/24217171171_8f48ba57b8_b.jpg"
+  },
+  {
+    "city": "Tampere",
+    "country": "Finland",
+    "address": "Kuninkaankatu 21, 33210 Tampere, Finland",
+    "latitude": 61.498611,
+    "longitude": 23.757001,
+    "picture": "https://c1.staticflickr.com/9/8538/8613215024_47f3a346f6_b.jpg"
+  }
+]

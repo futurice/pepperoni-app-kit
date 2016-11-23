@@ -10,14 +10,14 @@ const POP_ROUTE = 'NavigationState/POP_ROUTE';
 const REPLACE_ROUTE = 'NavigationState/REPLACE_ROUTE';
 const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
 
-export function switchTab(key) {
+// Action creators
+export function switchTab(index) {
   return {
     type: SWITCH_TAB,
-    payload: key
+    payload: index
   };
 }
 
-// Action creators
 export function pushRoute(route) {
   return {
     type: PUSH_ROUTE,
@@ -41,27 +41,26 @@ const initialState = fromJS({
   tabs: {
     index: 0,
     routes: [
-      {key: 'CityTab', title: 'City'},
-      {key: 'ProfileTab', title: 'Profile'}
+      {key: 'CityTab', title: 'Where to eat'},
+      {key: 'AboutTab', title: 'About'}
     ]
   },
   // Scenes for the `CityTab` tab.
   CityTab: {
     index: 0,
-    routes: [{key: 'City', title: 'Choose a City'}]
+    routes: [{key: 'City', title: 'LunchWheel'}]
   },
   // Scenes for the `LocationTab` tab.
   LocationTab: {
     index: 0,
     routes: [{key: 'Location', title: 'Location'}]
   },
-  // Scenes for the `ProfileTab` tab.
-  ProfileTab: {
+  // Scenes for the `AboutTab` tab.
+  AboutTab: {
     index: 0,
-    routes: [{key: 'Profile', title: 'Profile'}]
+    routes: [{key: 'About', title: 'LunchWheel'}]
   }
 });
-
 
 function updateCurrentSceneStack(state, updater) {
   // Push a route into the scenes stack.
@@ -82,7 +81,6 @@ function updateCurrentSceneStack(state, updater) {
   }
   return state;
 }
-
 
 export default function NavigationReducer(state = initialState, action) {
   switch (action.type) {

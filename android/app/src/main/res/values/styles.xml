@@ -2,5 +2,10 @@
   <!-- Base application theme. -->
   <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
     <!-- Customize your theme here. -->
+    <!-- Main theme colors -->
+    <!--   your app branding color for the app bar -->
+    <item name="android:colorPrimary">#000000</item>
+    <!--   darker variant for the status bar and contextual app bars -->
+    <item name="android:colorPrimaryDark">#e1e7e0</item>
   </style>
 </resources>

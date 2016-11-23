@@ -1,7 +1,8 @@
 import React, {PropTypes, Component} from 'react';
 import Button from '../../components/Button';
 import * as theme from '../../utils/theme';
-import {getRandomLocation} from '../../services/locationService';
+import * as Utils from '../../utils/Utils';
+//import store from '../../redux/store';
 import {
   Text,
   View,
@@ -9,96 +10,162 @@ import {
   ScrollView,
   StyleSheet,
   Dimensions,
-  Platform,
-  MapView
+  ActivityIndicator,
+  Linking,
+  Platform
 } from 'react-native';
+
+const window = Dimensions.get('window');
 
 class LocationView extends Component {
   static displayName = 'LocationView';
 
   static propTypes = {
-    index: PropTypes.number.isRequired,
-    office: PropTypes.string.isRequired,
-	place: PropTypes.object.isRequired,
+    office: PropTypes.object.isRequired,
+    place: PropTypes.object.isRequired,
+    loading: PropTypes.bool.isRequired,
+    cityStateActions: PropTypes.shape({
+      retryPlace: PropTypes.func.isRequired
+    }).isRequired,
     navigationStateActions: PropTypes.shape({
-      pushRoute: PropTypes.func.isRequired
+      popRoute: PropTypes.func.isRequired
     })
-  };
+  }
+
+  componentWillMount() {
+    //if this.prop.place doesn't contain the right data go back
+    if (!this.props.place.name) {
+      this.props.navigationStateActions.popRoute();
+      //store.dispatch(NavigationState.popRoute());
+    }
+  }
 
   onNextPress = () => {
-    let place;
-    while (!place || place.name === this.props.place.name) {
-      place = getRandomLocation();
-    }
+    this.props.cityStateActions.retryPlace(this.props.office, this.props.place);
+  }
 
-    this.props.navigationStateActions.pushRoute({
-      key: 'Location',
-      title: place.name,
-      place
-    }));
-  };
+  buildPhotosURL = () => {
+    var size = this.props.place.photos.groups[0].items.length;
+    var photo = this.props.place.photos.groups[0].items[Utils.getRamdonNumberBetweenRange(size, 0)];
+    return (photo.prefix + '500x500' + photo.suffix);
+  }
+
+  getImage = () => {
+    return (this.props.place.photos && this.props.place.photos.count && this.props.place.photos.count > 0)
+      ? (<Image style={styles.image} source={{uri: this.buildPhotosURL()}}/>)
+      : (<View/>);
+  }
+
+  getPrice = () => {
+    var price = '';
+    if (this.props.place.price) {
+      for (let i = 0; i < this.props.place.price.tier; i++) {
+        price += this.props.place.price.currency;
+      }
+    }
+    return price;
+  }
+
+  getCategories = () => {
+    var categories = '';
+    if (this.props.place.categories) {
+      for (let i = 0; i < this.props.place.categories.length; i++) {
+        categories += this.props.place.categories[i].name + ', ';
+      }
+    }
+    return categories.slice(0, -2);
+  }
+
+  getAddress = () => {
+    var address = '';
+    if (this.props.place.location) {
+      address = (this.props.place.location.address)
+      ? this.props.place.location.address + ' '
+      : '';
+      address += (this.props.place.location.postalCode)
+      ? this.props.place.location.postalCode
+      : '';
+    }
+    return address;
+  }
+
+  getRatingStyles = () => {
+    return (this.props.place.ratingColor)
+    ? ({backgroundColor: '#' + this.props.place.ratingColor})
+    : '';
+  }
+
+  getHours = () => {
+    return (this.props.place.hours)
+    ? (this.props.place.hours.status)
+    : '';
+  }
+
+  getContact = () => {
+    return (this.props.place.contact)
+    ? (this.props.place.contact.formattedPhone)
+    : '';
+  }
+
+  getLinkURL = () => {
+    var url = (Platform.OS === 'android')
+      ? 'https://maps.google.com?q='
+      : 'http://maps.apple.com/?q=';
+    return url + this.props.place.location.lat + ',' + this.props.place.location.lng;
+  }
 
   render() {
-    const place = this.props.place;
-    const marker = [
-      {
-        latitude: place.latitude,
-        longitude: place.longitude,
-        title: place.name,
-        subtitle: place.type
-      }
-    ];
-    const region = {
-      latitude: place.latitude,
-      longitude: place.longitude,
-      latitudeDelta: 0.005,
-      longitudeDelta: 0.005
-    };
+    var spinner = this.props.loading
+      ? (<ActivityIndicator style={styles.spinner} size='large' color='white'/>)
+      : (<View/>);
 
     return (
-      <ScrollView style={[styles.container]}>
-        <Image
-          resizeMode='cover'
-          source={{
-            uri: place.picture,
-            height: 200,
-            width: Dimensions.get('window').width
-          }}
-        />
-        <Text style={styles.placeInfo}>
-          {place.description}
-        </Text>
-        {Platform.OS === 'ios' && (
-          // MapView is not built-in on Android. Use the react-native-maps
-          // library: https://github.com/airbnb/react-native-maps
-          <View style={styles.mapContainer}>
-            <MapView
-              style={styles.map}
-              region={region}
-              annotations={marker}
-            />
-            <Image
-              style={styles.gradient}
-              source={require('../../../assets/gradient.png')}
-            />
-            <Text style={styles.placeAddress}>
-              {place.address}
+      <View style={styles.container}>
+      <ScrollView>
+        {this.getImage()}
+        <View style={styles.cardInfo}>
+          <View style={[styles.ratingView, this.getRatingStyles()]}>
+            <Text style={styles.rating}>
+              {this.props.place.rating}
             </Text>
           </View>
-        ) }
-        {Platform.OS === 'android' && (
-          <Text style={styles.placeInfoPlain}>
-            {place.address}
+          <Text numberOfLines={2} style={styles.title}>
+            {this.props.place.name}
           </Text>
-        )}
-        <View style={styles.actionButtonContainer}>
+          <Text numberOfLines={2} style={styles.text}>
+            {this.getAddress()}
+          </Text>
+          <Text style={styles.text}>
+            {this.getCategories()}
+          </Text>
+          <Text style={styles.text}>
+            {this.getPrice()}
+          </Text>
+          <Text style={styles.text}>
+            {this.getHours()}
+          </Text>
+          <Text style={styles.text}>
+            {this.getContact()}
+          </Text>
+        </View>
+        <View style={styles.buttonContainer}>
           <Button
-            style={styles.actionButton}
-            text='Something else'
-            action={this.onNextPress}
-          />
+            text='Yeah, take me there!'
+            style={theme.buttons.primary}
+            textStyle={theme.fonts.primary}
+            action={() => Linking.openURL(this.getLinkURL())
+              .catch(err => console.error('An error occurred', err))} />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            text='Nah, try another one'
+            style={theme.buttons.secondary}
+            textStyle={theme.fonts.secondary}
+            action={this.onNextPress} />
         </View>
       </ScrollView>
+      {spinner}
+      </View>
     );
   }
 }
@@ -107,63 +174,68 @@ const spacing = {
   marginHorizontal: 20
 };
 
-const mapHeight = 120;
-const mapMargin = 20;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background
   },
-  placeTitle: {
-    ...theme.fonts.h2,
+  title: {
     ...spacing,
-    marginBottom: 10
+    ...theme.fonts.h3,
+    margin: 8
   },
-  placeInfo: {
+  text: {
     ...spacing,
-    fontSize: 20,
-    marginTop: 20
+    ...theme.fonts.body,
+    marginBottom: 5
   },
-  placeInfoPlain: {
-    ...spacing,
-    fontSize: 16,
-    marginTop: 20
+  buttonContainer: {
+    margin: 10
   },
-  mapContainer: {
-    height: mapHeight + (2 * mapMargin)
+  spinner: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: window.width,
+    height: window.height,
+    backgroundColor: 'rgba(0,0,0,.8)'
   },
-  map: {
-    ...spacing,
-    flex: 1,
-    height: mapHeight,
-    margin: mapMargin
-  },
-  gradient: {
-    position: 'relative',
-    opacity: 0.5,
-    // silly hackery
-    margin: mapMargin,
-    height: mapHeight,
-    width: Dimensions.get('window').width - (2 * mapMargin),
-    top: -(mapHeight + (2 * mapMargin))
-  },
-  placeAddress: {
-    position: 'relative',
-    // more silly hackery
-    top: -(2 * mapHeight + 4 * mapMargin),
-    margin: mapMargin * 1.5,
-    backgroundColor: 'transparent',
-    fontWeight: '400',
-    color: 'white',
-    fontSize: 18
-  },
-  actionButtonContainer: {
-    marginTop: 20,
+  image: {
+    height: 200,
+    width: window.width,
+    justifyContent: 'center',
     alignItems: 'center'
   },
-  city: {
-    paddingBottom: 40
+  cardInfo: {
+    backgroundColor: theme.colors.selectedTab
+  },
+  ratingView: {
+    ...Platform.select({
+      ios: {
+        top: -20,
+        paddingTop: 6,
+        left: (window.width / 2) - 20
+      },
+      android: {
+        top: 6,
+        left: window.width - 46
+      }
+    }),
+    backgroundColor: 'transparent', // default backgroundColor
+    width: 40,
+    height: 40,
+    borderRadius: 20
+  },
+  rating: {
+    ...Platform.select({
+      android: {
+        top: 4
+      }
+    }),
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    ...theme.fonts.h3,
+    backgroundColor: 'transparent'
   }
 });
 

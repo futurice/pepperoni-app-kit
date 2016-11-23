@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes} from 'react';
 import {
   NavigationExperimental,
   View,
@@ -16,12 +16,10 @@ import * as theme from '../../utils/theme';
 // Customize bottom tab bar height here if desired
 const TAB_BAR_HEIGHT = 50;
 
-class NavigationView extends Component {
-  static displayName = 'NavigationView';
-
-  static propTypes = {
+const NavigationView = React.createClass({
+  propTypes: {
     onNavigateBack: PropTypes.func.isRequired,
-    onNavigateCompleted: PropTypes.func,
+    onNavigateCompleted: PropTypes.func.isRequired,
     navigationState: PropTypes.shape({
       tabs: PropTypes.shape({
         routes: PropTypes.arrayOf(PropTypes.shape({
@@ -31,15 +29,14 @@ class NavigationView extends Component {
       }).isRequired,
       CityTab: NavigationPropTypes.navigationState.isRequired,
       LocationTab: NavigationPropTypes.navigationState.isRequired,
-      ProfileTab: NavigationPropTypes.navigationState.isRequired
+      AboutTab: NavigationPropTypes.navigationState.isRequired
     }),
     switchTab: PropTypes.func.isRequired,
     pushRoute: PropTypes.func.isRequired
-  };
-
+  },
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
-  renderHeader = (sceneProps) => {
+  renderHeader(sceneProps) {
     return (
       <NavigationHeader
         {...sceneProps}
@@ -55,11 +52,10 @@ class NavigationView extends Component {
             </NavigationHeader.Title>
           );
         }}
-        />
+      />
     );
-  };
-
-  renderScene = (sceneProps) => {
+  },
+  renderScene(sceneProps) {
     // render scene and apply padding to cover
     // for app bar and navigation bar
     return (
@@ -67,8 +63,7 @@ class NavigationView extends Component {
         {AppRouter(sceneProps)}
       </View>
     );
-  };
-
+  },
   render() {
     const {tabs} = this.props.navigationState;
     const tabKey = tabs.routes[tabs.index].key;
@@ -81,17 +76,17 @@ class NavigationView extends Component {
           navigationState={scenes}
           renderHeader={this.renderHeader}
           renderScene={this.renderScene}
-          />
+        />
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={tabs}
           currentTabIndex={tabs.index}
           switchTab={this.props.switchTab}
-          />
+        />
       </View>
     );
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {

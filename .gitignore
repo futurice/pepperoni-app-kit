@@ -50,6 +50,14 @@ android/keystores/debug.keystore
 yarn-error.log
 *.keystore
 
+# VSCode
+.vscode/*
+jsconfig.json
+.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
@@ -63,5 +71,5 @@ fastlane/screenshots
 
 # React Native bundles
 
-ios/PepperoniAppTemplate/main.jsbundle
-ios/PepperoniAppTemplate/main.jsbundle.meta
+ios/LunchWheel/main.jsbundle
+ios/LunchWheel/main.jsbundle.meta

@@ -23,23 +23,55 @@ export const colors = {
   selectedTabText: palette.teal
 };
 
+export const buttons = {
+  basic: {
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  primary: {
+    backgroundColor: colors.button
+  },
+  secondary: {
+    backgroundColor: 'transparent',
+    borderColor: colors.button,
+    borderWidth: 1
+  }
+};
+
 export const fonts = {
   h1: {
     fontSize: 40,
     fontWeight: '500',
-    color: colors.text
+    color: colors.text,
+    fontFamily: 'System'
   },
   h2: {
     fontSize: 28,
-    color: colors.text
+    color: colors.text,
+    fontFamily: 'System'
+  },
+  h3: {
+    fontSize: 20,
+    color: colors.text,
+    fontFamily: 'System'
   },
   body: {
-    fontSize: 16,
-    color: colors.text
+    fontSize: 14,
+    color: colors.text,
+    fontFamily: 'System'
   },
   button: {
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'System'
+  },
+  primary: {
     color: 'white'
+  },
+  secondary: {
+    color: colors.button
   }
 };

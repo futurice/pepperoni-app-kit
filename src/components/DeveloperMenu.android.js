@@ -27,7 +27,7 @@ class DeveloperMenu extends Component {
 
   clearState = async () => {
     await snapshot.clearSnapshot();
-    console.warn('(╯°□°）╯︵ ┻━┻ \nState cleared, Cmd+R to reload the application now');
+    console.warn('(╯°□°）╯︵ ┻━┻ \nState cleared, R+R to reload the application now');
     this.closeMenu();
   };
 

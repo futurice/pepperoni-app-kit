@@ -35,7 +35,7 @@ class AppView extends Component {
     if (!this.props.isReady) {
       return (
         <View style={{flex: 1}}>
-          <ActivityIndicator style={styles.centered} />
+          <ActivityIndicator style={styles.centered}/>
         </View>
       );
     }
