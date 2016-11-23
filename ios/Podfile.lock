@@ -14,42 +14,26 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (2.3.0):
-    - CocoaLumberjack/Default (= 2.3.0)
-    - CocoaLumberjack/Extensions (= 2.3.0)
-  - CocoaLumberjack/Core (2.3.0)
-  - CocoaLumberjack/Default (2.3.0):
-    - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.3.0):
-    - CocoaLumberjack/Default
-  - Lock (1.26.0):
-    - CocoaLumberjack (~> 2.0)
-    - Lock/Core (= 1.26.0)
-    - Lock/UI (= 1.26.0)
-    - Lock/WebView (= 1.26.0)
-  - Lock/Core (1.26.0):
+  - Lock (1.27.1):
+    - Lock/Core (= 1.27.1)
+    - Lock/UI (= 1.27.1)
+    - Lock/WebView (= 1.27.1)
+  - Lock/Core (1.27.1):
     - AFNetworking (~> 3.0)
-    - CocoaLumberjack (~> 2.0)
-  - Lock/CoreUI (1.26.0):
-    - CocoaLumberjack (~> 2.0)
+  - Lock/CoreUI (1.27.1):
     - Lock/Core
     - Masonry (~> 0.6)
-  - Lock/Email (1.26.0):
-    - CocoaLumberjack (~> 2.0)
+  - Lock/Email (1.27.1):
     - Lock/UI
-  - Lock/SMS (1.26.0):
-    - CocoaLumberjack (~> 2.0)
+  - Lock/SMS (1.27.1):
     - Lock/UI
-  - Lock/TouchID (1.26.0):
-    - CocoaLumberjack (~> 2.0)
+  - Lock/TouchID (1.27.1):
     - Lock/UI
     - SimpleKeychain (~> 0.2)
     - TouchIDAuth (~> 0.1)
-  - Lock/UI (1.26.0):
-    - CocoaLumberjack (~> 2.0)
+  - Lock/UI (1.27.1):
     - Lock/CoreUI
-  - Lock/WebView (1.26.0):
-    - CocoaLumberjack (~> 2.0)
+  - Lock/WebView (1.27.1):
     - Lock/CoreUI
   - Masonry (0.6.4)
   - SimpleKeychain (0.7.0)
@@ -64,12 +48,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Lock: d863c3aebe57d2e8f3e5f40c9c5ba695ec2f1162
+  Lock: c8709bb9d798eb2824accd78170140faab1a3fc2
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
   TouchIDAuth: 0cf861f58a2cacfc1c12cb02de4850729d943c81
 
 PODFILE CHECKSUM: 1df198fb56bcc62d043ce7a90cee4ee8170ccb56
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
