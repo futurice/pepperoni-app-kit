@@ -20,15 +20,15 @@ $ react-native link react-native-lock
 
 ## Usage
 
-You can see exemple of code used in Pepperoni when Auth0 was still bundled [here](549fd09e).
+You can see example of code used in Pepperoni when Auth0 was still bundled [here](https://github.com/futurice/pepperoni-app-kit/tree/e57bdac1cab657b25fb636cd31e4f630056dc95b).
 
-The files you'll be interrested in are:
+The files you'll be interested in are:
 
-* [`src/modules/auth/AuthState.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/modules/auth/AuthState.js) (and [`src/modules/auth/__specs__/AuthState.spec.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/modules/auth/__specs__/AuthState.spec.js))
-* [`src/services/auth0.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/services/auth0.js)
-* [`src/redux/reducer.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/redux/reducer.js#L10)
-* [`src/components/DeveloperMenu.android.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/components/DeveloperMenu.android.js#L33)
-* [`src/components/DeveloperMenu.ios.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/components/DeveloperMenu.ios.js#L31)
-* [`src/modules/AppView.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/modules/AppView.js#L33)
-* [`src/modules/AppViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/modules/AppViewContainer.js#L6-L7)
-* [`src/modules/counter/CounterViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/549fd09ef153b4908a5a56482b81dbea7dc7fb2f/src/modules/counter/CounterViewContainer.js#L8-L9)
+* [`src/modules/auth/AuthState.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/auth/AuthState.js) (and [`src/modules/auth/__specs__/AuthState.spec.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/auth/__specs__/AuthState.spec.js))
+* [`src/services/auth0.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/services/auth0.js)
+* [`src/redux/reducer.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/redux/reducer.js#L10)
+* [`src/components/DeveloperMenu.android.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/components/DeveloperMenu.android.js#L33)
+* [`src/components/DeveloperMenu.ios.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/components/DeveloperMenu.ios.js#L31)
+* [`src/modules/AppView.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/AppView.js#L33)
+* [`src/modules/AppViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/AppViewContainer.js#L6-L7)
+* [`src/modules/counter/CounterViewContainer.js`](https://github.com/futurice/pepperoni-app-kit/blob/e57bdac1cab657b25fb636cd31e4f630056dc95b/src/modules/counter/CounterViewContainer.js#L8-L9)
