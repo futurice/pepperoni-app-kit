@@ -1,6 +1,5 @@
 import React from 'react';
 import * as snapshot from '../utils/snapshot';
-import * as auth0 from '../services/auth0';
 
 import {
   View,
@@ -27,12 +26,6 @@ const DeveloperMenu = React.createClass({
   async clearState() {
     await snapshot.clearSnapshot();
     console.warn('(╯°□°）╯︵ ┻━┻ \nState cleared, Cmd+R to reload the application now');
-    this.closeMenu();
-  },
-
-  async showLogin() {
-    await auth0.showLogin();
-    console.log('Show auth0 login screen');
     this.closeMenu();
   },
 
@@ -68,7 +61,6 @@ const DeveloperMenu = React.createClass({
 
     const buttons = [
       this.renderMenuItem('Clear state', this.clearState),
-      this.renderMenuItem('Show login', this.showLogin),
       this.renderMenuItem('Cancel', this.closeMenu)
     ];
 

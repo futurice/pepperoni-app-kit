@@ -39,7 +39,6 @@
     "react": "~15.3.2",
     "react-dom": "~15.3.2",
     "react-native": "~0.37.0",
-    "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",

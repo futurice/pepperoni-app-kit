@@ -1,14 +1,10 @@
 import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
-import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 const reducers = {
-  // Authentication/login state
-  auth: AuthStateReducer,
-
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
 
