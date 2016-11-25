@@ -16,6 +16,18 @@ This Starter Kit reflects the best practices of React Native development we have
 
 React Native Starter Kit is a part of [Pepperoni](http://getpepperoni.com), a framework for kickstarting digital product development.
 
+## Quick Start
+
+tldr; If you don't want to read the whole documentation and you're sure you've installed all requirements for react native and yarn already you can simply get started with 3 commands:
+
+```
+$ git clone git@github.com:futurice/pepperoni-app-kit.git
+$ yarn  OR  $ npm install
+$ react-native run-ios  OR  $ react-native run-android
+```
+
+For a more detailed instructions see our [Getting started Section](#getting-started).
+
 ## Contents
 
 :warning: **WORK IN PROGRESS** |
@@ -49,6 +61,9 @@ Not all of the below is yet fully implemented
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
 
+### Optional Addons
+
+* [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 
 ### Roadmap
 
