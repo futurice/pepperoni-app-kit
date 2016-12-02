@@ -1,6 +1,6 @@
 import {fromJS} from 'immutable';
-
 import {NavigationExperimental} from 'react-native';
+import {isNumber} from 'lodash';
 
 const {StateUtils: NavigationStateUtils} = NavigationExperimental;
 
@@ -9,10 +9,10 @@ const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
 const POP_ROUTE = 'NavigationState/POP_ROUTE';
 const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
 
-export function switchTab(index) {
+export function switchTab(key) {
   return {
     type: SWITCH_TAB,
-    payload: index
+    payload: key
   };
 }
 
@@ -87,7 +87,10 @@ export default function NavigationReducer(state = initialState, action) {
     case SWITCH_TAB: {
       // Switches the tab.
       const tabs = state.get('tabs').toJS();
-      const nextTabs = NavigationStateUtils.jumpToIndex(tabs, action.payload);
+      const nextTabs = isNumber(action.payload)
+        ? NavigationStateUtils.jumpToIndex(tabs, action.payload)
+        : NavigationStateUtils.jumpTo(tabs, action.payload);
+
       if (tabs !== nextTabs) {
         return state.set('tabs', fromJS(nextTabs));
       }

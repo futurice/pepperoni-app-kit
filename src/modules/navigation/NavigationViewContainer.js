@@ -7,8 +7,8 @@ export default connect(
     navigationState: state.get('navigationState').toJS()
   }),
   dispatch => ({
-    switchTab(index) {
-      dispatch(switchTab(index));
+    switchTab(key) {
+      dispatch(switchTab(key));
     },
     pushRoute(index) {
       dispatch(pushRoute(index));
