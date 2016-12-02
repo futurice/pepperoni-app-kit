@@ -22,7 +22,7 @@ const PepperoniAppTemplate = React.createClass({
     if (currentTab.get('index') === 0) {
 
       // if we are not in the first tab, switch tab to the leftmost one
-      if (navigationState.get('index') !== 0) {
+      if (tabs.get('index') !== 0) {
         store.dispatch(NavigationStateActions.switchTab(0));
         return true;
       }
