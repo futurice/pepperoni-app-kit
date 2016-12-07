@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default React.createClass({
   displayName: 'TabBarButton',
@@ -18,7 +19,7 @@ export default React.createClass({
         onPress={this.props.action}
         style={[styles.button, this.props.isSelected && styles.selected]}
         >
-        <Text>{this.props.text}</Text>
+        <Icon name='caret-down' size={20} color='#900' /><Text>{this.props.text}</Text>
       </TouchableOpacity>
     );
   }
