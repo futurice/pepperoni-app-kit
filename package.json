@@ -40,6 +40,7 @@
     "react-dom": "~15.3.2",
     "react-native": "~0.37.0",
     "react-native-vector-icons": "^3.0.0",
+    "react-native-windows": "^0.37.1",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
@@ -67,6 +68,7 @@
     "react-addons-test-utils": "~15.3.2",
     "react-native-mock": "~0.2.5",
     "react-test-renderer": "^15.3.2",
-    "rimraf": "^2.5.2"
+    "rimraf": "^2.5.2",
+    "rnpm-plugin-windows": "^0.2.3"
   }
 }
