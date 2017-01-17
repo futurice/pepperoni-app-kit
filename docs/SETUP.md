@@ -6,7 +6,7 @@ Firstly, you need a Mac computer for iOS development. If you want to build an An
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
-- [NodeJS](https://nodejs.org) `>=5` and `npm 3`. **npm 2 is not supported.**
+- [NodeJS](https://nodejs.org) `>=5` with `yarn` or `npm 3`. **npm 2 is not supported.**
 - [Homebrew](http://brew.sh/) (or an alternative way to install OSX packages)
 - Latest React Native CLI
 
