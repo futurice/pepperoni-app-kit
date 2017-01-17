@@ -24,23 +24,13 @@ Create a blank configuration file
 
 ### Running the iOS application
 
-1. Install Requirements:
+1. Install Xcode for iOS development (download from Mac App Store)
 
-  - Xcode for iOS development (download from Mac App Store)
-  - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
-  - [CocoaPods](https://cocoapods.org/) 1.0 or newer for iOS package management.
-
-**Please note that CocoaPods 0.x will not work, and at the time of writing the version in Homebrew is still 0.39, so check your `pod --version` and install 1.0 with `gem` if necessary.**
-
-2. Install native iOS dependencies
-
-        $ (cd ios; pod repo update; pod install)
-
-3. Build the app and run the simulator:
+2. Build the app and run the simulator:
 
         $ react-native run-ios
 
-**Note: When you want to run the app with Xcode, you need to open the `.xcworkspace` file instead of the `.xcodeproj` file**
+**Note: When you want to run the app with Xcode, open the `.xcodeproj` file**
 
 ### Running the Android application
 
