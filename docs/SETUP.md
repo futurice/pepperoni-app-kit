@@ -2,7 +2,9 @@
 
 ## Requirements
 
-Firstly, you need a Mac computer for iOS development. If you want to build an Android app only, you can try [experimental Linux and Windows support](https://facebook.github.io/react-native/docs/linux-windows-support.html). These instructions presume an OS X installation.
+Firstly, you need a Mac computer for iOS development. If you want to build an Android app only, you can try [experimental Linux and Windows support](https://facebook.github.io/react-native/docs/linux-windows-support.html).
+
+These instructions presume an OS X installation. Windows users see below.
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
@@ -90,6 +92,16 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 9. Build app and run emulator:
 
         $ react-native run-android
+
+### Running the Windows application on a Windows machine
+
+If you want to build an UWP (Universal Windows Platform) app only, follow the instructions in the **Requirements** section to setup a React Native for UWP installation [React Native plugin for Universal Windows Platform (UWP)](https://github.com/ReactWindows/react-native-windows).
+
+1. Build the app and run it:
+
+        > react-native run-windows
+
+Note: **Visual Studio Code** users should install the React Native extension from the Marketplace, this will allow them to run the app from within VSCode.
 
 ### Auth0
 
