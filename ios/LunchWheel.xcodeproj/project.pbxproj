@@ -25,9 +25,15 @@
 		1916AD410B0B45C9BEDB553E /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBED167597174594A47B20BE /* libA0RNLock.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		C7892EC5B6C191C5E6B2FFC1 /* libPods-LunchWheel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F92B97868984683857760 /* libPods-LunchWheel.a */; };
-		E46FF2DF1DDB990400B096A2 /* pepperoni.png in Resources */ = {isa = PBXBuildFile; fileRef = E46FF2DC1DDB990400B096A2 /* pepperoni.png */; };
-		E46FF2E01DDB990400B096A2 /* pepperoni@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E46FF2DD1DDB990400B096A2 /* pepperoni@2x.png */; };
-		E46FF2E11DDB990400B096A2 /* pepperoni@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E46FF2DE1DDB990400B096A2 /* pepperoni@3x.png */; };
+		E4BE7AC61E33A14C007336F2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7AC31E33A14C007336F2 /* background.png */; };
+		E4BE7AC71E33A14C007336F2 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7AC41E33A14C007336F2 /* background@2x.png */; };
+		E4BE7AC81E33A14C007336F2 /* background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7AC51E33A14C007336F2 /* background@3x.png */; };
+		E4BE7ACC1E33A15A007336F2 /* lunch-wheel-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7AC91E33A15A007336F2 /* lunch-wheel-logo.png */; };
+		E4BE7ACD1E33A15A007336F2 /* lunch-wheel-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7ACA1E33A15A007336F2 /* lunch-wheel-logo@2x.png */; };
+		E4BE7ACE1E33A15A007336F2 /* lunch-wheel-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7ACB1E33A15A007336F2 /* lunch-wheel-logo@3x.png */; };
+		E4BE7AD21E33A163007336F2 /* pepperoni-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7ACF1E33A163007336F2 /* pepperoni-logo.png */; };
+		E4BE7AD31E33A163007336F2 /* pepperoni-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7AD01E33A163007336F2 /* pepperoni-logo@2x.png */; };
+		E4BE7AD41E33A163007336F2 /* pepperoni-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BE7AD11E33A163007336F2 /* pepperoni-logo@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,9 +150,15 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8E3B2937F3EB6D0910A7001B /* Pods-LunchWheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWheel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWheel/Pods-LunchWheel.release.xcconfig"; sourceTree = "<group>"; };
 		CBED167597174594A47B20BE /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
-		E46FF2DC1DDB990400B096A2 /* pepperoni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pepperoni.png; path = ../images/pepperoni.png; sourceTree = "<group>"; };
-		E46FF2DD1DDB990400B096A2 /* pepperoni@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@2x.png"; path = "../images/pepperoni@2x.png"; sourceTree = "<group>"; };
-		E46FF2DE1DDB990400B096A2 /* pepperoni@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@3x.png"; path = "../images/pepperoni@3x.png"; sourceTree = "<group>"; };
+		E4BE7AC31E33A14C007336F2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		E4BE7AC41E33A14C007336F2 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		E4BE7AC51E33A14C007336F2 /* background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@3x.png"; sourceTree = "<group>"; };
+		E4BE7AC91E33A15A007336F2 /* lunch-wheel-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lunch-wheel-logo.png"; sourceTree = "<group>"; };
+		E4BE7ACA1E33A15A007336F2 /* lunch-wheel-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lunch-wheel-logo@2x.png"; sourceTree = "<group>"; };
+		E4BE7ACB1E33A15A007336F2 /* lunch-wheel-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lunch-wheel-logo@3x.png"; sourceTree = "<group>"; };
+		E4BE7ACF1E33A163007336F2 /* pepperoni-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pepperoni-logo.png"; sourceTree = "<group>"; };
+		E4BE7AD01E33A163007336F2 /* pepperoni-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pepperoni-logo@2x.png"; sourceTree = "<group>"; };
+		E4BE7AD11E33A163007336F2 /* pepperoni-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pepperoni-logo@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,9 +268,7 @@
 		13B07FAE1A68108700A75B9A /* LunchWheel */ = {
 			isa = PBXGroup;
 			children = (
-				E46FF2DC1DDB990400B096A2 /* pepperoni.png */,
-				E46FF2DD1DDB990400B096A2 /* pepperoni@2x.png */,
-				E46FF2DE1DDB990400B096A2 /* pepperoni@3x.png */,
+				E4BE7AC21E33A12E007336F2 /* Images */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -358,6 +368,22 @@
 				DD875F1E1D574E88000A49F0 /* libA0RNLock.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E4BE7AC21E33A12E007336F2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE7AC31E33A14C007336F2 /* background.png */,
+				E4BE7AC41E33A14C007336F2 /* background@2x.png */,
+				E4BE7AC51E33A14C007336F2 /* background@3x.png */,
+				E4BE7AC91E33A15A007336F2 /* lunch-wheel-logo.png */,
+				E4BE7ACA1E33A15A007336F2 /* lunch-wheel-logo@2x.png */,
+				E4BE7ACB1E33A15A007336F2 /* lunch-wheel-logo@3x.png */,
+				E4BE7ACF1E33A163007336F2 /* pepperoni-logo.png */,
+				E4BE7AD01E33A163007336F2 /* pepperoni-logo@2x.png */,
+				E4BE7AD11E33A163007336F2 /* pepperoni-logo@3x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,10 +601,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E4BE7ACC1E33A15A007336F2 /* lunch-wheel-logo.png in Resources */,
+				E4BE7AC61E33A14C007336F2 /* background.png in Resources */,
+				E4BE7AC71E33A14C007336F2 /* background@2x.png in Resources */,
+				E4BE7AD41E33A163007336F2 /* pepperoni-logo@3x.png in Resources */,
+				E4BE7AC81E33A14C007336F2 /* background@3x.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				E46FF2E11DDB990400B096A2 /* pepperoni@3x.png in Resources */,
-				E46FF2DF1DDB990400B096A2 /* pepperoni.png in Resources */,
-				E46FF2E01DDB990400B096A2 /* pepperoni@2x.png in Resources */,
+				E4BE7ACD1E33A15A007336F2 /* lunch-wheel-logo@2x.png in Resources */,
+				E4BE7AD21E33A163007336F2 /* pepperoni-logo.png in Resources */,
+				E4BE7AD31E33A163007336F2 /* pepperoni-logo@2x.png in Resources */,
+				E4BE7ACE1E33A15A007336F2 /* lunch-wheel-logo@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
