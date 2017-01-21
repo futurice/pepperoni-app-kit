@@ -7,6 +7,7 @@ const {StateUtils: NavigationStateUtils} = NavigationExperimental;
 // Actions
 const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
 const POP_ROUTE = 'NavigationState/POP_ROUTE';
+const REPLACE_ROUTE = 'NavigationState/REPLACE_ROUTE';
 const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
 
 export function switchTab(index) {
@@ -20,6 +21,13 @@ export function switchTab(index) {
 export function pushRoute(route) {
   return {
     type: PUSH_ROUTE,
+    payload: route
+  };
+}
+
+export function replaceRoute(route) {
+  return {
+    type: REPLACE_ROUTE,
     payload: route
   };
 }
@@ -54,27 +62,44 @@ const initialState = fromJS({
   }
 });
 
+
+function updateCurrentSceneStack(state, updater) {
+  // Push a route into the scenes stack.
+  const tabs = state.get('tabs');
+  const tabKey = tabs.getIn(['routes', tabs.get('index')]).get('key');
+  const scenes = state.get(tabKey).toJS();
+  let nextScenes;
+  //fixes issue #52
+  //the try/catch block prevents throwing an error when the route's key pushed
+  //was already present. This happens when the same route is pushed more than once.
+  try {
+    nextScenes = updater(scenes);
+  } catch (e) {
+    nextScenes = scenes;
+  }
+  if (scenes !== nextScenes) {
+    return state.set(tabKey, fromJS(nextScenes));
+  }
+  return state;
+}
+
+
 export default function NavigationReducer(state = initialState, action) {
   switch (action.type) {
     case PUSH_ROUTE: {
-      // Push a route into the scenes stack.
-      const route = action.payload;
-      const tabs = state.get('tabs');
-      const tabKey = tabs.getIn(['routes', tabs.get('index')]).get('key');
-      const scenes = state.get(tabKey).toJS();
-      let nextScenes;
-      // fixes issue #52
-      // the try/catch block prevents throwing an error when the route's key pushed
-      // was already present. This happens when the same route is pushed more than once.
-      try {
-        nextScenes = NavigationStateUtils.push(scenes, route);
-      } catch (e) {
-        nextScenes = scenes;
-      }
-      if (scenes !== nextScenes) {
-        return state.set(tabKey, fromJS(nextScenes));
-      }
-      return state;
+      return updateCurrentSceneStack(state, (stack) =>
+        NavigationStateUtils.push(stack, action.payload)
+      );
+    }
+
+    case REPLACE_ROUTE: {
+      return updateCurrentSceneStack(state, (stack) =>
+        NavigationStateUtils.replaceAtIndex(
+          stack,
+          stack.routes.length - 1,
+          action.payload
+        )
+      );
     }
 
     case POP_ROUTE: {
