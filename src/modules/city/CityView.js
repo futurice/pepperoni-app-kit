@@ -3,6 +3,8 @@ import * as NavigationState from '../../modules/navigation/NavigationState';
 import * as theme from '../../utils/theme';
 import Button from '../../components/Button';
 import PageIndicator from '../../components/PageIndicator';
+import {getRandomLocation} from '../../services/locationService';
+
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
@@ -37,20 +39,14 @@ const CityView = React.createClass({
     };
   },
 
-  increment() {
-    this.props.dispatch(CityState.increment());
-  },
-  reset() {
-    this.props.dispatch(CityState.reset());
-  },
-  random() {
-    this.props.dispatch(CityState.random());
-  },
   selectOffice(office) {
     this.props.dispatch(CityState.selectOffice(office));
+
+    const place = getRandomLocation();
     this.props.dispatch(NavigationState.pushRoute({
       key: 'Location',
-      title: 'Location in ' + office
+      title: place.name,
+      place
     }));
   },
 
