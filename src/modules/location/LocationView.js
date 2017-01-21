@@ -6,6 +6,7 @@ import {
   ScrollView,
   StyleSheet,
   Dimensions,
+  Platform,
   MapView
 } from 'react-native';
 
@@ -64,20 +65,24 @@ const LocationView = React.createClass({
         <Text style={styles.placeInfo}>
           {place.description}
         </Text>
-        <View style={styles.mapContainer}>
-          <MapView
-            style={styles.map}
-            region={region}
-            annotations={marker}
-          />
-          <Image
-            style={styles.gradient}
-            source={require('../../../assets/gradient.png')}
-          />
-          <Text style={styles.placeAddress}>
-            {place.address}
-          </Text>
-        </View>
+        {Platform.OS === 'ios' && (
+          // MapView is not built-in on Android. Use the react-native-maps
+          // library: https://github.com/airbnb/react-native-maps
+          <View style={styles.mapContainer}>
+            <MapView
+              style={styles.map}
+              region={region}
+              annotations={marker}
+            />
+            <Image
+              style={styles.gradient}
+              source={require('../../../assets/gradient.png')}
+            />
+            <Text style={styles.placeAddress}>
+              {place.address}
+            </Text>
+          </View>
+        ) }
         <View style={styles.actionButtonContainer}>
           <Button
             style={styles.actionButton}
@@ -142,7 +147,7 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   actionButtonContainer: {
-    marginTop: 10,
+    marginTop: 20,
     alignItems: 'center'
   },
   city: {
