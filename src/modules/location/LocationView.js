@@ -3,6 +3,7 @@ import {
   Text,
   View,
   Image,
+  ScrollView,
   StyleSheet,
   Dimensions,
   MapView
@@ -51,7 +52,7 @@ const LocationView = React.createClass({
     };
 
     return (
-      <View style={[styles.container]}>
+      <ScrollView style={[styles.container]}>
         <Image
           resizeMode='cover'
           source={{
@@ -84,7 +85,7 @@ const LocationView = React.createClass({
             action={this.onNextPress}
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 });
@@ -99,7 +100,8 @@ const mapMargin = 20;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background
+    backgroundColor: theme.colors.background,
+    marginBottom: 10
   },
   placeTitle: {
     ...theme.fonts.h2,

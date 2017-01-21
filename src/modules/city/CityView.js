@@ -12,6 +12,7 @@ import {
   Text,
   View,
   ListView,
+  Platform,
   Dimensions
 } from 'react-native';
 
@@ -53,7 +54,11 @@ const CityView = React.createClass({
   renderRow({name, image}, section, index) {
     return (
       <View style={styles.cityCard}>
-        <Image source={image} />
+        <Image
+          resizeMode='contain'
+          source={image}
+          style={styles.image}
+        />
         <Text style={[theme.fonts.h1, styles.title]}>
           {name}
         </Text>
@@ -106,6 +111,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginTop: 10
+  },
+  image: {
+    ...Platform.select({
+      android: {
+        marginTop: 10,
+        height: 200
+      }
+    })
   },
   container: {
     flex: 1,

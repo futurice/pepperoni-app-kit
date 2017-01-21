@@ -35,7 +35,6 @@ export default React.createClass({
 
 const styles = StyleSheet.create({
   bullets: {
-    flexShrink: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
