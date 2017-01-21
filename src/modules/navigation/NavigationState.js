@@ -48,7 +48,7 @@ const initialState = fromJS({
   // Scenes for the `CityTab` tab.
   CityTab: {
     index: 0,
-    routes: [{key: 'City', title: 'City'}]
+    routes: [{key: 'City', title: 'Choose a City'}]
   },
   // Scenes for the `LocationTab` tab.
   LocationTab: {
