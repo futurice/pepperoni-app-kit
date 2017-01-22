@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import * as theme from '../../utils/theme';
 
 const CounterView = React.createClass({
   propTypes: {
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: theme.colors.background
   },
   userContainer: {
     justifyContent: 'center',
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
   },
   linkButton: {
     textAlign: 'center',
-    color: '#CCCCCC',
+    color: 'black',
     marginBottom: 10,
     padding: 5
   }

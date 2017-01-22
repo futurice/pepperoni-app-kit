@@ -9,17 +9,17 @@ import ProfileViewContainer from './profile/ProfileViewContainer';
  * AppRouter is responsible for mapping a navigator scene to a view
  */
 export default function AppRouter(props) {
-  const key = props.scene.route.key;
+  const route = props.scene.route;
+  const key = route.key;
 
   if (key === 'City') {
     return <CityViewContainer />;
   }
 
-  if (key.indexOf('Location') === 0) {
-    const index = props.scenes.indexOf(props.scene);
+  if (key === 'Location') {
     return (
       <LocationViewContainer
-        index={index}
+        place={route.place}
       />
     );
   }
