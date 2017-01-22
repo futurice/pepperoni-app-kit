@@ -7,43 +7,48 @@
       "latitude": 51.530993,
       "longitude": -0.092675,
       "distance": "100m",
-      "picture": ""
+      "description": "Corner pub with mismatched furniture and worn floorboards, for real ales, burgers and live TV sport.",
+      "picture": "http://www.townfish.com/wp-content/uploads/2016/11/rsz_img_20161109_190348186.jpg"
     },
     {
       "name": "The Eagle",
-      "type": "Pub",
+      "type": "Gastropub",
       "address": "2 Shepherdess Walk, London, Greater London, N1 7LB",
       "latitude": 51.528611,
       "longitude": -0.091704,
       "distance": "200m",
-      "picture": ""
+      "description": "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz",
+      "picture": "http://www.johnmariani.com/archive/2014/140713/theeagle_01.jpg"
     },
     {
       "name": "The Shepherdess Café",
-      "type": "British style food",
+      "type": "Greasy spoon",
       "address": "221 City Rd, London EC1V 1JN",
       "latitude": 51.528369,
       "longitude": -0.091630,
       "distance": "300m",
-      "picture": ""
+      "description": "Bright, casual haunt with Wi-Fi, sandwiches, snacks, tea & all-day breakfast for eat-in or takeaway.",
+      "picture": "http://www.londonphotos.org/archives/shepherdesscafeplate.jpg"
     },
     {
       "name": "Whitecross Street Market",
-      "type": "Streetfood",
+      "type": "Street Food",
       "address": "13 Whitecross St, London EC1Y",
       "latitude": 51.522944,
       "longitude": -0.092450,
       "distance": "1km",
-      "picture": ""
+      "description": "Busy open street food market",
+      "picture": "https://stokeysecretsupper.files.wordpress.com/2011/07/001-whitecross-street-food-busy-market1.jpg"
     },
     {
       "name": "Coffee Junction",
-      "type": "Meals with Salads, Sandwiches",
+      "type": "Salads",
       "address": "42 Provost St, London N1 7SU",
       "latitude": 51.528874,
       "longitude": -0.088472,
       "distance": "300m",
-      "picture": ""
+      "description": "A coffee shop with a full menu of healthy salads, lunch dishes & sandwiches",
+      "picture": "https://media-cdn.tripadvisor.com/media/photo-s/05/da/6d/e3/coffee-junction.jpg"
     }
   ]
 }

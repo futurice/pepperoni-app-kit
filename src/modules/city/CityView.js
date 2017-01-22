@@ -1,28 +1,36 @@
 import React, {PropTypes, Component} from 'react';
+import * as theme from '../../utils/theme';
+import Button from '../../components/Button';
+import PageIndicator from '../../components/PageIndicator';
+import {getRandomLocation} from '../../services/locationService';
 import {
   StyleSheet,
-  TouchableOpacity,
   Image,
   Text,
   View,
   ListView,
+  Platform,
   Dimensions
 } from 'react-native';
 
 const window = Dimensions.get('window');
+
+const cities = [
+  {name: 'London', image: require('../../../assets/city-images/london.png')},
+  {name: 'Berlin', image: require('../../../assets/city-images/berlin.png')},
+  {name: 'Helsinki', image: require('../../../assets/city-images/helsinki.png')},
+  {name: 'Tampere', image: require('../../../assets/city-images/tampere.png')},
+  {name: 'Stockholm', image: require('../../../assets/city-images/stockholm.png')},
+  {name: 'Munich', image: require('../../../assets/city-images/munich.png')}
+];
 
 class CityView extends Component {
   static displayName = 'CityView';
 
   static propTypes = {
     office: PropTypes.number.isRequired,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     cityStateActions: PropTypes.shape({
-      increment: PropTypes.func.isRequired,
-      reset: PropTypes.func.isRequired,
-      random: PropTypes.func.isRequired,
 	  selectOffice: PropTypes.func.isRequired
     }).isRequired,
     navigationStateActions: PropTypes.shape({
@@ -34,73 +42,48 @@ class CityView extends Component {
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      dataSource: ds.cloneWithRows(['London', 'Berlin', 'Helsinki', 'Tampere', 'Stockholm', 'Munich'])
+    return {
+      dataSource: ds.cloneWithRows(cities)
     };
   }
-  
-  increment = () => {
-    this.props.locationStateActions.increment();
-  };
-
-  reset = () => {
-    this.props.locationStateActions.reset();
-  };
-
-  random = () => {
-    this.props.counterStateActions.random();
-  };
 
   selectOffice = () => {
     this.props.cityStateActions.selectOffice(office);
     this.props.navigationStateActions.pushRoute({
       key: 'Location',
-      title: 'Location in ' + office
+      title: place.name,
+      place
     });
   };
 
-  renderUserInfo = () => {
-    if (!this.props.userName) {
-      return null;
-    }
-
+  renderRow({name, image}, section, index) {
     return (
-      <View style={styles.userContainer}>
+      <View style={styles.cityCard}>
         <Image
-          style={styles.userProfilePhoto}
-          source={{
-            uri: this.props.userProfilePhoto,
-            width: 80,
-            height: 80
-          }}
+          resizeMode='contain'
+          source={image}
+          style={styles.image}
         />
-        <Text style={styles.linkButton}>
-          Welcome, {this.props.userName}!
+        <Text style={[theme.fonts.h1, styles.title]}>
+          {name}
         </Text>
+        <PageIndicator
+          pageCount={cities.length}
+          selectedIndex={+index}
+          style={styles.pageIndicator}
+        />
+        <Button
+          text="What's for lunch?"
+          action={() => this.selectOffice(name)}
+          style={styles.actionButton}
+        />
       </View>
     );
   };
-
-  renderRow(rowData) {
-    return (
-      <View style={styles.cityCard}>
-        <TouchableOpacity onPress={() => this.selectOffice(rowData)} style={styles.cityButton}>
-          <Text style={styles.cityText}>
-            {rowData}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    );
-  },
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>
-            Swipe and tap to find locations in your city
-          </Text>
-        </View>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
@@ -119,13 +102,6 @@ class CityView extends Component {
   }
 }
 
-const circle = {
-  borderWidth: 0,
-  borderRadius: 60,
-  width: 120,
-  height: 120
-};
-
 const styles = StyleSheet.create({
   row: {
     flex: 1
@@ -133,35 +109,36 @@ const styles = StyleSheet.create({
   swiper: {
     flex: 1
   },
-  title: {
-    fontSize: 15
-  },
-  titleContainer: {
-    alignItems: 'center',
-    top: 50
-  },
   cityCard: {
     flex: 1,
     overflow: 'hidden',
     width: window.width,
-    height: window.height - 150, // TODO define tabbar and nav height
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-start',
+    marginTop: 10
   },
-  cityText: {
-    fontSize: 20
-  },
-  cityButton: {
-    ...circle,
-    backgroundColor: '#39babd',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20
+  image: {
+    ...Platform.select({
+      android: {
+        marginTop: 10,
+        height: 200
+      }
+    })
   },
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: theme.colors.background
+  },
+  title: {
+    margin: 10
+  },
+  pageIndicator: {
+    margin: 10
+  },
+  actionButton: {
+    marginTop: 20
   }
+
 });
 
 export default CityView;

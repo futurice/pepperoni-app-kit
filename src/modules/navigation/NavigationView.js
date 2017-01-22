@@ -11,6 +11,7 @@ const {
 } = NavigationExperimental;
 import AppRouter from '../AppRouter';
 import TabBar from '../../components/TabBar';
+import * as theme from '../../utils/theme';
 
 // Customize bottom tab bar height here if desired
 const TAB_BAR_HEIGHT = 50;
@@ -43,6 +44,10 @@ class NavigationView extends Component {
       <NavigationHeader
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
+        style={{
+          backgroundColor: theme.colors.background,
+          borderBottomWidth: 0
+        }}
         renderTitleComponent={() => {
           return (
             <NavigationHeader.Title>

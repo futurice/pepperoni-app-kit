@@ -4,7 +4,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import * as theme from '../utils/theme';
 
 class TabBarButton extends Component {
   static displayName = 'TabBarButton';
@@ -21,7 +21,11 @@ class TabBarButton extends Component {
         onPress={this.props.action}
         style={[styles.button, this.props.isSelected && styles.selected]}
         >
-        <Icon name='caret-down' size={20} color='#900' /><Text>{this.props.text}</Text>
+        <Text
+          style={[styles.text, this.props.isSelected && styles.selectedText]}
+        >
+          {this.props.text}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -31,10 +35,23 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderTopColor: theme.colors.tabBorder,
+    borderLeftWidth: 1,
+    borderLeftColor: theme.colors.tabBorder,
+    backgroundColor: theme.colors.tab
   },
   selected: {
-    backgroundColor: '#39babd'
+    backgroundColor: theme.colors.selectedTab
+  },
+  text: {
+    color: theme.colors.tabText,
+    fontSize: 16
+  },
+  selectedText: {
+    color: theme.colors.selectedTabText,
+    fontWeight: 'bold'
   }
 });
 

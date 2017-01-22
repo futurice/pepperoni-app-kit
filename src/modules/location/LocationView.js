@@ -1,43 +1,45 @@
 import React, {PropTypes, Component} from 'react';
+import Button from '../../components/Button';
+import * as theme from '../../utils/theme';
+import {getRandomLocation} from '../../services/locationService';
 import {
   Text,
   View,
+  Image,
+  ScrollView,
   StyleSheet,
+  Dimensions,
+  Platform,
   MapView
 } from 'react-native';
 
-// Load sample locations from JSON file
-const locationData = require('../../data/sampleLocations.json');
-// Set initial default location
-const location = locationData.London;
-
-const randomPicker = () => Math.floor(Math.random() * location.length);
-/**
- * Sample view to demonstrate navigation patterns.
- * @TODO remove this module in a live application.
- */
 class LocationView extends Component {
   static displayName = 'LocationView';
 
   static propTypes = {
     index: PropTypes.number.isRequired,
     office: PropTypes.string.isRequired,
+	place: PropTypes.object.isRequired,
     navigationStateActions: PropTypes.shape({
       pushRoute: PropTypes.func.isRequired
     })
   };
 
   onNextPress = () => {
-    const index = this.props.index;
+    let place;
+    while (!place || place.name === this.props.place.name) {
+      place = getRandomLocation();
+    }
+
     this.props.navigationStateActions.pushRoute({
-      key: `Place_${index + 1}`,
-      title: `Place Screen #${index + 1}`
-    });
+      key: 'Location',
+      title: place.name,
+      place
+    }));
   };
 
   render() {
-
-    const place = location[randomPicker()];
+    const place = this.props.place;
     const marker = [
       {
         latitude: place.latitude,
@@ -54,56 +56,111 @@ class LocationView extends Component {
     };
 
     return (
-      <View style={[styles.container]}>
-        <Text style={styles.city}>
-          {this.props.office}
-        </Text>
-        <Text onPress={this.onNextPress} style={styles.placeTitle}>
-          {place.name}
-        </Text>
-        <Text style={styles.placeInfo}>
-          Type: {place.type}
-        </Text>
-        <Text style={styles.placeInfo}>
-          Distance: {place.distance}
-        </Text>
-        <MapView
-          style={styles.map}
-          region={region}
-          annotations={marker}
+      <ScrollView style={[styles.container]}>
+        <Image
+          resizeMode='cover'
+          source={{
+            uri: place.picture,
+            height: 200,
+            width: Dimensions.get('window').width
+          }}
         />
-        <Text style={styles.placeAddress}>
-          {place.address}
+        <Text style={styles.placeInfo}>
+          {place.description}
         </Text>
-      </View>
+        {Platform.OS === 'ios' && (
+          // MapView is not built-in on Android. Use the react-native-maps
+          // library: https://github.com/airbnb/react-native-maps
+          <View style={styles.mapContainer}>
+            <MapView
+              style={styles.map}
+              region={region}
+              annotations={marker}
+            />
+            <Image
+              style={styles.gradient}
+              source={require('../../../assets/gradient.png')}
+            />
+            <Text style={styles.placeAddress}>
+              {place.address}
+            </Text>
+          </View>
+        ) }
+        {Platform.OS === 'android' && (
+          <Text style={styles.placeInfoPlain}>
+            {place.address}
+          </Text>
+        )}
+        <View style={styles.actionButtonContainer}>
+          <Button
+            style={styles.actionButton}
+            text='Something else'
+            action={this.onNextPress}
+          />
+        </View>
+      </ScrollView>
     );
   }
 }
 
+const spacing = {
+  marginHorizontal: 20
+};
+
+const mapHeight = 120;
+const mapMargin = 20;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: theme.colors.background
   },
   placeTitle: {
-    fontSize: 30
+    ...theme.fonts.h2,
+    ...spacing,
+    marginBottom: 10
   },
   placeInfo: {
-    fontSize: 20
+    ...spacing,
+    fontSize: 20,
+    marginTop: 20
   },
-  placeAddress: {
-    fontSize: 15,
-    width: 300,
-    textAlign: 'center'
+  placeInfoPlain: {
+    ...spacing,
+    fontSize: 16,
+    marginTop: 20
+  },
+  mapContainer: {
+    height: mapHeight + (2 * mapMargin)
   },
   map: {
-    height: 150,
-    width: 250,
-    margin: 10,
-    borderWidth: 1,
-    borderColor: '#000000'
+    ...spacing,
+    flex: 1,
+    height: mapHeight,
+    margin: mapMargin
+  },
+  gradient: {
+    position: 'relative',
+    opacity: 0.5,
+    // silly hackery
+    margin: mapMargin,
+    height: mapHeight,
+    width: Dimensions.get('window').width - (2 * mapMargin),
+    top: -(mapHeight + (2 * mapMargin))
+  },
+  placeAddress: {
+    position: 'relative',
+    // more silly hackery
+    top: -(2 * mapHeight + 4 * mapMargin),
+    margin: mapMargin * 1.5,
+    backgroundColor: 'transparent',
+    fontWeight: '400',
+    color: 'white',
+    fontSize: 18
+  },
+  actionButtonContainer: {
+    marginTop: 20,
+    alignItems: 'center'
   },
   city: {
     paddingBottom: 40
