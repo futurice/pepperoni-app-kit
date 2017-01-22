@@ -105,8 +105,7 @@ const mapMargin = 20;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
-    marginBottom: 10
+    backgroundColor: theme.colors.background
   },
   placeTitle: {
     ...theme.fonts.h2,
