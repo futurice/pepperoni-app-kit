@@ -6,7 +6,7 @@ Firstly, you need a Mac computer for iOS development. If you want to build an An
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
-- [NodeJS](https://nodejs.org) `>=5` and `npm 3`. **npm 2 is not supported.**
+- [NodeJS](https://nodejs.org) `>=5` with `yarn` or `npm 3`. **npm 2 is not supported.**
 - [Homebrew](http://brew.sh/) (or an alternative way to install OSX packages)
 - Latest React Native CLI
 
@@ -24,23 +24,13 @@ Create a blank configuration file
 
 ### Running the iOS application
 
-1. Install Requirements:
+1. Install Xcode for iOS development (download from Mac App Store)
 
-  - Xcode for iOS development (download from Mac App Store)
-  - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
-  - [CocoaPods](https://cocoapods.org/) 1.0 or newer for iOS package management.
-
-**Please note that CocoaPods 0.x will not work, and at the time of writing the version in Homebrew is still 0.39, so check your `pod --version` and install 1.0 with `gem` if necessary.**
-
-2. Install native iOS dependencies
-
-        $ (cd ios; pod repo update; pod install)
-
-3. Build the app and run the simulator:
+2. Build the app and run the simulator:
 
         $ react-native run-ios
 
-**Note: When you want to run the app with Xcode, you need to open the `.xcworkspace` file instead of the `.xcodeproj` file**
+**Note: When you want to run the app with Xcode, open the `.xcodeproj` file**
 
 ### Running the Android application
 
