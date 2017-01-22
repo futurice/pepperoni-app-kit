@@ -83,6 +83,11 @@ const LocationView = React.createClass({
             </Text>
           </View>
         ) }
+        {Platform.OS === 'android' && (
+          <Text style={styles.placeInfoPlain}>
+            {place.address}
+          </Text>
+        )}
         <View style={styles.actionButtonContainer}>
           <Button
             style={styles.actionButton}
@@ -115,6 +120,11 @@ const styles = StyleSheet.create({
   placeInfo: {
     ...spacing,
     fontSize: 20,
+    marginTop: 20
+  },
+  placeInfoPlain: {
+    ...spacing,
+    fontSize: 16,
     marginTop: 20
   },
   mapContainer: {
