@@ -16,6 +16,19 @@ This Starter Kit reflects the best practices of React Native development we have
 
 React Native Starter Kit is a part of [Pepperoni](http://getpepperoni.com), a framework for kickstarting digital product development.
 
+## tltr;
+
+Sounds good and you just want to see how it works? Here is a quick start guide:
+
+```
+git clone git@github.com:futurice/pepperoni-app-kit.git
+cd pepperoni-app-kit
+yarn install
+react-native run-ios
+```
+
+For further setup instructions please see our [Getting Started](#getting-started) section.
+
 ## Contents
 
 :warning: **WORK IN PROGRESS** |

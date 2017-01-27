@@ -39,9 +39,6 @@ npm-debug.log
 # Secrets
 env.js
 
-# CocoaPods
-ios/Pods/
-
 # BUCK
 buck-out/
 \.buckd/
