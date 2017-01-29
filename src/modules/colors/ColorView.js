@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   Text,
   View,
@@ -12,8 +12,8 @@ const color = () => Math.floor(255 * Math.random());
  * @TODO remove this module in a live application.
  */
 class ColorView extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       background: `rgba(${color()},${color()},${color()}, 1)`
     };
@@ -32,7 +32,7 @@ class ColorView extends Component {
     const index = this.props.index;
     const text = `View #${index}`;
     return (
-      <View style={[styles.container, { backgroundColor: this.state.background }]}>
+      <View style={[styles.container, {backgroundColor: this.state.background}]}>
         <Text onPress={this.onNextPress}>
           {text}
         </Text>
@@ -42,8 +42,9 @@ class ColorView extends Component {
 }
 
 ColorView.propTypes = {
-  index: PropTypes.number.isRequired
-}
+  index: PropTypes.number.isRequired,
+  navigationStateActions: PropTypes.func
+};
 
 const styles = StyleSheet.create({
   container: {

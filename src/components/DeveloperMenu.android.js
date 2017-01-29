@@ -13,8 +13,8 @@ import {
  * It can be accessed through a tiny button in the bottom right corner of the screen.
  * ONLY FOR DEVELOPMENT MODE!
  */
-class DeveloperMenu extends Component{
-  constructor(props){
+class DeveloperMenu extends Component {
+  constructor(props) {
     super(props);
     this.state = {visible: false};
     this.displayName = 'DeveloperMenu';
@@ -54,9 +54,9 @@ class DeveloperMenu extends Component{
     if (!this.state.isVisible) {
       return (
         <TouchableOpacity
-        style={styles.circle}
-        onPress={this.showDeveloperMenu}
-        />
+          style={styles.circle}
+          onPress={this.showDeveloperMenu}
+          />
       );
     }
 

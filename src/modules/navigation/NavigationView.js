@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   NavigationExperimental,
   View,
@@ -16,8 +16,8 @@ import TabBar from '../../components/TabBar';
 const TAB_BAR_HEIGHT = 50;
 
 class NavigationView extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.renderHeader = this.renderHeader.bind(this);
     this.renderScene = this.renderScene.bind(this);
   }
@@ -89,7 +89,7 @@ NavigationView.propTypes = {
   }),
   switchTab: PropTypes.func.isRequired,
   pushRoute: PropTypes.func.isRequired
-}
+};
 
 const styles = StyleSheet.create({
   container: {

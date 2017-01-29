@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {pushRoute, popRoute, switchTab, navigationCompleted} from './NavigationState';
+import {pushRoute, popRoute, switchTab} from './NavigationState';
 import NavigationView from './NavigationView';
 
 export default connect(
@@ -11,7 +11,7 @@ export default connect(
     return {
       switchTab: bindActionCreators(switchTab, dispatch),
       onNavigateBack: bindActionCreators(popRoute, dispatch),
-      pushRoute: bindActionCreators(pushRoute, dispatch),
-    }
+      pushRoute: bindActionCreators(pushRoute, dispatch)
+    };
   }
 )(NavigationView);

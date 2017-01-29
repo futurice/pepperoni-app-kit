@@ -13,6 +13,6 @@ export default connect(
     return {
       navigationStateActions: bindActionCreators(NavigationStateActions, dispatch),
       counterStateActions: bindActionCreators(CounterStateActions, dispatch)
-    }
+    };
   }
 )(CounterView);

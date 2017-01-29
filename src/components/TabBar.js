@@ -9,12 +9,12 @@ import {
 
 const {PropTypes: NavigationPropTypes} = NavigationExperimental;
 
-class TabBar extends Component{
-  constructor(props){
+class TabBar extends Component {
+  constructor(props) {
     super(props);
     this.displayName = 'TabBar';
   }
-  
+
   render() {
     return (
       <View style={[styles.navigationBar, {height: this.props.height}]}>
@@ -24,7 +24,7 @@ class TabBar extends Component{
             text={route.title}
             action={() => this.props.switchTab(index)}
             isSelected={index === this.props.currentTabIndex}
-          />
+            />
         ))}
       </View>
     );
@@ -32,11 +32,11 @@ class TabBar extends Component{
 }
 
 TabBar.propTypes = {
-    tabs: NavigationPropTypes.navigationState.isRequired,
-    height: PropTypes.number.isRequired,
-    currentTabIndex: PropTypes.number.isRequired,
-    switchTab: PropTypes.func.isRequired
-}
+  tabs: NavigationPropTypes.navigationState.isRequired,
+  height: PropTypes.number.isRequired,
+  currentTabIndex: PropTypes.number.isRequired,
+  switchTab: PropTypes.func.isRequired
+};
 
 const styles = StyleSheet.create({
   navigationBar: {

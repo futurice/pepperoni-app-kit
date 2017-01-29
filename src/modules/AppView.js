@@ -6,8 +6,8 @@ import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
-class AppView extends Component{
-  constructor(props){
+class AppView extends Component {
+  constructor(props) {
     super(props);
   }
 
@@ -32,7 +32,7 @@ class AppView extends Component{
     if (!this.props.isReady) {
       return (
         <View style={{flex: 1}}>
-          <ActivityIndicator style={styles.centered}/>
+          <ActivityIndicator style={styles.centered} />
         </View>
       );
     }
@@ -47,9 +47,9 @@ class AppView extends Component{
 }
 
 AppView.propTypes = {
-    isReady: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-}
+  isReady: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired
+};
 
 const styles = StyleSheet.create({
   centered: {

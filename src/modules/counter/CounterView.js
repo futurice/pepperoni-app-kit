@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 class CounterView extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.increment = this.increment.bind(this);
     this.reset = this.reset.bind(this);
@@ -102,8 +102,10 @@ CounterView.propTypes = {
   counter: PropTypes.number.isRequired,
   userName: PropTypes.string,
   userProfilePhoto: PropTypes.string,
-  loading: PropTypes.bool.isRequired
-}
+  loading: PropTypes.bool.isRequired,
+  counterStateActions: PropTypes.func,
+  navigationStateActions: PropTypes.func
+};
 
 const circle = {
   borderWidth: 0,
