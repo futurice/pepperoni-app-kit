@@ -1,6 +1,4 @@
-import * as CounterState from './CounterState';
-import * as NavigationState from '../../modules/navigation/NavigationState';
-import React, {PropTypes} from 'react';
+import React, { PropTypes, Component } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -9,29 +7,33 @@ import {
   View
 } from 'react-native';
 
-const CounterView = React.createClass({
-  propTypes: {
-    counter: PropTypes.number.isRequired,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-  },
+class CounterView extends Component {
+  constructor(props){
+    super(props);
+    this.increment = this.increment.bind(this);
+    this.reset = this.reset.bind(this);
+    this.random = this.random.bind(this);
+    this.bored = this.bored.bind(this);
+  }
+
   increment() {
-    this.props.dispatch(CounterState.increment());
-  },
+    this.props.counterStateActions.increment();
+  }
+
   reset() {
-    this.props.dispatch(CounterState.reset());
-  },
+    this.props.counterStateActions.reset();
+  }
+
   random() {
-    this.props.dispatch(CounterState.random());
-  },
+    this.props.counterStateActions.random();
+  }
+
   bored() {
-    this.props.dispatch(NavigationState.pushRoute({
+    this.props.navigationStateActions.pushRoute({
       key: 'Color',
       title: 'Color Screen'
-    }));
-  },
+    });
+  }
 
   renderUserInfo() {
     if (!this.props.userName) {
@@ -47,13 +49,14 @@ const CounterView = React.createClass({
             width: 80,
             height: 80
           }}
-        />
+          />
         <Text style={styles.linkButton}>
           Welcome, {this.props.userName}!
         </Text>
       </View>
     );
-  },
+  }
+
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
@@ -93,7 +96,14 @@ const CounterView = React.createClass({
       </View>
     );
   }
-});
+}
+
+CounterView.propTypes = {
+  counter: PropTypes.number.isRequired,
+  userName: PropTypes.string,
+  userProfilePhoto: PropTypes.string,
+  loading: PropTypes.bool.isRequired
+}
 
 const circle = {
   borderWidth: 0,

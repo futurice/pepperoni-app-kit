@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
@@ -6,11 +6,11 @@ import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
-const AppView = React.createClass({
-  propTypes: {
-    isReady: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-  },
+class AppView extends Component{
+  constructor(props){
+    super(props);
+  }
+
   componentDidMount() {
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
@@ -26,7 +26,7 @@ const AppView = React.createClass({
           snapshotUtil.saveSnapshot(store.getState());
         });
       });
-  },
+  }
 
   render() {
     if (!this.props.isReady) {
@@ -44,7 +44,12 @@ const AppView = React.createClass({
       </View>
     );
   }
-});
+}
+
+AppView.propTypes = {
+    isReady: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
+}
 
 const styles = StyleSheet.create({
   centered: {

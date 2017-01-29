@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -6,13 +6,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default React.createClass({
-  displayName: 'TabBarButton',
-  propTypes: {
-    text: PropTypes.string.isRequired,
-    action: PropTypes.func.isRequired,
-    isSelected: PropTypes.bool.isRequired
-  },
+class TabBarButton extends Component{
+  constructor(props){
+    super(props);
+    this.displayName = 'TabBarButton';
+  }
+  
   render() {
     return (
       <TouchableOpacity
@@ -23,7 +22,13 @@ export default React.createClass({
       </TouchableOpacity>
     );
   }
-});
+}
+
+TabBarButton.propTypes = {
+    text: PropTypes.string.isRequired,
+    action: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool.isRequired
+}
 
 const styles = StyleSheet.create({
   button: {
@@ -35,3 +40,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow'
   }
 });
+
+export default TabBarButton;
