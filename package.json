@@ -24,7 +24,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src test",
-    "coverage": "rimraf coverage && jest --coverage"
+    "coverage": "rimraf coverage && jest --coverage",
+    "version": "support/version-ios.sh"
   },
   "jest": {
     "preset": "react-native"
