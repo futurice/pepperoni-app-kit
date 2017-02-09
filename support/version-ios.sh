@@ -17,4 +17,7 @@ BUILD_NUMBER=$(($BUILD_NUMBER + 1))
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString ${PACKAGE_VERSION#*v}" "${INFOPLIST_DIR}"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "${INFOPLIST_DIR}"
 
+# PlistBuddy re-indents Info.plist with tabs, revert this by replacing tabs with 2 spaces
+sed -i '' $'s/\t/  /g' "${INFOPLIST_DIR}"
+
 git add "${INFOPLIST_DIR}"
