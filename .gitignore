@@ -35,6 +35,7 @@ local.properties
 node_modules/
 coverage/
 npm-debug.log
+yarn-error.log
 
 # Secrets
 env.js
