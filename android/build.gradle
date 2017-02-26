@@ -3,14 +3,30 @@
 import groovy.json.JsonSlurper
 
 def getNpmVersion() {
-    def inputFile = new File("../package.json")
-    def packageJson = new JsonSlurper().parseText(inputFile.text)
-    return packageJson["version"]
+    try {
+        def inputFile = new File("../package.json")
+        def packageJson = new JsonSlurper().parseText(inputFile.text)
+        return packageJson["version"]
+    } catch(Exception ex) {
+        throw new RuntimeException("Unable to read ../package.json file. " +
+                "This is required to set the version number for the Android build.", ex)
+    }
 }
 
 def getNpmVersionArray() { // major [0], minor [1], patch [2]
-    def (major, minor, patch) = getNpmVersion().tokenize('.')
-    return [Integer.parseInt(major), Integer.parseInt(minor), Integer.parseInt(patch)] as int[]
+    def npmVersion = getNpmVersion()
+    if (npmVersion == null) {
+        logger.warn('No version found in PROJECT_ROOT/package.json: defaulting with version 1.0.0')
+        return [1, 0, 0]
+    } else {
+        try {
+            def (major, minor, patch) = npmVersion.tokenize('.')
+            return [Integer.parseInt(major), Integer.parseInt(minor), Integer.parseInt(patch)] as int[]
+        } catch(Exception ex) {
+            throw new RuntimeException("Unable to parse version info found in ../package.json " +
+                    "into [major].[minor].[patch] format: " + npmVersion, ex)
+        }
+    }
 }
 
 subprojects {
