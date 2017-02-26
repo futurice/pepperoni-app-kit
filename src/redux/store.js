@@ -3,7 +3,7 @@ import * as reduxLoop from 'redux-loop';
 import middleware from './middleware';
 import reducer from './reducer';
 
-let enhancers = [
+const enhancers = [
   applyMiddleware(...middleware),
   reduxLoop.install()
 ];
