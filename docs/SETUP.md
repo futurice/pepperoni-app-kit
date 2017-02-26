@@ -6,7 +6,7 @@ Firstly, you need a Mac computer for iOS development. If you want to build an An
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
-- [NodeJS](https://nodejs.org) `>=5` and `npm 3`. **npm 2 is not supported.**
+- [NodeJS](https://nodejs.org) `>=5` with `yarn` or `npm 3`. **npm 2 is not supported.**
 - [Homebrew](http://brew.sh/) (or an alternative way to install OSX packages)
 - Latest React Native CLI
 
@@ -24,21 +24,13 @@ Create a blank configuration file
 
 ### Running the iOS application
 
-1. Install Requirements:
+1. Install Xcode for iOS development (download from Mac App Store)
 
-  - Xcode for iOS development (download from Mac App Store)
-  - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
-  - [CocoaPods](https://cocoapods.org/) 1.0 or newer for iOS package management.
-
-**Please note that CocoaPods 0.x will not work, and at the time of writing the version in Homebrew is still 0.39, so check your `pod --version` and install 1.0 with `gem` if necessary.**
-
-2. Install native iOS dependencies
-
-        $ (cd ios; pod repo update; pod install)
-
-3. Build the app and run the simulator:
+2. Build the app and run the simulator:
 
         $ react-native run-ios
+
+**Note: When you want to run the app with Xcode, open the `.xcodeproj` file**
 
 ### Running the Android application
 
@@ -91,32 +83,9 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 
 ### Auth0
 
-#### Configuration
+Pepperoni used to be bundled with [Auth0](https://auth0.com/) but it has been removed by popular request.
 
-If you don't want to use Auth0, or you want to take it into use later, you can skip this step for now.
-
-1. Before you start you need to create a new application in [Auth0](https://manage.auth0.com/#/applications/)
-2. Set `AUTH0_CLIENT_ID` and `AUTH0_DOMAIN` in `env.js` according to your application you created in Auth
-
-        AUTH0_CLIENT_ID: '<CLIENT_ID>',
-        AUTH0_DOMAIN: '<ACCOUNT_NAME>.eu.auth0.com'
-
-3. Follow the steps for your platform below. Check the [official instructions](https://github.com/auth0/react-native-lock) for more information.
-
-#### Customization
-
-The Auth0 login and sign up screens can be customized through the Lock extension.
-
-**iOS**
-* Change default values in the customiseTheme method in `src/services/auth0.js`
-* If you want to add images, copy them in the root `images` folder and add them via Xcode > file > add files to the project in 3 different resolutions (needs to be original and x2 and x3 versions)
-* All changeable values can be retrieved [here]( https://auth0.com/docs/libraries/lock-ios/customization)
-
-**Android**
-
-* Change default values for the AppTheme.Lock in  `android/app/src/main/res/values/styles.xml`
-* Add images in `android/app/src/main/res/mipmap-<hdpi|mdpi|xhdpi|xxhdpi>` in 4 different resolutions
-* All changeable values can be retrieved [here]( https://github.com/auth0/Lock.Android/blob/master/lock/src/main/res/values/styles.xml)
+However instructions on how to set it up are available [here](AUTH0.md).
 
 ### Windows UWP
 

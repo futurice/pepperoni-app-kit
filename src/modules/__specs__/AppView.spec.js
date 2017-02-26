@@ -2,8 +2,6 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import {describe, it} from 'mocha';
-import {expect} from 'chai';
 import {ActivityIndicator} from 'react-native';
 import AppView from '../AppView';
 
@@ -19,7 +17,7 @@ describe('<AppView />', () => {
         />
       );
 
-      expect(wrapper.find(ActivityIndicator)).to.have.lengthOf(1);
+      expect(wrapper.find(ActivityIndicator).length).toBe(1);
     });
 
     it('should not render a <ActivityIndicator /> if ready', () => {
@@ -32,7 +30,7 @@ describe('<AppView />', () => {
         />
       );
 
-      expect(wrapper.find(ActivityIndicator)).to.have.lengthOf(0);
+      expect(wrapper.find(ActivityIndicator).length).toBe(0);
     });
   });
 });

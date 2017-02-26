@@ -14,13 +14,15 @@ const PepperoniAppTemplate = React.createClass({
 
   navigateBack() {
     const navigationState = store.getState().get('navigationState');
-    const currentTab = navigationState.getIn(['routes', navigationState.get('index')]);
+    const tabs = navigationState.get('tabs');
+    const tabKey = tabs.getIn(['routes', tabs.get('index')]).get('key');
+    const currentTab = navigationState.get(tabKey);
 
     // if we are in the beginning of our tab stack
     if (currentTab.get('index') === 0) {
 
       // if we are not in the first tab, switch tab to the leftmost one
-      if (navigationState.get('index') !== 0) {
+      if (tabs.get('index') !== 0) {
         store.dispatch(NavigationStateActions.switchTab(0));
         return true;
       }

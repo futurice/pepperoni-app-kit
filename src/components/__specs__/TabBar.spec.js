@@ -2,18 +2,19 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import {describe, it} from 'mocha';
-import {expect} from 'chai';
 import {hasStyles} from '../../../test/assertions';
 
 import TabBar from '../TabBar';
 import TabBarButton from '../TabBarButton';
 
-const tabs = [
-  {title: 'Tab 1'},
-  {title: 'Tab 2'},
-  {title: 'Tab 3'}
-];
+const tabs = {
+  index: 0,
+  routes: [
+    {key: 'tab-1', title: 'Tab 1'},
+    {key: 'tab-2', title: 'Tab 2'},
+    {key: 'tab-3', title: 'Tab 3'}
+  ]
+};
 
 describe('<TabBar />', () => {
 
@@ -23,9 +24,9 @@ describe('<TabBar />', () => {
     );
 
     // check that count, order and labels match
-    expect(wrapper.find(TabBarButton)).to.have.lengthOf(tabs.length);
+    expect(wrapper.find(TabBarButton).length).toBe(tabs.routes.length);
     expect(wrapper.find(TabBarButton).map(e => e.props().text))
-      .to.deep.equal(['Tab 1', 'Tab 2', 'Tab 3']);
+      .toEqual(['Tab 1', 'Tab 2', 'Tab 3']);
   });
 
   it('should mark current tab as selected', () => {
@@ -34,7 +35,7 @@ describe('<TabBar />', () => {
     );
 
     expect(wrapper.find(TabBarButton).map(e => e.props().isSelected))
-      .to.deep.equal([false, true, false]);
+      .toEqual([false, true, false]);
   });
 
   it('should apply custom height to the root element', () => {
@@ -42,6 +43,6 @@ describe('<TabBar />', () => {
       <TabBar tabs={tabs} height={123} currentTabIndex={1} switchTab={() => null} />
     );
 
-    expect(hasStyles(wrapper.first(), {height: 123})).to.equal(true);
+    expect(hasStyles(wrapper.first(), {height: 123})).toBe(true);
   });
 });

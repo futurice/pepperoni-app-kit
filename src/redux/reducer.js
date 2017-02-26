@@ -1,14 +1,10 @@
-import {Map} from 'immutable';
-import {combineReducers} from 'redux-loop';
+import {Map, fromJS} from 'immutable';
+import {loop, combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
-import AuthStateReducer from '../modules/auth/AuthState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 const reducers = {
-  // Authentication/login state
-  auth: AuthStateReducer,
-
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
 
@@ -34,9 +30,10 @@ const namespacedReducer = combineReducers(
 );
 
 export default function mainReducer(state, action) {
-  if (action.type === RESET_STATE) {
-    return namespacedReducer(action.payload, action);
-  }
+  const [nextState, effects] = action.type === RESET_STATE
+    ? namespacedReducer(action.payload, action)
+    : namespacedReducer(state || void 0, action);
 
-  return namespacedReducer(state || void 0, action);
+  // enforce the state is immutable
+  return loop(fromJS(nextState), effects);
 }

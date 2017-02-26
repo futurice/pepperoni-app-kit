@@ -1,9 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pepperoniapptemplate">
+    package="com.pepperoniapptemplate"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="22" />
 
     <application
+      android:name=".MainApplication"
       android:allowBackup="true"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
@@ -18,33 +26,6 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
-      <!--Auth0 Lock-->
-      <activity
-        android:name="com.auth0.lock.LockActivity"
-        android:theme="@style/AppTheme.Lock.Theme"
-        android:screenOrientation="portrait"
-        android:launchMode="singleTask">
-      </activity>
-      <!--Auth0 Lock End-->
-      <!--Auth0 Lock Embedded WebView-->
-      <activity
-          android:name="com.auth0.identity.web.WebViewActivity"
-          android:theme="@style/AppTheme.Lock.Theme">
-      </activity>
-      <!--Auth0 Lock Embedded WebView End-->
-      <!--Auth0 Lock Passwordless-->
-      <activity
-          android:name="com.auth0.lock.passwordless.LockPasswordlessActivity"
-          android:theme="@style/AppTheme.Lock.Theme"
-          android:screenOrientation="portrait"
-          android:launchMode="singleTask">
-      </activity>
-      <activity
-          android:name="com.auth0.lock.passwordless.CountryCodeActivity"
-          android:theme="@style/AppTheme.Lock.Theme">
-      </activity>
-      <!--Auth0 Lock Passwordless End-->
     </application>
 
 </manifest>

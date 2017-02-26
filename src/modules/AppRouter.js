@@ -8,11 +8,10 @@ import ColorViewContainer from './colors/ColorViewContainer';
  * AppRouter is responsible for mapping a navigator scene to a view
  */
 export default function AppRouter(props) {
-  const onNavigate = props.onNavigate;
   const key = props.scene.route.key;
 
   if (key === 'Counter') {
-    return <CounterViewContainer onNavigate={onNavigate} />;
+    return <CounterViewContainer />;
   }
 
   if (key.indexOf('Color') === 0) {

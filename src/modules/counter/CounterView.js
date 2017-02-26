@@ -15,8 +15,7 @@ const CounterView = React.createClass({
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired,
-    onNavigate: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
   },
   increment() {
     this.props.dispatch(CounterState.increment());
@@ -28,7 +27,10 @@ const CounterView = React.createClass({
     this.props.dispatch(CounterState.random());
   },
   bored() {
-    this.props.dispatch(NavigationState.pushRoute({key: 'Color'}));
+    this.props.dispatch(NavigationState.pushRoute({
+      key: 'Color',
+      title: 'Color Screen'
+    }));
   },
 
   renderUserInfo() {
