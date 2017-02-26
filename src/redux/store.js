@@ -8,12 +8,15 @@ let enhancers = [
   reduxLoop.install()
 ];
 
-if (__DEV__) {
-  let devTools = require('remote-redux-devtools');
-  enhancers = [...enhancers, devTools()];
-}
+/* Enable redux dev tools only in development.
+ * We suggest using the standalone React Native Debugger extension:
+ * https://github.com/jhen0409/react-native-debugger
+ */
+/* eslint-disable no-undef */
+const composeEnhancers = (__DEV__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+/* eslint-enable no-undef */
 
-const enhancer = compose(...enhancers);
+const enhancer = composeEnhancers(...enhancers);
 
 // create the store
 const store = createStore(
