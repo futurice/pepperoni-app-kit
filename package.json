@@ -24,10 +24,11 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src test",
-    "coverage": "rimraf coverage && jest --coverage"
+    "coverage": "rimraf coverage && jest --coverage",
+    "version": "support/version-ios.sh"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "react-native"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
@@ -36,10 +37,10 @@
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
-    "react": "~15.3.2",
-    "react-dom": "~15.3.2",
-    "react-native": "~0.37.0",
-    "react-native-vector-icons": "^3.0.0",
+    "react": "~15.4.2",
+    "react-dom": "~15.4.2",
+    "react-native": "0.41.2",
+    "react-native-vector-icons": "^4.0.0",
     "react-native-windows": "^0.37.1",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
@@ -64,11 +65,10 @@
     "fetch-mock": "^5.5.0",
     "istanbul": "1.0.0-alpha.2",
     "jest": "^17.0.2",
-    "jest-react-native": "~17.0.2",
-    "react-addons-test-utils": "~15.3.2",
+    "react-addons-test-utils": "~15.4.2",
     "react-native-mock": "~0.2.5",
-    "react-test-renderer": "^15.3.2",
-    "rimraf": "^2.5.2",
-    "rnpm-plugin-windows": "^0.2.3"
+    "react-test-renderer": "~15.4.2",
+    "rnpm-plugin-windows": "^0.2.3",
+    "rimraf": "^2.5.2"
   }
 }
