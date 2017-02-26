@@ -1,11 +1,66 @@
-language: node_js
-node_js:
-  - "6.9"
-  - "7.1"
-sudo: false
-env:
-  - NODE_ENV='test'
-script:
-  - cp env.example.js env.js
-  - npm run lint
-  - npm test
+matrix:
+  include:
+    - language: node_js
+      cache: yarn
+      node_js:
+        - "6.9"
+        - "7.1"
+      sudo: false
+      env:
+        - NODE_ENV='test'
+      script:
+        - cp env.example.js env.js
+        - npm run lint
+        - npm test
+        - npm run bundle:ios
+    - language: android
+      os: linux
+      jdk: oraclejdk7
+      before_cache:
+        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+      cache:
+        directories:
+          - $HOME/.yarn-cache
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+      sudo: required
+      before_install:
+        - nvm install 7
+        - node --version
+        - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        - sudo apt-get update -qq
+        - sudo apt-get install -y -qq yarn
+      install:
+        - yarn
+      android:
+        components:
+          - build-tools-23.0.1
+          - android-23
+          - extra-android-m2repository
+          - extra-google-google_play_services
+          - extra-google-m2repository
+          - addon-google_apis-google-16
+      script:
+        - cd android && ./gradlew assembleDebug && ./gradlew assembleRelease
+    - language: objective-c
+      os: osx
+      osx_image: xcode8.2
+      cache:
+        directories:
+          - $HOME/.yarn-cache
+      before_install:
+        - nvm install 7
+        - node --version
+        - npm install -g yarn
+        - yarn -version
+      install:
+        - gem install xcpretty
+        - yarn
+      xcode_project: ios/PepperoniAppTemplate.xcodeproj
+      xcode_scheme: ios/PepperoniAppTemplateTests
+      script:
+        - cd ios
+        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+        - xctool run-tests -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

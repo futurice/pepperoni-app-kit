@@ -61,6 +61,7 @@ Not all of the below is yet fully implemented
 * [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+* [Travis CI](https://travis-ci.org/futurice/pepperoni-app-kit) example [configuration](https://github.com/futurice/pepperoni-app-kit/blob/master/.travis.yml) for Android, iOS and Javascript tests.
 
 
 ### Roadmap
