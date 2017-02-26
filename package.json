@@ -65,6 +65,7 @@
     "istanbul": "1.0.0-alpha.2",
     "jest": "^17.0.2",
     "react-addons-test-utils": "~15.4.2",
+    "remote-redux-devtools": "^0.5.7",
     "react-native-mock": "~0.2.5",
     "react-test-renderer": "~15.4.2",
     "rimraf": "^2.5.2"
