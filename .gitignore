@@ -22,24 +22,23 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IJ
+# Android/IntelliJ
 #
-*.iml
+build/
 .idea
 .gradle
 local.properties
+*.iml
 
 # node.js
 #
 node_modules/
 coverage/
 npm-debug.log
+yarn-error.log
 
 # Secrets
 env.js
-
-# CocoaPods
-ios/Pods/
 
 # BUCK
 buck-out/
@@ -49,3 +48,15 @@ android/keystores/debug.keystore
 
 #yarn
 yarn-error.log
+*.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
