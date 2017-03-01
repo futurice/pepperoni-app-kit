@@ -60,3 +60,8 @@ yarn-error.log
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+# React Native bundles
+
+ios/PepperoniAppTemplate/main.jsbundle
+ios/PepperoniAppTemplate/main.jsbundle.meta

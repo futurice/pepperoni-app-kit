@@ -61,6 +61,7 @@ Not all of the below is yet fully implemented
 * [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+* [Travis CI](https://travis-ci.org/futurice/pepperoni-app-kit) example [configuration](https://github.com/futurice/pepperoni-app-kit/blob/master/.travis.yml) for Android, iOS and Javascript tests.
 
 
 ### Roadmap
@@ -117,6 +118,19 @@ $ npm run coverage
 ```
 
 Read the **[Testing guide](docs/TESTING.md)** for more information about writing tests.
+
+## Debugging
+
+For standard debugging select *Debug JS Remotely* from the React Native Development context menu (To open the context menu, press *CMD+D* in iOS or *D+D* in Android). This will open a new Chrome tab under [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui) and prints all actions to the console.
+
+For advanced debugging under **macOS** we suggest using the standalone [React Native Debugger](https://github.com/jhen0409/react-native-debugger), which is based on the official debugger of React Native.
+It includes the React Inspector and Redux DevTools so you can inspect React views and get a detailed history of the Redux state.
+
+You can install it via [brew](https://brew.sh/) and run it as a standalone app:
+```
+$ brew update && brew cask install react-native-debugger
+```
+> Note: Make sure you close all active chrome debugger tabs and then restart the debugger from the React Native Development context menu.
 
 ## Deployment
 
