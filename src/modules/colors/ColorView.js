@@ -12,6 +12,15 @@ const color = () => Math.floor(255 * Math.random());
  * @TODO remove this module in a live application.
  */
 class ColorView extends Component {
+  static displayName = 'ColorView';
+
+  static propTypes = {
+    index: PropTypes.number.isRequired,
+    navigationStateActions: PropTypes.shape({
+      pushRoute: PropTypes.func.isRequired
+    })
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -39,13 +48,6 @@ class ColorView extends Component {
     );
   }
 }
-
-ColorView.propTypes = {
-  index: PropTypes.number.isRequired,
-  navigationStateActions: PropTypes.shape({
-    pushRoute: PropTypes.func.isRequired
-  })
-};
 
 const styles = StyleSheet.create({
   container: {

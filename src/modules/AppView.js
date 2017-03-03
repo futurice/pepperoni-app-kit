@@ -7,6 +7,13 @@ import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
 class AppView extends Component {
+  static displayName = 'AppView';
+
+  static propTypes = {
+    isReady: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
@@ -41,11 +48,6 @@ class AppView extends Component {
     );
   }
 }
-
-AppView.propTypes = {
-  isReady: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired
-};
 
 const styles = StyleSheet.create({
   centered: {

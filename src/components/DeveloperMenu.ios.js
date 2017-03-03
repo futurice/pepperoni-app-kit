@@ -13,10 +13,7 @@ import {
  * ONLY FOR DEVELOPMENT MODE!
  */
 class DeveloperMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.displayName = 'DeveloperMenu';
-  }
+  static displayName = 'DeveloperMenu';
 
   showDeveloperMenu() {
     const options = {

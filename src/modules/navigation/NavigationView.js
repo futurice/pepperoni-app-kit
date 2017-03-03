@@ -16,6 +16,25 @@ import TabBar from '../../components/TabBar';
 const TAB_BAR_HEIGHT = 50;
 
 class NavigationView extends Component {
+  static displayName = 'NavigationView';
+
+  static propTypes = {
+    onNavigateBack: PropTypes.func.isRequired,
+    onNavigateCompleted: PropTypes.func,
+    navigationState: PropTypes.shape({
+      tabs: PropTypes.shape({
+        routes: PropTypes.arrayOf(PropTypes.shape({
+          key: PropTypes.string.isRequired,
+          title: PropTypes.string.isRequired
+        })).isRequired
+      }).isRequired,
+      HomeTab: NavigationPropTypes.navigationState.isRequired,
+      ProfileTab: NavigationPropTypes.navigationState.isRequired
+    }),
+    switchTab: PropTypes.func.isRequired,
+    pushRoute: PropTypes.func.isRequired
+  };
+
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
   renderHeader = (sceneProps) => {
@@ -67,23 +86,6 @@ class NavigationView extends Component {
     );
   }
 }
-
-NavigationView.propTypes = {
-  onNavigateBack: PropTypes.func.isRequired,
-  onNavigateCompleted: PropTypes.func,
-  navigationState: PropTypes.shape({
-    tabs: PropTypes.shape({
-      routes: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired
-      })).isRequired
-    }).isRequired,
-    HomeTab: NavigationPropTypes.navigationState.isRequired,
-    ProfileTab: NavigationPropTypes.navigationState.isRequired
-  }),
-  switchTab: PropTypes.func.isRequired,
-  pushRoute: PropTypes.func.isRequired
-};
 
 const styles = StyleSheet.create({
   container: {

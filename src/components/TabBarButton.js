@@ -7,10 +7,13 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class TabBarButton extends Component {
-  constructor(props) {
-    super(props);
-    this.displayName = 'TabBarButton';
-  }
+  static displayName = 'TabBarButton';
+
+  static propTypes = {
+    text: PropTypes.string.isRequired,
+    action: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool.isRequired
+  };
 
   render() {
     return (
@@ -23,12 +26,6 @@ class TabBarButton extends Component {
     );
   }
 }
-
-TabBarButton.propTypes = {
-  text: PropTypes.string.isRequired,
-  action: PropTypes.func.isRequired,
-  isSelected: PropTypes.bool.isRequired
-};
 
 const styles = StyleSheet.create({
   button: {

@@ -14,10 +14,11 @@ import {
  * ONLY FOR DEVELOPMENT MODE!
  */
 class DeveloperMenu extends Component {
+  static displayName = 'DeveloperMenu';
+
   constructor(props) {
     super(props);
     this.state = {visible: false};
-    this.displayName = 'DeveloperMenu';
   }
 
   showDeveloperMenu = () => {
