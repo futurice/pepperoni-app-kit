@@ -3,7 +3,7 @@ import {addNavigationHelpers} from 'react-navigation';
 
 import AppNavigator from './Navigator';
 
-class AppNavigatorView extends Component {
+class NavigatorView extends Component {
   static displayName = 'NavigationView';
 
   static propTypes = {
@@ -31,4 +31,4 @@ class AppNavigatorView extends Component {
   }
 }
 
-export default AppNavigatorView;
+export default NavigatorView;
