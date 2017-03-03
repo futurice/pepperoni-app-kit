@@ -1,13 +1,17 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as NavigationStateActions from '../navigation/NavigationState';
+import {NavigationActions} from 'react-navigation';
 import ColorView from './ColorView';
 
 export default connect(
-   null,
+   () => {
+     return {
+       index: 0 // TODO: add stack navigation for color screen
+     };
+   },
    dispatch => {
      return {
-       navigationStateActions: bindActionCreators(NavigationStateActions, dispatch)
+       navigate: bindActionCreators(NavigationActions.navigate, dispatch)
      };
    }
 )(ColorView);

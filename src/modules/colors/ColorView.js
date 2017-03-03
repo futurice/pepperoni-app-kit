@@ -16,9 +16,7 @@ class ColorView extends Component {
 
   static propTypes = {
     index: PropTypes.number.isRequired,
-    navigationStateActions: PropTypes.shape({
-      pushRoute: PropTypes.func.isRequired
-    })
+    navigate: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -29,11 +27,12 @@ class ColorView extends Component {
   }
 
   onNextPress = () => {
+    // TODO: add stack navigation for color screens
+
+    /*
     const index = this.props.index;
-    this.props.navigationStateActions.pushRoute({
-      key: `Color_${index + 1}`,
-      title: `Color Screen #${index + 1}`
-    });
+    this.props.navigate({routeName: `Color_${index + 1}`});
+    */
   };
 
   render() {
