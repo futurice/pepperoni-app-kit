@@ -8,34 +8,26 @@ import {
 } from 'react-native';
 
 class CounterView extends Component {
-  constructor(props) {
-    super(props);
-    this.increment = this.increment.bind(this);
-    this.reset = this.reset.bind(this);
-    this.random = this.random.bind(this);
-    this.bored = this.bored.bind(this);
-  }
-
-  increment() {
+  increment = () => {
     this.props.counterStateActions.increment();
-  }
+  };
 
-  reset() {
+  reset = () => {
     this.props.counterStateActions.reset();
-  }
+  };
 
-  random() {
+  random = () => {
     this.props.counterStateActions.random();
-  }
+  };
 
-  bored() {
+  bored = () => {
     this.props.navigationStateActions.pushRoute({
       key: 'Color',
       title: 'Color Screen'
     });
-  }
+  };
 
-  renderUserInfo() {
+  renderUserInfo = () => {
     if (!this.props.userName) {
       return null;
     }
@@ -55,7 +47,7 @@ class CounterView extends Component {
         </Text>
       </View>
     );
-  }
+  };
 
   render() {
     const loadingStyle = this.props.loading

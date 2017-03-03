@@ -7,10 +7,6 @@ import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
 class AppView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     snapshotUtil.resetSnapshot()
       .then(snapshot => {

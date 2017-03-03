@@ -16,15 +16,9 @@ import TabBar from '../../components/TabBar';
 const TAB_BAR_HEIGHT = 50;
 
 class NavigationView extends Component {
-  constructor(props) {
-    super(props);
-    this.renderHeader = this.renderHeader.bind(this);
-    this.renderScene = this.renderScene.bind(this);
-  }
-
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
-  renderHeader(sceneProps) {
+  renderHeader = (sceneProps) => {
     return (
       <NavigationHeader
         {...sceneProps}
@@ -38,9 +32,9 @@ class NavigationView extends Component {
         }}
         />
     );
-  }
+  };
 
-  renderScene(sceneProps) {
+  renderScene = (sceneProps) => {
     // render scene and apply padding to cover
     // for app bar and navigation bar
     return (
@@ -48,7 +42,7 @@ class NavigationView extends Component {
         {AppRouter(sceneProps)}
       </View>
     );
-  }
+  };
 
   render() {
     const {tabs} = this.props.navigationState;

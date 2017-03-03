@@ -17,16 +17,15 @@ class ColorView extends Component {
     this.state = {
       background: `rgba(${color()},${color()},${color()}, 1)`
     };
-    this.onNextPress = this.onNextPress.bind(this);
   }
 
-  onNextPress() {
+  onNextPress = () => {
     const index = this.props.index;
     this.props.navigationStateActions.pushRoute({
       key: `Color_${index + 1}`,
       title: `Color Screen #${index + 1}`
     });
-  }
+  };
 
   render() {
     const index = this.props.index;

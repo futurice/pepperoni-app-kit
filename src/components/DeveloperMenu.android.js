@@ -18,25 +18,21 @@ class DeveloperMenu extends Component {
     super(props);
     this.state = {visible: false};
     this.displayName = 'DeveloperMenu';
-
-    this.showDeveloperMenu = this.showDeveloperMenu.bind(this);
-    this.clearState = this.clearState.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
   }
 
-  showDeveloperMenu() {
+  showDeveloperMenu = () => {
     this.setState({isVisible: true});
-  }
+  };
 
-  async clearState() {
+  clearState = async () => {
     await snapshot.clearSnapshot();
     console.warn('(╯°□°）╯︵ ┻━┻ \nState cleared, Cmd+R to reload the application now');
     this.closeMenu();
-  }
+  };
 
-  closeMenu() {
+  closeMenu = () => {
     this.setState({isVisible: false});
-  }
+  };
 
   renderMenuItem(text, onPress) {
     return (
