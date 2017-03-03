@@ -42,7 +42,7 @@ Not all of the below is yet fully implemented
 * Modular and well-documented structure for application code
 * [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and **Reasonaboutable**:tm: state management
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
-* Redux-managed Navigators for Stack-based and Tabbed navigation with NavigationExperimental
+* [React Navigation](https://reactnavigation.org/) for awesome navigation with 60fps transitions
 * Disk-persisted application state caching for offline support and snappy startup performance
 * Clean and testable service layer for interacting with RESTful APIs
 * :warning: Sample app to show how to wire it all together
