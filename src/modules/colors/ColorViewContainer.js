@@ -4,11 +4,7 @@ import {NavigationActions} from 'react-navigation';
 import ColorView from './ColorView';
 
 export default connect(
-   () => {
-     return {
-       index: 0 // TODO: add stack navigation for color screen
-     };
-   },
+   null,
    dispatch => {
      return {
        navigate: bindActionCreators(NavigationActions.navigate, dispatch)

@@ -10,6 +10,10 @@ import {
 class CounterView extends Component {
   static displayName = 'CounterView';
 
+  static navigationOptions = {
+    title: 'Counter'
+  }
+
   static propTypes = {
     counter: PropTypes.number.isRequired,
     userName: PropTypes.string,

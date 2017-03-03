@@ -4,18 +4,23 @@ import store from './src/redux/store';
 import AppViewContainer from './src/modules/AppViewContainer';
 import React, {Component} from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
-import * as NavigationStateActions from './src/modules/navigation/NavigationState';
+import {NavigationActions} from 'react-navigation';
 
 class PepperoniAppTemplate extends Component {
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
   }
 
+  // TODO: Android back button
   navigateBack() {
-    const navigationState = store.getState().get('navigationState');
-    const tabs = navigationState.get('tabs');
+    store.dispatch(NavigationActions.back());
+    return true;
+
+    /*
+    const navigatorState = store.getState().get('navigatorState');
+    const tabs = navigatorState.get('tabs');
     const tabKey = tabs.getIn(['routes', tabs.get('index')]).get('key');
-    const currentTab = navigationState.get(tabKey);
+    const currentTab = navigatorState.get(tabKey);
 
     // if we are in the beginning of our tab stack
     if (currentTab.get('index') === 0) {
@@ -32,6 +37,7 @@ class PepperoniAppTemplate extends Component {
 
     store.dispatch(NavigationStateActions.popRoute());
     return true;
+    */
   }
 
   render() {
