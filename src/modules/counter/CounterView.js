@@ -1,6 +1,4 @@
-import * as CounterState from './CounterState';
-import * as NavigationState from '../../modules/navigation/NavigationState';
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -9,31 +7,44 @@ import {
   View
 } from 'react-native';
 
-const CounterView = React.createClass({
-  propTypes: {
+class CounterView extends Component {
+  static displayName = 'CounterView';
+
+  static propTypes = {
     counter: PropTypes.number.isRequired,
     userName: PropTypes.string,
     userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-  },
-  increment() {
-    this.props.dispatch(CounterState.increment());
-  },
-  reset() {
-    this.props.dispatch(CounterState.reset());
-  },
-  random() {
-    this.props.dispatch(CounterState.random());
-  },
-  bored() {
-    this.props.dispatch(NavigationState.pushRoute({
+    counterStateActions: PropTypes.shape({
+      increment: PropTypes.func.isRequired,
+      reset: PropTypes.func.isRequired,
+      random: PropTypes.func.isRequired
+    }).isRequired,
+    navigationStateActions: PropTypes.shape({
+      pushRoute: PropTypes.func.isRequired
+    }).isRequired
+  };
+
+  increment = () => {
+    this.props.counterStateActions.increment();
+  };
+
+  reset = () => {
+    this.props.counterStateActions.reset();
+  };
+
+  random = () => {
+    this.props.counterStateActions.random();
+  };
+
+  bored = () => {
+    this.props.navigationStateActions.pushRoute({
       key: 'Color',
       title: 'Color Screen'
-    }));
-  },
+    });
+  };
 
-  renderUserInfo() {
+  renderUserInfo = () => {
     if (!this.props.userName) {
       return null;
     }
@@ -47,13 +58,14 @@ const CounterView = React.createClass({
             width: 80,
             height: 80
           }}
-        />
+          />
         <Text style={styles.linkButton}>
           Welcome, {this.props.userName}!
         </Text>
       </View>
     );
-  },
+  };
+
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
@@ -101,7 +113,7 @@ const CounterView = React.createClass({
       </View>
     );
   }
-});
+}
 
 const circle = {
   borderWidth: 0,

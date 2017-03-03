@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   NavigationExperimental,
   View,
@@ -15,10 +15,12 @@ import TabBar from '../../components/TabBar';
 // Customize bottom tab bar height here if desired
 const TAB_BAR_HEIGHT = 50;
 
-const NavigationView = React.createClass({
-  propTypes: {
+class NavigationView extends Component {
+  static displayName = 'NavigationView';
+
+  static propTypes = {
     onNavigateBack: PropTypes.func.isRequired,
-    onNavigateCompleted: PropTypes.func.isRequired,
+    onNavigateCompleted: PropTypes.func,
     navigationState: PropTypes.shape({
       tabs: PropTypes.shape({
         routes: PropTypes.arrayOf(PropTypes.shape({
@@ -31,10 +33,11 @@ const NavigationView = React.createClass({
     }),
     switchTab: PropTypes.func.isRequired,
     pushRoute: PropTypes.func.isRequired
-  },
+  };
+
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
-  renderHeader(sceneProps) {
+  renderHeader = (sceneProps) => {
     return (
       <NavigationHeader
         {...sceneProps}
@@ -46,10 +49,11 @@ const NavigationView = React.createClass({
             </NavigationHeader.Title>
           );
         }}
-      />
+        />
     );
-  },
-  renderScene(sceneProps) {
+  };
+
+  renderScene = (sceneProps) => {
     // render scene and apply padding to cover
     // for app bar and navigation bar
     return (
@@ -57,7 +61,8 @@ const NavigationView = React.createClass({
         {AppRouter(sceneProps)}
       </View>
     );
-  },
+  };
+
   render() {
     const {tabs} = this.props.navigationState;
     const tabKey = tabs.routes[tabs.index].key;
@@ -70,17 +75,17 @@ const NavigationView = React.createClass({
           navigationState={scenes}
           renderHeader={this.renderHeader}
           renderScene={this.renderScene}
-        />
+          />
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={tabs}
           currentTabIndex={tabs.index}
           switchTab={this.props.switchTab}
-        />
+          />
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {

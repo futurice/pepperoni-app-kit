@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import * as snapshot from '../utils/snapshot';
 
 import {
@@ -13,25 +13,27 @@ import {
  * It can be accessed through a tiny button in the bottom right corner of the screen.
  * ONLY FOR DEVELOPMENT MODE!
  */
-const DeveloperMenu = React.createClass({
-  displayName: 'DeveloperMenu',
+class DeveloperMenu extends Component {
+  static displayName = 'DeveloperMenu';
 
-  getInitialState() {
-    return {visible: false};
-  },
-  showDeveloperMenu() {
+  constructor(props) {
+    super(props);
+    this.state = {visible: false};
+  }
+
+  showDeveloperMenu = () => {
     this.setState({isVisible: true});
-  },
+  };
 
-  async clearState() {
+  clearState = async () => {
     await snapshot.clearSnapshot();
     console.warn('(╯°□°）╯︵ ┻━┻ \nState cleared, Cmd+R to reload the application now');
     this.closeMenu();
-  },
+  };
 
-  closeMenu() {
+  closeMenu = () => {
     this.setState({isVisible: false});
-  },
+  };
 
   renderMenuItem(text, onPress) {
     return (
@@ -43,7 +45,7 @@ const DeveloperMenu = React.createClass({
         <Text style={styles.menuItemText}>{text}</Text>
       </TouchableOpacity>
     );
-  },
+  }
 
   render() {
     if (!__DEV__) {
@@ -53,9 +55,9 @@ const DeveloperMenu = React.createClass({
     if (!this.state.isVisible) {
       return (
         <TouchableOpacity
-        style={styles.circle}
-        onPress={this.showDeveloperMenu}
-        />
+          style={styles.circle}
+          onPress={this.showDeveloperMenu}
+          />
       );
     }
 
@@ -70,7 +72,7 @@ const DeveloperMenu = React.createClass({
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   circle: {

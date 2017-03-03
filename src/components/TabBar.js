@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import TabBarButton from '../components/TabBarButton';
 
 import {
@@ -9,14 +9,15 @@ import {
 
 const {PropTypes: NavigationPropTypes} = NavigationExperimental;
 
-const TabBar = React.createClass({
-  displayName: 'TabBar',
-  propTypes: {
+class TabBar extends Component {
+  static displayName = 'TabBar';
+
+  static propTypes = {
     tabs: NavigationPropTypes.navigationState.isRequired,
     height: PropTypes.number.isRequired,
     currentTabIndex: PropTypes.number.isRequired,
     switchTab: PropTypes.func.isRequired
-  },
+  };
 
   render() {
     return (
@@ -27,12 +28,12 @@ const TabBar = React.createClass({
             text={route.title}
             action={() => this.props.switchTab(route.key)}
             isSelected={index === this.props.currentTabIndex}
-          />
+            />
         ))}
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   navigationBar: {
