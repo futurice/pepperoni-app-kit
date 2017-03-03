@@ -83,13 +83,13 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 
         $ react-native run-android
 
-### Running the Windows application on a Windows machine
+### Running the UWP (Universal Windows Platform) application
 
-If you want to build an UWP (Universal Windows Platform) app only, follow the instructions in the **Requirements** section to setup a React Native for UWP installation [React Native plugin for Universal Windows Platform (UWP)](https://github.com/ReactWindows/react-native-windows).
+For general instructions how to build an UWP app with React Native, follow the **offical instructions** of the [React Native plugin for UWP](https://github.com/ReactWindows/react-native-windows).
 
-1. Build the app and run it:
+1. Build the app and run it as desktop app:
 
-        > react-native run-windows
+        $ react-native run-windows
 
 Note: **Visual Studio Code** users should install the React Native extension from the Marketplace, this will allow them to run the app from within VSCode.
 
@@ -98,7 +98,3 @@ Note: **Visual Studio Code** users should install the React Native extension fro
 Pepperoni used to be bundled with [Auth0](https://auth0.com/) but it has been removed by popular request.
 
 However instructions on how to set it up are available [here](AUTH0.md).
-
-### Windows UWP
-
-Windows not yet supported.
