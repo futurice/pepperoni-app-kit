@@ -1,16 +1,16 @@
 import React, {PropTypes, Component} from 'react';
 import {addNavigationHelpers} from 'react-navigation';
 
-import AppNavigator from '../AppNavigator';
+import AppNavigator from './Navigator';
 
-class NavigationView extends Component {
+class AppNavigatorView extends Component {
   render() {
     return (
       <AppNavigator
         navigation={
           addNavigationHelpers({
             dispatch: this.props.dispatch,
-            state: this.props.navigationState
+            state: this.props.navigatorState
           })
         }
       />
@@ -18,9 +18,9 @@ class NavigationView extends Component {
   }
 }
 
-NavigationView.propTypes = {
+AppNavigatorView.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  navigationState: PropTypes.shape({
+  navigatorState: PropTypes.shape({
     index: PropTypes.number.isRequired,
     routes: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.string.isRequired,
@@ -29,4 +29,4 @@ NavigationView.propTypes = {
   }).isRequired
 };
 
-export default NavigationView;
+export default AppNavigatorView;

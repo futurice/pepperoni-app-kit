@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
-import NavigationViewContainer from './navigation/NavigationViewContainer';
+import NavigatorViewContainer from './navigator/NavigatorViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
@@ -35,7 +35,7 @@ class AppView extends Component {
 
     return (
       <View style={{flex: 1}}>
-        <NavigationViewContainer />
+        <NavigatorViewContainer />
         {__DEV__ && <DeveloperMenu />}
       </View>
     );

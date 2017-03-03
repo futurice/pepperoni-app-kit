@@ -8,6 +8,10 @@ import {
 } from 'react-native';
 
 class CounterView extends Component {
+  static navigationOptions = {
+    title: 'Counter'
+  }
+
   increment = () => {
     this.props.counterStateActions.increment();
   };

@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import {
-  Text,
+  Button,
   View,
   StyleSheet
 } from 'react-native';
@@ -8,10 +8,14 @@ import {
 const color = () => Math.floor(255 * Math.random());
 
 /**
- * Sample view to demonstrate navigation patterns.
+ * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
 class ColorView extends Component {
+  static navigationOptions = {
+    title: 'Colors!'
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,30 +23,21 @@ class ColorView extends Component {
     };
   }
 
-  onNextPress = () => {
-    // TODO: add stack navigation for color screens
-
-    /*
-    const index = this.props.index;
-    this.props.navigate({routeName: `Color_${index + 1}`});
-    */
+  open = () => {
+    this.props.navigate({routeName: 'InfiniteColorStack'});
   };
 
   render() {
-    const index = this.props.index;
-    const text = `View #${index}`;
+    const buttonText = 'Open in Stack Navigator';
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Text onPress={this.onNextPress}>
-          {text}
-        </Text>
+        <Button title={buttonText} onPress={this.open}/>
       </View>
     );
   }
 }
 
 ColorView.propTypes = {
-  index: PropTypes.number.isRequired,
   navigate: PropTypes.func.isRequired
 };
 
