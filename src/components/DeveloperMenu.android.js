@@ -18,6 +18,10 @@ class DeveloperMenu extends Component {
     super(props);
     this.state = {visible: false};
     this.displayName = 'DeveloperMenu';
+
+    this.showDeveloperMenu = this.showDeveloperMenu.bind(this);
+    this.clearState = this.clearState.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
   showDeveloperMenu() {
