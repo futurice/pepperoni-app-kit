@@ -28,7 +28,7 @@ The `components` directory should contain React Native JSX components, which tak
 
 The components may be stateful if it makes sense, but do consider externalising state to the Redux store instead. If the state needs to be persisted, shared by other components, or inspected by a developer in order to understand the program state, it should go in the Redux store.
 
-A component may be either written as a `React.createClass` constructor or as a plain JavaScript function component. Usage of ES6 `class Foo extends React.Component` should be [generally speaking avoided](https://github.com/joshburgess/not-awesome-es6-classes).
+A component may be either written as an a ES6 `class Foo extends Component` class or as a plain JavaScript function component. Usage of `React.createClass` should be avoided, as it [will be deprecated in 15.5](https://github.com/facebook/react/issues/8854)
 
 If a component implementation differs between iOS and Android versions of the application, [create separate `.android.js` and `.ios.js` files](https://facebook.github.io/react-native/docs/platform-specific-code.html) for the component. In minor cases the `React.Platform.OS` property can be used to branch between platforms.
 
