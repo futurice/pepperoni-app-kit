@@ -2,11 +2,10 @@ import {Provider} from 'react-redux';
 import store from './src/redux/store';
 import AppViewContainer from './src/modules/AppViewContainer';
 
-import React from 'react';
+import React, {Component} from 'react';
 import {AppRegistry} from 'react-native';
 
-const PepperoniAppTemplate = React.createClass({
-
+class PepperoniAppTemplate extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -14,6 +13,6 @@ const PepperoniAppTemplate = React.createClass({
       </Provider>
     );
   }
-});
+}
 
 AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);
