@@ -111,8 +111,14 @@ CounterView.propTypes = {
   userName: PropTypes.string,
   userProfilePhoto: PropTypes.string,
   loading: PropTypes.bool.isRequired,
-  counterStateActions: PropTypes.func,
-  navigationStateActions: PropTypes.func
+  counterStateActions: PropTypes.shape({
+    increment: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
+    random: PropTypes.func.isRequired
+  }).isRequired,
+  navigationStateActions: PropTypes.shape({
+    pushRoute: PropTypes.func.isRequired
+  }).isRequired
 };
 
 const circle = {

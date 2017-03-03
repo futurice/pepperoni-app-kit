@@ -43,7 +43,9 @@ class ColorView extends Component {
 
 ColorView.propTypes = {
   index: PropTypes.number.isRequired,
-  navigationStateActions: PropTypes.func
+  navigationStateActions: PropTypes.shape({
+    pushRoute: PropTypes.func.isRequired
+  })
 };
 
 const styles = StyleSheet.create({
