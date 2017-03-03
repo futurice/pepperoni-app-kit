@@ -3,7 +3,7 @@ import {addNavigationHelpers} from 'react-navigation';
 
 import AppNavigator from './Navigator';
 
-class AppNavigatorView extends Component {
+class NavigatorView extends Component {
   render() {
     return (
       <AppNavigator
@@ -18,7 +18,7 @@ class AppNavigatorView extends Component {
   }
 }
 
-AppNavigatorView.propTypes = {
+NavigatorView.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigatorState: PropTypes.shape({
     index: PropTypes.number.isRequired,
@@ -29,4 +29,4 @@ AppNavigatorView.propTypes = {
   }).isRequired
 };
 
-export default AppNavigatorView;
+export default NavigatorView;
