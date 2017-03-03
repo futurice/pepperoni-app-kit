@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import CounterView from './CounterView';
-import * as NavigationStateActions from '../navigation/NavigationState';
+import {NavigationActions} from 'react-navigation';
 import * as CounterStateActions from '../counter/CounterState';
 
 export default connect(
@@ -11,7 +11,7 @@ export default connect(
   }),
   dispatch => {
     return {
-      navigationStateActions: bindActionCreators(NavigationStateActions, dispatch),
+      navigate: bindActionCreators(NavigationActions.navigate, dispatch),
       counterStateActions: bindActionCreators(CounterStateActions, dispatch)
     };
   }
