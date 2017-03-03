@@ -22,7 +22,7 @@ class TabBar extends Component {
           <TabBarButton
             key={'tab-bar-button-' + route.key}
             text={route.title}
-            action={() => this.props.switchTab(index)}
+            action={() => this.props.switchTab(route.key)}
             isSelected={index === this.props.currentTabIndex}
             />
         ))}

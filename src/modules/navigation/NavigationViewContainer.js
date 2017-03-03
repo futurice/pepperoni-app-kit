@@ -10,8 +10,9 @@ export default connect(
   dispatch => {
     return {
       switchTab: bindActionCreators(switchTab, dispatch),
+      pushRoute: bindActionCreators(pushRoute, dispatch),
       onNavigateBack: bindActionCreators(popRoute, dispatch),
-      pushRoute: bindActionCreators(pushRoute, dispatch)
+      onNavigateCompleted: bindActionCreators(navigationCompleted, dispatch)
     };
   }
 )(NavigationView);

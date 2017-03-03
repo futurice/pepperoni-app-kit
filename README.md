@@ -4,7 +4,7 @@ Futurice React Native Starter Kit
 
 [![Join the chat at https://gitter.im/futurice/pepperoni-app-kit](https://badges.gitter.im/futurice/pepperoni-app-kit.svg)](https://gitter.im/futurice/pepperoni-app-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/futurice/pepperoni-app-kit.svg?branch=master)](https://travis-ci.org/futurice/pepperoni-app-kit)
-[![React Native](https://img.shields.io/badge/react%20native-0.37.0-brightgreen.svg)](https://github.com/facebook/react-native)
+[![React Native](https://img.shields.io/badge/react%20native-0.41.2-brightgreen.svg)](https://github.com/facebook/react-native)
 [![Sponsored](https://img.shields.io/badge/chilicorn-sponsored-brightgreen.svg)](http://spiceprogram.org/oss-sponsorship/)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/futurice/pepperoni-app-kit/blob/master/LICENSE)
 
@@ -61,6 +61,7 @@ Not all of the below is yet fully implemented
 * [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+* [Travis CI](https://travis-ci.org/futurice/pepperoni-app-kit) example [configuration](https://github.com/futurice/pepperoni-app-kit/blob/master/.travis.yml) for Android, iOS and Javascript tests.
 
 
 ### Roadmap
@@ -111,6 +112,19 @@ $ npm run coverage
 ```
 
 Read the **[Testing guide](docs/TESTING.md)** for more information about writing tests.
+
+## Debugging
+
+For standard debugging select *Debug JS Remotely* from the React Native Development context menu (To open the context menu, press *CMD+D* in iOS or *D+D* in Android). This will open a new Chrome tab under [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui) and prints all actions to the console.
+
+For advanced debugging under **macOS** we suggest using the standalone [React Native Debugger](https://github.com/jhen0409/react-native-debugger), which is based on the official debugger of React Native.
+It includes the React Inspector and Redux DevTools so you can inspect React views and get a detailed history of the Redux state.
+
+You can install it via [brew](https://brew.sh/) and run it as a standalone app:
+```
+$ brew update && brew cask install react-native-debugger
+```
+> Note: Make sure you close all active chrome debugger tabs and then restart the debugger from the React Native Development context menu.
 
 ## Deployment
 
