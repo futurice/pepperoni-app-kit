@@ -12,9 +12,15 @@ const color = () => Math.floor(255 * Math.random());
  * @TODO remove this module in a live application.
  */
 class ColorView extends Component {
+  static displayName = 'ColorView';
+
   static navigationOptions = {
     title: 'Colors!'
   }
+
+  static propTypes = {
+    navigate: PropTypes.func.isRequired
+  };
 
   constructor(props) {
     super(props);
@@ -29,6 +35,7 @@ class ColorView extends Component {
 
   render() {
     const buttonText = 'Open in Stack Navigator';
+
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
         <Button title={buttonText} onPress={this.open}/>
@@ -36,10 +43,6 @@ class ColorView extends Component {
     );
   }
 }
-
-ColorView.propTypes = {
-  navigate: PropTypes.func.isRequired
-};
 
 const styles = StyleSheet.create({
   container: {

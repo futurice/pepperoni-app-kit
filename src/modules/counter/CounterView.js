@@ -8,9 +8,24 @@ import {
 } from 'react-native';
 
 class CounterView extends Component {
+  static displayName = 'CounterView';
+
   static navigationOptions = {
     title: 'Counter'
   }
+
+  static propTypes = {
+    counter: PropTypes.number.isRequired,
+    userName: PropTypes.string,
+    userProfilePhoto: PropTypes.string,
+    loading: PropTypes.bool.isRequired,
+    counterStateActions: PropTypes.shape({
+      increment: PropTypes.func.isRequired,
+      reset: PropTypes.func.isRequired,
+      random: PropTypes.func.isRequired
+    }).isRequired,
+    navigate: PropTypes.func.isRequired
+  };
 
   increment = () => {
     this.props.counterStateActions.increment();
@@ -98,19 +113,6 @@ class CounterView extends Component {
     );
   }
 }
-
-CounterView.propTypes = {
-  counter: PropTypes.number.isRequired,
-  userName: PropTypes.string,
-  userProfilePhoto: PropTypes.string,
-  loading: PropTypes.bool.isRequired,
-  counterStateActions: PropTypes.shape({
-    increment: PropTypes.func.isRequired,
-    reset: PropTypes.func.isRequired,
-    random: PropTypes.func.isRequired
-  }).isRequired,
-  navigate: PropTypes.func.isRequired
-};
 
 const circle = {
   borderWidth: 0,
