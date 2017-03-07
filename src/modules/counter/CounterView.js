@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   counterButton: {
     ...circle,
-    backgroundColor: 'green',
+    backgroundColor: '#349d4a',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 20

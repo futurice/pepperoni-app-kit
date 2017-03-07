@@ -37,7 +37,7 @@ class ColorView extends Component {
     const buttonText = 'Open in Stack Navigator';
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Button title={buttonText} onPress={this.open}/>
+        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
       </View>
     );
   }
