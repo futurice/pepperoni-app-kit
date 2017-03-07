@@ -28,7 +28,11 @@
     "version": "support/version-ios.sh"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFiles": ["<rootDir>/test/setup.js"],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation)"
+    ]
   },
   "dependencies": {
     "bluebird": "^3.3.5",
