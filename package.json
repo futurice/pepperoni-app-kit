@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "bluebird": "^3.3.5",
-    "es6-symbol": "^3.0.2",
     "event-emitter": "^0.3.4",
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
@@ -44,7 +43,7 @@
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
-    "redux-loop": "^2.1.0",
+    "redux-loop-symbol-ponyfill": "^2.2.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",
     "standard-http-error": "^2.0.0"

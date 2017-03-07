@@ -1,5 +1,5 @@
 import {Map} from 'immutable';
-import {loop, Effects} from 'redux-loop';
+import {loop, Effects} from 'redux-loop-symbol-ponyfill';
 import {generateRandomNumber} from '../../services/randomNumberService';
 
 // Initial state
