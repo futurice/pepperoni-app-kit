@@ -18,9 +18,9 @@ class ColorView extends Component {
 
   static navigationOptions = {
     title: 'Colors!',
-    tabBar: ({ state, setParams }) => ({
+    tabBar: () => ({
       icon: (props) => (
-        <Icon name="color-lens" size={24} color={props.tintColor} />
+        <Icon name='color-lens' size={24} color={props.tintColor} />
       )
     }),
     // TODO: move this into global config?

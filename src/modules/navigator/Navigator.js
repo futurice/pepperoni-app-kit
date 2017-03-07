@@ -19,7 +19,7 @@ export const MainScreenNavigator = TabNavigator({
         indicatorStyle: {backgroundColor: activeColor},
         style: {backgroundColor: headerColor}
       }
-    }),
+    })
   }
 });
 
