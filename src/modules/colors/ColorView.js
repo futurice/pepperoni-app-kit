@@ -5,6 +5,8 @@ import {
   StyleSheet
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 const color = () => Math.floor(255 * Math.random());
 
 /**
@@ -15,7 +17,19 @@ class ColorView extends Component {
   static displayName = 'ColorView';
 
   static navigationOptions = {
-    title: 'Colors!'
+    title: 'Colors!',
+    tabBar: ({ state, setParams }) => ({
+      icon: (props) => (
+        <Icon name="color-lens" size={24} color={props.tintColor} />
+      )
+    }),
+    // TODO: move this into global config?
+    header: {
+      tintColor: 'white',
+      style: {
+        backgroundColor: '#39babd'
+      }
+    }
   }
 
   static propTypes = {

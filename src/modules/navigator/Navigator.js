@@ -1,3 +1,4 @@
+import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
 import CounterViewContainer from '../counter/CounterViewContainer';
@@ -12,9 +13,13 @@ export const MainScreenNavigator = TabNavigator({
   Color: {screen: ColorViewContainer}
 }, {
   tabBarOptions: {
-    activeTintColor: activeColor,
-    indicatorStyle: {backgroundColor: activeColor},
-    style: {backgroundColor: headerColor}
+    ...Platform.select({
+      android: {
+        activeTintColor: activeColor,
+        indicatorStyle: {backgroundColor: activeColor},
+        style: {backgroundColor: headerColor}
+      }
+    }),
   }
 });
 
