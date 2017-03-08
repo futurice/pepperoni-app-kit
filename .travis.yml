@@ -19,7 +19,7 @@ matrix:
   include:
     - language: android
       os: linux
-      jdk: oraclejdk7
+      jdk: oraclejdk8
       before_cache:
         - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
         - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -28,10 +28,10 @@ matrix:
       before_install:
         - nvm install 7
         - node --version
-        - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        - travis_retry curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
         - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-        - sudo apt-get update -qq
-        - sudo apt-get install -y -qq yarn
+        - travis_retry sudo apt-get update -qq
+        - travis_retry sudo apt-get install -y -qq yarn
       install:
         - yarn
       android:
@@ -51,14 +51,14 @@ matrix:
       before_install:
         - nvm install 7
         - node --version
-        - npm install -g yarn
+        - travis_retry npm install -g yarn
         - yarn -version
       install:
-        - gem install xcpretty
-        - yarn
+        - travis_retry gem install xcpretty
+        - travis_retry yarn
       xcode_project: ios/PepperoniAppTemplate.xcodeproj
       xcode_scheme: ios/PepperoniAppTemplateTests
       script:
         - cd ios
         - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
-        - xctool run-tests -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+        - travis_retry xctool run-tests -scheme PepperoniAppTemplate -sdk iphonesimulator -launch-timeout 90  ONLY_ACTIVE_ARCH=NO
