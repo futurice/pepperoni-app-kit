@@ -1,5 +1,5 @@
 import {applyMiddleware, createStore, compose} from 'redux';
-import * as reduxLoop from 'redux-loop';
+import * as reduxLoop from 'redux-loop-symbol-ponyfill';
 import middleware from './middleware';
 import reducer from './reducer';
 

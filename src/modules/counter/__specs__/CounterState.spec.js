@@ -1,6 +1,6 @@
 /*eslint-disable max-nested-callbacks, no-unused-expressions*/
 
-import {Effects} from 'redux-loop';
+import {Effects} from 'redux-loop-symbol-ponyfill';
 import {initialState, dispatch} from '../../../../test/state';
 import * as CounterStateActions from '../CounterState';
 
