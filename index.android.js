@@ -1,4 +1,3 @@
-import 'es6-symbol/implement';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
 import AppViewContainer from './src/modules/AppViewContainer';
