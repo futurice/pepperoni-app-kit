@@ -2,7 +2,9 @@
 
 ## Requirements
 
-Firstly, you need a Mac computer for iOS development. If you want to build an Android app only, you can try [experimental Linux and Windows support](https://facebook.github.io/react-native/docs/linux-windows-support.html). These instructions presume an OS X installation.
+Firstly, you need a Mac computer for iOS development. If you want to build an Android app only, you can try [experimental Linux and Windows support](https://facebook.github.io/react-native/docs/linux-windows-support.html).
+
+These instructions presume an OS X installation. Windows users see below.
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
@@ -81,12 +83,18 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 
         $ react-native run-android
 
+### Running the UWP (Universal Windows Platform) application
+
+For general instructions how to build an UWP app with React Native, follow the **offical instructions** of the [React Native plugin for UWP](https://github.com/ReactWindows/react-native-windows).
+
+1. Build the app and run it as desktop app:
+
+        $ react-native run-windows
+
+Note: **Visual Studio Code** users should install the React Native extension from the Marketplace, this will allow them to run the app from within VSCode.
+
 ### Auth0
 
 Pepperoni used to be bundled with [Auth0](https://auth0.com/) but it has been removed by popular request.
 
 However instructions on how to set it up are available [here](AUTH0.md).
-
-### Windows UWP
-
-Windows not yet supported.

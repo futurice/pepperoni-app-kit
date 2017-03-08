@@ -47,7 +47,7 @@ Not all of the below is yet fully implemented
 * Clean and testable service layer for interacting with RESTful APIs
 * :warning: Sample app to show how to wire it all together
 * :star: JSON Web Token authentication
-* :star: Multi-environment configuration (dev, staging, production) for iOS and Android
+* :star: Multi-environment configuration (dev, staging, production) for iOS, Android & Windows
 * :star: Built-in error handling and customizable error screens
 
 ### Testing Setup
@@ -94,6 +94,12 @@ $ react-native run-ios
 (If using the stock emulator, the emulator must be running)
 ```
 $ react-native run-android
+```
+
+##### Start the application in the Windows simulator
+(If using the stock emulator, the emulator must be running)
+```
+$ react-native run-windows
 ```
 
 ##### Run unit tests
