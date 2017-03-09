@@ -6,6 +6,6 @@
     <!--   your app branding color for the app bar -->
     <item name="android:colorPrimary">#000000</item>
     <!--   darker variant for the status bar and contextual app bars -->
-    <item name="android:colorPrimaryDark">#e1e7e0</item>
+    <item name="android:colorPrimaryDark">#B55501</item>
   </style>
 </resources>

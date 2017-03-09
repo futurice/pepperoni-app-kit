@@ -1,26 +1,24 @@
 const palette = {
-  teal: '#39BABD',
-  darkTeal: '#2DB1B5',
-  lightTeal: '#e1e7e0',
-  orange: '#FF821E',
-  darkBlue: '#003441',
-  grey: '#929292',
-  lightGrey: '#D1D1D1',
-  sand: '#F2EEE6',
-  darkSand: '#efebe3'
+  teal: '#45BABD',
+  darkTeal: '#34A3A6',
+  orange: '#FF7700',
+  darkOrange: '#B55501',
+  white: '#FFFFFF',
+  whiteTransparency: 'rgba(255, 255, 255, 0.4)',
+  blackTransparency: 'rgba(0, 0, 0, 0.8)'
 };
 
 export const colors = {
-  button: palette.orange,
-  background: palette.sand,
-  text: palette.darkBlue,
-  bullet: palette.lightGrey,
-  selectedBullet: palette.teal,
-  tabBorder: palette.grey,
-  tab: palette.darkSand,
-  tabText: palette.grey,
-  selectedTab: palette.lightTeal,
-  selectedTabText: palette.teal
+  button: palette.white,
+  background: palette.teal,
+  text: palette.white,
+  bullet: palette.whiteTransparency,
+  selectedBullet: palette.white,
+  tab: palette.darkTeal,
+  tabText: palette.whiteTransparency,
+  selectedTabText: palette.white,
+  navBar: palette.orange,
+  spinner: palette.blackTransparency
 };
 
 export const buttons = {
@@ -37,19 +35,19 @@ export const buttons = {
   secondary: {
     backgroundColor: 'transparent',
     borderColor: colors.button,
-    borderWidth: 1
+    borderWidth: 2
   }
 };
 
 export const fonts = {
   h1: {
-    fontSize: 40,
+    fontSize: 24,
     fontWeight: '500',
     color: colors.text,
     fontFamily: 'System'
   },
   h2: {
-    fontSize: 28,
+    fontSize: 22,
     color: colors.text,
     fontFamily: 'System'
   },
@@ -65,13 +63,13 @@ export const fonts = {
   },
   button: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '700',
     fontFamily: 'System'
   },
   primary: {
-    color: 'white'
+    color: colors.background
   },
   secondary: {
-    color: colors.button
+    color: colors.text
   }
 };

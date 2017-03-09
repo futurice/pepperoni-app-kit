@@ -60,7 +60,7 @@ class CityView extends Component {
             style={styles.pageIndicator} />
           <Button
               text="What's for lunch?"
-              style={theme.buttons.primary}
+              buttonStyle={theme.buttons.primary}
               textStyle={theme.fonts.primary}
               action={() => this.selectOffice(offices[index])} />
         </View>)
@@ -72,7 +72,7 @@ class CityView extends Component {
           <Image source={{uri: rowData.picture}} style={styles.image} />
         </TouchableOpacity>
         <Text style={[theme.fonts.h1, styles.title]}>
-          {rowData.city}
+          {rowData.city.toUpperCase()}
         </Text>
         {androidView}
       </View>
@@ -112,7 +112,7 @@ class CityView extends Component {
             style={styles.pageIndicator} />
           <Button
               text="What's for lunch?"
-              style={theme.buttons.primary}
+              buttonStyle={theme.buttons.primary}
               textStyle={theme.fonts.primary}
               action={() => this.selectOffice(offices[this.props.position])} />
          </View>)
@@ -142,11 +142,13 @@ class CityView extends Component {
 }
 
 const styles = StyleSheet.create({
-  row: {
-    flex: 1
-  },
   swiper: {
     flex: 1
+  },
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.background,
+    justifyContent: 'center'
   },
   cityCard: {
     flex: 1,
@@ -154,7 +156,25 @@ const styles = StyleSheet.create({
     width: window.width,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 10
+    marginTop: 20
+  },
+  image: {
+    height: 180,
+    width: 180,
+    borderRadius: 90,
+    borderWidth: 3,
+    borderColor: theme.colors.tab
+  },
+  title: {
+    marginTop: 20
+  },
+  pageIndicator: {
+    marginBottom: 20
+  },
+  buttonsContainer: {
+    flex: 1,
+    margin: 10,
+    justifyContent: 'center'
   },
   spinner: {
     position: 'absolute',
@@ -162,27 +182,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: window.width,
     height: window.height,
-    backgroundColor: 'rgba(0,0,0,.7)'
-  },
-  image: {
-    height: 250,
-    width: 250,
-    borderRadius: 125,
-    borderWidth: 6,
-    borderColor: theme.colors.bullet
-  },
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.background
-  },
-  title: {
-    margin: 10
-  },
-  pageIndicator: {
-    margin: 10
-  },
-  buttonsContainer: {
-    margin: 20
+    backgroundColor: theme.colors.spinner
   }
 });
 

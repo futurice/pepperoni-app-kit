@@ -3,8 +3,6 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {shallow} from 'enzyme';
-import {hasStyles} from '../../../test/assertions';
-import * as theme from '../../utils/theme';
 
 import TabBarButton from '../TabBarButton';
 
@@ -28,18 +26,5 @@ describe('<TabBarButton/>', () => {
 
     wrapper.find(TouchableOpacity).simulate('press');
     expect(onPress).toBeCalled();
-  });
-
-  it('should render selected button with a background color', () => {
-    const unselected = shallow(
-      <TabBarButton text='TestButton' action={() => null} isSelected={false} />
-    );
-
-    const selected = shallow(
-      <TabBarButton text='TestButton' action={() => null} isSelected={true} />
-    );
-
-    expect(hasStyles(unselected.first(), {backgroundColor: theme.colors.selectedTab})).toBe(false);
-    expect(hasStyles(selected.first(), {backgroundColor: theme.colors.selectedTab})).toBe(true);
   });
 });

@@ -8,14 +8,14 @@ import {
 import * as theme from '../../utils/theme';
 
 class AboutView extends Component {
-  renderHeader() {
+  renderHeader = () => {
     return (
         <View style={styles.header}>
           <Image source={require('../../../assets/sample-app-header.png')}/>
         </View>);
   }
 
-  renderBody() {
+  renderBody = () => {
     return (
         <View style={styles.body}>
           <Text style={styles.bodyText}>
@@ -26,7 +26,7 @@ class AboutView extends Component {
         </View>);
   }
 
-  renderFooter() {
+  renderFooter = () => {
     const futuriceImage = require('../../../assets/futurice-logo.png');
     return (
         <View style={styles.footer}>
@@ -61,10 +61,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  headerText: {
-    justifyContent: 'center',
-    alignItems: 'flex-start'
   },
   body: {
     flex: 1,

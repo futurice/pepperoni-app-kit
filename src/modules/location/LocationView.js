@@ -2,7 +2,6 @@ import React, {PropTypes, Component} from 'react';
 import Button from '../../components/Button';
 import * as theme from '../../utils/theme';
 import * as Utils from '../../utils/Utils';
-//import store from '../../redux/store';
 import {
   Text,
   View,
@@ -36,7 +35,6 @@ class LocationView extends Component {
     //if this.prop.place doesn't contain the right data go back
     if (!this.props.place.name) {
       this.props.navigationStateActions.popRoute();
-      //store.dispatch(NavigationState.popRoute());
     }
   }
 
@@ -52,8 +50,8 @@ class LocationView extends Component {
 
   getImage = () => {
     return (this.props.place.photos && this.props.place.photos.count && this.props.place.photos.count > 0)
-      ? (<Image style={styles.image} source={{uri: this.buildPhotosURL()}}/>)
-      : (<View/>);
+      ? (<Image style={styles.image} source={{uri: this.buildPhotosURL()}}>{this.getRating()}</Image>)
+      : (<View style={styles.noImage}>{this.getRating()}</View>);
   }
 
   getPrice = () => {
@@ -95,16 +93,28 @@ class LocationView extends Component {
     : '';
   }
 
+  getRating = () => {
+    return (this.props.place.rating)
+      ? (<Image style={styles.gradient}
+              source={require('../../../assets/gradient.png')}>
+              <View style={[styles.ratingView, this.getRatingStyles()]}>
+                <Text style={styles.rating}>{this.props.place.rating}</Text>
+                <Text style={styles.ratingTotal}>/ 10</Text>
+              </View>
+            </Image>)
+      : (<Image style={styles.gradient}source={require('../../../assets/gradient.png')}/>);
+  }
+
   getHours = () => {
     return (this.props.place.hours)
-    ? (this.props.place.hours.status)
-    : '';
+      ? (this.props.place.hours.status)
+      : '';
   }
 
   getContact = () => {
     return (this.props.place.contact)
-    ? (this.props.place.contact.formattedPhone)
-    : '';
+      ? (this.props.place.contact.formattedPhone)
+      : '';
   }
 
   getLinkURL = () => {
@@ -124,22 +134,17 @@ class LocationView extends Component {
       <ScrollView>
         {this.getImage()}
         <View style={styles.cardInfo}>
-          <View style={[styles.ratingView, this.getRatingStyles()]}>
-            <Text style={styles.rating}>
-              {this.props.place.rating}
-            </Text>
-          </View>
           <Text numberOfLines={2} style={styles.title}>
             {this.props.place.name}
           </Text>
-          <Text numberOfLines={2} style={styles.text}>
-            {this.getAddress()}
-          </Text>
-          <Text style={styles.text}>
+          <Text style={[styles.text, {fontWeight: '500'}]}>
             {this.getCategories()}
           </Text>
-          <Text style={styles.text}>
+          <Text style={[styles.text, {fontWeight: '500', marginBottom: 10}]}>
             {this.getPrice()}
+          </Text>
+          <Text numberOfLines={2} style={styles.text}>
+            {this.getAddress()}
           </Text>
           <Text style={styles.text}>
             {this.getHours()}
@@ -151,7 +156,7 @@ class LocationView extends Component {
         <View style={styles.buttonContainer}>
           <Button
             text='Yeah, take me there!'
-            style={theme.buttons.primary}
+            buttonStyle={theme.buttons.primary}
             textStyle={theme.fonts.primary}
             action={() => Linking.openURL(this.getLinkURL())
               .catch(err => console.error('An error occurred', err))} />
@@ -159,7 +164,7 @@ class LocationView extends Component {
         <View style={styles.buttonContainer}>
           <Button
             text='Nah, try another one'
-            style={theme.buttons.secondary}
+            buttonStyle={theme.buttons.secondary}
             textStyle={theme.fonts.secondary}
             action={this.onNextPress} />
         </View>
@@ -181,7 +186,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...spacing,
-    ...theme.fonts.h3,
+    ...theme.fonts.h2,
     margin: 8
   },
   text: {
@@ -198,7 +203,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: window.width,
     height: window.height,
-    backgroundColor: 'rgba(0,0,0,.8)'
+    backgroundColor: theme.colors.spinner
   },
   image: {
     height: 200,
@@ -206,36 +211,47 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  noImage: {
+    height: 40,
+    width: window.width,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10
+  },
   cardInfo: {
     backgroundColor: theme.colors.selectedTab
   },
+  gradient: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: window.width,
+    height: 50
+  },
   ratingView: {
-    ...Platform.select({
-      ios: {
-        top: -20,
-        paddingTop: 6,
-        left: (window.width / 2) - 20
-      },
-      android: {
-        top: 6,
-        left: window.width - 46
-      }
-    }),
+    flexDirection: 'row',
     backgroundColor: 'transparent', // default backgroundColor
-    width: 40,
-    height: 40,
-    borderRadius: 20
+    width: 72,
+    height: 30,
+    bottom: 0,
+    left: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   rating: {
-    ...Platform.select({
-      android: {
-        top: 4
-      }
-    }),
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    ...theme.fonts.h3,
+    margin: 5,
+    fontSize: 18,
+    color: theme.colors.text,
+    fontFamily: 'System',
+    fontWeight: '500',
     backgroundColor: 'transparent'
+  },
+  ratingTotal: {
+    fontSize: 10,
+    marginHorizontal: 2,
+    color: theme.colors.text,
+    fontFamily: 'System',
+    marginBottom: 5
   }
 });
 

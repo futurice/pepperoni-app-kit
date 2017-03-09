@@ -21,11 +21,11 @@ class TabBarButton extends Component {
     var iconImage = '';
     if (Platform.OS === 'ios') {
       iconImage = (this.props.text === 'Where to eat')
-        ? 'ios-pizza'
+        ? 'ios-restaurant'
         : 'ios-information-circle';
     } else {
       iconImage = (this.props.text === 'Where to eat')
-        ? 'md-pizza'
+        ? 'md-restaurant'
         : 'md-information-circle';
     }
     var iconColor = this.props.isSelected ? theme.colors.selectedTabText : theme.colors.tabText;
@@ -40,7 +40,7 @@ class TabBarButton extends Component {
   render() {
     return (
       <TouchableOpacity onPress={this.props.action}
-        style={[styles.button, this.props.isSelected && styles.selected]} >
+        style={styles.button} >
         {this.getIconTab()}
         {this.getTextTab()}
       </TouchableOpacity>
@@ -53,14 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopWidth: 1,
-    borderTopColor: theme.colors.tabBorder,
-    borderLeftWidth: 1,
-    borderLeftColor: theme.colors.tabBorder,
     backgroundColor: theme.colors.tab
-  },
-  selected: {
-    backgroundColor: theme.colors.selectedTab
   },
   text: {
     color: theme.colors.tabText,

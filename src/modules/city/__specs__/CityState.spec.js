@@ -7,7 +7,7 @@ describe('CityState', () => {
 
   describe('selectOffice', () => {
     const getValue = state => state.getIn(['city', 'value']);
-    // City offices
+    // Futirice offices
     const offices = require('../../../data/sampleLocations.json');
 
     it('should change the value to the city name', () => {
