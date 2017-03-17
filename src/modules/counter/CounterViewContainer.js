@@ -6,8 +6,8 @@ import * as CounterStateActions from '../counter/CounterState';
 
 export default connect(
   state => ({
-    counter: state.getIn(['counter', 'value']),
-    loading: state.getIn(['counter', 'loading'])
+    counter: state.counter.value,
+    loading: state.counter.loading
   }),
   dispatch => {
     return {

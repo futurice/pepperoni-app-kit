@@ -1,23 +1,27 @@
-import {Map} from 'immutable';
-
-let configuration = Map();
+let configuration = {};
 
 export function setConfiguration(name, value) {
-  configuration = configuration.set(name, value);
+  configuration = {
+    ...configuration,
+    [name]: value
+  };
 }
 
 export function setAll(properties) {
-  configuration = configuration.merge(properties);
+  configuration = {
+    ...configuration,
+    ...properties
+  };
 }
 
 export function unsetConfiguration(name) {
-  configuration = configuration.delete(name);
+  configuration = delete configuration[name];
 }
 
 export function getConfiguration(key) {
-  if (!configuration.has(key)) {
+  if (!configuration[key]) {
     throw new Error('Undefined configuration key: ' + key);
   }
 
-  return configuration.get(key);
+  return configuration[key];
 }
