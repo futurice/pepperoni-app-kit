@@ -8,7 +8,7 @@ describe('CounterState', () => {
 
   // Example of how to test multiple dispatches in series
   describe('increment', () => {
-    const getValue = state => state.getIn(['counter', 'value']);
+    const getValue = state => state.counter.value;
 
     it('should increment the value property by one', () => {
       const [secondState] = dispatch(initialState, CounterStateActions.increment());
@@ -23,11 +23,11 @@ describe('CounterState', () => {
     it('should reset the counter state to initial value', () => {
       // create an incremented state to test against
       const [modifiedState] = dispatch(initialState, CounterStateActions.increment());
-      expect(modifiedState.get('counter')).not.toBe(initialState.get('counter'));
+      expect(modifiedState.counter).not.toBe(initialState.counter);
 
       // reset to original and verify it === initial state
       const [resetState] = dispatch(modifiedState, CounterStateActions.reset());
-      expect(resetState.get('counter')).toBe(initialState.get('counter'));
+      expect(resetState.counter).toBe(initialState.counter);
     });
   });
 
@@ -37,7 +37,7 @@ describe('CounterState', () => {
     const [nextState, effects] = dispatch(initialState, CounterStateActions.random());
 
     it('should update loading bit', () => {
-      expect(nextState.getIn(['counter', 'loading'])).toBe(true);
+      expect(nextState.counter.loading).toBe(true);
     });
 
     it('should trigger a requestRandomNumber side effect', () => {
@@ -63,8 +63,8 @@ describe('CounterState', () => {
       expect(typeof action.payload).toBe('number');
 
       const [nextState] = dispatch(initialState, action);
-      expect(nextState.getIn(['counter', 'value'])).toBe(action.payload);
-      expect(nextState.getIn(['counter', 'loading'])).toBe(false);
+      expect(nextState.counter.value).toBe(action.payload);
+      expect(nextState.counter.loading).toBe(false);
     });
   });
 });
