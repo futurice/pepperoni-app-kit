@@ -1,12 +1,11 @@
-import {Map} from 'immutable';
 import {loop, Effects} from 'redux-loop-symbol-ponyfill';
 import {generateRandomNumber} from '../../services/randomNumberService';
 
 // Initial state
-const initialState = Map({
+const initialState = {
   value: 0,
   loading: false
-});
+};
 
 // Actions
 const INCREMENT = 'CounterState/INCREMENT';
@@ -40,21 +39,29 @@ export async function requestRandomNumber() {
 export default function CounterStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case INCREMENT:
-      return state.update('value', value => value + 1);
+      return {
+        ...state,
+        value: state.value + 1
+      };
 
     case RESET:
       return initialState;
 
     case RANDOM_REQUEST:
       return loop(
-        state.set('loading', true),
+        {
+          ...state,
+          loading: true
+        },
         Effects.promise(requestRandomNumber)
       );
 
     case RANDOM_RESPONSE:
-      return state
-        .set('loading', false)
-        .set('value', action.payload);
+      return {
+        ...state,
+        loading: false,
+        value: action.payload
+      };
 
     default:
       return state;

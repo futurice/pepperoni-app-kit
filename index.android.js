@@ -11,16 +11,17 @@ class PepperoniAppTemplate extends Component {
   }
 
   navigateBack() {
-    const navigationState = store.getState().get('navigationState');
-    const tabs = navigationState.get('tabs');
-    const tabKey = tabs.getIn(['routes', tabs.get('index')]).get('key');
-    const currentTab = navigationState.get(tabKey);
+    const navigationState = store.getState().navigationState;
+
+    const tabs = navigationState.tabs;
+    const tabKey = tabs.routes[tabs.index].key;
+    const currentTab = navigationState[tabKey];
 
     // if we are in the beginning of our tab stack
-    if (currentTab.get('index') === 0) {
+    if (currentTab.index === 0) {
 
       // if we are not in the first tab, switch tab to the leftmost one
-      if (tabs.get('index') !== 0) {
+      if (tabs.index !== 0) {
         store.dispatch(NavigationStateActions.switchTab(0));
         return true;
       }
