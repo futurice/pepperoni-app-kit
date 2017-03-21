@@ -156,25 +156,32 @@ const styles = StyleSheet.create({
     width: window.width,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 20
+    paddingTop: 90
   },
   image: {
-    height: 180,
-    width: 180,
-    borderRadius: 90,
-    borderWidth: 3,
-    borderColor: theme.colors.tab
+    height: 170,
+    width: 170,
+    borderRadius: 85
   },
   title: {
     marginTop: 20
   },
   pageIndicator: {
-    marginBottom: 20
+    marginBottom: 50,
+    ...Platform.select({
+      android: {
+        marginTop: 20
+      }
+    })
   },
   buttonsContainer: {
-    flex: 1,
-    margin: 10,
-    justifyContent: 'center'
+    ...Platform.select({
+      ios: {
+        marginLeft: 10,
+        marginRight: 10,
+        paddingBottom: 60
+      }
+    })
   },
   spinner: {
     position: 'absolute',
