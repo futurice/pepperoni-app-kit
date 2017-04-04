@@ -1,6 +1,6 @@
 import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
-import NavigationStateReducer from '../modules/navigation/NavigationState';
+import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
@@ -8,9 +8,8 @@ const reducers = {
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
 
-  // @NOTE: By convention, the navigation state must live in a subtree called
-  //`navigationState`
-  navigationState: NavigationStateReducer,
+  // Navigator states
+  navigatorState: NavigatorStateReducer,
 
   session: SessionStateReducer
 

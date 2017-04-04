@@ -7,8 +7,19 @@ import {
   View
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 class CounterView extends Component {
   static displayName = 'CounterView';
+
+  static navigationOptions = {
+    title: 'Counter',
+    tabBar: () => ({
+      icon: (props) => (
+        <Icon name='plus-one' size={24} color={props.tintColor} />
+      )
+    })
+  }
 
   static propTypes = {
     counter: PropTypes.number.isRequired,
@@ -20,9 +31,7 @@ class CounterView extends Component {
       reset: PropTypes.func.isRequired,
       random: PropTypes.func.isRequired
     }).isRequired,
-    navigationStateActions: PropTypes.shape({
-      pushRoute: PropTypes.func.isRequired
-    }).isRequired
+    navigate: PropTypes.func.isRequired
   };
 
   increment = () => {
@@ -38,10 +47,7 @@ class CounterView extends Component {
   };
 
   bored = () => {
-    this.props.navigationStateActions.pushRoute({
-      key: 'Color',
-      title: 'Color Screen'
-    });
+    this.props.navigate({routeName: 'Color'});
   };
 
   renderUserInfo = () => {
@@ -139,7 +145,7 @@ const styles = StyleSheet.create({
   },
   counterButton: {
     ...circle,
-    backgroundColor: 'green',
+    backgroundColor: '#349d4a',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 20

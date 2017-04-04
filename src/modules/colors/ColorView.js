@@ -1,24 +1,39 @@
 import React, {PropTypes, Component} from 'react';
 import {
-  Text,
+  Button,
   View,
   StyleSheet
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 const color = () => Math.floor(255 * Math.random());
 
 /**
- * Sample view to demonstrate navigation patterns.
+ * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
 class ColorView extends Component {
   static displayName = 'ColorView';
 
+  static navigationOptions = {
+    title: 'Colors!',
+    tabBar: () => ({
+      icon: (props) => (
+        <Icon name='color-lens' size={24} color={props.tintColor} />
+      )
+    }),
+    // TODO: move this into global config?
+    header: {
+      tintColor: 'white',
+      style: {
+        backgroundColor: '#39babd'
+      }
+    }
+  }
+
   static propTypes = {
-    index: PropTypes.number.isRequired,
-    navigationStateActions: PropTypes.shape({
-      pushRoute: PropTypes.func.isRequired
-    })
+    navigate: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -28,22 +43,15 @@ class ColorView extends Component {
     };
   }
 
-  onNextPress = () => {
-    const index = this.props.index;
-    this.props.navigationStateActions.pushRoute({
-      key: `Color_${index + 1}`,
-      title: `Color Screen #${index + 1}`
-    });
+  open = () => {
+    this.props.navigate({routeName: 'InfiniteColorStack'});
   };
 
   render() {
-    const index = this.props.index;
-    const text = `View #${index}`;
+    const buttonText = 'Open in Stack Navigator';
     return (
       <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Text onPress={this.onNextPress}>
-          {text}
-        </Text>
+        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
       </View>
     );
   }

@@ -1187,6 +1187,10 @@ circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
 
+clamp@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/clamp/-/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
+
 cli-cursor@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-1.0.2.tgz#64da3f7d56a54412e59794bd62dc35295e8f2987"
@@ -2278,7 +2282,7 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
-hoist-non-react-statics@^1.0.3:
+hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
@@ -3860,6 +3864,22 @@ react-dom@^15.4.0, react-dom@~15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
+react-native-dismiss-keyboard@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
+
+react-native-drawer-layout-polyfill@^1.0.4:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-drawer-layout-polyfill/-/react-native-drawer-layout-polyfill-1.1.0.tgz#6a76f582b260ebe64e556a58d473ddd51adc93ab"
+  dependencies:
+    react-native-drawer-layout "~1.1.5"
+
+react-native-drawer-layout@~1.1.5:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-1.1.6.tgz#e6fff2e2a13cd3821496827e65c20222d4441009"
+  dependencies:
+    react-native-dismiss-keyboard "1.0.0"
+
 react-native-mock@~0.2.5:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/react-native-mock/-/react-native-mock-0.2.9.tgz#e213c714a20f532ba0df03474205e5276683c298"
@@ -3876,6 +3896,10 @@ react-native-mock@~0.2.5:
     react-dom "^15.4.0"
     react-timer-mixin "^0.13.3"
     warning "^2.1.0"
+
+react-native-tab-view@^0.0.57:
+  version "0.0.57"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.57.tgz#715e2ea4100fa50168e134df3947dd76ebd55743"
 
 react-native-vector-icons@^4.0.0:
   version "4.0.0"
@@ -3963,6 +3987,17 @@ react-native@0.42.0:
     xcode "^0.8.9"
     xmldoc "^0.4.0"
     yargs "^6.4.0"
+
+react-navigation@^1.0.0-beta.7:
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-1.0.0-beta.7.tgz#acd89a01903ef0d1335f1ff364d1dbe67bc70039"
+  dependencies:
+    clamp "^1.0.1"
+    fbjs "^0.8.5"
+    hoist-non-react-statics "^1.2.0"
+    path-to-regexp "^1.7.0"
+    react-native-drawer-layout-polyfill "^1.0.4"
+    react-native-tab-view "^0.0.57"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -4723,8 +4758,8 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
 uglify-js@^2.6, uglify-js@^2.6.2:
-  version "2.8.9"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.9.tgz#01194b91cc0795214093c05594ef5ac1e0b2e900"
+  version "2.8.10"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.10.tgz#bd0be568369f7be8cad2a4161fa90ada118ef73a"
   dependencies:
     source-map "~0.5.1"
     uglify-to-browserify "~1.0.0"

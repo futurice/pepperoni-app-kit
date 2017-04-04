@@ -39,7 +39,7 @@ The `modules` directory contains most of the interesting bits of the application
 Each module is its own directory and represents a "discrete domain" within the application. There is no hard and fast rule on how to split your application into modules (in fact, this is one of the most difficult decisions in designing a Redux application), but here are some qualities of a good module:
 
  * Represents a screen in the application, or a collection of screens that form a feature.
- * Represents some technical feature that needs its own state (e.g. `navigation`).
+ * Represents some technical feature that needs its own state (e.g. `navigator`).
  * Rarely needs to use data from other modules' states.
  * Doesn't contain data that is often needed by other modules.
 
