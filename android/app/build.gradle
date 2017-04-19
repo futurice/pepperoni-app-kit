@@ -109,6 +109,21 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+
+        debug {
+            debuggable true
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            versionNameSuffix " D"
+            }
+    }
+    productFlavors {
+        development {
+        }
+        staging {
+        }
+        production {
+        }
     }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
@@ -122,6 +137,16 @@ android {
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
         }
+    }
+    productFlavors.all { flavor ->
+            def propertiesFileName = flavor.name + ".properties"
+            if (project.rootProject.file(propertiesFileName).exists()) {
+                    Properties properties = new Properties();
+                properties.load(project.rootProject.file(propertiesFileName).newDataInputStream())
+                flavor.versionName properties.getProperty(flavor.name+".version_name")
+            } else {
+                flavor.versionName android.defaultConfig.versionName + "-" + flavor.name
+            }
     }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
