@@ -24,7 +24,7 @@ export const MainScreenNavigator = TabNavigator({
 });
 
 MainScreenNavigator.navigationOptions = {
-  title: 'IDMOL',
+  title: 'Pepperoni App Template',
   headerTintColor: 'white',
   headerStyle: {
     backgroundColor: headerColor
