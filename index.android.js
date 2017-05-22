@@ -2,12 +2,12 @@ import {Provider} from 'react-redux';
 import store from './src/redux/store';
 import AppViewContainer from './src/modules/AppViewContainer';
 import React, {Component} from 'react';
-import {AppRegistry, BackAndroid} from 'react-native';
+import {AppRegistry, BackHandler} from 'react-native';
 import {NavigationActions} from 'react-navigation';
 
 class PepperoniAppTemplate extends Component {
   componentWillMount() {
-    BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
+    BackHandler.addEventListener('hardwareBackPress', this.navigateBack);
   }
 
   navigateBack() {
