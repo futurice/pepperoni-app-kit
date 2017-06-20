@@ -36,13 +36,13 @@ module.exports = function (plop) {
         type: 'modify',
         path: 'src/redux/reducer.js',
         pattern: /\/\/ ## Generator Reducer Imports/gi,
-        template: '// ## Generator Reducer Imports\r\nimport {{properCase name}}Reducer from \'../modules/{{camelCase name}}/{{properCase name}}State\';'
+        template: '// ## Generator Reducer Imports\nimport {{properCase name}}Reducer from \'../modules/{{camelCase name}}/{{properCase name}}State\';'
       },
       {
         type: 'modify',
         path: 'src/redux/reducer.js',
         pattern: /\/\/ ## Generator Reducers/gi,
-        template: '// ## Generator Reducers\r\n  {{camelCase name}}: {{properCase name}}Reducer,'
+        template: '// ## Generator Reducers\n\n  {{camelCase name}}: {{properCase name}}Reducer,'
       }
     ]
   });
