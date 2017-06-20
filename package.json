@@ -68,6 +68,7 @@
     "fetch-mock": "^5.5.0",
     "istanbul": "1.0.0-alpha.2",
     "jest": "^17.0.2",
+    "plop": "^1.7.4",
     "react-addons-test-utils": "~15.4.2",
     "react-native-mock": "~0.2.5",
     "react-test-renderer": "~15.4.2",
