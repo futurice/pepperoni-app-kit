@@ -134,7 +134,8 @@ A View should take all inputs as `props`, and should very, very rarely, if ever,
 To continue the Counter example, a view might look something like this:
 
 ```js
-import React, {PropTypes, StyleSheet, Text, View} from 'react-native';
+import React, {StyleSheet, Text, View} from 'react-native';
+import PropTypes from 'prop-types';
 import ActionButton from '../../components/ActionButton';
 import * as CounterState from './CounterState';
 
