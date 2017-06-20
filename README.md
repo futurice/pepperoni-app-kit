@@ -45,6 +45,7 @@ Not all of the below is yet fully implemented
 * [React Navigation](https://reactnavigation.org/) for awesome navigation with 60fps transitions
 * Disk-persisted application state caching for offline support and snappy startup performance
 * Clean and testable service layer for interacting with RESTful APIs
+* Super simple generators with [Plop](https://github.com/amwmedia/plop)
 * :warning: Sample app to show how to wire it all together
 * :star: JSON Web Token authentication
 * :star: Multi-environment configuration (dev, staging, production) for iOS and Android
@@ -95,6 +96,13 @@ $ react-native run-ios
 ```
 $ react-native run-android
 ```
+
+##### Use plop generators to create new modules quickly
+```
+$ npm run plop
+```
+
+[Learn more about Plop](https://github.com/amwmedia/plop)
 
 ##### Run unit tests
 ```
