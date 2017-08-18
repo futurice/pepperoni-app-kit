@@ -1,11 +1,7 @@
-
-import promiseMiddleware from 'redux-promise';
+// ## Middleware Imports ##
 import thunkMiddleware from 'redux-thunk';
-import loggerMiddleware from './middleware/loggerMiddleware';
 
-// define store middlewares as an array
 export default [
-  promiseMiddleware,
+  // ## Middleware ##
   thunkMiddleware,
-  loggerMiddleware
 ];

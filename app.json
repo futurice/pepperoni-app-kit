@@ -1,4 +1,5 @@
 {
-  "name": "PepperoniAppTemplate",
-  "displayName": "PepperoniAppTemplate"
+  "expo": {
+    "sdkVersion": "19.0.0"
+  }
 }
