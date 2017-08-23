@@ -1,0 +1,58 @@
+import React from 'react';
+import { connect } from 'react-redux';
+
+import {
+  Centered,
+  WelcomeText,
+  Bold,
+  Button,
+  FlexRow,
+} from '../../components/styled';
+import { increment, reset } from '../../state/{{ camelCase name }}';
+
+const mapStateToProps = state => ({
+  value: state.{{ camelCase name }}.value,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onIncrement: () => dispatch(increment()),
+  onReset: () => dispatch(reset()),
+});
+
+export class {{ properCase name }} extends React.Component {
+  static navigationOptions = {
+    title: '{{ properCase name }}',
+  };
+
+  render = () =>
+    <Centered>
+      <WelcomeText>
+        <Bold>{{ properCase name }}</Bold>
+      </WelcomeText>
+
+      <WelcomeText>
+        <Bold>
+          {this.props.value}
+        </Bold>
+      </WelcomeText>
+
+      <FlexRow>
+        <Button onPress={this.props.onIncrement}>
+          <WelcomeText>Increment</WelcomeText>
+        </Button>
+        <Button onPress={this.props.onReset}>
+          <WelcomeText>Reset</WelcomeText>
+        </Button>
+      </FlexRow>
+
+      <WelcomeText>
+        This is an example of <Bold>Redux</Bold> usage with the{' '}
+        <Bold>Pepperoni app kit</Bold>.
+      </WelcomeText>
+    </Centered>;
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)({{ properCase name }});
