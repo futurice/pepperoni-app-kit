@@ -9,13 +9,13 @@ import {
 import { connect } from 'react-redux';
 import SettingsButton from '../components/SettingsButton';
 
-// ## View imports ##
+// ## View Imports ##
 import WelcomeView from './views/Welcome';
 import CounterView from './views/Counter';
 import SettingsView from './views/Settings';
 
 export const TabView = TabNavigator({
-  // ## TabNavigator views ##
+  // ## TabNavigator Views ##
   Welcome: { screen: WelcomeView },
   Counter: { screen: CounterView },
 });
@@ -33,7 +33,7 @@ const StackNavigatorConfig = {
 
 export const Root = StackNavigator(
   {
-    // ## StackNavigator views ##
+    // ## StackNavigator Views ##
     Tabs: {
       screen: TabView,
       navigationOptions: { title: 'Welcome to Pepperoni!' },
