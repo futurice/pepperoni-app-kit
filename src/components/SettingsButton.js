@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { PepperoniIcon } from './styled';
+import { PepperoniIcon } from './styled/Branding';
 
 export default class SettingsButton extends React.Component {
   render = () =>

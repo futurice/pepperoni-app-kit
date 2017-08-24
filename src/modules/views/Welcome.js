@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  PepperoniLogo,
-  Centered,
-  WelcomeText,
-  Bold,
-} from '../../components/styled';
+import { PepperoniLogo, Title, Bold } from '../../components/styled/Branding';
+import { Centered } from '../../components/styled/Layout';
 
 export default class WelcomeView extends React.Component {
   static navigationOptions = {
@@ -14,11 +10,11 @@ export default class WelcomeView extends React.Component {
   render = () =>
     <Centered>
       <PepperoniLogo />
-      <WelcomeText>
+      <Title>
         <Bold>Hello, world!</Bold>
-      </WelcomeText>
-      <WelcomeText>
+      </Title>
+      <Title>
         This is a sample view from the <Bold>Pepperoni app kit</Bold>.
-      </WelcomeText>
+      </Title>
     </Centered>;
 }

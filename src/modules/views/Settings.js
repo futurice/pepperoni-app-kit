@@ -1,5 +1,7 @@
 import React from 'react';
-import { Centered, WelcomeText, Bold } from '../../components/styled';
+import { Title, Bold } from '../../components/styled/Text';
+import { Centered } from '../../components/styled/Layout';
+import { Button } from '../../components/styled/Branding';
 
 export default class SettingsView extends React.Component {
   static navigationOptions = {
@@ -8,9 +10,9 @@ export default class SettingsView extends React.Component {
 
   render = () =>
     <Centered>
-      <WelcomeText>
+      <Title>
         <Bold>Hello, world!</Bold>
-      </WelcomeText>
-      <WelcomeText>This is a sample settings view. TODO!</WelcomeText>
+      </Title>
+      <Title>This is a sample settings view.</Title>
     </Centered>;
 }

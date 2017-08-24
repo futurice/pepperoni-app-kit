@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { Title, Bold } from '../../components/styled/Text';
 import { Centered, FlexRow } from '../../components/styled/Layout';
 import { Button } from '../../components/styled/Branding';
-import { increment, reset } from '../../state/counter';
+import { increment, reset } from '../../state/{{ camelCase name }}';
 
 const mapStateToProps = state => ({
-  value: state.counter.value,
+  value: state.{{ camelCase name }}.value,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -15,22 +15,16 @@ const mapDispatchToProps = dispatch => ({
   onReset: () => dispatch(reset()),
 });
 
-export class Counter extends React.Component {
+export class {{ properCase name }} extends React.Component {
   static navigationOptions = {
-    title: 'Counter',
+    title: '{{ properCase name }}',
   };
 
   renderTitle = () =>
-    <Title>
-      <Bold>Counter</Bold>
-    </Title>;
+    <Title><Bold>{{ properCase name }}</Bold></Title>;
 
   renderValue = () =>
-    <Title>
-      <Bold>
-        {this.props.value}
-      </Bold>
-    </Title>;
+    <Title><Bold> {this.props.value}</Bold></Title>;
 
   renderButtons = () =>
     <FlexRow>
@@ -57,4 +51,7 @@ export class Counter extends React.Component {
     </Centered>;
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)({{ properCase name }});
