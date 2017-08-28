@@ -18,7 +18,6 @@ export const PepperoniIcon = styled.Image.attrs({
   source: PepperoniIconAsset,
   resizeMode: 'contain',
 })`
-  flex: 1;
   width: 70px;
 `;
 
@@ -40,4 +39,10 @@ export const CounterWrapper = styled.View`
   elevation: 4;
   align-items: center;
   margin: 8px;
+`;
+
+export const InputField = styled.TextInput`
+  height: 50px;
+  paddingHorizontal: 4px;
+  fontSize: 20px;
 `;

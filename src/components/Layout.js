@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { Platform, StatusBar, ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   contentContainerStyle: {
@@ -15,10 +15,14 @@ export const ViewContainer = styled.ScrollView.attrs({
 })`
 `;
 
+export const Padding = styled.View`padding: 16px;`;
+
 export const Centered = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
+export const Stretch = styled.View`align-self: stretch;`;
 
 export const FullscreenCentered = Centered.extend`flex: 1;`;
 

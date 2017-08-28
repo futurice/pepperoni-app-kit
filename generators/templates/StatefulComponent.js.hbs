@@ -1,25 +1,22 @@
 import React from 'react';
 
+import { Stretch } from './Layout';
 import { Description, Bold } from './Text';
-import { Centered } from './Layout';
-
-import CounterCard from './CounterCard';
+import { InputField } from './Pepperoni';
 
 export default class {{ properCase name }} extends React.Component {
   // Initial state
   state = {
-    value: 0,
+    value: "I'm a stateful component!",
   };
 
-  increment = () => this.setState({ value: this.state.value + 1 });
-  reset = () => this.setState({ value: 0 });
+  onChangeText = text => this.setState({ value: text });
 
   render = () =>
-    <Centered>
-      <CounterCard
-        value={this.state.value}
-        increment={this.increment}
-        reset={this.reset}
-      />
-    </Centered>;
+    <Stretch>
+      <Description>
+        You typed: <Bold>{this.state.value}</Bold>
+      </Description>
+      <InputField value={this.state.value} onChangeText={this.onChangeText} />
+    </Stretch>;
 }
