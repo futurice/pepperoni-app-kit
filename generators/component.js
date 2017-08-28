@@ -11,6 +11,12 @@ module.exports = {
       name: 'state',
       message: 'Create a stateful component?',
     },
+    {
+      type: 'confirm',
+      name: 'view',
+      message:
+        'Create a sample view which uses your component? (you will be able to preview it instantly)',
+    },
   ],
   actions: data => {
     const actions = [];
@@ -20,12 +26,39 @@ module.exports = {
       ? 'generators/templates/StatefulComponent.js.hbs'
       : 'generators/templates/Component.js.hbs';
 
-    // Generate the module file
+    // Generate the component module
     actions.push({
       type: 'add',
       path,
       templateFile,
     });
+
+    // If generating view, set up container in src/containers/Navigator.js
+    if (data.view) {
+      // Generate the view container module
+      actions.push({
+        type: 'add',
+        path: 'src/containers/views/{{ properCase name }}.js',
+        templateFile: 'generators/templates/ComponentContainerView.js.hbs',
+      });
+
+      actions.push(
+        {
+          type: 'modify',
+          path: 'src/containers/navigator/Tabs.js',
+          pattern: /\/\/ ## View Imports ##/gi,
+          template:
+            "// ## View Imports ##\nimport {{ properCase name }}View from '../views/{{ properCase name }}';",
+        },
+        {
+          type: 'modify',
+          path: 'src/containers/navigator/Tabs.js',
+          pattern: /\/\/ ## End TabNavigator Views ##/gi,
+          template:
+            '{{ properCase name }}: { screen: {{ properCase name }}View },\n    // ## End TabNavigator Views ##',
+        },
+      );
+    }
 
     return actions;
   },

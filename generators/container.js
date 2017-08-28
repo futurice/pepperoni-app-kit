@@ -21,7 +21,7 @@ module.exports = {
       : 'src/containers/{{ properCase name }}.js';
     const templateFile = 'generators/templates/Container.js.hbs';
 
-    // Generate the container file
+    // Generate the container module
     actions.push({
       type: 'add',
       path: path,

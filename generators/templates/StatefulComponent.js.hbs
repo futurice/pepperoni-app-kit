@@ -14,12 +14,6 @@ export default class {{ properCase name }} extends React.Component {
   increment = () => this.setState({ value: this.state.value + 1 });
   reset = () => this.setState({ value: 0 });
 
-  renderDescription = () =>
-    <Description>
-      This is a sample <Bold>stateful component</Bold>.
-      Import and use it in a view to see it in action!
-    </Description>;
-
   render = () =>
     <Centered>
       <CounterCard
@@ -27,6 +21,5 @@ export default class {{ properCase name }} extends React.Component {
         increment={this.increment}
         reset={this.reset}
       />
-      {this.renderDescription()}
     </Centered>;
 }

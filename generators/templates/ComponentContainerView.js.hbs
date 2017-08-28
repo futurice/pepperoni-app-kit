@@ -1,0 +1,22 @@
+import React from 'react';
+
+import { Description, Bold } from '../../components/Text';
+import { ViewContainer } from '../../components/Layout';
+import {{ properCase name }} from '../../components/{{ properCase name }}';
+
+export default class {{ properCase name }}View extends React.Component {
+  static navigationOptions = {
+    title: '{{ properCase name }}',
+  };
+
+  renderDescription = () =>
+    <Description>
+      Here's a sample view using your <Bold>{{ properCase name }}</Bold> component.
+    </Description>;
+
+  render = () =>
+    <ViewContainer>
+      <{{ properCase name }} />
+      { this.renderDescription() }
+    </ViewContainer>;
+}
