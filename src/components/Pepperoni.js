@@ -19,6 +19,7 @@ export const PepperoniIcon = styled.Image.attrs({
   resizeMode: 'contain',
 })`
   width: 70px;
+  height: 70px;
 `;
 
 export const Icon = styled(MaterialIcons).attrs({
