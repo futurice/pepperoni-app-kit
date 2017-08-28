@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-  TouchableNativeFeedback,
-  TouchableOpacity,
-  Platform,
-  View,
-} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import PepperoniLogoAsset from '../../../assets/pepperoni-logo.png';
-import PepperoniIconAsset from '../../../assets/pepperoni-icon.png';
+import PepperoniLogoAsset from '../../assets/pepperoni-logo.png';
+import PepperoniIconAsset from '../../assets/pepperoni-icon.png';
 
 export const PepperoniLogo = styled.Image.attrs({
   source: PepperoniLogoAsset,

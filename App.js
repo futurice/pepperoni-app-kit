@@ -10,7 +10,7 @@ import {
   Centered,
   FullscreenCentered,
   AppContainer,
-} from './src/components/styled/Layout';
+} from './src/components/Layout';
 
 export default class App extends React.Component {
   state = { rehydrated: false };

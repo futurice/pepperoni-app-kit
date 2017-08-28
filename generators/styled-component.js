@@ -1,5 +1,6 @@
 module.exports = {
-  description: 'Generates new React Native <View> using styled-components',
+  description:
+    'Generates new React Native <View>, styled using styled-components',
   prompts: [
     {
       type: 'input',
@@ -10,7 +11,7 @@ module.exports = {
   actions: data => {
     const actions = [];
 
-    const path = 'src/components/styled/{{ properCase name }}.js';
+    const path = 'src/components/{{ properCase name }}.js';
     const templateFile = 'generators/templates/StyledComponent.js.hbs';
 
     // Generate the module file

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Title, Description } from '../../components/styled/Text';
-import { ViewContainer } from '../../components/styled/Layout';
+import { Title, Description } from '../../components/Text';
+import { ViewContainer } from '../../components/Layout';
 
 export default class SettingsView extends React.Component {
   static navigationOptions = {

@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 
-import { PepperoniLogo, IconButton } from '../../components/styled/Branding';
-import { Title, Description, Bold } from '../../components/styled/Text';
-import { ViewContainer, Centered } from '../../components/styled/Layout';
+import { PepperoniLogo, IconButton } from '../../components/Pepperoni';
+import { Title, Description, Bold } from '../../components/Text';
+import { ViewContainer, Centered } from '../../components/Layout';
 
 const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => ({

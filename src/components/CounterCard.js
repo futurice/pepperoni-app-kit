@@ -1,7 +1,7 @@
 import React from 'react';
-import { Title } from './styled/Text';
-import { FlexRow } from './styled/Layout';
-import { IconButton, CounterWrapper } from './styled/Branding';
+import { Title } from './Text';
+import { FlexRow } from './Layout';
+import { IconButton, CounterWrapper } from './Pepperoni';
 
 export default class CounterCard extends React.Component {
   render = () =>
