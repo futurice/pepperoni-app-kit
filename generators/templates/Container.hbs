@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Title, Bold } from '../../components/styled/Text';
-import { Centered, FlexRow } from '../../components/styled/Layout';
-import { Button } from '../../components/styled/Branding';
+import { Description, Bold } from '../../components/styled/Text';
+import { Centered } from '../../components/styled/Layout';
+import CounterCard from '../../components/CounterCard';
+
 import { increment, reset } from '../../state/{{ camelCase name }}';
 
 const mapStateToProps = state => ({
@@ -20,33 +21,19 @@ export class {{ properCase name }} extends React.Component {
     title: '{{ properCase name }}',
   };
 
-  renderTitle = () =>
-    <Title><Bold>{{ properCase name }}</Bold></Title>;
-
-  renderValue = () =>
-    <Title><Bold> {this.props.value}</Bold></Title>;
-
-  renderButtons = () =>
-    <FlexRow>
-      <Button onPress={this.props.onIncrement}>
-        <Title>Increment</Title>
-      </Button>
-      <Button onPress={this.props.onReset}>
-        <Title>Reset</Title>
-      </Button>
-    </FlexRow>;
-
   renderDescription = () =>
-    <Title>
+    <Description>
       This is an example of <Bold>Redux</Bold> usage with the{' '}
       <Bold>Pepperoni app kit</Bold>.
-    </Title>;
+    </Description>;
 
   render = () =>
     <Centered>
-      {this.renderTitle()}
-      {this.renderValue()}
-      {this.renderButtons()}
+      <CounterCard
+        value={this.props.value}
+        increment={this.props.onIncrement}
+        reset={this.props.onReset}
+      />
       {this.renderDescription()}
     </Centered>;
 }

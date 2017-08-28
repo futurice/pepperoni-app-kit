@@ -6,17 +6,25 @@ module.exports = {
       name: 'name',
       message: 'Component name (Casing will be modified)',
     },
+    {
+      type: 'confirm',
+      name: 'state',
+      message: 'Create a stateful component?',
+    },
   ],
   actions: data => {
     const actions = [];
 
-    const modulePath = 'src/components/{{ properCase name }}.js';
+    const path = 'src/components/{{ properCase name }}.js';
+    const templateFile = data.state
+      ? 'generators/templates/StatefulComponent.js.hbs'
+      : 'generators/templates/Component.js.hbs';
 
     // Generate the module file
     actions.push({
       type: 'add',
-      path: modulePath,
-      templateFile: 'generators/templates/Component.js.hbs',
+      path,
+      templateFile,
     });
 
     return actions;

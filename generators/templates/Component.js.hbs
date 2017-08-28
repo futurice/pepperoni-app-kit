@@ -2,14 +2,14 @@ import React from 'react';
 
 import { PepperoniIcon } from './styled/Branding';
 import { FlexRow } from './styled/Layout';
-import { Bold } from './styled/Text';
+import { Description, Bold } from './styled/Text';
 
 export default class {{ properCase name }} extends React.Component {
   render = () =>
     <FlexRow>
       <PepperoniIcon />
-      <Bold>
-        This is a sample styled React component.
-      </Bold>
+      <Description>
+        This is a sample <Bold>component</Bold>.
+      </Description>
     </FlexRow>;
 }

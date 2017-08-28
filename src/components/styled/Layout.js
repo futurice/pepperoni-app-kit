@@ -1,19 +1,30 @@
+import React from 'react';
 import styled from 'styled-components/native';
 
-import { Platform, StatusBar } from 'react-native';
+import { Platform, StatusBar, ScrollView, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  contentContainerStyle: {
+    minHeight: '100%',
+    justifyContent: 'center',
+  },
+});
+
+export const ViewContainer = styled.ScrollView.attrs({
+  contentContainerStyle: styles.contentContainerStyle,
+})`
+`;
 
 export const Centered = styled.View`
-  flex: 1;
   align-items: center;
   justify-content: center;
 `;
 
-export const FlexRow = styled.View`flex-direction: row;`;
+export const FullscreenCentered = Centered.extend`flex: 1;`;
 
-const statusBarPadding =
-  Platform.OS === 'android' ? StatusBar.currentHeight : 0;
-
-export const AppContainer = styled.View`
-  flex: 1;
-  padding-top: ${statusBarPadding};
+export const FlexRow = styled.View`
+  align-items: center;
+  flex-direction: row;
 `;
+
+export const AppContainer = styled.View`flex: 1;`;

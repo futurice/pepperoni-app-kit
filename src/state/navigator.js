@@ -1,3 +1,4 @@
-import { Root } from '../modules/Navigator';
+import { RootNavigator } from '../containers/navigator/Navigator';
 
-export default (state, action) => Root.router.getStateForAction(action, state);
+export default (state, action) =>
+  RootNavigator.router.getStateForAction(action, state);

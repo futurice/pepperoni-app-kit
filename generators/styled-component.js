@@ -10,13 +10,14 @@ module.exports = {
   actions: data => {
     const actions = [];
 
-    const modulePath = 'src/components/styled/{{ properCase name }}.js';
+    const path = 'src/components/styled/{{ properCase name }}.js';
+    const templateFile = 'generators/templates/StyledComponent.js.hbs';
 
     // Generate the module file
     actions.push({
       type: 'add',
-      path: modulePath,
-      templateFile: 'generators/templates/StyledComponent.js.hbs',
+      path,
+      templateFile,
     });
 
     return actions;

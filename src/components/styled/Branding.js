@@ -1,7 +1,15 @@
+import React from 'react';
+import {
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  Platform,
+  View,
+} from 'react-native';
 import styled from 'styled-components/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import PepperoniLogoAsset from '../../assets/pepperoni-logo.png';
-import PepperoniIconAsset from '../../assets/pepperoni-icon.png';
+import PepperoniLogoAsset from '../../../assets/pepperoni-logo.png';
+import PepperoniIconAsset from '../../../assets/pepperoni-icon.png';
 
 export const PepperoniLogo = styled.Image.attrs({
   source: PepperoniLogoAsset,
@@ -19,7 +27,21 @@ export const PepperoniIcon = styled.Image.attrs({
   width: 70px;
 `;
 
-export const Button = styled.TouchableOpacity`
-  background-color: #fff;
-  margin: 16px;
+export const Icon = styled(MaterialIcons).attrs({
+  size: 32,
+})`
+  color: ${props => props.color || '#4b5c5d'};
+`;
+
+export class IconButton extends React.Component {
+  render = () =>
+    <TouchableOpacity style={{ padding: 16 }} onPress={this.props.onPress}>
+      <Icon name={this.props.name} />
+    </TouchableOpacity>;
+}
+
+export const CounterWrapper = styled.View`
+  background-color: white;
+  elevation: 4;
+  align-items: center;
 `;

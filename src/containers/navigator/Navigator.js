@@ -1,46 +1,8 @@
 import React from 'react';
-import {
-  StackNavigator,
-  TabNavigator,
-  NavigationActions,
-  addNavigationHelpers,
-} from 'react-navigation';
+import { NavigationActions, addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
-import SettingsButton from '../components/SettingsButton';
 
-// ## View Imports ##
-import WelcomeView from './views/Welcome';
-import CounterView from './views/Counter';
-import SettingsView from './views/Settings';
-
-export const TabView = TabNavigator({
-  // ## TabNavigator Views ##
-  Welcome: { screen: WelcomeView },
-  Counter: { screen: CounterView },
-});
-
-const StackNavigatorConfig = {
-  navigationOptions: ({ navigation }) => ({
-    headerRight: (
-      <SettingsButton
-        onPress={() => navigation.navigate('Settings')}
-        hidden={navigation.state.routeName === 'Settings'}
-      />
-    ),
-  }),
-};
-
-export const Root = StackNavigator(
-  {
-    // ## StackNavigator Views ##
-    Tabs: {
-      screen: TabView,
-      navigationOptions: { title: 'Welcome to Pepperoni!' },
-    },
-    Settings: { screen: SettingsView },
-  },
-  StackNavigatorConfig,
-);
+import RootNavigator from './Stack';
 
 // Throw a helpful error message when the TabNavigator couldn't be found by name
 const missingTabNavigator = `Error while handling back button press:
@@ -78,12 +40,14 @@ const mapStateToProps = ({ navigatorState }) => ({ navigatorState });
 
 export class NavigatorView extends React.Component {
   render = () =>
-    <Root
+    <RootNavigator
       navigation={addNavigationHelpers({
         dispatch: this.props.dispatch,
         state: this.props.navigatorState,
       })}
     />;
 }
+
+export { RootNavigator };
 
 export default connect(mapStateToProps)(NavigatorView);

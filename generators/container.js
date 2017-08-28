@@ -1,33 +1,34 @@
 module.exports = {
-  description: 'Generates new Redux connected module',
+  description: 'Generates new Redux-connected container component',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'Module name (Casing will be modified)',
+      message: 'Container name (Casing will be modified)',
     },
     {
       type: 'confirm',
       name: 'view',
       message:
-        'Create module as a view? (= automatically added as a tab in TabNavigator)',
+        'Create container as a view? (= automatically added as a tab in TabNavigator)',
     },
   ],
   actions: data => {
     const actions = [];
 
-    const modulePath = data.view
-      ? 'src/modules/views/{{ properCase name }}.js'
-      : 'src/modules/{{ properCase name }}.js';
+    const path = data.view
+      ? 'src/containers/views/{{ properCase name }}.js'
+      : 'src/containers/{{ properCase name }}.js';
+    const templateFile = 'generators/templates/Container.js.hbs';
 
-    // Generate the module file
+    // Generate the container file
     actions.push({
       type: 'add',
-      path: modulePath,
-      templateFile: 'generators/templates/Module.js.hbs',
+      path: path,
+      templateFile,
     });
 
-    // If generating view, set up module in src/modules/Navigator.js
+    // If generating view, set up container in src/containers/Navigator.js
     if (data.view) {
       actions.push(
         {
@@ -39,7 +40,7 @@ module.exports = {
         },
         {
           type: 'modify',
-          path: 'src/modules/Navigator.js',
+          path: 'src/containers/Navigator.js',
           pattern: /\/\/ ## TabNavigator Views ##/gi,
           template:
             '// ## TabNavigator Views ##\n  {{ properCase name }}: { screen: {{ properCase name }}View },',

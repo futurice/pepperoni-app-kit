@@ -3,8 +3,14 @@ import { BackHandler, ActivityIndicator, StatusBar, View } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
 import persistStore from './src/utils/persist';
-import Navigator, { handleBackButton } from './src/modules/Navigator';
-import { Centered, AppContainer } from './src/components/styled';
+import Navigator, {
+  handleBackButton,
+} from './src/containers/navigator/Navigator';
+import {
+  Centered,
+  FullscreenCentered,
+  AppContainer,
+} from './src/components/styled/Layout';
 
 export default class App extends React.Component {
   state = { rehydrated: false };
@@ -19,9 +25,9 @@ export default class App extends React.Component {
   renderActivityIndicator = () =>
     this.state.rehydrated
       ? null
-      : <Centered>
+      : <FullscreenCentered>
           <ActivityIndicator size="large" />
-        </Centered>;
+        </FullscreenCentered>;
 
   renderApp = () =>
     this.state.rehydrated
