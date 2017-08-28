@@ -7,6 +7,7 @@ const TabNavigatorConfig = {
   tabBarOptions: {
     activeTintColor: 'white',
     style: { backgroundColor: '#39babd' },
+    scrollEnabled: true,
   },
 };
 
