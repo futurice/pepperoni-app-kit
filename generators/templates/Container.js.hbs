@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Description, Bold } from '../../components/Text';
-import { ViewContainer } from '../../components/Layout';
+import { ViewContainer, Centered } from '../../components/Layout';
 import CounterCard from '../../components/CounterCard';
 
 import { increment, reset } from '../../state/{{ camelCase name }}';
@@ -29,11 +29,13 @@ export class {{ properCase name }} extends React.Component {
 
   render = () =>
     <ViewContainer>
-      <CounterCard
-        value={this.props.value}
-        increment={this.props.onIncrement}
-        reset={this.props.onReset}
-      />
+      <Centered>
+        <CounterCard
+          value={this.props.value}
+          increment={this.props.onIncrement}
+          reset={this.props.onReset}
+        />
+      </Centered>
       {this.renderDescription()}
     </ViewContainer>;
 }
