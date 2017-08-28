@@ -12,8 +12,8 @@ const TabNavigatorConfig = {
 
 export default TabNavigator(
   {
-    // ## TabNavigator Views ##
     Welcome: { screen: WelcomeView },
+    // ## End TabNavigator Views ##
   },
   TabNavigatorConfig,
 );

@@ -20,12 +20,12 @@ const StackNavigatorConfig = {
 
 export default StackNavigator(
   {
-    // ## StackNavigator Views ##
     Tabs: {
       screen: Tabs,
       navigationOptions: { title: 'Welcome to Pepperoni!' },
     },
     Settings: { screen: SettingsView },
+    // ## End StackNavigator Views ##
   },
   StackNavigatorConfig,
 );

@@ -33,17 +33,17 @@ module.exports = {
       actions.push(
         {
           type: 'modify',
-          path: 'src/redux/reducer.js',
+          path: 'src/containers/navigator/Tabs.js',
           pattern: /\/\/ ## View Imports ##/gi,
           template:
-            "// ## View Imports ##\nimport {{ properCase name }}View from './views/{{ properCase name }}';",
+            "// ## View Imports ##\nimport {{ properCase name }}View from '../views/{{ properCase name }}';",
         },
         {
           type: 'modify',
-          path: 'src/containers/Navigator.js',
-          pattern: /\/\/ ## TabNavigator Views ##/gi,
+          path: 'src/containers/navigator/Tabs.js',
+          pattern: /\/\/ ## End TabNavigator Views ##/gi,
           template:
-            '// ## TabNavigator Views ##\n  {{ properCase name }}: { screen: {{ properCase name }}View },',
+            '{{ properCase name }}: { screen: {{ properCase name }}View },\n    // ## End TabNavigator Views ##',
         },
       );
     }

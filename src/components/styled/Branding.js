@@ -44,4 +44,5 @@ export const CounterWrapper = styled.View`
   background-color: white;
   elevation: 4;
   align-items: center;
+  margin: 8px;
 `;
