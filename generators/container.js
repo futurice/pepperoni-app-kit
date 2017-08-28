@@ -46,6 +46,10 @@ module.exports = {
             '{{ properCase name }}: { screen: {{ properCase name }}View },\n    // ## End TabNavigator Views ##',
         },
       );
+    } else {
+      console.log(
+        'NOTE: You need to import and use your container component somewhere in order to see it in action!',
+      );
     }
 
     // Generate actions, action creators & reducer

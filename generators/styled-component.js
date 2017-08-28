@@ -52,6 +52,10 @@ module.exports = {
             '{{ properCase name }}: { screen: {{ properCase name }}View },\n    // ## End TabNavigator Views ##',
         },
       );
+    } else {
+      console.log(
+        'NOTE: You need to import and use your component somewhere in order to see it in action!',
+      );
     }
 
     return actions;
