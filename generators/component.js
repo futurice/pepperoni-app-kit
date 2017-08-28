@@ -1,3 +1,5 @@
+const createView = require('./utils/createView');
+
 module.exports = {
   description: 'Generates new React component',
   prompts: [
@@ -20,8 +22,6 @@ module.exports = {
   ],
   actions: data => {
     const actions = [];
-
-    const path = 'src/components/{{ properCase name }}.js';
     const templateFile = data.state
       ? 'generators/templates/StatefulComponent.js.hbs'
       : 'generators/templates/Component.js.hbs';
@@ -29,35 +29,12 @@ module.exports = {
     // Generate the component module
     actions.push({
       type: 'add',
-      path,
+      path: 'src/components/{{ properCase name }}.js',
       templateFile,
     });
 
-    // If generating view, set up container in src/containers/Navigator.js
     if (data.view) {
-      // Generate the view container module
-      actions.push({
-        type: 'add',
-        path: 'src/containers/views/{{ properCase name }}.js',
-        templateFile: 'generators/templates/ComponentContainerView.js.hbs',
-      });
-
-      actions.push(
-        {
-          type: 'modify',
-          path: 'src/containers/navigator/Tabs.js',
-          pattern: /\/\/ ## View Imports ##/gi,
-          template:
-            "// ## View Imports ##\nimport {{ properCase name }}View from '../views/{{ properCase name }}';",
-        },
-        {
-          type: 'modify',
-          path: 'src/containers/navigator/Tabs.js',
-          pattern: /\/\/ ## End TabNavigator Views ##/gi,
-          template:
-            '{{ properCase name }}: { screen: {{ properCase name }}View },\n    // ## End TabNavigator Views ##',
-        },
-      );
+      createView(actions, 'generators/templates/ComponentContainerView.js.hbs');
     } else {
       console.log(
         'NOTE: You need to import and use your component somewhere in order to see it in action!',

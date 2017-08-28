@@ -1,3 +1,5 @@
+const createView = require('./utils/createView');
+
 module.exports = {
   description: 'Generates new Redux-connected container component',
   prompts: [
@@ -15,38 +17,18 @@ module.exports = {
   ],
   actions: data => {
     const actions = [];
-
-    const path = data.view
-      ? 'src/containers/views/{{ properCase name }}.js'
-      : 'src/containers/{{ properCase name }}.js';
     const templateFile = 'generators/templates/Container.js.hbs';
 
-    // Generate the container module
-    actions.push({
-      type: 'add',
-      path: path,
-      templateFile,
-    });
-
-    // If generating view, set up container in src/containers/Navigator.js
     if (data.view) {
-      actions.push(
-        {
-          type: 'modify',
-          path: 'src/containers/navigator/Tabs.js',
-          pattern: /\/\/ ## View Imports ##/gi,
-          template:
-            "// ## View Imports ##\nimport {{ properCase name }}View from '../views/{{ properCase name }}';",
-        },
-        {
-          type: 'modify',
-          path: 'src/containers/navigator/Tabs.js',
-          pattern: /\/\/ ## End TabNavigator Views ##/gi,
-          template:
-            '{{ properCase name }}: { screen: {{ properCase name }}View },\n    // ## End TabNavigator Views ##',
-        },
-      );
+      createView(actions, templateFile);
     } else {
+      // Generate the container module
+      actions.push({
+        type: 'add',
+        path: 'src/containers/{{ properCase name }}.js',
+        templateFile,
+      });
+
       console.log(
         'NOTE: You need to import and use your container component somewhere in order to see it in action!',
       );
@@ -61,6 +43,7 @@ module.exports = {
 
     // Set up reducer in src/redux/reducer.js
     actions.push(
+      // Import
       {
         type: 'modify',
         path: 'src/redux/reducer.js',
@@ -68,6 +51,7 @@ module.exports = {
         template:
           "// ## Reducer Imports ##\nimport {{ properCase name }}StateReducer from '../state/{{ camelCase name }}';",
       },
+      // Inject reducer
       {
         type: 'modify',
         path: 'src/redux/reducer.js',
