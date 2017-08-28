@@ -1,0 +1,32 @@
+import React from 'react';
+
+import { Description, Bold } from '../../components/styled/Text';
+import { Centered } from '../../components/styled/Layout';
+
+import CounterCard from '../../components/CounterCard';
+
+export default class {{ properCase name }} extends React.Component {
+  // Initial state
+  state = {
+    value: 0,
+  };
+
+  increment = () => this.setState({ value: this.state.value + 1 });
+  reset = () => this.setState({ value: 0 });
+
+  renderDescription = () =>
+    <Description>
+      This is a sample <Bold>stateful component</Bold>.
+      Import and use it in a view to see it in action!
+    </Description>;
+
+  render = () =>
+    <Centered>
+      <CounterCard
+        value={this.state.value}
+        increment={this.increment}
+        reset={this.reset}
+      />
+      {this.renderDescription()}
+    </Centered>;
+}
