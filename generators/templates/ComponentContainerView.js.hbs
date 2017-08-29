@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Description, Bold } from '../../components/Text';
-import { ViewContainer, Padding } from '../../components/Layout';
+import { ViewContainer, Padding, Centered } from '../../components/Layout';
 import {{ properCase name }} from '../../components/{{ properCase name }}';
 
 export default class {{ properCase name }}View extends React.Component {
@@ -16,9 +16,11 @@ export default class {{ properCase name }}View extends React.Component {
 
   render = () =>
     <ViewContainer>
-      <Padding>
-        <{{ properCase name }} />
-      </Padding>
+      <Centered>
+        <Padding>
+          <{{ properCase name }} />
+        </Padding>
+      </Centered>
       {this.renderDescription()}
     </ViewContainer>;
 }

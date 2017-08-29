@@ -1,0 +1,15 @@
+import React from 'react';
+import { Title, Description } from '../../components/Text';
+import { ViewContainer } from '../../components/Layout';
+
+export default class {{ properCase name }}View extends React.Component {
+  static navigationOptions = {
+    title: '{{ properCase name }}',
+  };
+
+  render = () =>
+    <ViewContainer>
+      <Title>Hello, world!</Title>
+      <Description>This is a sample stack view.</Description>
+    </ViewContainer>;
+}

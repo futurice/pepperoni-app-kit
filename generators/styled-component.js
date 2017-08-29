@@ -13,11 +13,11 @@ module.exports = {
       type: 'confirm',
       name: 'view',
       message:
-        'Create a sample view which uses your component? (you will be able to preview it instantly)',
+        'Create a sample view showcasing your component? (you will be able to preview it instantly)',
     },
   ],
   actions: data => {
-    const actions = [];
+    let actions = [];
 
     const path = 'src/components/{{ properCase name }}.js';
     const templateFile = 'generators/templates/StyledComponent.js.hbs';
@@ -31,7 +31,9 @@ module.exports = {
 
     // If generating view, set up container in src/containers/Navigator.js
     if (data.view) {
-      createView(actions, 'generators/templates/ComponentContainerView.js.hbs');
+      actions = actions.concat(
+        createView('generators/templates/ComponentContainerView.js.hbs'),
+      );
     } else {
       console.log(
         'NOTE: You need to import and use your component somewhere in order to see it in action!',

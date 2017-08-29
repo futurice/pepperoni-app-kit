@@ -12,15 +12,15 @@ module.exports = {
       type: 'confirm',
       name: 'view',
       message:
-        'Create container as a view? (= automatically added as a tab in TabNavigator)',
+        'Create container as a view? (automatically added as a tab in TabNavigator)',
     },
   ],
   actions: data => {
-    const actions = [];
+    let actions = [];
     const templateFile = 'generators/templates/Container.js.hbs';
 
     if (data.view) {
-      createView(actions, templateFile);
+      actions = actions.concat(createView(templateFile));
     } else {
       // Generate the container module
       actions.push({
