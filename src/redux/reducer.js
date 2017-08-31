@@ -6,9 +6,10 @@ import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState'
 // ## Generator Reducer Imports
 
 const reducers = {
+  // ## Generator Reducers
+
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
-  // ## Generator Reducers
 
   // Navigator states
   navigatorState: NavigatorStateReducer,
