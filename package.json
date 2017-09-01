@@ -19,7 +19,10 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
+    "husky": "^0.14.3",
     "jest-expo": "~19.0.0",
+    "lint-staged": "^4.0.4",
+    "prettier": "^1.6.1",
     "react-native-scripts": "1.1.0",
     "react-test-renderer": "16.0.0-alpha.12"
   },
@@ -29,7 +32,15 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "precommit": "lint-staged",
+    "prettier": "prettier --single-quote --trailing-comma all --write \"{,!(android|ios|node_modules)/**/}*.js\""
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --trailing-comma all --write",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "jest-expo"
