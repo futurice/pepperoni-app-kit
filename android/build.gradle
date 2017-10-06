@@ -4,7 +4,7 @@ import groovy.json.JsonSlurper
 
 def getNpmVersion() {
     try {
-        def inputFile = new File("../package.json")
+        def inputFile = file("../package.json")
         def packageJson = new JsonSlurper().parseText(inputFile.text)
         return packageJson["version"]
     } catch(Exception ex) {
