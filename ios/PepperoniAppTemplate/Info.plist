@@ -39,7 +39,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -53,6 +53,7 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MaterialIcons.ttf</string>
 		<string>Feather.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 	</array>
