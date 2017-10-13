@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, StatusBar, ActivityIndicator, BackAndroid} from 'react-native';
+import {View, StyleSheet, StatusBar, ActivityIndicator, BackHandler} from 'react-native';
 import NavigatorViewContainer from './navigator/NavigatorViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
@@ -31,9 +31,9 @@ class AppView extends Component {
     // otherwise let OS handle the back button action
     return false;
   }
-  
+
   componentWillMount() {
-    BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
+    BackHandler.addEventListener('hardwareBackPress', this.navigateBack);
   }
 
   componentDidMount() {
