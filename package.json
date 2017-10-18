@@ -20,7 +20,7 @@
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --verbose",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --verbose",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src test",
@@ -47,7 +47,7 @@
     "react-native": "^0.49.3",
     "react-native-vector-icons": "^4.0.0",
     "react-navigation": "^1.0.0-beta.9",
-    "react-redux": "^4.4.5",
+    "react-redux": "^5.0.6",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
     "redux-loop-symbol-ponyfill": "^2.2.0",
