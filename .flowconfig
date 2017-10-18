@@ -16,9 +16,6 @@
 ; Ignore polyfills
 .*/Libraries/polyfills/.*
 
-; react-navigation isn't compatible with the newest flow version, ignore it
-.*/node_modules/react-navigation*
-
 [include]
 
 [libs]

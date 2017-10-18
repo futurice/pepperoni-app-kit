@@ -13,8 +13,8 @@
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
-#define TIMEOUT_SECONDS 180
-#define TEXT_TO_LOOK_FOR @"Increment counter"
+#define TIMEOUT_SECONDS 600
+#define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
 
 @interface PepperoniAppTemplateTests : XCTestCase
 
@@ -35,7 +35,7 @@
   return NO;
 }
 
-- (void)testRendersMainScreen
+- (void)testRendersWelcomeScreen
 {
   UIViewController *vc = [[[RCTSharedApplication() delegate] window] rootViewController];
   NSDate *date = [NSDate dateWithTimeIntervalSinceNow:TIMEOUT_SECONDS];
