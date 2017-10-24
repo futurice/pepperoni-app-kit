@@ -39,7 +39,7 @@ More details here: [React Native Android Setup](https://facebook.github.io/react
 1. Install latest JDK
 2. Install the Android SDK
 
-          $ brew install android-sdk
+          $ brew cask install android-sdk
 
 3. Set ANDROID_HOME environment variable in .bashrc, .zshrc or similar:
 
