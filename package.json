@@ -20,7 +20,7 @@
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.ios.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --verbose",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file index.js --bundle-output ios/PepperoniAppTemplate/main.jsbundle --dev=false --verbose",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src test",
@@ -29,7 +29,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": ["<rootDir>/test/setup.js"],
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-navigation)"
     ]
@@ -40,12 +42,12 @@
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
-    "react": "~15.4.2",
-    "react-dom": "~15.4.2",
-    "react-native": "0.42.0",
-    "react-native-vector-icons": "^4.0.0",
-    "react-navigation": "^1.0.0-beta.9",
-    "react-redux": "^4.4.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0-beta.5",
+    "react-native": "^0.49.3",
+    "react-native-vector-icons": "^4.4.2",
+    "react-navigation": "1.0.0-beta.11",
+    "react-redux": "^5.0.6",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
     "redux-loop-symbol-ponyfill": "^2.2.0",
@@ -61,7 +63,8 @@
     "babel-preset-react-native": "^1.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
-    "enzyme": "^2.2.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^3.10.1",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-react": "^6.7.1",
@@ -69,7 +72,8 @@
     "istanbul": "1.0.0-alpha.2",
     "jest": "^17.0.2",
     "plop": "^1.7.4",
-    "react-addons-test-utils": "~15.4.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^16.0.0",
     "react-native-mock": "~0.2.5",
     "react-test-renderer": "~15.4.2",
     "remote-redux-devtools": "^0.5.7",

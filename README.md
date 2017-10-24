@@ -4,7 +4,7 @@ Futurice React Native Starter Kit
 
 [![Join the chat at https://gitter.im/futurice/pepperoni-app-kit](https://badges.gitter.im/futurice/pepperoni-app-kit.svg)](https://gitter.im/futurice/pepperoni-app-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/futurice/pepperoni-app-kit.svg?branch=master)](https://travis-ci.org/futurice/pepperoni-app-kit)
-[![React Native](https://img.shields.io/badge/react%20native-0.42.0-brightgreen.svg)](https://github.com/facebook/react-native)
+[![React Native](https://img.shields.io/badge/react%20native-0.49.3-brightgreen.svg)](https://github.com/facebook/react-native)
 [![Sponsored](https://img.shields.io/badge/chilicorn-sponsored-brightgreen.svg)](http://spiceprogram.org/oss-sponsorship/)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/futurice/pepperoni-app-kit/blob/master/LICENSE)
 
@@ -58,7 +58,6 @@ Not all of the below is yet fully implemented
 
 ### Development & Deployment Infrastructure
 
-* [Auth0](https://auth0.com/) for ready-to-use login and signup screens, user authentication and identity management
 * [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
 * :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
 * [Travis CI](https://travis-ci.org/futurice/pepperoni-app-kit) example [configuration](https://github.com/futurice/pepperoni-app-kit/blob/master/.travis.yml) for Android, iOS and Javascript tests.
