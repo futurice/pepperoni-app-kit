@@ -1,3 +1,6 @@
+---
+to: src/modules/<%= name %>/<%= Name %>View.js
+---
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -5,8 +8,8 @@ import {
   View
 } from 'react-native';
 
-class {{properCase name }}View extends Component {
-  static displayName = '{{properCase name }}View';
+class <%= Name %>View extends Component {
+  static displayName = '<%= Name %>View';
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -30,4 +33,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default {{properCase name }}View;
+export default <%= Name %>View;

@@ -206,3 +206,29 @@ export default connect(
 Often this file doesn't contain a lot of code, but it's important to define the Container in its own file anyway to be able to support platform-specific view implementations, as well as test the Views and their data bindings separately.
 
 If a View needs data from other modules (i.e. other parts of the application state than the subtree managed by that module), the Container is the correct place to access. In database-speak, this way you can keep your data "normalized" (to a degree), and "join" them when required.
+
+
+## Generating a module
+
+Using `hygen` you can generate a new module easily:
+
+```
+yarn hygen -- module new --name hello
+Loaded templates: _templates
+      inject: src/redux/reducer.js
+      inject: src/redux/reducer.js
+       added: src/modules/hello/HelloState.js
+       added: src/modules/hello/HelloView.js
+       added: src/modules/hello/HelloViewContainer.js
+```
+
+Note we're using a double dash (`--`) to instruct `yarn` to pass arguments properly. In addition, your module name should be camelCased.
+
+If you want to make generators of your own for any boilerplate that meets your way, that's easy too:
+
+```
+yarn hygen -- generator new --name my-generator
+```
+
+For more about `hygen` [look here](http://hygen.io)
+
