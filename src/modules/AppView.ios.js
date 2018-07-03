@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, StatusBar, ActivityIndicator} from 'react-native';
-import NavigatorViewContainer from './navigator/NavigatorViewContainer';
+import { View, StyleSheet, StatusBar, ActivityIndicator } from 'react-native';
+// import NavigatorViewContainer from './navigator/NavigatorViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
+import AppNavigator from '../modules/navigator/Navigator'
+import NavigationService from './navigator/NavigationService'
 
 class AppView extends Component {
   static displayName = 'AppView';
@@ -18,7 +20,7 @@ class AppView extends Component {
   componentDidMount() {
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
-        const {dispatch} = this.props;
+        const { dispatch } = this.props;
 
         if (snapshot) {
           dispatch(SessionStateActions.resetSessionStateFromSnapshot(snapshot));
@@ -35,16 +37,19 @@ class AppView extends Component {
   render() {
     if (!this.props.isReady) {
       return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <ActivityIndicator style={styles.centered} />
         </View>
       );
     }
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <StatusBar backgroundColor='#455a64' barStyle='light-content' />
-        <NavigatorViewContainer />
+        {/* <NavigatorViewContainer /> */}
+        <AppNavigator ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }} />
         {__DEV__ && <DeveloperMenu />}
       </View>
     );

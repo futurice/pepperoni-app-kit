@@ -46,7 +46,7 @@
     "react": "^16.0.0-beta.5",
     "react-native": "^0.49.3",
     "react-native-vector-icons": "^4.4.2",
-    "react-navigation": "1.0.0-beta.11",
+    "react-navigation": "^2.5.5",
     "react-redux": "^5.0.6",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
