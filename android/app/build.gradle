@@ -96,6 +96,14 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            storeFile file(System.getenv()["NC_KEYSTORE_PATH"])
+            storePassword System.getenv()["NC_KEYSTORE_PASSWORD"]
+            keyAlias System.getenv()["NC_KEY_ALIAS"]
+            keyPassword System.getenv()["NC_KEY_PASSWORD"]
+        }
+    }
     splits {
         abi {
             reset()
@@ -108,6 +116,9 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            if (System.getenv()["CI"]) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     // applicationVariants are e.g. debug, release
