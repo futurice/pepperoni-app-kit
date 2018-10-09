@@ -4,7 +4,7 @@ Futurice React Native Starter Kit
 
 [![Join the chat at https://gitter.im/futurice/pepperoni-app-kit](https://badges.gitter.im/futurice/pepperoni-app-kit.svg)](https://gitter.im/futurice/pepperoni-app-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/futurice/pepperoni-app-kit.svg?branch=master)](https://travis-ci.org/futurice/pepperoni-app-kit)
-[![React Native](https://img.shields.io/badge/react%20native-0.49.3-brightgreen.svg)](https://github.com/facebook/react-native)
+[![React Native](https://img.shields.io/badge/react%20native-0.57.2-brightgreen.svg)](https://github.com/facebook/react-native)
 [![Sponsored](https://img.shields.io/badge/chilicorn-sponsored-brightgreen.svg)](http://spiceprogram.org/oss-sponsorship/)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/futurice/pepperoni-app-kit/blob/master/LICENSE)
 
@@ -38,37 +38,36 @@ Not all of the below is yet fully implemented
 
 ### Application Blueprint
 
-* Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
-* Modular and well-documented structure for application code
-* [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and **Reasonaboutable**:tm: state management
-* [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
-* [React Navigation](https://reactnavigation.org/) for awesome navigation with 60fps transitions
-* Disk-persisted application state caching for offline support and snappy startup performance
-* Clean and testable service layer for interacting with RESTful APIs
-* :warning: Sample app to show how to wire it all together
-* :star: JSON Web Token authentication
-* :star: Multi-environment configuration (dev, staging, production) for iOS and Android
-* :star: Built-in error handling and customizable error screens
+- Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
+- Modular and well-documented structure for application code
+- [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and **Reasonaboutable**:tm: state management
+- [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
+- [React Navigation](https://reactnavigation.org/) for awesome navigation with 60fps transitions
+- Disk-persisted application state caching for offline support and snappy startup performance
+- Clean and testable service layer for interacting with RESTful APIs
+- :warning: Sample app to show how to wire it all together
+- :star: JSON Web Token authentication
+- :star: Multi-environment configuration (dev, staging, production) for iOS and Android
+- :star: Built-in error handling and customizable error screens
 
 ### Testing Setup
 
-* [Jest](https://facebook.github.io/jest/) for unit testing application code and providing coverage information.
-* [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
-* Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
+- [Jest](https://facebook.github.io/jest/) for unit testing application code and providing coverage information.
+- [Enzyme](https://github.com/airbnb/enzyme) and fully mocked React Native for unit testing UI components
+- Utilities for end-to-end integration testing Redux state, including side effects and asynchronous actions
 
 ### Development & Deployment Infrastructure
 
-* [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
-* :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
-* [Travis CI](https://travis-ci.org/futurice/pepperoni-app-kit) example [configuration](https://github.com/futurice/pepperoni-app-kit/blob/master/.travis.yml) for Android, iOS and Javascript tests.
-
+- [Bitrise.io](https://www.bitrise.io) configurations for Continuous Integration and beta app distribution
+- :warning: [Google Tag Manager](https://www.google.com/analytics/tag-manager/) analytics
+- [Travis CI](https://travis-ci.org/futurice/pepperoni-app-kit) example [configuration](https://github.com/futurice/pepperoni-app-kit/blob/master/.travis.yml) for Android, iOS and Javascript tests.
 
 ### Roadmap
 
-* **TODO** :star: [Microsoft Code Push](http://microsoft.github.io/code-push) for instant JavaScript and images update
-* **TODO** Crash reporting
-* **TODO** Android and iOS UI Testing with Calaba.sh?
-* **TODO** Feature flags?
+- **TODO** :star: [Microsoft Code Push](http://microsoft.github.io/code-push) for instant JavaScript and images update
+- **TODO** Crash reporting
+- **TODO** Android and iOS UI Testing with Calaba.sh?
+- **TODO** Feature flags?
 
 ## Getting started
 
@@ -85,27 +84,33 @@ After you have set up the project using above instructions, you can use your fav
 To learn how to structure your application and use the Redux application architecture, read the **[Architecture guide](docs/ARCHITECTURE.md)** for more details.
 
 ##### Start the application in iOS simulator
+
 ```
 $ react-native run-ios
 ```
 
 ##### Start the application in Android simulator
+
 (If using the stock emulator, the emulator must be running)
+
 ```
 $ react-native run-android
 ```
 
 ##### Run unit tests
+
 ```
 $ npm test
 ```
 
 ##### Run tests every time code changes
+
 ```
 $ npm run test:watch
 ```
 
 ##### Generate code coverage report
+
 ```
 $ npm run coverage
 ```
@@ -114,15 +119,17 @@ Read the **[Testing guide](docs/TESTING.md)** for more information about writing
 
 ## Debugging
 
-For standard debugging select *Debug JS Remotely* from the React Native Development context menu (To open the context menu, press *CMD+D* in iOS or *D+D* in Android). This will open a new Chrome tab under [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui) and prints all actions to the console.
+For standard debugging select _Debug JS Remotely_ from the React Native Development context menu (To open the context menu, press _CMD+D_ in iOS or _D+D_ in Android). This will open a new Chrome tab under [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui) and prints all actions to the console.
 
 For advanced debugging under **macOS** we suggest using the standalone [React Native Debugger](https://github.com/jhen0409/react-native-debugger), which is based on the official debugger of React Native.
 It includes the React Inspector and Redux DevTools so you can inspect React views and get a detailed history of the Redux state.
 
 You can install it via [brew](https://brew.sh/) and run it as a standalone app:
+
 ```
 $ brew update && brew cask install react-native-debugger
 ```
+
 > Note: Make sure you close all active chrome debugger tabs and then restart the debugger from the React Native Development context menu.
 
 ## Deployment
