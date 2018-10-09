@@ -31,16 +31,15 @@ matrix:
         - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
         - travis_retry sudo apt-get update -qq
         - travis_retry sudo apt-get install -y -qq yarn
+        - echo yes | sdkmanager "build-tools;27.0.1"
       install:
         - yarn
       android:
         components:
           - tools
           - platform-tools
-          - build-tools-23.0.1
-          - android-23
-          - build-tools-26.0.1
-          - android-26
+          - build-tools-27.0.1
+          - android-27
           - extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
@@ -49,7 +48,7 @@ matrix:
         - cd android && ./gradlew assembleDebug && ./gradlew assembleRelease
     - language: objective-c
       os: osx
-      osx_image: xcode8.2
+      osx_image: xcode10
       node_js: false
       before_install:
         - nvm install 8
