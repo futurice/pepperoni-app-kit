@@ -1,7 +1,6 @@
 language: node_js
 node_js:
-  - "6.9"
-  - "7.1"
+  - '8.11'
 sudo: false
 cache:
   directories:
@@ -26,7 +25,7 @@ matrix:
       sudo: required
       node_js: false
       before_install:
-        - nvm install 7
+        - nvm install 8
         - node --version
         - travis_retry curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
         - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -53,7 +52,7 @@ matrix:
       osx_image: xcode8.2
       node_js: false
       before_install:
-        - nvm install 7
+        - nvm install 8
         - node --version
         - travis_retry npm install -g yarn
         - yarn -version
