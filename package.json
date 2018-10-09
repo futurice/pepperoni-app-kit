@@ -1,5 +1,5 @@
 {
-  "name": "PepperoniAppTemplate",
+  "name": "pepperoni-app-template",
   "author": "Futurice",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
@@ -43,8 +43,8 @@
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0-beta.5",
-    "react-native": "^0.49.3",
+    "react": "16.5.0",
+    "react-native": "0.57.2",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "1.0.0-beta.11",
     "react-redux": "^5.0.6",
