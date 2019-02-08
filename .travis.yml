@@ -66,4 +66,7 @@ matrix:
         - travis_retry yarn
       xcode_project: ios/PepperoniAppTemplate.xcodeproj
       xcode_scheme: ios/PepperoniAppTemplateTests
-      xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+      xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
+      script:
+        - cd ios
+        - xcodebuild -project PepperoniAppTemplate.xcodeproj -scheme PepperoniAppTemplate -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.1,name=iPhone X' build test | xcpretty
