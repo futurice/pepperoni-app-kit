@@ -1,5 +1,5 @@
 {
-  "name": "PepperoniAppTemplate",
+  "name": "pepperoni-app-template",
   "author": "Futurice",
   "description": "React Native App Starter Kit for Android and iOS",
   "license": "MIT",
@@ -34,13 +34,17 @@
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-navigation)"
-    ]
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
   },
   "dependencies": {
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",
     "immutable": "^3.7.6",
     "lodash": "^4.11.0",
+    "metro-react-native-babel-preset": "^0.51.1",
     "moment": "^2.12.0",
     "prop-types": "^15.6.0",
     "react": "16.5.0",
@@ -56,11 +60,11 @@
     "standard-http-error": "^2.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.9.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^7.1.0",
-    "babel-jest": "^17.0.2",
+    "babel-jest": "^23.6.0",
     "babel-polyfill": "^6.9.0",
-    "babel-preset-react-native": "^1.9.0",
+    "babel-preset-react-native": "^5",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
     "enzyme": "^3.0.0",
@@ -70,12 +74,12 @@
     "eslint-plugin-react": "^6.7.1",
     "fetch-mock": "^5.5.0",
     "istanbul": "1.0.0-alpha.2",
-    "jest": "^17.0.2",
+    "jest": "^23.6.0",
     "plop": "^1.7.4",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^16.0.0",
     "react-native-mock": "~0.2.5",
-    "react-test-renderer": "~15.4.2",
+    "react-test-renderer": "~16.6.3",
     "remote-redux-devtools": "^0.5.7",
     "rimraf": "^2.5.2"
   }
