@@ -68,5 +68,5 @@ matrix:
       xcode_scheme: ios/PepperoniAppTemplateTests
       script:
         - cd ios
-        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build | xcpretty
-        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.1,name=iPhone X' test ONLY_ACTIVE_ARCH=NO | xcpretty
+        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+        - travis_retry xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator -launch-timeout 90 -destination 'platform=iOS Simulator,OS=11.1,name=iPhone X' test | xcpretty
