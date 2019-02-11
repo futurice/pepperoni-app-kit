@@ -13,7 +13,7 @@ script:
   - cp env.example.js env.js
   - npm run lint
   - npm test
-  - npm run bundle:ios
+  - npm run start
 matrix:
   include:
     - language: android
@@ -54,7 +54,7 @@ matrix:
         - cd android && ./gradlew assembleDebug && ./gradlew assembleRelease
     - language: objective-c
       os: osx
-      osx_image: xcode9.4
+      osx_image: xcode10.1
       node_js: false
       before_install:
         - nvm install 8
@@ -66,7 +66,8 @@ matrix:
         - travis_retry yarn
       xcode_project: ios/PepperoniAppTemplate.xcodeproj
       xcode_scheme: ios/PepperoniAppTemplateTests
-      script:
+      xcode_destination:
+      script: platform=iOS Simulator,OS=11.1,name=iPhone X
         - cd ios
-        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
-        - travis_retry xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator -launch-timeout 90 -destination 'platform=iOS Simulator,OS=11.1,name=iPhone X' test | xcpretty
+        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator build | xcpretty
+        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.1,name=iPhone X' build test | xcpretty
