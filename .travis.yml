@@ -67,3 +67,6 @@ matrix:
       xcode_project: ios/PepperoniAppTemplate.xcodeproj
       xcode_scheme: ios/PepperoniAppTemplateTests
       xcode_destination: platform=iOS Simulator,OS=11.1,name=iPhone X
+      script:
+        - cd ios
+        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.1,name=iPhone X' build test | xcpretty
