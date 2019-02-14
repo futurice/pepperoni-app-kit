@@ -13,7 +13,7 @@ script:
   - cp env.example.js env.js
   - npm run lint
   - npm test
-  - npm run start
+  - npm bundle:ios
 matrix:
   include:
     - language: android
@@ -68,4 +68,5 @@ matrix:
       xcode_scheme: ios/PepperoniAppTemplateTests
       script:
         - cd ios
-        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.1,name=iPhone X' ONLY_ACTIVE_ARCH=NO -UseModernBuildSystem=NO build test | xcpretty
+        - xcodebuild -scheme PepperoniAppTemplate -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+        - travis_retry xctool run-tests -scheme PepperoniAppTemplate -sdk iphonesimulator -launch-timeout 90  ONLY_ACTIVE_ARCH=NO
