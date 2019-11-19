@@ -40,7 +40,7 @@
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",
     "immutable": "^3.7.6",
-    "lodash": "^4.11.0",
+    "lodash": "^4.17.13",
     "moment": "^2.12.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0-beta.5",
