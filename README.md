@@ -8,6 +8,14 @@ Futurice React Native Starter Kit
 [![Sponsored](https://img.shields.io/badge/chilicorn-sponsored-brightgreen.svg)](http://spiceprogram.org/oss-sponsorship/)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/futurice/pepperoni-app-kit/blob/master/LICENSE)
 
+## ⚠️ Deprecation Warning
+
+Dear community, as time moved on so did React Native and we've not been able to provide continous support for pepperoni in the past. We are happy that so many of you found it useful and are looking forward to build new tools in the future.
+
+If you are new to React Native and are looking for ways how to start, [Expo](https://expo.io/) is a great choice or head straight to the [React Native docs](https://facebook.github.io/react-native/docs/getting-started) as it's never been easier to get started with the official setup. 
+
+## Intro
+
 We :green_heart: building apps with React Native, because it helps us create high quality products for both major mobile platforms quickly and cost-effectively.
 
 Getting started on a new app just takes too damn long, though. Most apps need the same basic building blocks and developer infrastructure, and we are bored of reinventing the wheel time and time again.
