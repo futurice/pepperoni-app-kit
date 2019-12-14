@@ -1,3 +1,6 @@
+---
+to: src/modules/<%= name %>/<%= Name %>State.js
+---
 import { Map } from 'immutable';
 
 // Initial state
@@ -6,7 +9,7 @@ const initialState = Map({
 });
 
 // Actions
-const ACTION = '{{properCase name }}State/ACTION';
+const ACTION = '<%= Name %>State/ACTION';
 
 // Action creators
 export function act() {
@@ -14,7 +17,7 @@ export function act() {
 }
 
 // Reducer
-export default function {{properCase name }}StateReducer(state = initialState, action = {}) {
+export default function <%= Name %>StateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case ACTION:
       return state;
@@ -22,3 +25,5 @@ export default function {{properCase name }}StateReducer(state = initialState, a
       return state;
   }
 }
+
+
