@@ -49,7 +49,7 @@
     "react-navigation": "1.0.0-beta.11",
     "react-redux": "^5.0.6",
     "redux": "^3.4.0",
-    "redux-logger": "^2.6.1",
+    "redux-logger": "^3.0.6",
     "redux-loop-symbol-ponyfill": "^2.2.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",
