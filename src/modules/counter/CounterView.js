@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import NavigationService from '../navigator/NavigationService'
 
 class CounterView extends Component {
   static displayName = 'CounterView';
@@ -30,7 +31,7 @@ class CounterView extends Component {
       reset: PropTypes.func.isRequired,
       random: PropTypes.func.isRequired
     }).isRequired,
-    navigate: PropTypes.func.isRequired
+    // navigate: PropTypes.func.isRequired
   };
 
   increment = () => {
@@ -46,7 +47,8 @@ class CounterView extends Component {
   };
 
   bored = () => {
-    this.props.navigate({routeName: 'Color'});
+    // this.props.navigate({routeName: 'Color'});
+    NavigationService.navigate('Color')
   };
 
   renderUserInfo = () => {

@@ -1,6 +1,6 @@
 import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
-import NavigatorStateReducer from '../modules/navigator/NavigatorState';
+// import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 // ## Generator Reducer Imports
@@ -11,7 +11,7 @@ const reducers = {
   // ## Generator Reducers
 
   // Navigator states
-  navigatorState: NavigatorStateReducer,
+  // navigatorState: NavigatorStateReducer,
 
   session: SessionStateReducer
 

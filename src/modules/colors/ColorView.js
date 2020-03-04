@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import NavigationService from '../navigator/NavigationService'
 
 const color = () => Math.floor(255 * Math.random());
 
@@ -29,9 +30,9 @@ class ColorView extends Component {
     }
   }
 
-  static propTypes = {
-    navigate: PropTypes.func.isRequired
-  };
+  // static propTypes = {
+  //   navigate: PropTypes.func.isRequired
+  // };
 
   constructor(props) {
     super(props);
@@ -41,7 +42,8 @@ class ColorView extends Component {
   }
 
   open = () => {
-    this.props.navigate({routeName: 'InfiniteColorStack'});
+    // this.props.navigate({routeName: 'InfiniteColorStack'});
+    NavigationService.navigate('InfiniteColorStack')
   };
 
   render() {
