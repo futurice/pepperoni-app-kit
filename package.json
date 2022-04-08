@@ -41,7 +41,7 @@
     "event-emitter": "^0.3.4",
     "immutable": "^3.7.6",
     "lodash": "^4.17.13",
-    "moment": "^2.12.0",
+    "moment": "^2.29.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0-beta.5",
     "react-native": "^0.49.3",
